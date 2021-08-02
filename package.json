@@ -1,0 +1,20 @@
+{
+  "name": "api-rc",
+  "version": "1.0.0",
+  "description": "software engineering project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hvillega99/api-rc.git"
+  },
+  "author": "Carlos Quiñonez, Daniel Viscarra, Hector Villegas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hvillega99/api-rc/issues"
+  },
+  "homepage": "https://github.com/hvillega99/api-rc#readme"
+}
