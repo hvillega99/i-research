@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+#input-finder{
+    margin: 5px 5px 5px 15%;
+    width: 70%;
+    height: 8vh;
+}
+
+.finder{
+    text-align: center;
+}
+
+#submit-finder{
+    margin: 5px;
+    background-color: #213a8f;
+    border-color: #213a8f;
+}
+
+#main-footer{
+    background-color: #243265;
+    color: white;
+    position: fixed;
+    bottom: 0; 
+    width: 100%;
+    font-size: 15px;
+    padding: 1%;
+}
+
+.footer-group{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
