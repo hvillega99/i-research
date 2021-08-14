@@ -4,5 +4,5 @@ npm install
 ```
 ## Run project 
 ```
-npm run devstart
+npm start
 ```
