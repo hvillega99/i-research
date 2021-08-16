@@ -35,7 +35,31 @@
         </header>
 
         <h3><%= total %> resultado(s) de búsqueda para: <%= terminos %></h3>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+
+                    <% resultados.forEach(resultado => { %>
+
+                        <div class="card">
+                            <div class="card-header">
+                                Investigador
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= resultado.Autor %></h5>
+                                <a href="/investigador/<%= resultado.ScopusID %>" class="btn btn-primary">Ver perfil</a>
+                            </div>
+                        </div>
+                    
+                    <% }) %>
+
+                </div>
+            </div>
+        </div>
+
     </main>
+
     <%- include("templates/footer.templates.ejs")%>
 </body>
 </html>

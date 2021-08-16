@@ -5,6 +5,6 @@ exports.find = (req, res) =>{
     Investigadores.find({Autor: terms}, (err, docs) => {
 
         if(err) return res.status(500).send(err.message);
-        res.render("../views/resultados.views.ejs", {total: docs.length, lista: docs, terminos: terms});
+        res.render("../views/resultados.views.ejs", {total: docs.length, resultados: docs, terminos: terms});
     });
 };

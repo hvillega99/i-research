@@ -1,4 +1,14 @@
-#submit-finder{
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.btn-primary{
     background-color: #213a8f;
     border-color: #213a8f;
 }
@@ -13,5 +23,13 @@ header{
 }
 
 h3{
+    text-align: center;
+}
+
+.card{
+    margin-bottom: 5px;
+}
+
+.card-body{
     text-align: center;
 }
