@@ -1,7 +1,7 @@
 #main-footer{
     background-color: #243265;
     color: white;
-    position: fixed;
+    position: absolute;
     bottom: 0; 
     width: 100%;
     font-size: 15px;
