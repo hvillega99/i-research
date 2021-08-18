@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <%- include("templates/cabecera.templates.ejs")%>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <title>Repositorio de investigadores</title>
 </head>
@@ -32,21 +28,7 @@
 
     </main>
 
-    <footer id="main-footer">
-        <div class="footer-group">
-            <p>Escuela Superior Politécnica del Litoral - Guayaquil - Ecuador</p>
-        </div>
+    <%- include("templates/footer.templates.ejs")%>
 
-        <div class="footer-group">
-            <a style="text-decoration:none; color: white" href="https://www.espol.edu.ec/es/formulario-de-contactos"><p>Contáctenos</p></a>
-            <p>-</p>
-            <a style="text-decoration:none; color:white" href="https://www.espol.edu.ec/es/sitemap"><p>Mapa del sitio</p></a>
-        </div>
-
-        <div class="footer-group">
-            <p>Copyright 2020 ESPOL</p>
-        </div>
-
-    </footer>
 </body>
 </html>
