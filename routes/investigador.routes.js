@@ -1,8 +1,7 @@
 const {Router} = require("express");
+const investigadorControler = require('../controllers/investigador.controller');
 const router = Router();
 
-router.get("/:scopusId", (req, res) => {
-    res.render("../views/investigador.views.ejs")
-});
+router.get("/:scopusId", investigadorControler.getPerfilInvestigador);
 
 module.exports = router;
