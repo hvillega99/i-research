@@ -25,15 +25,12 @@ class Scopus{
         const xml = await response.text();
         const text = convert.xml2json(xml, {compact: true, spaces: 4});
         const data = JSON.parse(text)['author-retrieval-response'];
-        return{
-            hIndex: data['h-index']._text
-        }
+        return data['h-index']._text;
     }
 
-    async getFCWI(scopusId){
-        
-    }
+    async getSubjectAreas(scopusId){
 
+    }
 
 }
 
