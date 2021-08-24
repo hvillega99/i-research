@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const convert = require('xml-js');
 
 class Scopus{
 
@@ -9,23 +8,31 @@ class Scopus{
     }
 
     async getOrcidAndCounts(scopusId){
-        const response = await fetch(`${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`);
-        const xml = await response.text();
-        const text = convert.xml2json(xml, {compact: true, spaces: 4});
-        const data =  JSON.parse(text)['author-retrieval-response'];
+        const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+
+        let data = await response.json();
+        data = data['author-retrieval-response'][0].coredata;
+
         return {
-            orcid: data.coredata.orcid._text,
-            documentos: data.coredata['document-count']._text,
-            citas: data.coredata['citation-count']._text,
-        }
+            orcid: data.orcid,
+            documentos: data['document-count'],
+            citas: data['citation-count']
+        };
     }
 
     async getHindex(scopusId){
-        const response = await fetch(`${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`);
-        const xml = await response.text();
-        const text = convert.xml2json(xml, {compact: true, spaces: 4});
-        const data = JSON.parse(text)['author-retrieval-response'];
-        return data['h-index']._text;
+        const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+
+        let data = await response.json();
+        data = data['author-retrieval-response'][0]['h-index'];
+
+        return data;
     }
 
     async getSubjectAreas(scopusId){
