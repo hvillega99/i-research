@@ -1,0 +1,3232 @@
+[{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f0"
+  },
+  "Autor": "Arias-Hidalgo, Mijail",
+  "ScopusID": "36493874100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f1"
+  },
+  "Autor": "Domínguez Granda, Luis",
+  "ScopusID": "6505735502",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": "CADS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f2"
+  },
+  "Autor": "Matamoros, David E.",
+  "ScopusID": "12141256000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f3"
+  },
+  "Autor": "Nolivos-Alvarez, Indira",
+  "ScopusID": "55184033800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f4"
+  },
+  "Autor": "Narea, Rebeca Nathaly Parra",
+  "ScopusID": "57209024188",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CADS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f5"
+  },
+  "Autor": "Agurto, Gabriela",
+  "ScopusID": "57209882380",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f6"
+  },
+  "Autor": "Andrade, Betsy",
+  "ScopusID": "57205596040",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f7"
+  },
+  "Autor": "Betancourt, Irma",
+  "ScopusID": "14830267400",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f8"
+  },
+  "Autor": "Dom&amp;#237;nguez-Borbor, Crist&amp;#243;bal",
+  "ScopusID": "57200542628",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1f9"
+  },
+  "Autor": "Panchana, Fanny A.",
+  "ScopusID": "6504761406",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1fa"
+  },
+  "Autor": "Reinoso, Samira",
+  "ScopusID": "57203752743",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1fb"
+  },
+  "Autor": "Rodríguez-Pesantes, Daniel",
+  "ScopusID": "57197715657",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1fc"
+  },
+  "Autor": "Román, Rubén",
+  "ScopusID": "23036537500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1fd"
+  },
+  "Autor": "Tomalá, Cecilia",
+  "ScopusID": "57208798666",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1fe"
+  },
+  "Autor": "Argüello-Guevara, W.",
+  "ScopusID": "55445248900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f1ff"
+  },
+  "Autor": "Bayot, Bonny",
+  "ScopusID": "6504224308",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f200"
+  },
+  "Autor": "Marquez, Adrian",
+  "ScopusID": "37665506700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f201"
+  },
+  "Autor": "Rodríguez, Jenny",
+  "ScopusID": "7404697073",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f202"
+  },
+  "Autor": "Sonnenholzner, Stanislaus",
+  "ScopusID": "18438697500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f203"
+  },
+  "Autor": "Van Den Hende, Sofie",
+  "ScopusID": "6504035501",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f204"
+  },
+  "Autor": "Andrade, Elizabeth",
+  "ScopusID": "57209890204",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f205"
+  },
+  "Autor": "Bajaña, Leandro",
+  "ScopusID": "57202754219",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f206"
+  },
+  "Autor": "Bohórquez-Cruz, Milton",
+  "ScopusID": "56461426500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f207"
+  },
+  "Autor": "Chal&amp;#233;n, Bol&amp;#237;var E.",
+  "ScopusID": "57204308431",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f208"
+  },
+  "Autor": "Guillén, Paúl O.",
+  "ScopusID": "57193872491",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f209"
+  },
+  "Autor": "Reyes, Jessica Karina",
+  "ScopusID": "57205611091",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CENAIM"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20a"
+  },
+  "Autor": "Hidalgo-León, Rubén",
+  "ScopusID": "57205878061",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CERA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20b"
+  },
+  "Autor": "Litardo, Jaqueline",
+  "ScopusID": "57205598187",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CERA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20c"
+  },
+  "Autor": "Espinoza-Andaluz, Mayken",
+  "ScopusID": "57221228898",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CERA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20d"
+  },
+  "Autor": "Moreira, Cesar M.",
+  "ScopusID": "34978993100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CERA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20e"
+  },
+  "Autor": "Soriano, Guillermo",
+  "ScopusID": "24330258500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CERA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f20f"
+  },
+  "Autor": "Barragán, Ana",
+  "ScopusID": "57188747288",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f210"
+  },
+  "Autor": "Chávez-Navarrete, Tatiana Paola",
+  "ScopusID": "57188977569",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f211"
+  },
+  "Autor": "Chóez-Guaranda, Ivan",
+  "ScopusID": "57118333700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f212"
+  },
+  "Autor": "Cornejo-Franco, Juan F.",
+  "ScopusID": "57199854408",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f213"
+  },
+  "Autor": "Espinoza-Lozano, Rodrigo Fernando",
+  "ScopusID": "57192191677",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f214"
+  },
+  "Autor": "Maridueña-Zavala, María Gabriela",
+  "ScopusID": "56118670300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f215"
+  },
+  "Autor": "Monserrate-Maggi, Lorena",
+  "ScopusID": "57211075762",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f216"
+  },
+  "Autor": "Naranjo-Morán, Jaime",
+  "ScopusID": "57216628471",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f217"
+  },
+  "Autor": "Onofre, Jose Garcia",
+  "ScopusID": "57216625188",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f218"
+  },
+  "Autor": "Pacheco Coello, Ricardo",
+  "ScopusID": "57188976620",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f219"
+  },
+  "Autor": "Quevedo, Adela",
+  "ScopusID": "57208665744",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21a"
+  },
+  "Autor": "Serrano, Lizette",
+  "ScopusID": "57208675201",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21b"
+  },
+  "Autor": "Vargas, J.",
+  "ScopusID": "56223964000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21c"
+  },
+  "Autor": "Vera, Marcos",
+  "ScopusID": "57220206122",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21d"
+  },
+  "Autor": "Villao, Liliana",
+  "ScopusID": "57188986962",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21e"
+  },
+  "Autor": "Villavicencio-Vásquez, Mirian Elizabeth",
+  "ScopusID": "57192254346",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f21f"
+  },
+  "Autor": "Barcos-Arias, Milton Senen",
+  "ScopusID": "57203656643",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f220"
+  },
+  "Autor": "Bonilla Jaime, Julio Andr&amp;#233;s",
+  "ScopusID": "57211376405",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f221"
+  },
+  "Autor": "Cevallos-Cevallos, Juan Manuel",
+  "ScopusID": "26632840200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f222"
+  },
+  "Autor": "Chong, Pablo",
+  "ScopusID": "57200597590",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f223"
+  },
+  "Autor": "Coronel, Jonathan R.",
+  "ScopusID": "56538670900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f224"
+  },
+  "Autor": "Díez, Nardy",
+  "ScopusID": "6602146972",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f225"
+  },
+  "Autor": "Magdama, Freddy",
+  "ScopusID": "57208673500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f226"
+  },
+  "Autor": "Manzano, Patricia",
+  "ScopusID": "55619354500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f227"
+  },
+  "Autor": "Quito-Avila, Diego F.",
+  "ScopusID": "36706565100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f228"
+  },
+  "Autor": "Santos-Ordóñez, E.",
+  "ScopusID": "57219913136",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f229"
+  },
+  "Autor": "Sosa, Daynet",
+  "ScopusID": "57191692739",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22a"
+  },
+  "Autor": "Sánchez Timm, Eduardo",
+  "ScopusID": "55774563900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22b"
+  },
+  "Autor": "Hidalgo, L.",
+  "ScopusID": "57213780935",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22c"
+  },
+  "Autor": "Oviedo-Anchundia, Rodrigo",
+  "ScopusID": "57215060709",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIBE"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22d"
+  },
+  "Autor": "Charco, Jorge L.",
+  "ScopusID": "57208394659",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22e"
+  },
+  "Autor": "Jácome-Galarza, Luis Roberto",
+  "ScopusID": "57221707393",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f22f"
+  },
+  "Autor": "Rivadeneira, Rafael E.",
+  "ScopusID": "57210803558",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f230"
+  },
+  "Autor": "Su&amp;#225;rez, Patricia L.",
+  "ScopusID": "57194765069",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f231"
+  },
+  "Autor": "Agila, W.",
+  "ScopusID": "8905693300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f232"
+  },
+  "Autor": "Paillacho, Dennys",
+  "ScopusID": "56084736200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f233"
+  },
+  "Autor": "Realpe, Miguel",
+  "ScopusID": "23393955200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f234"
+  },
+  "Autor": "Sappa, A. D.",
+  "ScopusID": "6603014642",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f235"
+  },
+  "Autor": "Vintimilla, Boris X.",
+  "ScopusID": "6507077933",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f236"
+  },
+  "Autor": "Paillacho, Jonathan",
+  "ScopusID": "57215835311",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f237"
+  },
+  "Autor": "Velesaca, Henry O.",
+  "ScopusID": "57216456457",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIDIS"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f238"
+  },
+  "Autor": "Atencio, Reinaldo",
+  "ScopusID": "55880919000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f239"
+  },
+  "Autor": "Baykara, Haci",
+  "ScopusID": "9244086100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23a"
+  },
+  "Autor": "Cornejo, Mauricio Heriberto",
+  "ScopusID": "13609120800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23b"
+  },
+  "Autor": "Iza, P.",
+  "ScopusID": "12144062100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23c"
+  },
+  "Autor": "Rigail-Cedeño, Andrés",
+  "ScopusID": "8905349600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23d"
+  },
+  "Autor": "Caceres, Julio",
+  "ScopusID": "57210820496",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIDNA"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23e"
+  },
+  "Autor": "Altamirano, Luis M.",
+  "ScopusID": "57202863855",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f23f"
+  },
+  "Autor": "Asencio, Jose Luis",
+  "ScopusID": "57217245534",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f240"
+  },
+  "Autor": "Borbor, Mercy Cordova",
+  "ScopusID": "57200165308",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f241"
+  },
+  "Autor": "Cedeño, Jonathan",
+  "ScopusID": "57220067487",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f242"
+  },
+  "Autor": "Cornejo-Rodriguez, Maria del Pilar",
+  "ScopusID": "57189254420",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": "CIP-RRD"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f243"
+  },
+  "Autor": "Carrión Mero, Paúl C.C.M.",
+  "ScopusID": "57208038096",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": "CIPAT"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f244"
+  },
+  "Autor": "Morante, Fernando E.",
+  "ScopusID": "23568713200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": "CIPAT"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f245"
+  },
+  "Autor": "Aguilar-Aguilar, Maribel",
+  "ScopusID": "57212500505",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIPAT"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f246"
+  },
+  "Autor": "Briones Bitar, Josué",
+  "ScopusID": "57212500382",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIPAT"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f247"
+  },
+  "Autor": "Montalvan-Burbano, Nestor",
+  "ScopusID": "57210814655",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CIPAT"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f248"
+  },
+  "Autor": "Cobos, Richard",
+  "ScopusID": "57210564279",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f249"
+  },
+  "Autor": "Hernandez, Jefferson",
+  "ScopusID": "57204636807",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24a"
+  },
+  "Autor": "Abad, Andres G.",
+  "ScopusID": "55965684700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24b"
+  },
+  "Autor": "Dom&amp;#237;nguez, Federico",
+  "ScopusID": "8338734700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24c"
+  },
+  "Autor": "Estrada, Rebeca L.",
+  "ScopusID": "55548968500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24d"
+  },
+  "Autor": "Méndez, Gonzalo Gabriel",
+  "ScopusID": "56725883600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24e"
+  },
+  "Autor": "Campana, Fernando",
+  "ScopusID": "57201684094",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f24f"
+  },
+  "Autor": "Castells, James",
+  "ScopusID": "56452734900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f250"
+  },
+  "Autor": "Eras, Leonardo",
+  "ScopusID": "36058820600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f251"
+  },
+  "Autor": "Irving, Valeriano C.",
+  "ScopusID": "57190838247",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f252"
+  },
+  "Autor": "Jimenez, Alberto",
+  "ScopusID": "57205866252",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f253"
+  },
+  "Autor": "Martinez, Caril",
+  "ScopusID": "57221300061",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f254"
+  },
+  "Autor": "Ortiz-Rojas, Margarita",
+  "ScopusID": "57188760691",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "",
+  "Centros_Investigacion": "CTI"
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f255"
+  },
+  "Autor": "Amaya Rivas, Adriana Andrea",
+  "ScopusID": "57194024256",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f256"
+  },
+  "Autor": "Bustamante, Juan Carlos",
+  "ScopusID": "57202689227",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f257"
+  },
+  "Autor": "Castillo, María José",
+  "ScopusID": "24461218700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f258"
+  },
+  "Autor": "Domínguez-Andrade, Juan Manuel",
+  "ScopusID": "57194599642",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f259"
+  },
+  "Autor": "Granda, María",
+  "ScopusID": "57216641341",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25a"
+  },
+  "Autor": "Morello, Maria Virginia Lasio",
+  "ScopusID": "57200043548",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25b"
+  },
+  "Autor": "Ordeñana, Xavier",
+  "ScopusID": "55961691000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25c"
+  },
+  "Autor": "Rodriguez, Jorge A.",
+  "ScopusID": "56316997000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25d"
+  },
+  "Autor": "Wong, Sara A.",
+  "ScopusID": "7404590678",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "ESPAE",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25e"
+  },
+  "Autor": "Bouhaben, Miguel Alfonso",
+  "ScopusID": "56584400000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f25f"
+  },
+  "Autor": "De Lourdes Pilay, María",
+  "ScopusID": "57216874692",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f260"
+  },
+  "Autor": "Del Pino Espinoza, Ariana Daniela",
+  "ScopusID": "57193533197",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f261"
+  },
+  "Autor": "Matovelle Villamar, Ruth",
+  "ScopusID": "57193527691",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f262"
+  },
+  "Autor": "Polo Blanco, Jorge",
+  "ScopusID": "57210897813",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f263"
+  },
+  "Autor": "Solorzano, Nayeth I.",
+  "ScopusID": "57192008773",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f264"
+  },
+  "Autor": "Ulloa-López, Paola",
+  "ScopusID": "57203861927",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FADCOM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f265"
+  },
+  "Autor": "Almeida-Guerra, Paola",
+  "ScopusID": "7801582875",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f266"
+  },
+  "Autor": "Angulo, Wilfredo",
+  "ScopusID": "57219451144",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f267"
+  },
+  "Autor": "Apolo, H?ctor I.",
+  "ScopusID": "57211356922",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f268"
+  },
+  "Autor": "Aponte, Elvis",
+  "ScopusID": "35279454600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f269"
+  },
+  "Autor": "Aponte, J.",
+  "ScopusID": "57220475352",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26a"
+  },
+  "Autor": "Barreiro, Carlos Manuel Martín",
+  "ScopusID": "57219733203",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26b"
+  },
+  "Autor": "Bauz-Olvera, Sergio A.",
+  "ScopusID": "57204286989",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26c"
+  },
+  "Autor": "Bracamonte, Mireya",
+  "ScopusID": "56046511200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26d"
+  },
+  "Autor": "Cevallos-Valdiviezo, Holger",
+  "ScopusID": "56595230300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26e"
+  },
+  "Autor": "Chong, Antonio S.E.",
+  "ScopusID": "57193308677",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f26f"
+  },
+  "Autor": "Cárdenas-Escobar, Nadia",
+  "ScopusID": "57211353875",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f270"
+  },
+  "Autor": "Del Rosario, Edison",
+  "ScopusID": "57193238379",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f271"
+  },
+  "Autor": "Flores, Francisca",
+  "ScopusID": "57195837575",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f272"
+  },
+  "Autor": "Galarza, Christian E.",
+  "ScopusID": "57147632900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f273"
+  },
+  "Autor": "Garc?a-Bustos, Sandra",
+  "ScopusID": "55553022100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f274"
+  },
+  "Autor": "González, Y. K.",
+  "ScopusID": "57218539543",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f275"
+  },
+  "Autor": "López, Alexander",
+  "ScopusID": "15822529800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f276"
+  },
+  "Autor": "Marchan, Luz Elimar",
+  "ScopusID": "55256270300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f277"
+  },
+  "Autor": "Mejias, Luis Fernando",
+  "ScopusID": "8350583300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f278"
+  },
+  "Autor": "Pambabay-Calero, Johny J.",
+  "ScopusID": "57204282340",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f279"
+  },
+  "Autor": "Pastuizaca Fern&amp;#225;ndez, Mar&amp;#237;a Nela",
+  "ScopusID": "56433672500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27a"
+  },
+  "Autor": "Páez Chávez, Joseph",
+  "ScopusID": "57203173715",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27b"
+  },
+  "Autor": "Pérez, Liliana",
+  "ScopusID": "51864408100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27c"
+  },
+  "Autor": "Quiroz, Domingo",
+  "ScopusID": "8715862300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27d"
+  },
+  "Autor": "Salas, Santiago D.",
+  "ScopusID": "57132394000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27e"
+  },
+  "Autor": "Silva, Pedro",
+  "ScopusID": "7203089029",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f27f"
+  },
+  "Autor": "Tinoco, Diana L.",
+  "ScopusID": "57115228200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f280"
+  },
+  "Autor": "Velasco-Galarza, V?ctor",
+  "ScopusID": "57211136169",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f281"
+  },
+  "Autor": "Vera, Francisco",
+  "ScopusID": "57188825789",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f282"
+  },
+  "Autor": "Vielma, Jorge",
+  "ScopusID": "11739250600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f283"
+  },
+  "Autor": "de Cecchis, Dany",
+  "ScopusID": "26025935500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f284"
+  },
+  "Autor": "de Lourdes Mendoza, Ma",
+  "ScopusID": "56572784400",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCNM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f285"
+  },
+  "Autor": "Barriga, Holger Raul",
+  "ScopusID": "57201854476",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f286"
+  },
+  "Autor": "Bustamante, José M.",
+  "ScopusID": "57204844068",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f287"
+  },
+  "Autor": "Campoverde, Ronald",
+  "ScopusID": "57211356171",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f288"
+  },
+  "Autor": "Carvache-Franco, Wilmer",
+  "ScopusID": "57194655663",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f289"
+  },
+  "Autor": "Castillo, José Gabriel Gabriel",
+  "ScopusID": "57214066569",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28a"
+  },
+  "Autor": "Constantine-Castro, Angelo R.",
+  "ScopusID": "57021918500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28b"
+  },
+  "Autor": "Espinel, Ramón L.",
+  "ScopusID": "6506640774",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28c"
+  },
+  "Autor": "Espinoza, Nereyda",
+  "ScopusID": "57209436859",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28d"
+  },
+  "Autor": "Gavilanes, Julio",
+  "ScopusID": "57200691311",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28e"
+  },
+  "Autor": "González, Víctor Hugo",
+  "ScopusID": "57200794830",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f28f"
+  },
+  "Autor": "Macías, Washington",
+  "ScopusID": "57196475106",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f290"
+  },
+  "Autor": "Maluk Uriguen, Silvia Amira",
+  "ScopusID": "57214136857",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f291"
+  },
+  "Autor": "Marcos, Jorge G.",
+  "ScopusID": "57191885109",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f292"
+  },
+  "Autor": "Miguel Ruiz, M.",
+  "ScopusID": "57211658271",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f293"
+  },
+  "Autor": "Mongeló, Guilherme Z.",
+  "ScopusID": "40461869000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f294"
+  },
+  "Autor": "Montoya Romero, Ma Elena",
+  "ScopusID": "57218378468",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f295"
+  },
+  "Autor": "Méndez Prado, Silvia Mariela",
+  "ScopusID": "57201256099",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f296"
+  },
+  "Autor": "Pécot, Mathias",
+  "ScopusID": "57203511499",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f297"
+  },
+  "Autor": "Rhodes, Lauren A.",
+  "ScopusID": "57216874311",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f298"
+  },
+  "Autor": "Rodriguez, Katia",
+  "ScopusID": "57209714266",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f299"
+  },
+  "Autor": "Ruano, María Alejandra",
+  "ScopusID": "57200013837",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29a"
+  },
+  "Autor": "Sabando-Vera, David",
+  "ScopusID": "57200796168",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29b"
+  },
+  "Autor": "Sánchez, Gonzalo E.",
+  "ScopusID": "57191962187",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29c"
+  },
+  "Autor": "Sánchez-Aragón, Leonardo",
+  "ScopusID": "57194431560",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29d"
+  },
+  "Autor": "Villa-Cox, Gonzalo",
+  "ScopusID": "55553169400",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29e"
+  },
+  "Autor": "Yonfá-Medranda, Marcela",
+  "ScopusID": "57205759796",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f29f"
+  },
+  "Autor": "Yoong-Parraga, Cristina",
+  "ScopusID": "57216488438",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a0"
+  },
+  "Autor": "Zanzzi, Fabricio",
+  "ScopusID": "56986512800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a1"
+  },
+  "Autor": "Mendoza-Jiménez, María J.",
+  "ScopusID": "57217651060",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a2"
+  },
+  "Autor": "Nacipucha, David",
+  "ScopusID": "57194336227",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a3"
+  },
+  "Autor": "Sanchez-Loor, Daniel A.",
+  "ScopusID": "55898339000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a4"
+  },
+  "Autor": "Torres-Naranjo, Mónica",
+  "ScopusID": "57194415648",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a5"
+  },
+  "Autor": "Zhangallimbay, Donald J.",
+  "ScopusID": "57211484538",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCSH",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a6"
+  },
+  "Autor": "Alava, Eduardo I.",
+  "ScopusID": "56491014700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a7"
+  },
+  "Autor": "Calderón, Fernanda",
+  "ScopusID": "57201850102",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a8"
+  },
+  "Autor": "Calle, Paola",
+  "ScopusID": "55668398900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2a9"
+  },
+  "Autor": "Carvajal-Aldaz, Diana G.",
+  "ScopusID": "57191904256",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2aa"
+  },
+  "Autor": "Chavez, Eduardo",
+  "ScopusID": "37024168300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ab"
+  },
+  "Autor": "Cordeiro, Fernanda Bertuccez",
+  "ScopusID": "55353001200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ac"
+  },
+  "Autor": "Cárdenas, Washington B.",
+  "ScopusID": "57222014472",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ad"
+  },
+  "Autor": "Domínguez, Gustavo A.",
+  "ScopusID": "56022634500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ae"
+  },
+  "Autor": "Espinoza-Lozano, Lisbeth",
+  "ScopusID": "57204142509",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2af"
+  },
+  "Autor": "Herrera, Paúl A.",
+  "ScopusID": "16552255100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b0"
+  },
+  "Autor": "Montiel, M.",
+  "ScopusID": "7005128835",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b1"
+  },
+  "Autor": "Morales, Felix E.",
+  "ScopusID": "36194228600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b2"
+  },
+  "Autor": "Orellana-Manzano, Andrea",
+  "ScopusID": "37089380900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b3"
+  },
+  "Autor": "Piedrahita, Paolo",
+  "ScopusID": "37026882700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b4"
+  },
+  "Autor": "Ratti, M. F.",
+  "ScopusID": "56014318600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b5"
+  },
+  "Autor": "Ruiz-Barzola, Omar",
+  "ScopusID": "57205271860",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b6"
+  },
+  "Autor": "Ruíz, Edwin Rolando Jiménez",
+  "ScopusID": "57208081632",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b7"
+  },
+  "Autor": "Santos, Adriana",
+  "ScopusID": "57201857436",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b8"
+  },
+  "Autor": "Tirapé, Ana",
+  "ScopusID": "8575128700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2b9"
+  },
+  "Autor": "Villavicencio Burbano, Roberto Carlos",
+  "ScopusID": "57193492404",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ba"
+  },
+  "Autor": "Galarza-Villamar, Julissa Alexandra",
+  "ScopusID": "57203951592",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2bb"
+  },
+  "Autor": "Pontón Cevallos, José",
+  "ScopusID": "57210445830",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2bc"
+  },
+  "Autor": "Párraga-Lema, Cinthia Mariela",
+  "ScopusID": "57201851010",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2bd"
+  },
+  "Autor": "Riera-Ruiz, Carlos",
+  "ScopusID": "56224082200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2be"
+  },
+  "Autor": "Yockteng-Melgar, Jaime",
+  "ScopusID": "57204674802",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FCV",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2bf"
+  },
+  "Autor": "Arcentales-Bastidas, Danilo",
+  "ScopusID": "57211357202",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c0"
+  },
+  "Autor": "Bayona, Arnaldo",
+  "ScopusID": "57220069289",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c1"
+  },
+  "Autor": "Besenzon, Davide",
+  "ScopusID": "57199715326",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c2"
+  },
+  "Autor": "Egüez Álava, Hugo",
+  "ScopusID": "7801444145",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c3"
+  },
+  "Autor": "Escobar-Segovia, Kenny",
+  "ScopusID": "57211353817",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c4"
+  },
+  "Autor": "Garcés, Daniel",
+  "ScopusID": "56648306100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c5"
+  },
+  "Autor": "Jiménez-Oyola, Samantha",
+  "ScopusID": "57212627942",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c6"
+  },
+  "Autor": "Larreta, Erwin",
+  "ScopusID": "57210441550",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c7"
+  },
+  "Autor": "Mendoza, Jorge S.",
+  "ScopusID": "7102491752",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c8"
+  },
+  "Autor": "Montenegro, Galo",
+  "ScopusID": "56182643100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2c9"
+  },
+  "Autor": "Montoya, Andrés Danilo Velástegui",
+  "ScopusID": "57208080722",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ca"
+  },
+  "Autor": "Mulas, Maurizio",
+  "ScopusID": "55273568900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2cb"
+  },
+  "Autor": "Peña-Carpio, Elizabeth",
+  "ScopusID": "56662203300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2cc"
+  },
+  "Autor": "Rodríguez, Carlos Raúl",
+  "ScopusID": "57188682250",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2cd"
+  },
+  "Autor": "Rojas, Pedro",
+  "ScopusID": "57206415452",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ce"
+  },
+  "Autor": "Romero, Paola",
+  "ScopusID": "57039020600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2cf"
+  },
+  "Autor": "Sanclemente, Eddy",
+  "ScopusID": "37073229000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d0"
+  },
+  "Autor": "Valverde, P.",
+  "ScopusID": "57209340713",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d1"
+  },
+  "Autor": "Vargas-Gutiérrez, Xavier",
+  "ScopusID": "57211354393",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d2"
+  },
+  "Autor": "Vitvar, Tomáš",
+  "ScopusID": "14066709100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d3"
+  },
+  "Autor": "Anchundia, Johanna Zambrano",
+  "ScopusID": "57204842623",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d4"
+  },
+  "Autor": "Pincay, W.",
+  "ScopusID": "57211353222",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d5"
+  },
+  "Autor": "Vilela, Paulina",
+  "ScopusID": "57201394172",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FICT",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d6"
+  },
+  "Autor": "Abad, Cristina L.",
+  "ScopusID": "22957218500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d7"
+  },
+  "Autor": "Alejandro Molina, Otilia Maria",
+  "ScopusID": "57220185359",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d8"
+  },
+  "Autor": "Alvarez, María Antonieta",
+  "ScopusID": "56810259400",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2d9"
+  },
+  "Autor": "Alvarez-Alvarado, Manuel S.",
+  "ScopusID": "57193225079",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2da"
+  },
+  "Autor": "Arreaga, Nestor X.",
+  "ScopusID": "57201854391",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2db"
+  },
+  "Autor": "Asanza, Victor",
+  "ScopusID": "57192640451",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2dc"
+  },
+  "Autor": "Avendaño, Allan",
+  "ScopusID": "56452824600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2dd"
+  },
+  "Autor": "Aviles, Juan C.",
+  "ScopusID": "57191971070",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2de"
+  },
+  "Autor": "Bonilla, Rafael I.",
+  "ScopusID": "57197990664",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2df"
+  },
+  "Autor": "Cedeno-Mieles, Vanessa",
+  "ScopusID": "57204816708",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e0"
+  },
+  "Autor": "Chavez-Burbano, Patricia",
+  "ScopusID": "55933475000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e1"
+  },
+  "Autor": "Chiluiza, Katherine",
+  "ScopusID": "55975399800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e2"
+  },
+  "Autor": "Collaguazo Jaramillo, Adriana",
+  "ScopusID": "57209481490",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e3"
+  },
+  "Autor": "Cordova, Jimmy",
+  "ScopusID": "57215833527",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e4"
+  },
+  "Autor": "Cordova-Garcia, Jose",
+  "ScopusID": "57193746327",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e5"
+  },
+  "Autor": "Cortez, Dennys D.",
+  "ScopusID": "57209911972",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e6"
+  },
+  "Autor": "Criollo, Ronald",
+  "ScopusID": "57191225167",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e7"
+  },
+  "Autor": "Cruz, Eduardo",
+  "ScopusID": "57207568864",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e8"
+  },
+  "Autor": "Echeverria, Vanessa",
+  "ScopusID": "56016639400",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2e9"
+  },
+  "Autor": "Endara, Iván",
+  "ScopusID": "57201686236",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ea"
+  },
+  "Autor": "Espinal, Albert",
+  "ScopusID": "57211387582",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2eb"
+  },
+  "Autor": "Falcones, Sixifo",
+  "ScopusID": "36023483900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ec"
+  },
+  "Autor": "Garcia, J.",
+  "ScopusID": "57220937732",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ed"
+  },
+  "Autor": "Herrera, Efrén V.",
+  "ScopusID": "57205126477",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ee"
+  },
+  "Autor": "Izquierdo, Edgar",
+  "ScopusID": "38761337600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ef"
+  },
+  "Autor": "Luzardo, Gonzalo",
+  "ScopusID": "55976123500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f0"
+  },
+  "Autor": "Magallanes, Jorge",
+  "ScopusID": "57204396161",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f1"
+  },
+  "Autor": "Marin-Garcia, Ignacio",
+  "ScopusID": "26633930600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f2"
+  },
+  "Autor": "Martín, César A.",
+  "ScopusID": "55483457600",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f3"
+  },
+  "Autor": "Medina, Washington",
+  "ScopusID": "57189027020",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f4"
+  },
+  "Autor": "Mendoza, Luís Eduardo",
+  "ScopusID": "7006043079",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f5"
+  },
+  "Autor": "Mera-Gómez, Carlos",
+  "ScopusID": "57192917757",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f6"
+  },
+  "Autor": "Monsalve, Carlos",
+  "ScopusID": "36240865700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f7"
+  },
+  "Autor": "Novillo, Francisco",
+  "ScopusID": "26649094500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f8"
+  },
+  "Autor": "Núñez, Alfredo",
+  "ScopusID": "57202943011",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2f9"
+  },
+  "Autor": "Ochoa, Daniel",
+  "ScopusID": "36795354300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2fa"
+  },
+  "Autor": "Peláez, Enrique",
+  "ScopusID": "57216318428",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2fb"
+  },
+  "Autor": "Plaza, Douglas Antonio",
+  "ScopusID": "24829599200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2fc"
+  },
+  "Autor": "Quelal, Rosa E.",
+  "ScopusID": "57202791799",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2fd"
+  },
+  "Autor": "Ramos, Boris",
+  "ScopusID": "34168263700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2fe"
+  },
+  "Autor": "Recalde, Angel Andres",
+  "ScopusID": "57191481718",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f2ff"
+  },
+  "Autor": "Rengifo, Johnny",
+  "ScopusID": "55803843500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f300"
+  },
+  "Autor": "Rios Orellana, Sara Judith",
+  "ScopusID": "57220591147",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f301"
+  },
+  "Autor": "Rubio, Gomer A.",
+  "ScopusID": "57205583681",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f302"
+  },
+  "Autor": "Salazar, Carlos A.",
+  "ScopusID": "57192643923",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f303"
+  },
+  "Autor": "Sanchez Padilla, Vladimir",
+  "ScopusID": "57223029085",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f304"
+  },
+  "Autor": "Tapia-Rosero, Ana",
+  "ScopusID": "55867179100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f305"
+  },
+  "Autor": "Tibau, Javier",
+  "ScopusID": "56779975500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f306"
+  },
+  "Autor": "Torres, R. Miguel A.",
+  "ScopusID": "57206660598",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f307"
+  },
+  "Autor": "Urquizo, Javier",
+  "ScopusID": "56587876500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f308"
+  },
+  "Autor": "Vaca, Carmen",
+  "ScopusID": "57201576771",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f309"
+  },
+  "Autor": "Vaca-Benavides, David Alejandro",
+  "ScopusID": "57203634772",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30a"
+  },
+  "Autor": "Vargas, German R.",
+  "ScopusID": "36631075000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30b"
+  },
+  "Autor": "Velásquez, Washington",
+  "ScopusID": "57203744720",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30c"
+  },
+  "Autor": "Villavicencio, Monica",
+  "ScopusID": "54914547100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30d"
+  },
+  "Autor": "Wong-Villacrés, Marisol",
+  "ScopusID": "39062324300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30e"
+  },
+  "Autor": "Añazco, Edwin Valarezo",
+  "ScopusID": "57196190020",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f30f"
+  },
+  "Autor": "Cajo, Ricardo",
+  "ScopusID": "57148422200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f310"
+  },
+  "Autor": "Guarochico-Moreira, Víctor H.",
+  "ScopusID": "57200414518",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f311"
+  },
+  "Autor": "Gómez, Jorge",
+  "ScopusID": "57189024928",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f312"
+  },
+  "Autor": "Ortega, Andre P.",
+  "ScopusID": "35218059800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f313"
+  },
+  "Autor": "Rodríguez, Jorge",
+  "ScopusID": "57204717075",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f314"
+  },
+  "Autor": "Suárez, Carlos Aníbal",
+  "ScopusID": "57214464475",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f315"
+  },
+  "Autor": "Valdivieso, Carlos",
+  "ScopusID": "56891368300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f316"
+  },
+  "Autor": "Yánez-Pazmiño, Wendy",
+  "ScopusID": "57193812485",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f317"
+  },
+  "Autor": "Torres, Johnny",
+  "ScopusID": "57189465593",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f318"
+  },
+  "Autor": "Boza, Edwin F.",
+  "ScopusID": "57196238001",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f319"
+  },
+  "Autor": "Chal&amp;#233;n, Marjorie",
+  "ScopusID": "57201590212",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31a"
+  },
+  "Autor": "Fiallos, Angel",
+  "ScopusID": "57195288805",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31b"
+  },
+  "Autor": "García Plúa, Juan Carlos",
+  "ScopusID": "55757784126",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31c"
+  },
+  "Autor": "Mendieta, Milton V.",
+  "ScopusID": "57201689568",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31d"
+  },
+  "Autor": "Merchan, Freddy",
+  "ScopusID": "57215834942",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31e"
+  },
+  "Autor": "Quevedo, Sebastian",
+  "ScopusID": "57215834187",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f31f"
+  },
+  "Autor": "Sornoza, Lissenia I.",
+  "ScopusID": "57217198557",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIEC",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f320"
+  },
+  "Autor": "Bermúdez, Rafael",
+  "ScopusID": "55180776800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f321"
+  },
+  "Autor": "Burgos, Francisca A.",
+  "ScopusID": "57194143469",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f322"
+  },
+  "Autor": "Calles, Alba",
+  "ScopusID": "57211586629",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f323"
+  },
+  "Autor": "Cervantes, Eduardo",
+  "ScopusID": "57211587417",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f324"
+  },
+  "Autor": "Martillo, Carlos",
+  "ScopusID": "56305394000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f325"
+  },
+  "Autor": "Marín López, José R.",
+  "ScopusID": "57222641137",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f326"
+  },
+  "Autor": "Muñoz-Naranjo, Marcelo",
+  "ScopusID": "57201675885",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f327"
+  },
+  "Autor": "Ormaza-Gonz?lez, Franklin Isaac",
+  "ScopusID": "6506478826",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f328"
+  },
+  "Autor": "Osorio, Victor",
+  "ScopusID": "57200913770",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f329"
+  },
+  "Autor": "Paredes, Ruben J.",
+  "ScopusID": "57193206570",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32a"
+  },
+  "Autor": "Rincón, Gladys",
+  "ScopusID": "55945280500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32b"
+  },
+  "Autor": "Santos, José L.",
+  "ScopusID": "7402388379",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32c"
+  },
+  "Autor": "Townsend, Patrick",
+  "ScopusID": "57193334988",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32d"
+  },
+  "Autor": "Recalde-Coronel, G. Cristina",
+  "ScopusID": "57188953799",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCM",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32e"
+  },
+  "Autor": "Abad-Morán, Jorge",
+  "ScopusID": "57201861538",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f32f"
+  },
+  "Autor": "Amaya, Jorge Luis",
+  "ScopusID": "57195837133",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f330"
+  },
+  "Autor": "Barcia, Kleber F.",
+  "ScopusID": "57201853216",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f331"
+  },
+  "Autor": "Boero, Andrea Jael",
+  "ScopusID": "57188681313",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f332"
+  },
+  "Autor": "Buest&amp;#225;n, Marcos N.",
+  "ScopusID": "57196019074",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f333"
+  },
+  "Autor": "Castillo-Orozco, Eduardo",
+  "ScopusID": "56993767200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f334"
+  },
+  "Autor": "Castro, Livingston D.",
+  "ScopusID": "57205602462",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f335"
+  },
+  "Autor": "Cornejo, Fabiola",
+  "ScopusID": "56403042100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f336"
+  },
+  "Autor": "Criollo, Nancy P.",
+  "ScopusID": "57214365485",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f337"
+  },
+  "Autor": "Cáceres, Patricio J.",
+  "ScopusID": "55973941700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f338"
+  },
+  "Autor": "Delgado-Plaza, Emérita",
+  "ScopusID": "57201852080",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f339"
+  },
+  "Autor": "Duque-Rivera, Jorge W.",
+  "ScopusID": "55199480800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33a"
+  },
+  "Autor": "Fajardo-Pruna, Marcelo",
+  "ScopusID": "57195539927",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33b"
+  },
+  "Autor": "Helguero, Carlos G.",
+  "ScopusID": "57190195004",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33c"
+  },
+  "Autor": "Hurel, Jorge",
+  "ScopusID": "55233927000",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33d"
+  },
+  "Autor": "Jervis, Freddy X.",
+  "ScopusID": "36246339800",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33e"
+  },
+  "Autor": "Loayza, Francis R.",
+  "ScopusID": "28267792700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f33f"
+  },
+  "Autor": "López, Sofía",
+  "ScopusID": "57207759775",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f340"
+  },
+  "Autor": "Melendres, A. M.",
+  "ScopusID": "57204766892",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f341"
+  },
+  "Autor": "Murrieta, María Elena",
+  "ScopusID": "57201855390",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f342"
+  },
+  "Autor": "Palacios, Sócrates",
+  "ScopusID": "57195580019",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f343"
+  },
+  "Autor": "Paredes, Cecilia A.",
+  "ScopusID": "7006458592",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f344"
+  },
+  "Autor": "Peralta-Jaramillo, Juan",
+  "ScopusID": "57034239100",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f345"
+  },
+  "Autor": "Perugachi, Rodrigo",
+  "ScopusID": "57201857453",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f346"
+  },
+  "Autor": "Puruncajas, Bryan",
+  "ScopusID": "57217172264",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f347"
+  },
+  "Autor": "Pérez, Cinthia C.",
+  "ScopusID": "57196023646",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f348"
+  },
+  "Autor": "Quilambaqui Jara, Miguel Angel",
+  "ScopusID": "57206770125",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f349"
+  },
+  "Autor": "Ramirez, Angel Diego",
+  "ScopusID": "53865403200",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34a"
+  },
+  "Autor": "Rivas, Ana Luisa",
+  "ScopusID": "7005714951",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34b"
+  },
+  "Autor": "Rodríguez, Denise",
+  "ScopusID": "56575911500",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34c"
+  },
+  "Autor": "Salas, Daniel Andrés",
+  "ScopusID": "57188689543",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34d"
+  },
+  "Autor": "Salazar, Rómulo",
+  "ScopusID": "55188813700",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34e"
+  },
+  "Autor": "Silva, Christian",
+  "ScopusID": "56937628900",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f34f"
+  },
+  "Autor": "Silva-Leon, Jorge",
+  "ScopusID": "57197806178",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f350"
+  },
+  "Autor": "Tagle Freire, Danny",
+  "ScopusID": "57203914431",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f351"
+  },
+  "Autor": "Tapia-Bastidas, Clotario V.",
+  "ScopusID": "57195475502",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f352"
+  },
+  "Autor": "Tutivén, Christian",
+  "ScopusID": "56677700300",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f353"
+  },
+  "Autor": "Yepez, Ximena V.",
+  "ScopusID": "57191478764",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f354"
+  },
+  "Autor": "Almeida Pazmiño, Gonzalo A.",
+  "ScopusID": "57208125198",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f355"
+  },
+  "Autor": "Yumbla, Francisco",
+  "ScopusID": "57201852791",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "FIMCP",
+  "Centros_Investigacion": ""
+},{
+  "_id": {
+    "$oid": "6124f1b5a32c2d4dfd99f356"
+  },
+  "Autor": "Guaman-Quintanilla, Sharon",
+  "ScopusID": "57211349153",
+  "Institucion": "ESPOL",
+  "Unidad_Academica": "I3LAB",
+  "Centros_Investigacion": ""
+}]
