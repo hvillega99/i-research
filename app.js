@@ -3,7 +3,6 @@ require("dotenv").config()
 const express = require("express");
 const path = require("path")
 const morgan = require("morgan");
-require('./models/conexion')
 
 //initializations
 const app = express();

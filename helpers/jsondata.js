@@ -5,7 +5,7 @@ class Datajson{
     }
 
     busquedaNombre(nombre){    
-        let nombres = []
+        const nombres = []
         return this.jsondatos.filter( resultado =>
             {  
                 if(resultado["Author"].toLocaleLowerCase().includes(nombre.toLocaleLowerCase())){
@@ -19,8 +19,14 @@ class Datajson{
         )
     }
 
-    busquedaId(scopuID){
-        return this.jsondatos.filter( resultado =>  resultado["Scopus Author ID"]==scopuID )
+    getNameAndAffiliations(scopusId){
+        const data = this.jsondatos.filter( resultado =>  resultado["Scopus Author ID"]==scopusId);
+        let affiliations = data.map(item => item['Level 3']);
+        affiliations = [...new Set(affiliations)];
+        return {
+            'name': data[0]['Author'],
+            'affiliations': affiliations
+        };
     }
 
 

@@ -10,34 +10,50 @@
     <%- include("templates/navbar.templates.ejs", {titulo: "Perfil de investigador"})%>
     <main>
 
-        <section class="container">
+        <section class="container p-3">
             <div class="row">
-                <h3>Name</h3>
+                <h3><%= information.nombre%></h3>
                 <div class="col-md-6">
-                    <p><a href="">Facultad</a></p>
+
+                    <% information.afiliaciones.forEach(item => { %>
+
+                        <p class="badge rounded-pill bg-secondary"><%= item%></p>
+
+                    <% }) %>
+
                     <p>Orcid: <%= information.orcid%> </p>
                     <p>Scopus id: <%= information.id%> </p>
                 </div>
 
                 <div class="col-md-6">
-                    <h5>Áreas de conocimiento</h5>
-                    <p>********</p>
-                    <p>*******</p>
+                    <h5>Áreas de investigación</h5>
+
+                    <% information.areas.forEach(item => { %>
+
+                        <p class="badge rounded-pill bg-secondary"><%= item%></p>
+
+                    <% }) %>
+
                 </div>
             </div>
         </section>
 
         <div id="division"></div>
 
-        <section class="container">
+        <section class="container p-3">
             <div class="row"> 
                 <div class="col-md-6">
                     <h5>Métricas</h5>
-                    <p>Publicaciones: <%= information.documentos%></p>
-                    <p>Citaciones: <%= information.citas%></p>
-                    <p>H-index: <%= information.hIndex%></p>
-                    <p>H5-index: <%= information.h5Index%></p>
-                    <p>FCWI: <%= information.fcwi%></p>
+                    <h5><%= information.documentos%></h5>
+                    <p>Publicaciones</p>
+                    <h5><%= information.citas%></h5>
+                    <p>Citaciones</p>
+                    <h5><%= information.hIndex%></h5>
+                    <p>H-index</p>
+                    <h5><%= information.h5Index%></h5>
+                    <p>H5-index</p>
+                    <h5><%= information.fcwi%></h5>
+                    <p>FCWI</p>
                 </div>
             </div>
         </section>        
