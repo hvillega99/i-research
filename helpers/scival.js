@@ -8,7 +8,7 @@ class Scival{
     }
 
     async getH5index(scopusId){
-        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${this.apiKey}`
+        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${this.apiKey}`
 
         const response = await fetch(endpoint);
         const data = await response.json();
