@@ -37,29 +37,69 @@
 
         <h3><%= total %> resultado(s) de búsqueda para: <%= terminos %></h3>
 
-        <div id="cabecera"></div>
-
         <div class="container">
             <div class="row justify-content-center" id="resultados">
                 <div class="col-md-6">
 
                     <% resultados.forEach(resultado => { %>
 
-                        <div class="card">
+                        <div class="card m-4">
+
                             <div class="card-header">
                                 Investigador
                             </div>
+                            
                             <div class="card-body">
-                                <!-- Usando el archivo original-->
+
                                 <h5 class="card-title"><%= resultado.Author %></h5>
-                                <a href="/investigador/<%= resultado['Scopus Author ID'] %>" class="btn btn-primary btn-ver-perfil">Ver perfil</a>
-                                <!-- Usando el archivo pulido (autores no repetidos)-->
-                                 <!--<h5 class="card-title"><%= resultado.Autor %></h5>-->
-                                <!--<a href="/investigador/<%= resultado['ScopusID'] %>" class="btn btn-primary">Ver perfil</a>-->
+                        
+                                <form action="/investigador/<%= resultado['Scopus Author ID'] %>" 
+                                method="get">
+
+                                        <input type="submit" 
+                                        class="btn btn-primary" 
+                                        value="Ver perfil"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#loadingModal">
+
+                                </form> 
+
                             </div>
+
                         </div>
                     
                     <% }) %>
+
+                    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" 
+                    data-bs-keyboard="false" tabindex="-1" 
+                    aria-labelledby="staticBackdropLabel" 
+                    aria-hidden="true">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Cargando perfil</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body d-flex justify-content-center">
+
+                                    <div class="modal-dialog">
+
+                                        <div class="spinner-border text-secondary" role="status" 
+                                        style="width: 3rem; height: 3rem;">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+
+                                    </div>
+
+                                </div> 
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
@@ -68,6 +108,5 @@
     </main>
 
     <%- include("templates/footer.templates.ejs")%>
-    <script src="/js/loading.js"></script>
 </body>
 </html>
