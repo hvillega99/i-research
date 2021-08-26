@@ -9,7 +9,7 @@
 <body>
     <%- include("templates/navbar.templates.ejs", {titulo: "Perfil de investigador"})%>
     <main>
-
+        <div id="maincontainer">
         <section class="container p-3">
             <div class="row">
                 <h3><%= information.nombre%></h3>
@@ -56,7 +56,8 @@
                     <p>FCWI</p>
                 </div>
             </div>
-        </section>        
+        </section>  
+    </div>     
     </main>
     <%- include("templates/footer.templates.ejs")%>
 </body>
