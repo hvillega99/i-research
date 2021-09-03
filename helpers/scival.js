@@ -49,8 +49,19 @@ class Scival{
         const data = await response.json();
 
         const values = data.results[0].metrics[0].valueByYear;
-
+        this.converjson(values);
         console.log(values);
+    }
+
+    converjson(valores){
+        var dictstring = JSON.stringify(valores);
+        console.log('*****');
+        console.log(dictstring)
+        console.log('*****');
+        var fs = require('fs');
+        fs.writeFile("./public/data/thing.json", dictstring, function(err, result) {
+            if(err) console.log('error', err);
+        });
     }
 
 }
