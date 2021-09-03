@@ -14,6 +14,8 @@ exports.getPerfilInvestigador = async (req, res) =>{
     const fcwi = await scival.getFCWI(scopusId);
     const h5index = await scival.getH5index(scopusId);
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
+    /*const publicationsCount = */scival.getPublications(scopusId);
+    scival.getCitations(scopusId);
 
     const information = {...orcidCountsAndSubjects};
     information['nombre'] = nameAndAffiliations.name;

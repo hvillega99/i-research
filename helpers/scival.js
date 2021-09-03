@@ -20,7 +20,7 @@ class Scival{
     }
 
     async getFCWI(scopusId){
-        const endpoint = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`
+        const endpoint = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
         
         const response = await fetch(endpoint);
         const data = await response.json();
@@ -29,6 +29,28 @@ class Scival{
         const keys = Object.keys(values);
 
         return values[keys[keys.length - 1]];
+    }
+
+    async getPublications(scopusId){
+        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+
+        const response = await fetch(endpoint);
+        const data = await response.json();
+
+        const values = data.results[0].metrics[0].valueByYear;
+
+        console.log(values);
+    }
+    
+    async getCitations(scopusId){
+        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+
+        const response = await fetch(endpoint);
+        const data = await response.json();
+
+        const values = data.results[0].metrics[0].valueByYear;
+
+        console.log(values);
     }
 
 }

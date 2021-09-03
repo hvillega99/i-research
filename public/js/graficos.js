@@ -31,7 +31,7 @@ var lineChart = new Chart(speedCanvas, {
 
 const getH5index = async (scopusId) =>{
     const uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
-    const apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+    
     const endpoint = `${uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${apiKey}`
 
     const response = await fetch(endpoint);
@@ -42,6 +42,16 @@ const getH5index = async (scopusId) =>{
     return keys.map(key => values[key]);
 };
 
+const url =  "https://api.elsevier.com/analytics/scival/author/metrics?";
+const apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+
+const getPublications = async (scopusId) => {
+
+}
+
+const getCitations = async (scopusId) => {
+
+}
 
 const pId = document.getElementById("scopusId").innerText;
 const scopusId = pId.split(": ")[1];
