@@ -32,34 +32,29 @@ class Scival{
     }
 
     async getPublications(scopusId){
-        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
 
         const response = await fetch(endpoint);
         const data = await response.json();
 
         const values = data.results[0].metrics[0].valueByYear;
-
-        console.log(values);
+        this.saveData(values, 'publicaciones.json');
     }
     
     async getCitations(scopusId){
-        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
 
         const response = await fetch(endpoint);
         const data = await response.json();
 
         const values = data.results[0].metrics[0].valueByYear;
-        this.converjson(values);
-        console.log(values);
+        this.saveData(values, 'citaciones.json');
     }
 
-    converjson(valores){
-        var dictstring = JSON.stringify(valores);
-        console.log('*****');
-        console.log(dictstring)
-        console.log('*****');
+    saveData(data, filename){
+        var dictstring = JSON.stringify(data);
         var fs = require('fs');
-        fs.writeFile("./public/data/thing.json", dictstring, function(err, result) {
+        fs.writeFile(`./public/data/${filename}`, dictstring, function(err, result) {
             if(err) console.log('error', err);
         });
     }
