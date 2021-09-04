@@ -2,6 +2,8 @@ class Datajson{
 
     constructor(){
         this.jsondatos = require("../public/data/mySciVal_Researchers_Export.json");
+        this.facultades = require("../public/data/unidadesAcademicas.json");
+        this.centros = require("../public/data/centros.json");
     }
 
     busquedaNombre(nombre){    
@@ -19,10 +21,45 @@ class Datajson{
         )
     }
 
+    busquedaFacultad(nombre){
+        return this.facultades.filter(facultad => facultad.nombre.includes(nombre.toLocaleUpperCase()));
+    }
+
+    busquedaCentro(nombre){
+        return this.centros.filter(centro => centro.nombre.includes(nombre.toLocaleUpperCase()));
+    }
+
+    getInformacionUnidad(nombre){
+        return this.facultades.find(facultad => facultad.nombre == nombre.toLocaleUpperCase());
+    }
+
+    getInformacionCentro(nombre){
+        return this.centros.find(centro => centro.nombre == nombre.toLocaleUpperCase());
+    }
+
+    getInvestigadores(nombre){
+        const arr = [];
+        const result = this.jsondatos.filter(item => {
+            if(item['Level 3'] == nombre.toLocaleUpperCase() && !arr.includes(item["Scopus Author ID"])){
+                arr.push(item["Scopus Author ID"]);
+                return true;
+            }
+            return false;
+        });
+
+        return result.map(item => ({autor: item['Author'], id: item["Scopus Author ID"]}));
+    }
+
     getNameAndAffiliations(scopusId){
         const data = this.jsondatos.filter( resultado =>  resultado["Scopus Author ID"]==scopusId);
-        let affiliations = data.map(item => item['Level 3']);
-        affiliations = [...new Set(affiliations)];
+        let result = data.map(item => item['Level 3']);
+        result = [...new Set(result)];
+        
+        const affiliations = {
+            unidades: result.filter(item => this.facultades.find(element => element.nombre == item)),
+            centros: result.filter(item => this.centros.find(element => element.nombre == item))
+        }
+
         return {
             'name': data[0]['Author'],
             'affiliations': affiliations

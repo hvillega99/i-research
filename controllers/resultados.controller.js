@@ -6,8 +6,13 @@ exports.find = (req, res) =>{
     const thejson = new Datajson();
 
     let data = thejson.busquedaNombre(terms);
-    //let elresult = thejson.busquedaId("56538670900");
-    //console.log(elresult);
+    const resultadosCentros = thejson.busquedaCentro(terms);
+    const resultadosFacultades = thejson.busquedaFacultad(terms);
+    const totalResultados = data.length + resultadosCentros.length + resultadosFacultades.length;
     
-    res.render("../views/resultados.views.ejs", {total: data.length, resultados: data, terminos: terms});
+    res.render("../views/resultados.views.ejs", {total: totalResultados, 
+                                                resultados: data, 
+                                                facultades: resultadosFacultades, 
+                                                centros: resultadosCentros, 
+                                                terminos: terms});
 };

@@ -1,8 +1,7 @@
 const {Router} = require("express");
+const unidadControler = require('../controllers/unidad.controller');
 const router = Router();
 
-router.get("/:uaName", (req, res) => {
-    res.render("../views/unidad_academica.views.ejs")
-});
+router.get("/:uaName", unidadControler.getPerfilUnidad);
 
 module.exports = router;

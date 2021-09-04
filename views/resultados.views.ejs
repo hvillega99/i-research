@@ -21,7 +21,7 @@
 
                         <div class="form-group col-md-11">
                             <input type="search" class="form-control" id="input-finder"
-                            placeholder="Ingrese un investigador, unidad académica o centro de investigación" 
+                            placeholder="Busca un investigador, unidad académica o centro de investigación" 
                             name="terms" required>
                             
                         </div>
@@ -69,6 +69,66 @@
                         </div>
                     
                     <% }) %>
+
+                    <% facultades.forEach(facultad => { %>
+
+                        <div class="card m-4">
+
+                            <div class="card-header">
+                                Unidad académica
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <h5 class="card-title"><%= facultad.nombre %></h5>
+                        
+                                <form action="/unidad/<%= facultad.nombre %>" 
+                                method="get">
+
+                                        <input type="submit" 
+                                        class="btn btn-primary" 
+                                        value="Ver perfil"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#loadingModal">
+
+                                </form> 
+
+                            </div>
+
+                        </div>
+                    
+                    <% }) %>
+
+                    <% centros.forEach(centro => { %>
+
+                        <div class="card m-4">
+
+                            <div class="card-header">
+                                Centro de investigación
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <h5 class="card-title"><%= centro.nombre %></h5>
+                        
+                                <form action="/centro/<%= centro.nombre %>" 
+                                method="get">
+
+                                        <input type="submit" 
+                                        class="btn btn-primary" 
+                                        value="Ver perfil"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#loadingModal">
+
+                                </form> 
+
+                            </div>
+
+                        </div>
+                    
+                    <% }) %>
+
+
 
                     <div class="modal fade" id="loadingModal" data-bs-backdrop="static" 
                     data-bs-keyboard="false" tabindex="-1" 

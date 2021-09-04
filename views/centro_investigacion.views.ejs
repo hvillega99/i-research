@@ -3,13 +3,83 @@
 <head>
     <%- include("templates/cabecera.templates.ejs")%>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/perfil.css">
     <title>Centro de investigación</title>
 </head>
 <body>
     <%- include("templates/navbar.templates.ejs", {titulo: "Centro de investigación"})%>
     <main>
+        <div id="maincontainer">
+            <section class="container p-3">
+                <div class="row">
+                    <h3><%= siglas %></h3>
+                    <div class="col-md-6">
+                        <p><%= nombre %></p>
+                    </div>
+
+                    <div class="col-md-6"></div>
+                </div>
+            </section>
+
+            <div class="division"></div>
+
+            <section class="container p-3">
+                <div class="row"> 
+                    <div class="col-md-2">
+                        <h5>Métricas</h5>
+                        <h5><%= totalInvestigadores %></h5>
+                        <p>Investigadores</p>
+                    </div>
+                    <div class="col-md-5">
+                        <canvas id="grafica-citaciones" width="400" height="300">
+                        </canvas>
+                    </div>
+                    <div class="col-md-5">
+                        <canvas id="grafica-publicaciones" width="400" height="300">
+                        </canvas>
+                    </div>
+                </div>
+            </section>  
+
+            <div class="division"></div>
+            
+            <section class="container p-3 text-center">
+
+                <h5>Investigadores</h5>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Autor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <% i = 0 %>
+                                <% investigadores.forEach(item => { %>
+                                    <% i++ %>
+                                    <tr>
+                                        <th scope="row"><%= i %></th>
+                                        <td>
+                                            <a style="text-decoration: none; color: black;" 
+                                            href="/investigador/<%= item.id %>"> 
+                                                <%= item.autor %> 
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% }) %>
         
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>  
     </main>
-    <%- include("templates/footer.templates.ejs")%>
 </body>
 </html>

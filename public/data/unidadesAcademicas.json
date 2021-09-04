@@ -1,0 +1,38 @@
+[
+    {
+        "nombre": "FIEC",
+        "nombreCompleto": "Facultad de Ingeniería en Electricidad y Computación"
+    },
+    {
+        "nombre": "FICT",
+        "nombreCompleto": "Facultad de Ingeniería en Ciencias de la Tierra"
+    },
+    {
+        "nombre": "FADCOM",
+        "nombreCompleto": "Facultad de Arte, Diseño y Comunicación Audiovisual"
+    },
+    {
+        "nombre": "FCNM",
+        "nombreCompleto": "Facultad de Ciencias Naturales y Matemáticas"
+    },
+    {
+        "nombre": "FCSH",
+        "nombreCompleto": "Facultad de Ciencias Sociales y Humanísticas"
+    },
+    {
+        "nombre": "ESPAE",
+        "nombreCompleto": "ESPAE, Escuela de Negocios de la ESPOL"
+    },
+    {
+        "nombre": "FCV",
+        "nombreCompleto": "Facultad de Ciencias de la Vida"
+    },
+    {
+        "nombre": "FIMCP",
+        "nombreCompleto": "Facultad de Ingeniería en Mecánica y Ciencias de la Producción"
+    },
+    {
+        "nombre": "FIMCM",
+        "nombreCompleto": "Facultad de Ingeniería Marítima y Ciencias del Mar"
+    }
+]

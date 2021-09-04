@@ -10,62 +10,80 @@
     <%- include("templates/navbar.templates.ejs", {titulo: "Perfil de investigador"})%>
     <main>
         <div id="maincontainer">
-        <section class="container p-3">
-            <div class="row">
-                <h3><%= information.nombre%></h3>
-                <div class="col-md-6">
+            <section class="container p-3">
+                <div class="row">
+                    <h3><%= information.nombre%></h3>
+                    <div class="col-md-6">
 
-                    <% information.afiliaciones.forEach(item => { %>
+                        <% information.afiliaciones.unidades.forEach(item => { %>
 
-                        <p class="badge rounded-pill bg-secondary"><%= item%></p>
+                            <p class="badge rounded-pill bg-secondary">
+                                <a href="/unidad/<%= item %>" style="text-decoration: none; color: white;">
+                                    <%= item%>
+                                </a>
+                            </p>
 
-                    <% }) %>
+                        <% }) %>
 
-                    <p>Orcid: <%= information.orcid%> </p>
-                    <p id="scopusId">Scopus id: <%= information.id%> </p>
+                        <% information.afiliaciones.centros.forEach(item => { %>
+
+                            <p class="badge rounded-pill bg-secondary">
+                                <a href="/centro/<%= item %>" style="text-decoration: none; color: white;">
+                                    <%= item%>
+                                </a>
+                            </p>
+
+                        <% }) %>
+
+                        <p>Orcid: <%= information.orcid%> </p>
+                        <p>Scopus id: <a id="scopusId" 
+                            href="https://www.scopus.com/authid/detail.uri?authorId=<%= information.id %>"
+                            target="_blank">
+                            <%= information.id%>
+                        </a></p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5>Áreas de investigación</h5>
+
+                        <% information.areas.forEach(item => { %>
+
+                            <p class="badge rounded-pill bg-secondary"><%= item%></p>
+
+                        <% }) %>
+
+                    </div>
                 </div>
+            </section>
 
-                <div class="col-md-6">
-                    <h5>Áreas de investigación</h5>
+            <div class="division"></div>
 
-                    <% information.areas.forEach(item => { %>
-
-                        <p class="badge rounded-pill bg-secondary"><%= item%></p>
-
-                    <% }) %>
-
+            <section class="container p-3">
+                <div class="row"> 
+                    <div class="col-md-2">
+                        <h5>Métricas</h5>
+                        <h5><%= information.documentos%></h5>
+                        <p>Publicaciones</p>
+                        <h5><%= information.citas%></h5>
+                        <p>Citaciones</p>
+                        <h5><%= information.hIndex%></h5>
+                        <p>H-index</p>
+                        <h5><%= information.h5Index%></h5>
+                        <p>H5-index</p>
+                        <h5><%= information.fcwi%></h5>
+                        <p>FCWI</p>
+                    </div>
+                    <div class="col-md-5">
+                        <canvas id="grafica-citaciones" width="400" height="300">
+                        </canvas>
+                    </div>
+                    <div class="col-md-5">
+                        <canvas id="grafica-publicaciones" width="400" height="300">
+                        </canvas>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <div id="division"></div>
-
-        <section class="container p-3">
-            <div class="row"> 
-                <div class="col-md-2">
-                    <h5>Métricas</h5>
-                    <h5><%= information.documentos%></h5>
-                    <p>Publicaciones</p>
-                    <h5><%= information.citas%></h5>
-                    <p>Citaciones</p>
-                    <h5><%= information.hIndex%></h5>
-                    <p>H-index</p>
-                    <h5><%= information.h5Index%></h5>
-                    <p>H5-index</p>
-                    <h5><%= information.fcwi%></h5>
-                    <p>FCWI</p>
-                </div>
-                <div class="col-md-5">
-                    <canvas id="grafica-citaciones" width="400" height="300">
-                    </canvas>
-                </div>
-                <div class="col-md-5">
-                    <canvas id="grafica-publicaciones" width="400" height="300">
-                    </canvas>
-                </div>
-            </div>
-        </section>  
-    </div>     
+            </section>  
+        </div>     
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/graficos.js"></script>
