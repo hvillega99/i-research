@@ -11,6 +11,12 @@ exports.getPerfilInvestigador = async (req, res) =>{
 
     const orcidCountsAndSubjects = await scopus.getDataAndAreas(scopusId);
     const hIndex = await scopus.getHindex(scopusId);
+
+    //Parte 1 de los nombres de los topicos y sus frecuencias
+    //Buscar los id de las publicaciones
+    //const publications = await scopus.getPublicationsId(scopusId);
+   
+
     const fcwi = await scival.getFCWI(scopusId);
     const h5index = await scival.getH5index(scopusId);
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
@@ -25,5 +31,20 @@ exports.getPerfilInvestigador = async (req, res) =>{
     information['hIndex'] = hIndex;
     information['h5Index'] = h5index;
     
+    //Parte 2 de los nombres de los topicos y sus frecuencias
+    /*
+    var mapa = {}
+    for (let propi of publications){
+        const topicsid = await scival.getInfoPublications(propi);
+        const nametopics = await scival.getTopicName(topicsid);
+        if(nametopics in mapa){
+            mapa[nametopics]++;
+        }
+        else{
+            mapa[nametopics]=1;
+        }
+    }
+    console.log(mapa);
+    */
     res.render("../views/investigador.views.ejs", {information: information});
 }

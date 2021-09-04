@@ -53,6 +53,20 @@ class Scival{
         //this.saveData(values, 'citaciones.json');
     }
 
+    async getInfoPublications(publicationID){
+        const endpoint = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${this.apiKey}`;
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        return data.publication.topicId;
+    }
+
+    async getTopicName(topicID){
+        const endpoint = `https://api.elsevier.com/analytics/scival/topic/${topicID}?apiKey=${this.apiKey}`;
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        return data.topic.name;
+    }
+
     saveData(data, filename){
         var dictstring = JSON.stringify(data);
         var fs = require('fs');

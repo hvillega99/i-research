@@ -38,6 +38,17 @@ class Scopus{
         return data;
     }
 
+    async getPublicationsId(scopusId){
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const information = await response.json();
+        var plop = []
+        information['search-results']["entry"].forEach(element => plop.push(element['dc:identifier'].split(':')[1]));
+        return plop;
+    }
+
 }
 
 module.exports = Scopus;
