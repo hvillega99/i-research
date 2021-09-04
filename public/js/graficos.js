@@ -1,10 +1,13 @@
+const id = document.getElementById('scopusId').textContent;
+
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch('/data/citaciones.json')
+fetch(`/api/citationsByYear/${id}`)
 .then(response => response.json())
 .then(dataset => {
     const years = ['2016','2017','2018','2019', '2020', '2021'];
     const values = years.map(year => dataset[year]);
-    const chart1 = new Chart(grafica1, {
+    const maxValue = Math.max.apply( Math, values );
+    new Chart(grafica1, {
         type: 'line',
         data: {
             labels: years,
@@ -32,7 +35,8 @@ fetch('/data/citaciones.json')
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: maxValue < 20? 1:0
                     }
                 }]
             }
@@ -41,12 +45,13 @@ fetch('/data/citaciones.json')
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
-fetch('/data/publicaciones.json')
+fetch(`/api/publicationsByYear/${id}`)
 .then(response => response.json())
 .then(dataset => {
     const years = ['2016','2017','2018','2019', '2020', '2021'];
     const values = years.map(year => dataset[year]);
-    const chart2 = new Chart(grafica2, {
+    const maxValue = Math.max.apply( Math, values );
+    new Chart(grafica2, {
         type: 'bar',
         data: {
             labels: years,
@@ -74,7 +79,8 @@ fetch('/data/publicaciones.json')
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: maxValue < 20? 1:0
                     }
                 }]
             }

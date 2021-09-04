@@ -38,7 +38,8 @@ class Scival{
         const data = await response.json();
 
         const values = data.results[0].metrics[0].valueByYear;
-        this.saveData(values, 'publicaciones.json');
+        return values;
+        //this.saveData(values, 'publicaciones.json');
     }
     
     async getCitations(scopusId){
@@ -48,7 +49,8 @@ class Scival{
         const data = await response.json();
 
         const values = data.results[0].metrics[0].valueByYear;
-        this.saveData(values, 'citaciones.json');
+        return values;
+        //this.saveData(values, 'citaciones.json');
     }
 
     saveData(data, filename){

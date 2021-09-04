@@ -1,9 +1,9 @@
 class Datajson{
 
     constructor(){
-        this.jsondatos = require("../public/data/mySciVal_Researchers_Export.json");
-        this.facultades = require("../public/data/unidadesAcademicas.json");
-        this.centros = require("../public/data/centros.json");
+        this.jsondatos = require("../resources/data/mySciVal_Researchers_Export.json");
+        this.facultades = require("../resources/data/unidadesAcademicas.json");
+        this.centros = require("../resources/data/centros.json");
     }
 
     busquedaNombre(nombre){    
