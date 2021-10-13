@@ -37,7 +37,8 @@ class Scival{
         const response = await fetch(endpoint);
         const data = await response.json();
 
-        const values = data.results[0].metrics[0].valueByYear;
+        //const values = data.results[0].metrics[0].valueByYear;
+        const values = data.results.map(item => item.metrics[0].valueByYear);
         return values;
         //this.saveData(values, 'publicaciones.json');
     }
@@ -48,7 +49,8 @@ class Scival{
         const response = await fetch(endpoint);
         const data = await response.json();
 
-        const values = data.results[0].metrics[0].valueByYear;
+        //const values = data.results[0].metrics[0].valueByYear;
+        const values = data.results.map(item => item.metrics[0].valueByYear);
         return values;
         //this.saveData(values, 'citaciones.json');
     }

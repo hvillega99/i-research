@@ -16,5 +16,8 @@ router.get("/publicationsByYear/:scopusId", async (req, res) => {
 
 router.get('/metrics/:scopusId', apiController.getMetrics);
 
+router.get('/citationsByYear/ua/:ua', apiController.getUACitationsByYear);
+
+router.get('/publicationsByYear/ua/:ua', apiController.getUAPublicationsByYear);
 
 module.exports = router;

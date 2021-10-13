@@ -1,11 +1,11 @@
-const id = document.getElementById('scopusId').textContent;
+const id = document.getElementById('uaId').textContent.toLowerCase();
 
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch(`/api/citationsByYear/${id}`)
+fetch(`/api/citationsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
-    const years = Object.keys(dataset[0]);
-    const values = years.map(year => dataset[0][year]);
+    const years = Object.keys(dataset);
+    const values = years.map(year => dataset[year]);
     const maxValue = Math.max.apply( Math, values );
     new Chart(grafica1, {
         type: 'line',
@@ -45,11 +45,11 @@ fetch(`/api/citationsByYear/${id}`)
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
-fetch(`/api/publicationsByYear/${id}`)
+fetch(`/api/publicationsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
-    const years = Object.keys(dataset[0]);
-    const values = years.map(year => dataset[0][year]);
+    const years = Object.keys(dataset);
+    const values = years.map(year => dataset[year]);
     const maxValue = Math.max.apply( Math, values );
     new Chart(grafica2, {
         type: 'bar',
