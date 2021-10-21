@@ -22,7 +22,16 @@ class Datajson{
     }
 
     busquedaFacultad(nombre){
-        return this.facultades.filter(facultad => facultad.nombre.includes(nombre.toLocaleUpperCase()));
+        //return this.facultades.filter(facultad => facultad.nombre.includes(nombre.toLocaleUpperCase()));
+        let facFiltradas = this.facultades.filter(function (currentElement) {
+            if(currentElement.nombre.includes(nombre.toLocaleUpperCase()) || currentElement.nombreCompleto.toLocaleUpperCase().includes(nombre.toLocaleUpperCase())){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+        return facFiltradas;
     }
 
     busquedaCentro(nombre){

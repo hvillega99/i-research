@@ -1,11 +1,11 @@
 [
     {
         "nombre": "FIEC",
-        "nombreCompleto": "Facultad de Ingeniería en Electricidad y Computación"
+        "nombreCompleto": "Facultad de Ingenieria en Electricidad y Computacion"
     },
     {
         "nombre": "FICT",
-        "nombreCompleto": "Facultad de Ingeniería en Ciencias de la Tierra"
+        "nombreCompleto": "Facultad de Ingenieria en Ciencias de la Tierra"
     },
     {
         "nombre": "FADCOM",
@@ -29,10 +29,10 @@
     },
     {
         "nombre": "FIMCP",
-        "nombreCompleto": "Facultad de Ingeniería en Mecánica y Ciencias de la Producción"
+        "nombreCompleto": "Facultad de Ingenieria en Mecanica y Ciencias de la Produccion"
     },
     {
         "nombre": "FIMCM",
-        "nombreCompleto": "Facultad de Ingeniería Marítima y Ciencias del Mar"
+        "nombreCompleto": "Facultad de Ingenieria Marítima y Ciencias del Mar"
     }
 ]
