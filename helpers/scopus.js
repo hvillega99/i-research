@@ -4,7 +4,7 @@ class Scopus{
 
     constructor(){
         this.uri = "https://api.elsevier.com/content/author/";
-        this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+        this.apiKey = "d65494974182038129c6a7821afc8b56";
     }
 
     async getDataAndAreas(scopusId){
