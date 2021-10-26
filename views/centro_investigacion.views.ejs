@@ -55,6 +55,8 @@
                               <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Autor</th>
+                                <th scope="col">Publicaciones</th>
+                                <th scope="col">Citaciones</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -63,11 +65,21 @@
                                     <% i++ %>
                                     <tr>
                                         <th scope="row"><%= i %></th>
-                                        <td>
+                                        <td id="<%= item.id %>" class="autor">
                                             <a style="text-decoration: none; color: black;" 
                                             href="/investigador/<%= item.id %>"> 
                                                 <%= item.autor %> 
                                             </a>
+                                        </td>
+                                        <td id="publicaciones-<%= item.id %>">
+                                            <div class="spinner-border" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </td>
+                                        <td id="citaciones-<%= item.id %>">
+                                            <div class="spinner-border" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
                                         </td>
                                     </tr>
                                 <% }) %>
@@ -83,5 +95,6 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/graficosUA.js"></script>
+    <script src="/js/listaInvestigadores.js"></script>
 </body>
 </html>
