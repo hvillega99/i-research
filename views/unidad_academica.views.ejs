@@ -11,13 +11,14 @@
     <main>
         <div id="maincontainer">
             <section class="container p-3">
-                <div class="row">
-                    <h3 id="uaId"><%= siglas %></h3>
-                    <div class="col-md-6">
-                        <p><%= nombre %></p>
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <img src="/img/icono ua.png" class="w-100 h-100">
                     </div>
-
-                    <div class="col-md-6"></div>
+                    <div class="col-10">
+                        <h2 id="uaId"><%= siglas %></h2>
+                        <h3><%= nombre %></h3>
+                    </div>
                 </div>
             </section>
 
@@ -29,6 +30,10 @@
                         <h5>Métricas</h5>
                         <h5><%= totalInvestigadores %></h5>
                         <p>Investigadores</p>
+                        <h5>###</h5>
+                        <p>Publicaciones</p>
+                        <h5>###</h5>
+                        <p>Citaciones</p>
                     </div>
                     <div class="col-md-5">
                         <canvas id="grafica-citaciones" width="400" height="300">
