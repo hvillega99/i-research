@@ -21,6 +21,7 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "fetch-retry": "^5.0.1",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1"
   },

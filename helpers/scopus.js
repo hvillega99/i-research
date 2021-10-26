@@ -44,6 +44,8 @@ class Scopus{
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
+       
+        
 
         let data = await response.json();
         data = data['author-retrieval-response'][0]['coredata'];
@@ -56,27 +58,25 @@ class Scopus{
 
         return result;
 
-        /*const results = [];
-        for(let i=0; i<arrId.length; i++){
+        
+    }
+    async getMetrics2(laLista){
 
-            const scopusId = arrId[i];
-            const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
+        //const laLista2 = ["22988279600","36240865700","57194655663","57218378468"]
 
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
+        const url = `${this.uri}author_id/${laLista}?apiKey=${this.apiKey}&view=metrics`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+       
+        
 
-            let data = await response.json();
-            data = data['author-retrieval-response'][0]['coredata'];
-            const result = {
-                id: scopusId,
-                publications: data['document-count'],
-                citations: data['citation-count']
-            }
-            results.push(result);
-       }
+        let data = await response.json();
+        
 
-       console.log(results);*/
+        return data;
+
+        
     }
 
     async getPublicationsId(scopusId){

@@ -11,6 +11,11 @@ exports.getMetrics = async (req, res) => {
     const metrics = await scopus.getMetrics(scopusId);
     res.send(metrics);
 }
+exports.getMetrics2 = async (req, res) => {
+    const losScopus = req.params.losXd;
+    const metrics = await scopus.getMetrics2(losScopus);
+    res.send(metrics);
+}
 
 exports.getUACitationsByYear = async (req, res) => {
     const ua = req.params.ua;
