@@ -15,6 +15,7 @@ exports.getPerfilInvestigador = async (req, res) =>{
     //Parte 1 de los nombres de los topicos y sus frecuencias
     //Buscar los id de las publicaciones
     //const publications = await scopus.getPublicationsId(scopusId);
+    const publications2 = await scopus.getPublicationsTitle(scopusId);
    
 
     const fcwi = await scival.getFCWI(scopusId);
@@ -30,21 +31,32 @@ exports.getPerfilInvestigador = async (req, res) =>{
     information['fcwi'] = fcwi;
     information['hIndex'] = hIndex;
     information['h5Index'] = h5index;
-    
+    information['publicaciones'] = publications2;
+
+    //console.log(publications);
+    //console.log(publications2);
     //Parte 2 de los nombres de los topicos y sus frecuencias
     /*
     var mapa = {}
-    for (let propi of publications){
+    for await (let propi of publications){
         const topicsid = await scival.getInfoPublications(propi);
+        console.log(topicsid);
+        
         const nametopics = await scival.getTopicName(topicsid);
+        console.log(nametopics);
+        
+        
         if(nametopics in mapa){
             mapa[nametopics]++;
         }
         else{
             mapa[nametopics]=1;
         }
+        
+        
     }
-    console.log(mapa);
     */
+    //console.log(mapa);
+    
     res.render("../views/investigador.views.ejs", {information: information});
 }

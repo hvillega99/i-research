@@ -56,7 +56,7 @@ class Scival{
     }
 
     async getInfoPublications(publicationID){
-        const endpoint = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${this.apiKey}`;
+        const endpoint = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${this.apiKey}&httpAccept=application/json`;
         const response = await fetch(endpoint);
         const data = await response.json();
         return data.publication.topicId;

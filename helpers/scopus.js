@@ -85,6 +85,30 @@ class Scopus{
         return plop;
     }
 
+    async getPublicationsTitle(scopusId){
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const information = await response.json();
+        var plop = []
+        information['search-results']["entry"].forEach(element => {
+            
+            var plop2 = [];
+            
+            var title= element['dc:title'];
+            var citation = element['citedby-count'];
+            plop2.push(title);
+            plop2.push(citation);
+            plop.push(plop2);
+
+
+
+        }
+        );
+        return plop;
+    }
+
 }
 
 module.exports = Scopus;
