@@ -14,10 +14,6 @@ router.get("/publicationsByYear/:scopusId", async (req, res) => {
     res.send(publications); 
 });
 
-router.get('/metrics/:scopusId', apiController.getMetrics);
-
-router.get('/metrics2/:losXd', apiController.getMetrics2);
-
 router.get('/citationsByYear/ua/:ua', apiController.getUACitationsByYear);
 
 router.get('/publicationsByYear/ua/:ua', apiController.getUAPublicationsByYear);

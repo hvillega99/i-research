@@ -38,7 +38,7 @@ class Scopus{
         return data;
     }
 
-    async getMetrics(scopusId){
+    /*async getMetrics(scopusId){
 
         const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
         const response = await fetch(url,{
@@ -59,22 +59,17 @@ class Scopus{
         return result;
 
         
-    }
-    async getMetrics2(laLista){
+    }*/
+    async getMetrics(idArr){
 
-        //const laLista2 = ["22988279600","36240865700","57194655663","57218378468"]
-
-        const url = `${this.uri}author_id/${laLista}?apiKey=${this.apiKey}&view=metrics`;
+        const url = `${this.uri}author_id/${idArr}?apiKey=${this.apiKey}&view=metrics`;
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
        
-        
-
-        let data = await response.json();
-        
-
-        return data;
+        const data = await response.json();
+    
+        return data['author-retrieval-response-list']['author-retrieval-response'];
 
         
     }

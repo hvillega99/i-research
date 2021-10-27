@@ -1,21 +1,8 @@
-const Scopus = require('../helpers/scopus');
 const Scival = require('../helpers/scival');
 const Datajson = require('../helpers/jsondata');
 
 const dbController = new Datajson();
 const scival = new Scival();
-const scopus = new Scopus();
-
-exports.getMetrics = async (req, res) => {
-    const scopusId = req.params.scopusId;
-    const metrics = await scopus.getMetrics(scopusId);
-    res.send(metrics);
-}
-exports.getMetrics2 = async (req, res) => {
-    const losScopus = req.params.losXd;
-    const metrics = await scopus.getMetrics2(losScopus);
-    res.send(metrics);
-}
 
 exports.getUACitationsByYear = async (req, res) => {
     const ua = req.params.ua;
