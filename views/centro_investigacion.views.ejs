@@ -46,52 +46,72 @@
                 </div>
             </section>  
 
+            <div class="container text-center">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true">Investigadores</button>
+                    </li>
+                    <!-- <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Estadísticas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Proyectos</button>
+                    </li> -->
+                </ul>
+            </div>
+
             <div class="division"></div>
             
-            <section class="container p-3 text-center">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="investigadores" role="tabpanel" aria-labelledby="home-tab">
 
-                <h5>Investigadores</h5>
-
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Autor</th>
-                                <th scope="col">Publicaciones</th>
-                                <th scope="col">Citaciones</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <% i = 0 %>
-                                <% investigadores.forEach(item => { %>
-                                    <% i++ %>
-                                    <tr>
-                                        <th scope="row"><%= i %></th>
-                                        <td id="<%= item.id %>" class="autor">
-                                            <a style="text-decoration: none; color: black;" 
-                                            href="/investigador/<%= item.id %>"> 
-                                                <%= item.autor %> 
-                                            </a>
-                                        </td>
-                                        <td id="publicaciones-<%= item.id %>">
-                                            <%= item.publicaciones %>
-                                        </td>
-                                        <td id="citaciones-<%= item.id %>">
-                                            <%= item.citaciones %>
-                                        </td>
-                                    </tr>
-                                <% }) %>
+                    <section class="container p-3 text-center">
         
-                            </tbody>
-                        </table>
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+        
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Autor</th>
+                                        <th scope="col">Publicaciones</th>
+                                        <th scope="col">Citaciones</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% i = 0 %>
+                                        <% investigadores.forEach(item => { %>
+                                            <% i++ %>
+                                            <tr>
+                                                <th scope="row"><%= i %></th>
+                                                <td id="<%= item.id %>" class="autor">
+                                                    <a style="text-decoration: none; color: black;" 
+                                                    href="/investigador/<%= item.id %>"> 
+                                                        <%= item.autor %> 
+                                                    </a>
+                                                </td>
+                                                <td id="publicaciones-<%= item.id %>">
+                                                    <%= item.publicaciones %>
+                                                </td>
+                                                <td id="citaciones-<%= item.id %>">
+                                                    <%= item.citaciones %>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                
+                                    </tbody>
+                                </table>
+        
+                            </div>
+                        </div>
+        
+                    </section>
 
-                    </div>
                 </div>
-
-            </section>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
         </div>  
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
