@@ -38,28 +38,6 @@ class Scopus{
         return data;
     }
 
-    /*async getMetrics(scopusId){
-
-        const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
-        const response = await fetch(url,{
-            headers:{'Accept': 'application/json'}
-        });
-       
-        
-
-        let data = await response.json();
-        data = data['author-retrieval-response'][0]['coredata'];
-
-        const result = {
-            id: scopusId,
-            publications: data['document-count'],
-            citations: data['citation-count']
-        }
-
-        return result;
-
-        
-    }*/
     async getMetrics(idArr){
 
         const url = `${this.uri}author_id/${idArr}?apiKey=${this.apiKey}&view=metrics`;
