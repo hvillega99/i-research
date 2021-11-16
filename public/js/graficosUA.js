@@ -8,7 +8,7 @@ fetch(`/api/citationsByYear/ua/${id}`)
     const values = years.map(year => dataset[year]);
     const maxValue = Math.max.apply( Math, values );
     new Chart(grafica1, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: years,
             datasets: [{
