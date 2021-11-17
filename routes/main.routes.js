@@ -1,9 +1,7 @@
 const {Router} = require("express");
+const mainControler = require('../controllers/main.controller');
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.render("../views/main.views.ejs",{saludo:"mundo"})
-    
-});
+router.get("/", mainControler.getMainPage);
 
 module.exports = router;

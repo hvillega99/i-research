@@ -75,7 +75,11 @@ class Datajson{
         };
     }
 
-
+    getAllScopusId(){
+        let arrScopusId = this.jsondatos.map(item => item["Scopus Author ID"]);
+        arrScopusId = [...new Set(arrScopusId)];
+        return arrScopusId;
+    }
 }
 
 module.exports = Datajson;

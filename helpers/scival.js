@@ -7,6 +7,27 @@ class Scival{
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
     }
 
+    async getTopH5Index(scopusIdArr){
+        const scopusId = scopusIdArr.join(',');
+        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
+
+        const response = await fetch(endpoint);
+        let data = await response.json();
+
+        data = data['results'];
+
+        const authors = data.map(result => {
+            const h5 = result['metrics'][0]['value'];
+            const name = result['author']['name'];
+            const id = result['author']['id'];
+            return {id, name, h5}
+        })
+
+        authors.sort((x, y) => y.h5 - x.h5);
+        console.log(authors);
+
+    }
+
     async getH5index(scopusId){
         const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${this.apiKey}`
 
