@@ -75,7 +75,22 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                   
+                                    <% i = 0 %>
+                                    <% authors.forEach(item => { %>
+                                        <% i++ %>
+                                        <tr>
+                                            <th scope="row"><%= i %></th>
+                                            <td id="<%= item.id %>" class="autor">
+                                                <a style="text-decoration: none; color: black;" 
+                                                href="/investigador/<%= item.id %>"> 
+                                                    <%= item.name %> 
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= item.h5 %>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
                                 </tbody>
                             </table>
     
@@ -91,7 +106,7 @@
 
     </main>
 
-    <%- include("templates/footer.templates.ejs")%>
+    <!-- <%- include("templates/footer.templates.ejs")%> -->
 
 </body>
 </html>

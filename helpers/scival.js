@@ -23,8 +23,7 @@ class Scival{
             return {id, name, h5}
         })
 
-        authors.sort((x, y) => y.h5 - x.h5);
-        console.log(authors);
+        return authors;
 
     }
 
