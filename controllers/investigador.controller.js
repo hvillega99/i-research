@@ -15,12 +15,16 @@ exports.getPerfilInvestigador = async (req, res) =>{
     //Parte 1 de los nombres de los topicos y sus frecuencias
     //Buscar los id de las publicaciones
     //const publications = await scopus.getPublicationsId(scopusId);
-    const publications2 = await scopus.getPublicationsTitle(scopusId);
+    const publications2 = await scopus.getPublicationsTitle2(scopusId);
    
 
     const fcwi = await scival.getFCWI(scopusId);
     const h5index = await scival.getH5index(scopusId);
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
+    
+    //const nametopic = await scopus.getTopics(scopusId);
+    
+    //console.log(nametopic);
     //await scival.getPublications(scopusId);
     //await scival.getCitations(scopusId);
 

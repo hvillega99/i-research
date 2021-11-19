@@ -63,6 +63,46 @@ class Scopus{
         return plop;
     }
 
+   
+
+    async getTopics(scopusId){
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const information = await response.json();
+        var plop = [];
+        var plop2 = [];
+        information['search-results']["entry"].forEach(async (element) => 
+            {
+                const publicationID = element['dc:identifier'].split(':')[1];
+                plop.push(publicationID);
+            }
+            );
+        var mapa = {}
+        for await (let publicationID of plop){
+            const endpoint2 = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${this.apiKey}&httpAccept=application/json`;
+            const response2 = await fetch(endpoint2);
+            const data = await response2.json();
+            const topicID = await data.publication.topicId;
+            const endpoint3 = `https://api.elsevier.com/analytics/scival/topic/${topicID}?apiKey=${this.apiKey}`;
+            const response3 = await fetch(endpoint3);
+            const data3 = await response3.json();
+            const nametopics = await data3.topic.name
+            if(nametopics in mapa){
+                mapa[nametopics]++;
+            }
+            else{
+                mapa[nametopics]=1;
+            }
+
+        }
+
+        
+        return mapa;
+
+    }
+
     async getPublicationsTitle(scopusId){
         const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
         const response = await fetch(url,{
@@ -76,8 +116,14 @@ class Scopus{
             
             var title= element['dc:title'];
             var citation = element['citedby-count'];
+            
+            var year = element['prism:coverDate'].split('-')[0]
+            
             plop2.push(title);
             plop2.push(citation);
+
+            plop2.push(year)
+
             plop.push(plop2);
 
 
@@ -86,6 +132,86 @@ class Scopus{
         );
         return plop;
     }
+
+    async getPublicationsTitle2(scopusId){  
+        var flag=0;
+        var count = 1;
+        var inicio=0;
+        var plop = []
+        while(flag==0){
+            const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+            const information = await response.json();
+            var number = information['search-results']['opensearch:totalResults'];
+            var iteraciones = Math.ceil(number/25);
+            information['search-results']["entry"].forEach(element => {
+                
+                var plop2 = [];
+            
+                var title= element['dc:title'];
+                var citation = element['citedby-count'];
+                
+                var year = element['prism:coverDate'].split('-')[0]
+                
+                plop2.push(title);
+                plop2.push(citation);
+    
+                plop2.push(year)
+    
+                plop.push(plop2);
+                
+            }
+            );
+            inicio+=25;
+            count+=1;
+            if(count>iteraciones){
+                flag+=1;
+            }
+          
+        }
+        return plop;
+    }
+
+
+    /*
+    async getPublicationsTitle2(scopusId){  
+        var flag=0;
+        var count = 1;
+        var espol = 0;
+        var inicio=0;
+        while(flag==0){
+            const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+            const information = await response.json();
+            console.log(information);
+            var number = information['search-results']['opensearch:totalResults'];
+            var iteraciones = Math.ceil(number/25);
+            information['search-results']["entry"].forEach(element => {
+                
+                element['affiliation'].forEach(institution =>{
+                    if(institution['affilname']=='Escuela Superior Politecnica del Litoral Ecuador'){
+                        espol+=1;
+                    }
+                } )
+                
+            }
+            );
+            inicio+=25;
+            count+=1;
+            if(count>iteraciones){
+                flag+=1;
+            }
+          
+        }
+        return espol;
+    }
+    */
+
+   
 
 }
 

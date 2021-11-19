@@ -20,7 +20,11 @@ exports.getPerfilUnidad = async(req, res) =>{
             investigador['citaciones'] = citaciones;
         });
 
+        
         const arrPublicaciones = investigadores.map(element => parseInt(element.publicaciones,10));
+        
+
+
         const totalPublicaciones = arrPublicaciones.reduce((i,s) => {
             if(i){
                 return i+s;
@@ -29,6 +33,9 @@ exports.getPerfilUnidad = async(req, res) =>{
                 
             }
         });
+        
+
+
 
         const arrCitaciones = investigadores.map(element => parseInt(element.citaciones,10));
         const totalCitaciones = arrCitaciones.reduce((i,s) => {

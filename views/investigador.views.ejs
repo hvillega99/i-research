@@ -117,6 +117,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Titulo</th>
                                         <th scope="col">Citaciones</th>
+                                        <th scope="col">Año de publicacion</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -130,6 +131,9 @@
                                                 </td>
                                                 <td id="citaciones-<%= i %>">
                                                     <p><%= item[1]%></p>
+                                                </td>
+                                                <td id="anio_publicacion-<%= i %>">
+                                                    <p><%= item[2]%></p>
                                                 </td>
                                             </tr>
                                         <% }) %>
