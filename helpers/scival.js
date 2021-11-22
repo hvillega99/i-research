@@ -52,7 +52,7 @@ class Scival{
     }
 
     async getPublications(scopusId){
-        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
 
         const response = await fetch(endpoint);
         const data = await response.json();
@@ -64,7 +64,7 @@ class Scival{
     }
     
     async getCitations(scopusId){
-        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
+        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`;
 
         const response = await fetch(endpoint);
         const data = await response.json();

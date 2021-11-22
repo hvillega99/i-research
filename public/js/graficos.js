@@ -42,6 +42,9 @@ fetch(`/api/citationsByYear/${id}`)
             }
         }
     });
+
+    const infoCitaciones = document.getElementById('info-citaciones')
+    infoCitaciones.innerHTML += '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Citaciones de las publicaciones de los últimos cinco años.\nEl año actual se muestra de color diferente."></img>'
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
@@ -86,4 +89,7 @@ fetch(`/api/publicationsByYear/${id}`)
             }
         }
     });
+
+    const infoPublicaciones = document.getElementById('info-publicaciones')
+    infoPublicaciones.innerHTML += '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Cantidad de publicaciones de los últimos cinco años.\nEl año actual se muestra de un color diferente."></img>'
 })
