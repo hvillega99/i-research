@@ -4,7 +4,16 @@ class Scival{
 
     constructor(){
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
+        this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+    }
+
+    async getInstitutionCitations(insId){
+        const endpoint = `${this.uriInstitution}metricTypes=CitationCount&authors=${insId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
+
+        const response = await fetch(endpoint);
+        let data = await response.json();
+        return data;
     }
 
     async getTopH5Index(scopusIdArr){

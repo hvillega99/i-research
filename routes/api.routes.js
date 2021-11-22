@@ -18,4 +18,8 @@ router.get('/citationsByYear/ua/:ua', apiController.getUACitationsByYear);
 
 router.get('/publicationsByYear/ua/:ua', apiController.getUAPublicationsByYear);
 
+router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);
+
+router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear);
+
 module.exports = router;

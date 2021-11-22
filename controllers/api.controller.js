@@ -47,3 +47,13 @@ exports.getUAPublicationsByYear = async (req, res) => {
 
     res.send(values);
 }
+
+exports.getEspolCitationsByYear = async (req, res) => {
+    const citations = await scival.getInstitutionCitations('701420');
+    res.send(citations);
+}
+
+exports.getEspolPublicationsByYear = async (req, res) => {
+    const publications = await scival.getPublications('701420');
+    res.send(publications); 
+}
