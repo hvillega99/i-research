@@ -56,15 +56,6 @@
 
                     <div class="row justify-content-center">
                         <div class="unidades_academicas" id="unidades_academicas">
-                            <!-- <a href="/unidad/FIEC">FIEC</a>
-                            <a href="/unidad/FICT">FICT</a>
-                            <a href="/unidad/FADCOM">FADCOM</a>
-                            <a href="/unidad/FCNM">FCNM</a>
-                            <a href="/unidad/FCSH">FCSH</a>
-                            <a href="/unidad/ESPAE">ESPAE</a>
-                            <a href="/unidad/FCV">FCV</a>
-                            <a href="/unidad/FIMCP">FIMCP</a>
-                            <a href="/unidad/FIMCM">FIMCM</a> -->
                             <% faculties.forEach(item => { %>
                                 <div class="uni_acad">
                                     <p><%= item.nombreCompleto %></p>
@@ -77,7 +68,20 @@
                 </section>
             </div>
             <div class="tab-pane fade" id="centros-investigacion" role="tabpanel" aria-labelledby="profile-tab">
+                <section class="container p-3 text-center">
 
+                    <div class="row justify-content-center">
+                        <div class="centros_investigacion" id="centros_investigacion">
+                            <% centros.forEach(item => { %>
+                                <div class="cen_inv">
+                                    <p><%= item.nombreCompleto %></p>
+                                    <a href="/centro/<%= item.nombre %>"><%= item.nombre %></a>
+                                </div>
+                            <% }) %>
+                        </div> 
+                    </div>
+
+                </section>
             </div>
             <div class="tab-pane fade" id="estadisticas" role="tabpanel" aria-labelledby="contact-tab">
 

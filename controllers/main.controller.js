@@ -9,6 +9,11 @@ exports.getMainPage = async (req, res) => {
 
     let authors = [];
     let faculties = [];
+    let centros = [];
+
+    dbController.centros.forEach(element => {
+        centros.push(element);
+    });
 
     dbController.facultades.forEach(element => {
         faculties.push(element);
@@ -22,5 +27,5 @@ exports.getMainPage = async (req, res) => {
     authors.sort((x, y) => y.h5 - x.h5);
     authors = authors.slice(0, 10);
 
-    res.render("../views/main.views.ejs", {authors, faculties});
+    res.render("../views/main.views.ejs", {authors, faculties, centros});
 }
