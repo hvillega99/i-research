@@ -1,16 +1,36 @@
 const fetch = require('node-fetch');
 
 class Scival{
-
+    
     constructor(){
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+       // this.myHeaders = new Headers();
     }
 
     async getInstitutionCitations(insId){
-        const url = `${this.uriInstitution}metricTypes=CitationCount&authors=${insId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
-        const response = await fetch(url);
+        const url = `${this.uriInstitution}metricTypes=CitationCount&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers: {
+                "Accept": "application/json"
+            },
+            redirect: "follow"
+        });
+
+        
+        //this.myHeaders.append("Accept", "application/json");
+
+        /* var requestOptions = {
+        method: 'GET',
+        headers: {"Accept": "application/json"},
+        redirect: 'follow'
+        };
+
+        fetch("https://api.elsevier.com/analytics/scival/institution/metrics?metricTypes=CitationCount&institutionIds=701420&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=d2f270ed229df1d1aa750351fa2c101b", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error)); */
 
         const data = await response.text();
         console.log(data)

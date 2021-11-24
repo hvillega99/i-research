@@ -1,8 +1,9 @@
 
 const grafica1 = document.getElementById("grafica-citaciones");
 fetch('/api/citationsByYearEspol')
-.then(response => response.json())
-.then(dataset => {
+.then(response => response.text())
+.then(data => {console.log(data)})
+/* .then(dataset => {
     const years = Object.keys(dataset[0]);
     const values = years.map(year => dataset[0][year]);
     const maxValue = Math.max.apply( Math, values );
@@ -44,7 +45,7 @@ fetch('/api/citationsByYearEspol')
 
     const infoCitaciones = document.getElementById('info-citaciones')
     infoCitaciones.innerHTML += '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Citaciones de las publicaciones de los últimos cinco años.\nEl año actual se muestra de color diferente."></img>'
-})
+})*/
 
 const grafica2 = document.getElementById("grafica-publicaciones");
 fetch('/api/publicationsByYearEspol')
