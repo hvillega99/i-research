@@ -9,10 +9,11 @@ class Scival{
     }
 
     async getInstitutionCitations(insId){
-        const endpoint = `${this.uriInstitution}metricTypes=CitationCount&authors=${insId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
+        const url = `${this.uriInstitution}metricTypes=CitationCount&authors=${insId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
+        const response = await fetch(url);
 
-        const response = await fetch(endpoint);
-        let data = await response.json();
+        const data = await response.text();
+        console.log(data)
         return data;
     }
 
