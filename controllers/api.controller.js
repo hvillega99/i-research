@@ -57,3 +57,19 @@ exports.getEspolPublicationsByYear = async (req, res) => {
     const publications = await scival.getInstitutionPublications('701420');
     res.send(publications); 
 }
+
+exports.getTopAuthors = async (req, res) => {
+    
+    const arrScopusId = dbController.getAllScopusId();
+    let authors = [];
+
+    for(let i=0; i<10; i++){
+        let subArray = await scival.getHIndexAll(arrScopusId.slice(Math.round((i/10)*arrScopusId.length), Math.round(((i+1)/10)*arrScopusId.length)));
+        authors = [...authors, ...subArray];
+     }
+ 
+     authors.sort((x, y) => y.h - x.h);
+     authors = authors.slice(0, 10);
+
+     res.json(authors);
+}

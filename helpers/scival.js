@@ -36,7 +36,7 @@ class Scival{
         return data;
     }
 
-    async getTopH5Index(scopusIdArr){
+    async getHIndexAll(scopusIdArr){
         const scopusId = scopusIdArr.join(',');
         const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
 
@@ -46,10 +46,10 @@ class Scival{
         data = data['results'];
 
         const authors = data.map(result => {
-            const h5 = result['metrics'][0]['value'];
+            const h = result['metrics'][0]['value'];
             const name = result['author']['name'];
             const id = result['author']['id'];
-            return {id, name, h5}
+            return {id, name, h}
         })
 
         return authors;

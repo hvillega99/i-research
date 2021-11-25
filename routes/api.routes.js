@@ -22,4 +22,6 @@ router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);
 
 router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear);
 
+router.get('/topAuthors', apiController.getTopAuthors);
+
 module.exports = router;
