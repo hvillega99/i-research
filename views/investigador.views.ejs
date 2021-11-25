@@ -160,9 +160,7 @@
                                 <table class="table">
                                     <thead>
                                       <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Scopus-ID</th>
+                                        <th scope="col">No. de colaboradores: <%= information.coauthor.length %> </th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -170,13 +168,19 @@
                                         <% information.coauthor.forEach(item => { %>
                                             <% i++ %>
                                             <tr>
-                                                <th scope="row"><%= i %></th>
+                                                
                                                 <td id="Author-<%= i %>">
                                                     <p><%= item[1]%></p>
+                                                    <p>Scopus-ID:
+                                                        <a
+                                                        
+                                                    href="https://www.scopus.com/authid/detail.uri?authorId=<%= item[0] %>"
+                                                    target="_blank"> 
+                                                        <%= item[0]%>
+                                                    </a>
+                                                    </p>
                                                 </td>
-                                                <td id="scopusID-<%= i %>">
-                                                    <p><%= item[0]%></p>
-                                                </td>
+                                                
                                               
                                             </tr>
                                         <% }) %>

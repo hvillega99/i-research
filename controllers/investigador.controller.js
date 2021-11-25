@@ -41,10 +41,11 @@ exports.getPerfilInvestigador = async (req, res) =>{
     var thescopus = [];
     publications2.forEach( id => { thescopus.push(id[3])});
 
-    const coauthor = await scopus.getCoauthors(thescopus,scopusId);
-    information['coauthor'] = coauthor;
+    //const coauthor = await scopus.getCoauthors(thescopus,scopusId);
+    information['coauthor'] = [[36240865700,'autor1'],[36795354300,'autor2']];
     //var zs= new set(coauthor);
-    //console.log(coauthor);
+    console.log(information['coauthor']);
+    console.log(information['coauthor'].length);
 
     //console.log(publications);
     //console.log(publications2);
