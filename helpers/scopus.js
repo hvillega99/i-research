@@ -141,6 +141,7 @@ class Scopus{
         const endpoint = `https://api.elsevier.com/content/abstract/citations?scopus_id=${scopusId}&apiKey=7f59af901d2d86f78a1fd60c1bf9426a`
         const response = await fetch(endpoint);
         let data = await response.json();
+        console.log(data);
 
         data['abstract-citations-response']['citeInfoMatrix']['citeInfoMatrixXML']['citationMatrix']['citeInfo'].forEach(element => {
             element['author'].forEach( elauthor => {
