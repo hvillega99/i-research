@@ -161,27 +161,26 @@
                                     <thead>
                                       <tr>
                                         <th scope="col">No. de colaboradores: <%= information.coauthor.length %> </th>
-                                      </tr>
+                                        <th></th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <% i = 0 %>
                                         <% information.coauthor.forEach(item => { %>
-                                            <% i++ %>
+
                                             <tr>
+                                                <td><img src="/img/author.png" class="h-25 w-25"></td>
                                                 
                                                 <td id="Author-<%= i %>">
                                                     <p><%= item[1]%></p>
-                                                    <p>Scopus-ID:
-                                                        <a
-                                                        
-                                                    href="https://www.scopus.com/authid/detail.uri?authorId=<%= item[0] %>"
-                                                    target="_blank"> 
-                                                        <%= item[0]%>
-                                                    </a>
+                                                    <p>Scopus id:
+                                                        <a  
+                                                            href="https://www.scopus.com/authid/detail.uri?authorId=<%= item[0] %>"
+                                                            target="_blank"> 
+                                                            <%= item[0]%>
+                                                        </a>
                                                     </p>
                                                 </td>
                                                 
-                                              
                                             </tr>
                                         <% }) %>
                 
