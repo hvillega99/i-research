@@ -150,6 +150,45 @@
 
                 </div>
                 <div class="tab-pane fade" id="colaboradores" role="tabpanel" aria-labelledby="profile-tab">
+
+                    
+                    <section class="container p-3 text-center">
+        
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+        
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Scopus-ID</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% i = 0 %>
+                                        <% information.coauthor.forEach(item => { %>
+                                            <% i++ %>
+                                            <tr>
+                                                <th scope="row"><%= i %></th>
+                                                <td id="Author-<%= i %>">
+                                                    <p><%= item[1]%></p>
+                                                </td>
+                                                <td id="scopusID-<%= i %>">
+                                                    <p><%= item[0]%></p>
+                                                </td>
+                                              
+                                            </tr>
+                                        <% }) %>
+                
+                                    </tbody>
+                                </table>
+        
+                            </div>
+                        </div>
+        
+                    </section>
+
                 </div>
             </div>
 

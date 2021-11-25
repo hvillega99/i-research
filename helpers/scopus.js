@@ -133,6 +133,30 @@ class Scopus{
         return plop;
     }
 
+    async getCoauthors(scopusIdArr,author_x){
+        const scopusId = scopusIdArr.join(',');
+        var plop = {};
+        var plop2 = [];
+
+        const endpoint = `https://api.elsevier.com/content/abstract/citations?scopus_id=${scopusId}&apiKey=7f59af901d2d86f78a1fd60c1bf9426a`
+        const response = await fetch(endpoint);
+        let data = await response.json();
+
+        data['abstract-citations-response']['citeInfoMatrix']['citeInfoMatrixXML']['citationMatrix']['citeInfo'].forEach(element => {
+            element['author'].forEach( elauthor => {
+                if(elauthor['authid']!=author_x){
+                    plop[elauthor['authid']]=elauthor['index-name']
+                }
+            });
+        });
+        
+        for (var i in plop){
+            plop2.push([i,plop[i]]);
+        }
+        return plop2;
+
+    }
+
     async getPublicationsTitle2(scopusId){  
         var flag=0;
         var count = 1;
@@ -154,11 +178,13 @@ class Scopus{
                 var citation = element['citedby-count'];
                 
                 var year = element['prism:coverDate'].split('-')[0]
+                var elscopus = element['dc:identifier'].split(':')[1];
                 
                 plop2.push(title);
                 plop2.push(citation);
     
-                plop2.push(year)
+                plop2.push(year);
+                plop2.push(elscopus);
     
                 plop.push(plop2);
                 

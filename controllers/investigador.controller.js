@@ -22,6 +22,8 @@ exports.getPerfilInvestigador = async (req, res) =>{
     const h5index = await scival.getH5index(scopusId);
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
     
+
+    
     //const nametopic = await scopus.getTopics(scopusId);
     
     //console.log(nametopic);
@@ -36,6 +38,13 @@ exports.getPerfilInvestigador = async (req, res) =>{
     information['hIndex'] = hIndex;
     information['h5Index'] = h5index;
     information['publicaciones'] = publications2;
+    var thescopus = [];
+    publications2.forEach( id => { thescopus.push(id[3])});
+
+    const coauthor = await scopus.getCoauthors(thescopus,scopusId);
+    information['coauthor'] = coauthor;
+    //var zs= new set(coauthor);
+    //console.log(coauthor);
 
     //console.log(publications);
     //console.log(publications2);
