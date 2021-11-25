@@ -6,7 +6,6 @@ class Scival{
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
-       // this.myHeaders = new Headers();
     }
 
     async getInstitutionCitations(insId){
@@ -18,26 +17,26 @@ class Scival{
             redirect: "follow"
         });
 
-        
-        //this.myHeaders.append("Accept", "application/json");
-
-        /* var requestOptions = {
-        method: 'GET',
-        headers: {"Accept": "application/json"},
-        redirect: 'follow'
-        };
-
-        fetch("https://api.elsevier.com/analytics/scival/institution/metrics?metricTypes=CitationCount&institutionIds=701420&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=d2f270ed229df1d1aa750351fa2c101b", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error)); */
-
-        const data = await response.text();
-        console.log(data)
+        let data = await response.json();
+        data = data["results"][0]["metrics"][0]["valueByYear"]
         return data;
     }
 
-    async getTopH5Index(scopusIdArr){
+    async getInstitutionPublications(insId){
+        const url = `${this.uriInstitution}metricTypes=ScholarlyOutput&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers: {
+                "Accept": "application/json"
+            },
+            redirect: "follow"
+        });
+
+        let data = await response.json();
+        data = data["results"][0]["metrics"][0]["valueByYear"]
+        return data;
+    }
+
+    async getHIndexAll(scopusIdArr){
         const scopusId = scopusIdArr.join(',');
         const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}`
 
@@ -47,10 +46,10 @@ class Scival{
         data = data['results'];
 
         const authors = data.map(result => {
-            const h5 = result['metrics'][0]['value'];
+            const h = result['metrics'][0]['value'];
             const name = result['author']['name'];
             const id = result['author']['id'];
-            return {id, name, h5}
+            return {id, name, h}
         })
 
         return authors;
