@@ -23,10 +23,15 @@
 }
 
 .unidades_academicas{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: center; */
+    column-count: 2;
+}
+
+.unidades_academicas div{
+    break-inside: avoid-column;
 }
 
 .contenido_ua{
@@ -34,17 +39,6 @@
     margin-bottom: 10px;
 }
 
-.uni_acad{
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    width: 450px;
-    margin-left: 0 auto;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 10px;
-}
 
 /*Comentario 3*/
 /*Comentario 4*/

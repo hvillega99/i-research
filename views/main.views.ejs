@@ -57,9 +57,12 @@
                     <div class="row justify-content-center">
                         <div class="unidades_academicas" id="unidades_academicas">
                             <% faculties.forEach(item => { %>
-                                <div class="uni_acad">
-                                        <div class="contenido_ua">
-                                            <p><%= item.nombreCompleto %></p>
+                                <div class="card m-4" style="width: 450px;">
+                                    <div class="card-header">
+                                        Unidad académica
+                                    </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title"><%= item.nombreCompleto %></p>
                                             <a href="/unidad/<%= item.nombre %>"><%= item.nombre %></a>
                                     </div>
                                 </div>
