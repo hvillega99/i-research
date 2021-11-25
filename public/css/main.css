@@ -34,6 +34,14 @@
     break-inside: avoid-column;
 }
 
+.centros_investigacion{
+    column-count: 2;
+}
+
+.centros_investigacion div{
+    break-inside: avoid-column;
+}
+
 .contenido_ua{
     margin-top: 10px;
     margin-bottom: 10px;
