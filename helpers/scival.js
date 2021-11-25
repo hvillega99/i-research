@@ -6,7 +6,6 @@ class Scival{
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
-       // this.myHeaders = new Headers();
     }
 
     async getInstitutionCitations(insId){
@@ -18,22 +17,22 @@ class Scival{
             redirect: "follow"
         });
 
-        
-        //this.myHeaders.append("Accept", "application/json");
+        let data = await response.json();
+        data = data["results"][0]["metrics"][0]["valueByYear"]
+        return data;
+    }
 
-        /* var requestOptions = {
-        method: 'GET',
-        headers: {"Accept": "application/json"},
-        redirect: 'follow'
-        };
+    async getInstitutionPublications(insId){
+        const url = `${this.uriInstitution}metricTypes=ScholarlyOutput&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers: {
+                "Accept": "application/json"
+            },
+            redirect: "follow"
+        });
 
-        fetch("https://api.elsevier.com/analytics/scival/institution/metrics?metricTypes=CitationCount&institutionIds=701420&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=d2f270ed229df1d1aa750351fa2c101b", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error)); */
-
-        const data = await response.text();
-        console.log(data)
+        let data = await response.json();
+        data = data["results"][0]["metrics"][0]["valueByYear"]
         return data;
     }
 

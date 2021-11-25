@@ -54,6 +54,6 @@ exports.getEspolCitationsByYear = async (req, res) => {
 }
 
 exports.getEspolPublicationsByYear = async (req, res) => {
-    //const publications = await scival.getPublications('701420');
-    res.send("publications"); 
+    const publications = await scival.getInstitutionPublications('701420');
+    res.send(publications); 
 }
