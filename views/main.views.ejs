@@ -58,8 +58,10 @@
                         <div class="unidades_academicas" id="unidades_academicas">
                             <% faculties.forEach(item => { %>
                                 <div class="uni_acad">
-                                    <p><%= item.nombreCompleto %></p>
-                                    <a href="/unidad/<%= item.nombre %>"><%= item.nombre %></a>
+                                        <div class="contenido_ua">
+                                            <p><%= item.nombreCompleto %></p>
+                                            <a href="/unidad/<%= item.nombre %>"><%= item.nombre %></a>
+                                    </div>
                                 </div>
                             <% }) %>
                         </div> 

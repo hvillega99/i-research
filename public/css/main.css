@@ -22,8 +22,28 @@
     border-color: #213a8f;
 }
 
-.unidad_academica{
-    display: block;
+.unidades_academicas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido_ua{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.uni_acad{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 450px;
+    margin-left: 0 auto;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
 }
 
 /*Comentario 3*/
