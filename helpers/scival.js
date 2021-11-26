@@ -144,8 +144,13 @@ class Scival{
 
         const values = data.results[0].metrics[0].valueByYear;
         const keys = Object.keys(values);
+        const fcwi = values[keys[keys.length - 1]];
 
-        return values[keys[keys.length - 1]];
+        if(fcwi){
+            return fcwi;
+        }
+
+        return 0;
     }
 
     async getPublications(scopusId){
