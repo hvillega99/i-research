@@ -22,6 +22,71 @@ class Scival{
         return data;
     }
 
+    async getCoauthor(scopus){
+        const plop = {};
+        const plop2 = [];
+        const url = `https://api.elsevier.com/analytics/scival/publication/${scopus}?apiKey=${this.apiKey}`
+        const response = await fetch(url,{
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+        let data = await response.json();
+        data['publication']['authors'].forEach(element => {
+            plop[element['id']] = element['name']
+        });
+
+        for (var i in plop){
+            plop2.push([i,plop[i]]);
+        }
+
+        return plop2;
+    }
+    async getCoauthors(thescopus){
+        const plop = {};
+        const plop2 = [];
+        for await(var z of thescopus){
+            //console.log(z);
+            
+            const url = `https://api.elsevier.com/analytics/scival/publication/${z}?apiKey=${this.apiKey}`
+            const response = await fetch(url,{
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+            let data = await response.json();
+            data['publication']['authors'].forEach(element => {
+                plop[element['id']] = element['name']
+            });
+            
+        }
+
+        /*
+        thescopus.forEach(async (scopus) => {
+            console.log(scopus);
+            
+            const url = `https://api.elsevier.com/analytics/scival/publication/${scopus}?apiKey=${this.apiKey}`
+            const response = await fetch(url,{
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+            let data = await response.json();
+            data['publication']['authors'].forEach(element => {
+                plop[element['id']] = element['name']
+            });
+            
+        });
+        */
+        
+        for (var i in plop){
+            plop2.push([i,plop[i]]);
+        }
+        
+        //console.log(plop2.length);
+        return plop2;
+    }
+
     async getInstitutionPublications(insId){
         const url = `${this.uriInstitution}metricTypes=ScholarlyOutput&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
         const response = await fetch(url,{

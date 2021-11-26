@@ -20,6 +20,7 @@ exports.getPerfilInvestigador = async (req, res) =>{
 
     const fcwi = await scival.getFCWI(scopusId);
     const h5index = await scival.getH5index(scopusId);
+    
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
     
 
@@ -40,12 +41,17 @@ exports.getPerfilInvestigador = async (req, res) =>{
     information['publicaciones'] = publications2;
     var thescopus = [];
     publications2.forEach( id => { thescopus.push(id[3])});
-
+    
+    
+    const losco = await scival.getCoauthors(thescopus);
     //const coauthor = await scopus.getCoauthors(thescopus,scopusId);
-    information['coauthor'] = [[36240865700,'autor1'],[36795354300,'autor2']];
+    information['coauthor'] = losco;
     //var zs= new set(coauthor);
-    console.log(information['coauthor']);
-    console.log(information['coauthor'].length);
+    
+    //console.log(information['coauthor']);
+    //console.log(information['coauthor'].length);
+
+    //console.log(losco);
 
     //console.log(publications);
     //console.log(publications2);
