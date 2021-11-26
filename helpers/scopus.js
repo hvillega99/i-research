@@ -132,7 +132,8 @@ class Scopus{
         );
         return plop;
     }
-
+    
+    /*
     async getCoauthors(scopusIdArr,author_x){
         const scopusId = scopusIdArr.join(',');
         var plop = {};
@@ -157,6 +158,7 @@ class Scopus{
         return plop2;
 
     }
+    */
 
     async getPublicationsTitle2(scopusId){  
         var flag=0;

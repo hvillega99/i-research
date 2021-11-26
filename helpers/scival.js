@@ -42,7 +42,7 @@ class Scival{
 
         return plop2;
     }
-    async getCoauthors(thescopus){
+    async getCoauthors(thescopus,elid){
         const plop = {};
         const plop2 = [];
         for await(var z of thescopus){
@@ -56,7 +56,9 @@ class Scival{
             });
             let data = await response.json();
             data['publication']['authors'].forEach(element => {
-                plop[element['id']] = element['name']
+                if(element['id']!=elid){
+                    plop[element['id']] = element['name'];
+                }
             });
             
         }

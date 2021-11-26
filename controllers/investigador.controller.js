@@ -43,7 +43,7 @@ exports.getPerfilInvestigador = async (req, res) =>{
     publications2.forEach( id => { thescopus.push(id[3])});
     
     
-    const losco = await scival.getCoauthors(thescopus);
+    const losco = await scival.getCoauthors(thescopus,scopusId);
     //const coauthor = await scopus.getCoauthors(thescopus,scopusId);
     information['coauthor'] = losco;
     //var zs= new set(coauthor);
