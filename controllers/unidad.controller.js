@@ -48,6 +48,7 @@ exports.getPerfilUnidad = async(req, res) =>{
 
         res.render("../views/unidad_academica.views.ejs", {siglas: informacion.nombre, 
                                                             nombre: informacion.nombreCompleto,
+                                                            logo: informacion.logo,
                                                             totalInvestigadores: investigadores.length,
                                                             totalPublicaciones,
                                                             totalCitaciones,

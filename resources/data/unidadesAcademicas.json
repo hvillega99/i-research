@@ -1,38 +1,47 @@
 [
     {
         "nombre": "FIEC",
-        "nombreCompleto": "Facultad de Ingeniería en Electricidad y Computación"
+        "nombreCompleto": "Facultad de Ingeniería en Electricidad y Computación",
+        "logo": "/logos facultades/fiec.png"
     },
     {
         "nombre": "FICT",
-        "nombreCompleto": "Facultad de Ingeniería en Ciencias de la Tierra"
+        "nombreCompleto": "Facultad de Ingeniería en Ciencias de la Tierra",
+        "logo": "/logos facultades/fict.jpg"
     },
     {
         "nombre": "FADCOM",
-        "nombreCompleto": "Facultad de Arte, Diseño y Comunicación Audiovisual"
+        "nombreCompleto": "Facultad de Arte, Diseño y Comunicación Audiovisual",
+        "logo": "/logos facultades/fadcom.jpg"
     },
     {
         "nombre": "FCNM",
-        "nombreCompleto": "Facultad de Ciencias Naturales y Matemáticas"
+        "nombreCompleto": "Facultad de Ciencias Naturales y Matemáticas",
+        "logo": "/logos facultades/fcnm.png"
     },
     {
         "nombre": "FCSH",
-        "nombreCompleto": "Facultad de Ciencias Sociales y Humanísticas"
+        "nombreCompleto": "Facultad de Ciencias Sociales y Humanísticas",
+        "logo": "/logos facultades/fcsh.png"
     },
     {
         "nombre": "ESPAE",
-        "nombreCompleto": "ESPAE, Escuela de Negocios de la ESPOL"
+        "nombreCompleto": "Escuela de Negocios de la ESPOL",
+        "logo": "/logos facultades/espae.svg"
     },
     {
         "nombre": "FCV",
-        "nombreCompleto": "Facultad de Ciencias de la Vida"
+        "nombreCompleto": "Facultad de Ciencias de la Vida",
+        "logo": "/logos facultades/fcv.jpg"
     },
     {
         "nombre": "FIMCP",
-        "nombreCompleto": "Facultad de Ingeniería en Mecanica y Ciencias de la Producción"
+        "nombreCompleto": "Facultad de Ingeniería en Mecanica y Ciencias de la Producción",
+        "logo": "/logos facultades/fimcp.jpg"
     },
     {
         "nombre": "FIMCM",
-        "nombreCompleto": "Facultad de Ingeniería Marítima y Ciencias del Mar"
+        "nombreCompleto": "Facultad de Ingeniería Marítima y Ciencias del Mar",
+        "logo": "/logos facultades/fimcm.png"
     }
 ]

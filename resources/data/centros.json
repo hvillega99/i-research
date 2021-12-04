@@ -1,38 +1,47 @@
 [
     {
         "nombre": "CIBE",
-        "nombreCompleto": "Centro de Investigaciones Biotecnológicas de Ecuador"
+        "nombreCompleto": "Centro de Investigaciones Biotecnológicas de Ecuador",
+        "logo": "/logos centros/cibe.jpg"
     },
     {
         "nombre": "CTI",
-        "nombreCompleto": "Centro de Tecnologías de Información"
+        "nombreCompleto": "Centro de Tecnologías de Información",
+        "logo": "/logos centros/cti.png"
     },
     {
         "nombre": "CENAIM",
-        "nombreCompleto": "Centro Nacional de Acuicultura e Investigaciones Marinas"
+        "nombreCompleto": "Centro Nacional de Acuicultura e Investigaciones Marinas",
+        "logo": "/logos centros/cenaim.png"
     },
     {
         "nombre": "CADS",
-        "nombreCompleto": "Centro de Agua y Desarrollo Sustentable"
+        "nombreCompleto": "Centro de Agua y Desarrollo Sustentable",
+        "logo": "/logos centros/cads.png"
     },
     {
         "nombre": "CIP-RRD",
-        "nombreCompleto": "Centro Internacional del Pacífico para la Reducción de Riesgos de Desastres"
+        "nombreCompleto": "Centro Internacional del Pacífico para la Reducción de Riesgos de Desastres",
+        "logo": "/logos centros/cip-rrd.jpg"
     },
     {
         "nombre": "CIPAT",
-        "nombreCompleto": "Centro de Investigaciones y Proyectos Aplicados a las Ciencias de la Tierra"
+        "nombreCompleto": "Centro de Investigaciones y Proyectos Aplicados a las Ciencias de la Tierra",
+        "logo": "/logos centros/cipat.jpg"
     },
     {
         "nombre": "CIDIS",
-        "nombreCompleto": "Centro de Investigación, Desarrollo e Innovación de Sistemas Computacionales"
+        "nombreCompleto": "Centro de Investigación, Desarrollo e Innovación de Sistemas Computacionales",
+        "logo": "/logos centros/cidis.jpg"
     },
     {
         "nombre": "CIDNA",
-        "nombreCompleto": "Centro de Investigación y Desarrollo de Nanotecnología"
+        "nombreCompleto": "Centro de Investigación y Desarrollo de Nanotecnología",
+        "logo": "/logos centros/cidna.png"
     },
     {
         "nombre": "CERA",
-        "nombreCompleto": "Centro de Energías Renovables y Alternativas"
+        "nombreCompleto": "Centro de Energías Renovables y Alternativas",
+        "logo": "/logos centros/cera.jpg"
     }
 ]
