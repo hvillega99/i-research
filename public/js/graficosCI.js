@@ -1,6 +1,7 @@
+const id = document.getElementById('uaId').textContent.toLowerCase();
 
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch('/api/citationsByYearEspol')
+fetch(`/api/citationsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
     const years = Object.keys(dataset);
@@ -44,11 +45,11 @@ fetch('/api/citationsByYearEspol')
 
     const infoCitaciones = document.getElementById('info-citaciones')
     infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
-    title="Citaciones de las publicaciones de la institución\nde los últimos cinco años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
+    title="Citaciones de las publicaciones del centro de investigación\nde los últimos cinco años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
-fetch('/api/publicationsByYearEspol')
+fetch(`/api/publicationsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
     const years = Object.keys(dataset);
@@ -89,8 +90,7 @@ fetch('/api/publicationsByYearEspol')
             }
         }
     });
-
-    const infoPublicaciones = document.getElementById('info-publicaciones');
+    const infoPublicaciones = document.getElementById('info-publicaciones')
     infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-    title="Cantidad de publicaciones indexadas de la institución\npor cada uno de los últimos cinco años."></img>`;
+    title="Cantidad de publicaciones indexadas del centro de investigación\npor cada uno de los últimos cinco años."></img>`;
 })

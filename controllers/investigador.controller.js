@@ -39,13 +39,13 @@ exports.getPerfilInvestigador = async (req, res) =>{
     information['hIndex'] = hIndex;
     information['h5Index'] = h5index;
     information['publicaciones'] = publications2;
-    var thescopus = [];
-    publications2.forEach( id => { thescopus.push(id[3])});
+    /* var thescopus = [];
+    publications2.forEach( id => { thescopus.push(id[3])}); */
     
     
-    const losco = await scival.getCoauthors(thescopus,scopusId);
+    //const losco = await scival.getCoauthors(thescopus,scopusId);
     //const coauthor = await scopus.getCoauthors(thescopus,scopusId);
-    information['coauthor'] = losco;
+    //information['coauthor'] = losco;
     //var zs= new set(coauthor);
     
     //console.log(information['coauthor']);

@@ -24,4 +24,6 @@ router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear)
 
 router.get('/topAuthors', apiController.getTopAuthors);
 
+router.get('/collaborators/:scopusId/:publications', apiController.getCollaborators);
+
 module.exports = router;

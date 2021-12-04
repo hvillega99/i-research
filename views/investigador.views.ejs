@@ -126,7 +126,7 @@
                                         <% i = 0 %>
                                         <% information.publicaciones.forEach(item => { %>
                                             <% i++ %>
-                                            <tr>
+                                            <tr class="publication-item" id="<%= item[3] %>">
                                                 <th scope="row"><%= i %></th>
                                                 <td id="titulo-<%= i %>">
                                                     <p><%= item[0]%></p>
@@ -142,7 +142,7 @@
                 
                                     </tbody>
                                 </table>
-        
+
                             </div>
                         </div>
         
@@ -155,38 +155,10 @@
                     <section class="container p-3 text-center">
         
                         <div class="row justify-content-center">
-                            <div class="col-md-8">
-        
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">No. de colaboradores: <%= information.coauthor.length %> </th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% information.coauthor.forEach(item => { %>
-
-                                            <tr>
-                                                <td><img src="/img/author.png" class="h-25 w-25"></td>
-                                                
-                                                <td id="Author-<%= i %>">
-                                                    <p><%= item[1]%></p>
-                                                    <p>Scopus id:
-                                                        <a  
-                                                            href="https://www.scopus.com/authid/detail.uri?authorId=<%= item[0] %>"
-                                                            target="_blank"> 
-                                                            <%= item[0]%>
-                                                        </a>
-                                                    </p>
-                                                </td>
-                                                
-                                            </tr>
-                                        <% }) %>
-                
-                                    </tbody>
-                                </table>
-        
+                            <div class="col-md-8" id="colaborators">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
                             </div>
                         </div>
         
@@ -200,5 +172,6 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/graficos.js"></script>
+    <script src="/js/colaboradores.js"></script>
 </body>
 </html>

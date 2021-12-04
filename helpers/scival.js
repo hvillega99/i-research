@@ -82,7 +82,7 @@ class Scival{
         */
         
         for (var i in plop){
-            plop2.push([i,plop[i]]);
+            plop2.push({'id': i, 'author': plop[i] });
         }
         
         //console.log(plop2.length);

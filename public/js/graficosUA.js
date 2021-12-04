@@ -44,7 +44,8 @@ fetch(`/api/citationsByYear/ua/${id}`)
     });
 
     const infoCitaciones = document.getElementById('info-citaciones')
-    infoCitaciones.innerHTML += '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Citaciones de las publicaciones de los investigadores en los últimos cinco años.\nEl año actual se muestra de color diferente."></img>'
+    infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+    title="Citaciones de las publicaciones de la unidad académica\nde los últimos cinco años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
@@ -90,5 +91,6 @@ fetch(`/api/publicationsByYear/ua/${id}`)
         }
     });
     const infoPublicaciones = document.getElementById('info-publicaciones')
-    infoPublicaciones.innerHTML += '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Cantidad de publicaciones de los investigadores en los últimos cinco años.\nEl año actual se muestra de un color diferente."></img>'
+    infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+    title="Cantidad de publicaciones indexadas de la unidad académica\npor cada uno de los últimos cinco años."></img>`;
 })
