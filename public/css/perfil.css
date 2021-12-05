@@ -9,3 +9,11 @@
     margin-bottom: 40px;
     padding-bottom: 9rem;
 }
+
+.title{
+    color: #233264;
+}
+
+.description{
+    cursor: pointer;
+}
