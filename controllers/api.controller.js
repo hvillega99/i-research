@@ -1,5 +1,6 @@
 const Scival = require('../helpers/scival');
 const Datajson = require('../helpers/jsondata');
+const fetch = require('node-fetch');
 
 const dbController = new Datajson();
 const scival = new Scival();
@@ -80,4 +81,22 @@ exports.getCollaborators = async (req, res) => {
     const collaborators = await scival.getCoauthors(publications.split(','),scopusId);
 
     res.json(collaborators);
+}
+
+exports.getProjectsByAuthor = async (req, res) => {
+    const {author} = req.params;
+    
+
+}
+
+exports.getProjectsByUnit = async (req, res) => {
+    const {ua} = req.params;
+    console.log('fetching')
+    const response = await fetch('http://192.168.253.6:8081/api/Investigacion/GetProyectos');
+    const result = await response.json();
+    console.log('flag');
+    const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => e["unidad"].includes(ua)));
+    let current = data.filter(item => item["estado"]==="EN EJECUCION");
+    let finished = data.filter(item => item["estado"]==="FINALIZADO");
+    res.json({current, finished});
 }

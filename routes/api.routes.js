@@ -26,4 +26,8 @@ router.get('/topAuthors', apiController.getTopAuthors);
 
 router.get('/collaborators/:scopusId/:publications', apiController.getCollaborators);
 
+router.get('/projects/ua/:ua', apiController.getProjectsByUnit);
+
+router.get('/projects/:author', apiController.getProjectsByAuthor);
+
 module.exports = router;
