@@ -31,7 +31,7 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
     });
     tbody += '</tbody>';
 
-    divColab.innerHTML = `<table class="table">
+    divColab.innerHTML = `<table class="table fixed_header">
                             <thead>
                                 <tr>
                                     <th scope="col">No. de colaboradores: ${data.length} </th>

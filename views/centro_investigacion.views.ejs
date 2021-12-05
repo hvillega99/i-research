@@ -4,6 +4,7 @@
     <%- include("templates/cabecera.templates.ejs")%>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="/css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="/css/table.css">
     <title>Centro de investigación</title>
 </head>
 <body>
@@ -53,12 +54,11 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true">Investigadores</button>
                     </li>
-                    <!-- <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Estadísticas</button>
-                    </li>
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Proyectos</button>
-                    </li> -->
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#proyectos" type="button" role="tab" aria-controls="profile" aria-selected="false">Proyectos</button>
+                    </li>
+
                 </ul>
             </div>
 
@@ -72,7 +72,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8">
         
-                                <table class="table">
+                                <table class="table fixed_header">
                                     <thead>
                                       <tr>
                                         <th scope="col">#</th>
@@ -111,8 +111,20 @@
                     </section>
 
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+                <div class="tab-pane fade" id="proyectos" role="tabpanel" aria-labelledby="profile-tab">
+                    <section class="container p-3 text-center">
+        
+                        <div class="row justify-content-center">
+                            <div class="col-md-8" id="projects">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </section>
+                </div>
             </div>
         </div>  
     </main>
