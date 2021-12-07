@@ -13,7 +13,14 @@ class Gtsi {
 
         const response = await fetch(this.url);
         const result = await response.json();
-        const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => e["unidad"].includes(unit.toUpperCase())));
+
+        console.log(unit);
+        const [name, acronym] = unit.split('-');
+
+        const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
+            return e["unidad"].includes(acronym.toUpperCase()) || e["unidad"].includes(name.toUpperCase());
+        }));
+
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
         let finished = data.filter(item => item["estado"]==="FINALIZADO");
         return {current, finished};

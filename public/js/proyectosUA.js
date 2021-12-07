@@ -1,4 +1,6 @@
-const unit = document.getElementById('uaId').textContent;
+const uaAcronym = document.getElementById('uaId').textContent;
+const uaName = document.getElementById('uaName').textContent;
+const unit = `${uaName}-${uaAcronym}`;
 const total = document.getElementById('num-total-projects');
 const currentCount = document.getElementById('num-current-projects');
 const finishedCount = document.getElementById('num-finished-projects');
@@ -15,6 +17,11 @@ fetch(`/api/projects/ua/${unit}`)
     finishedCount.innerHTML = `<h5>${finished.length}</h5>`;
 
     currentContainer.innerHTML = '';
+
+    if(current.length == 0){
+        currentContainer.innerHTML = 'No registra proyectos en ejecución';
+    }
+
     for(let i=0; i<current.length; i++){
         
         const project = current[i];
@@ -47,7 +54,7 @@ fetch(`/api/projects/ua/${unit}`)
                                         <p><strong>Fecha fin:</strong> ${project["fechafin"]}</p>
                                         <p><strong>Participante/Rol:</strong> ${collaborators}</p>
                                         <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol}</p>
-                                        <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No hay"}</p>
+                                        <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
                                         <p><strong>Áreas de investigación:</strong>  XXXXXX</p>
                                     </div>
                                 </div>
@@ -62,6 +69,11 @@ fetch(`/api/projects/ua/${unit}`)
     }
 
     finishedContainer.innerHTML = '';
+
+    if(finished.length == 0){
+        finishedContainer.innerHTML = 'No registra proyectos finalizados';
+    }
+
     for(let i=0; i<finished.length; i++){
         
         const project = finished[i];
@@ -93,7 +105,7 @@ fetch(`/api/projects/ua/${unit}`)
                                         <p><strong>Fecha fin:</strong> ${project["fechafin"]}</p>
                                         <p><strong>Participante/Rol:</strong> ${collaborators}</p>
                                         <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol}</p>
-                                        <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No hay"}</p>
+                                        <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
                                         <p><strong>Áreas de investigación:</strong>  XXXXXX</p>
                                     </div>
                                 </div>
