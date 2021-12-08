@@ -24,22 +24,62 @@
 
 .unidades_academicas{
     /* display: flex;
-    flex-direction: column;
+    flex: 0 0 100%;
     align-items: center;
-    text-align: center; */
-    column-count: 2;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 50% 50%;
 }
 
 .unidades_academicas div{
-    break-inside: avoid-column;
+    justify-self: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .unidades_academicas{
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+    }
+
+    .unidades_academicas div{
+        justify-self: center;
+    }
+    
 }
 
 .centros_investigacion{
-    column-count: 2;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
 }
 
 .centros_investigacion div{
-    break-inside: avoid-column;
+    justify-self: center;
+}
+
+@media screen and (max-width: 1200px){
+    .centros_investigacion{
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+    }
+
+    .centros_investigacion div{
+        justify-self: center;
+    }
 }
 
 .contenido_ua{
@@ -52,7 +92,45 @@
     color: white;
 }
 
+#FICT_header{
+    background-color: #436036;
+    color: white;
+}
 
+#FADCOM_header{
+    background-color: #e02285;
+    color: white;
+}
+
+#FCNM_header{
+    background-color: #5b378d;
+    color: white;
+}
+
+#FCSH_header{
+    background-color: #ffdd00;
+    /* color: white; */
+}
+
+#FCV_header{
+    background-color: #52ae32;
+    color: white;
+}
+
+#FIMCP_header{
+    background-color: #1d6db3;
+    color: white;
+}
+
+#FIMCM_header{
+    background-color: #00b4c1;
+    color: white;
+}
+
+#ESPAE_header{
+    background-color: #ed8a47;
+    color: white;
+}
 
 
 /*Comentario 3*/
