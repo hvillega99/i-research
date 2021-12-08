@@ -40,7 +40,7 @@
     justify-self: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .unidades_academicas{
         display: grid;
         grid-template-columns: 100%;
@@ -60,6 +60,7 @@
     display: grid;
     text-align: center;
     align-items: center;
+    justify-content: center;
     grid-template-columns: 50% 50%;
 }
 
@@ -67,7 +68,7 @@
     justify-self: center;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1000px){
     .centros_investigacion{
         display: grid;
         grid-template-columns: 100%;
@@ -86,6 +87,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+/* UNIDADES ACADEMICAS  */
 
 #FIEC_header{
     background-color: #7196ab;
@@ -132,6 +135,51 @@
     color: white;
 }
 
+/* CENTROS DE INVESTIGACION */
 
+#CIBE_header{
+    background-color: #57a728;
+    color: white;
+}
+
+#CENAIM_header{
+    background-color: rgb(99, 98, 98);
+    color: white;
+}
+
+#CIP-RRD_header{
+    background-color: #00c1c1fb;
+    color: white;
+}
+
+#CIDIS_header{
+    background-color: #14788E;
+    color: white;
+}
+
+#CERA_header{
+    background-color: #57a728;
+    color: white;
+}
+
+#CTI_header{
+    background-color: rgb(151, 3, 3);
+    color: white;
+}
+
+#CADS_header{
+    background-color: #57a728;
+    color: white;
+}
+
+#CIPAT_header{
+    background-color: #57a728;
+    color: white;
+}
+
+#CIDNA_header{
+    background-color: rgb(151, 3, 3);
+    color: white;
+}
 /*Comentario 3*/
 /*Comentario 4*/
