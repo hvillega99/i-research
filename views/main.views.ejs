@@ -57,8 +57,8 @@
                     <div class="row justify-content-center">
                         <div class="unidades_academicas" id="unidades_academicas">
                             <% faculties.forEach(item => { %>
-                                <div class="card m-4" style="width: 450px;">
-                                    <div class="card-header">
+                                <div id="<%= item.nombre %>" class="card m-4" style="width: 450px;">
+                                    <div id="<%= item.nombre %>_header" class="card-header">
                                         Unidad académica
                                     </div>
                                         <div class="card-body">
@@ -78,7 +78,7 @@
                     <div class="row justify-content-center">
                         <div class="centros_investigacion" id="centros_investigacion">
                             <% centros.forEach(item => { %>
-                                <div class="card m-4" style="width: 450px;">
+                                <div id="<%= item.nombre %>" class="card m-4" style="width: 450px;">
                                     <div class="card-header">
                                         Centro de Investigación
                                     </div>
