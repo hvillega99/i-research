@@ -203,6 +203,49 @@ class Scopus{
         return plop;
     }
 
+    async getInfoPublications(scopusID){
+        const url = `http://api.elsevier.com/content/abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const information = await response.json();
+        var plop = [];
+        for(let x of information['abstracts-retrieval-response']['authors']['author']){
+            plop.push(x['ce:indexed-name']);
+        }
+
+        var articlenum;
+        if(information['abstracts-retrieval-response']['coredata']['prism:pageRange']){
+            articlenum = information['abstracts-retrieval-response']['coredata']['prism:pageRange'];
+        }
+        else{
+            articlenum = information['abstracts-retrieval-response']['coredata']['article-number'];
+        }
+
+        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['dc:title'] + ', ';
+        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['prism:publicationName'] + ', ';
+        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['prism:volume'] + ', ';
+        
+       // contenido = contenido + articlenum + ', ';
+        
+        //contenido = contenido + '(' +information['abstracts-retrieval-response']['coredata']['prism:coverDate'] + '). ';
+        //contenido = contenido + 'doi:' + information['abstracts-retrieval-response']['coredata']['prism:doi'] + ' ';
+        //contenido = contenido + '(cited ' + information['abstracts-retrieval-response']['coredata']['citedby-count'] + ' times).'
+
+        var respuesta = {
+            "authors" : plop,
+            "title" : information['abstracts-retrieval-response']['coredata']['dc:title'],
+            "journal" : information['abstracts-retrieval-response']['coredata']['prism:publicationName'],
+            "volume" : information['abstracts-retrieval-response']['coredata']['prism:volume'],
+            "articlenum" : articlenum,
+            "date" : information['abstracts-retrieval-response']['coredata']['prism:coverDate'],
+            "doi" : information['abstracts-retrieval-response']['coredata']['prism:doi'],
+            "cites" : information['abstracts-retrieval-response']['coredata']['citedby-count']
+        }
+        
+        return respuesta;
+    }
+
 
     /*
     async getPublicationsTitle2(scopusId){  

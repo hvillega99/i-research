@@ -25,11 +25,38 @@ exports.getPerfilInvestigador = async (req, res) =>{
     
 
     
+    //solo con uno
+    /*
+    const eltopicid = await scival.getInfoPublications(85081370144);
+    const topicname = await scival.getTopicName(eltopicid);
+    console.log(topicname);
+    */
+    //
+
+    //5
+
+    /*
+    const idpublicaciones = [85081370144,85045144932,85026803380,84919346826,85062090915];
+    for await (let idp of idpublicaciones) {
+        //console.log(idpublicaciones[i]);
+        var eltopicid = await scival.getInfoPublications(idp);
+        var topicname = await scival.getTopicName(eltopicid);
+        console.log(topicname);
+     }
+    */
+
     //const nametopic = await scopus.getTopics(scopusId);
     
     //console.log(nametopic);
     //await scival.getPublications(scopusId);
     //await scival.getCitations(scopusId);
+
+    //Prueba de informacion detallada de una publicacion
+    /*
+    var helloXD = await scopus.getInfoPublications(85107130067);
+    console.log(helloXD);
+    */
+   
 
     const information = {...orcidCountsAndSubjects};
     information['nombre'] = nameAndAffiliations.name;
