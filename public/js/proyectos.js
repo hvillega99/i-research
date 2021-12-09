@@ -49,7 +49,7 @@ fetch(`/api/projects/${author}`)
         institucionesExterna = institucionesExterna.map(item => item["nombre"]);
         institucionesExterna = institucionesExterna.join('; ');
 
-        const description = `<div class="description" id="cp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-c-${i+1}">
+        const description = `<div class="description item" id="cp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-c-${i+1}">
                                 <strong>${project["titulo"].toUpperCase()}</strong><br>
                                 ÁREA1, ÁREA2<br>
                                 ${project["fechainicio"]} -> ${project["fechafin"]}

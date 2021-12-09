@@ -1,10 +1,12 @@
 const Scival = require('../helpers/scival');
 const Datajson = require('../helpers/jsondata');
+const Scopus = require('../helpers/scopus');
 const Gtsi = require('../helpers/gtsi');
 
 const dbController = new Datajson();
 const scival = new Scival();
 const gtsi = new Gtsi();
+const scopus = new Scopus();
 
 exports.getUACitationsByYear = async (req, res) => {
     const ua = req.params.ua;
@@ -94,4 +96,10 @@ exports.getProjectsByUnit = async (req, res) => {
     const {ua} = req.params;
     const projects = await gtsi.getProjectsByUnit(ua);
     res.send(projects);
+}
+
+exports.getPublicationsInfo = async (req, res) => {
+    const {id} = req.params;
+    const info = await scopus.getInfoPublications(id);
+    res.send(info);
 }

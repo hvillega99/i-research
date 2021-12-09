@@ -30,4 +30,6 @@ router.get('/projects/ua/:ua', apiController.getProjectsByUnit);
 
 router.get('/projects/:author', apiController.getProjectsByAuthor);
 
+router.get('/publicationsInfo/:id', apiController.getPublicationsInfo);
+
 module.exports = router;

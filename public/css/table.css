@@ -18,3 +18,13 @@
     text-align: left;
     width: 30%;
 }
+
+
+.item:hover{
+    background-color: #cfe2ff;
+    cursor:pointer;
+}
+
+.item:active{
+    background-color: rgba(33, 58, 143, 0.2);
+}

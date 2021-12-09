@@ -115,20 +115,20 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8">
         
-                                <table class="table">
+                                <table class="table fixed_header">
                                     <thead>
                                       <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Titulo</th>
+                                        <th scope="col">Título</th>
                                         <th scope="col">Citaciones</th>
-                                        <th scope="col">Año de publicacion</th>
+                                        <th scope="col">Año de publicación</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                         <% i = 0 %>
                                         <% information.publicaciones.forEach(item => { %>
                                             <% i++ %>
-                                            <tr class="publication-item" id="<%= item[3] %>">
+                                            <tr class="publication-item item" id="<%= item[3] %>" onclick="handleClick(<%= item[3] %>)" data-bs-toggle="modal" data-bs-target="#modal-<%= item[3] %>">
                                                 <th scope="row"><%= i %></th>
                                                 <td id="titulo-<%= i %>">
                                                     <p><%= item[0]%></p>
@@ -140,6 +140,23 @@
                                                     <p><%= item[2]%></p>
                                                 </td>
                                             </tr>
+
+                                            <div class="modal fade" id="modal-<%= item[3] %>" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Publicación</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body" id="content-<%= item[3] %>">
+                                                            <div class="spinner-border" role="status" id="waiting-<%= item[3] %>">
+                                                                <span class="visually-hidden">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         <% }) %>
                 
                                     </tbody>
@@ -243,5 +260,6 @@
     <script src="/js/graficos.js"></script>
     <script src="/js/colaboradores.js"></script>
     <script src="/js/proyectos.js"></script>
+    <script src="/js/publicaciones.js"></script>
 </body>
 </html>
