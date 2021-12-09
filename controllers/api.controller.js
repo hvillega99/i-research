@@ -86,8 +86,8 @@ exports.getCollaborators = async (req, res) => {
 
 exports.getProjectsByAuthor = async (req, res) => {
     const {author} = req.params;
-    
-
+    const projects = await gtsi.getProjects(author);
+    res.send(projects);
 }
 
 exports.getProjectsByUnit = async (req, res) => {

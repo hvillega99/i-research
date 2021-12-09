@@ -13,7 +13,7 @@
         <div id="maincontainer">
             <section class="container p-3">
                 <div class="row">
-                    <h3><%= information.nombre%></h3>
+                    <h3 id="name"><%= information.nombre%></h3>
                     <div class="col-md-6">
 
                         <% information.afiliaciones.unidades.forEach(item => { %>
@@ -242,5 +242,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/graficos.js"></script>
     <script src="/js/colaboradores.js"></script>
+    <script src="/js/proyectos.js"></script>
 </body>
 </html>

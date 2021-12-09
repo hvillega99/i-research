@@ -6,7 +6,20 @@ class Gtsi {
     }
 
     async getProjects(author){
+        const response = await fetch(this.url);
+        const result = await response.json();
 
+        const [name, lastname] = author.split('-');
+
+        console.log(name, lastname);
+
+        const data = result.filter(item => item["colaboradores"].some(e => {
+            return e["nombre"].includes(name.toUpperCase()) && e["nombre"].includes(lastname.toUpperCase());
+        }));
+
+        let current = data.filter(item => item["estado"]==="EN EJECUCION");
+        let finished = data.filter(item => item["estado"]==="FINALIZADO");
+        return {current, finished};
     }
 
     async getProjectsByUnit(unit){
@@ -14,7 +27,6 @@ class Gtsi {
         const response = await fetch(this.url);
         const result = await response.json();
 
-        console.log(unit);
         const [name, acronym] = unit.split('-');
 
         const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
