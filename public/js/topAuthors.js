@@ -15,13 +15,10 @@ fetch('/api/topAuthors')
                     <tbody>`
 
     elements.forEach((item, index) => {
-        table += `<tr>
+        table += `<tr class="item" onclick="window.location.href='/investigador/${item.id}'">
                         <th scope="row">${index + 1}</th>
                         <td id="${item.id}" class="autor">
-                            <a style="text-decoration: none; color: black;" 
-                                href="/investigador/${item.id}"> 
-                                ${item.name}
-                            </a>
+                            ${item.name}
                         </td>
                         <td>
                             ${item.h}

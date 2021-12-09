@@ -11,7 +11,6 @@ class Gtsi {
 
         const [name, lastname] = author.split('-');
 
-        console.log(name, lastname);
 
         const data = result.filter(item => item["colaboradores"].some(e => {
             return e["nombre"].includes(name.toUpperCase()) && e["nombre"].includes(lastname.toUpperCase());
