@@ -5,7 +5,13 @@ class Gtsi {
         this.url = 'http://192.168.253.6:8081/api/Investigacion/GetProyectos';
     }
 
+    removeAccents = (str) => {
+        const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U','Š':'S','š':'s'};
+	    return str.split('').map( letra => acentos[letra] || letra).join('').toString();	
+    }
+
     async getProjects(author){
+
         const response = await fetch(this.url);
         const result = await response.json();
 
@@ -13,7 +19,7 @@ class Gtsi {
 
 
         const data = result.filter(item => item["colaboradores"].some(e => {
-            return e["nombre"].includes(name.toUpperCase()) && e["nombre"].includes(lastname.toUpperCase());
+            return e["nombre"].includes(this.removeAccents(name).toUpperCase()) && e["nombre"].includes(this.removeAccents(lastname).toUpperCase());
         }));
 
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
@@ -29,7 +35,7 @@ class Gtsi {
         const [name, acronym] = unit.split('-');
 
         const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
-            return e["unidad"].includes(acronym.toUpperCase()) || e["unidad"].includes(name.toUpperCase());
+            return e["unidad"].includes(this.removeAccents(acronym).toUpperCase()) || e["unidad"].includes(this.removeAccents(name).toUpperCase());
         }));
 
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
