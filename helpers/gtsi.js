@@ -10,6 +10,16 @@ class Gtsi {
 	    return str.split('').map( letra => acentos[letra] || letra).join('').toString();	
     }
 
+    countProjectsByYear = (arr) => {
+        const counting = {};
+
+        arr.forEach(item => {
+            counting[item] = (counting[item] || 0) + 1;
+        })
+
+        return counting;
+    }
+
     async getProjects(author){
 
         const response = await fetch(this.url);
@@ -22,9 +32,12 @@ class Gtsi {
             return e["nombre"].includes(this.removeAccents(name).toUpperCase()) && e["nombre"].includes(this.removeAccents(lastname).toUpperCase());
         }));
 
+        const years = data.map(item => item["fechainicio"].split('/')[2]);
+        const counting = this.countProjectsByYear(years);
+
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
         let finished = data.filter(item => item["estado"]==="FINALIZADO");
-        return {current, finished};
+        return {current, finished, counting};
     }
 
     async getProjectsByUnit(unit){
@@ -38,9 +51,12 @@ class Gtsi {
             return e["unidad"].includes(this.removeAccents(acronym).toUpperCase()) || e["unidad"].includes(this.removeAccents(name).toUpperCase());
         }));
 
+        const years = data.map(item => item["fechainicio"].split('/')[2]);
+        const counting = this.countProjectsByYear(years);
+
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
         let finished = data.filter(item => item["estado"]==="FINALIZADO");
-        return {current, finished};
+        return {current, finished, counting};
     }
 }
 

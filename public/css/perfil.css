@@ -17,3 +17,8 @@
 .description{
     cursor: pointer;
 }
+
+#projects-by-year{
+    width:35vw !important;
+    height:35vh !important;
+}

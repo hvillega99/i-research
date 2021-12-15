@@ -10,7 +10,7 @@ const finishedContainer = document.getElementById('finished-projects');
 fetch(`/api/projects/ua/${unit}`)
 .then(response => response.json())
 .then(data => {
-    const {current, finished} = data;
+    const {current, finished, counting} = data;
 
     total.innerHTML = `<h5>${current.length + finished.length}</h5>`;
     currentCount.innerHTML = `<h5>${current.length}</h5>`;
@@ -146,7 +146,42 @@ fetch(`/api/projects/ua/${unit}`)
     }
 
     document.getElementById('divisor').setAttribute('class','division');
-    
+
+    const graph = document.getElementById('projects-by-year');
+
+    const years = Object.keys(counting);
+    const values = years.map(year => counting[year]);
+    const maxValue = Math.max.apply( Math, values );
+    new Chart(graph, {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [{
+                label: 'Publicaciones',
+                data: values,
+                backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
+                borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: maxValue < 20? 1:0
+                    }
+                }]
+            },
+
+            legend: {
+                display: false
+            },
+        }
+    });
+    document.getElementById('temp-spinner').innerHTML = '';
+    document.getElementById('info').innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+    title="Cantidad de proyectos iniciados por año"></img>`;
 })
 .catch(e => {
     console.log(`Algo salió mal. ${e}`);

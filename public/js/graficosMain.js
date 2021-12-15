@@ -13,20 +13,8 @@ fetch('/api/citationsByYearEspol')
             datasets: [{
                 label: 'Citaciones',
                 data: values,
-                backgroundColor: [
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)'
-                ],
+                backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
+                borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
                 borderWidth: 1
             }]
         },
@@ -61,20 +49,8 @@ fetch('/api/publicationsByYearEspol')
             datasets: [{
                 label: 'Publicaciones',
                 data: values,
-                backgroundColor: [
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)',
-                    'rgba(33, 58, 143, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)',
-                    'rgba(34, 50, 101, 1)'
-                ],
+                backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
+                borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
                 borderWidth: 1
             }]
         },
