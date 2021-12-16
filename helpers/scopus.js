@@ -7,6 +7,7 @@ class Scopus{
         this.apiKey = "d65494974182038129c6a7821afc8b56";
     }
 
+    //Usado
     async getDataAndAreas(scopusId){
 
         const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`;
@@ -25,7 +26,8 @@ class Scopus{
             areas: areas.map(item => item['$']).slice(0,6)
         };
     }
-
+    
+    //Usado
     async getHindex(scopusId){
         const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
         const response = await fetch(url,{
@@ -159,7 +161,8 @@ class Scopus{
 
     }
     */
-
+    
+    //Usado
     async getPublicationsTitle2(scopusId){  
         var flag=0;
         var count = 1;
@@ -202,7 +205,59 @@ class Scopus{
         }
         return plop;
     }
+    //Nuevo
+    async newCoauthors(arrayIds,elID){
 
+        var flag=0;
+        const plop = {};
+        const plop2 = [];
+        var inicio = 0;
+        var fin = arrayIds.length;
+        var size = arrayIds.length;
+        
+        if(fin>25){
+            fin = 25;
+        }
+
+        while(flag==0){        
+            const url = `https://bibliometrics.pythonanywhere.com/decinv/${arrayIds.slice(inicio, fin)}/citation_overview/`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+            const information = await response.json();
+            information['abstract-citations-response']['citeInfoMatrix']['citeInfoMatrixXML']['citationMatrix']['citeInfo'].forEach(element => {
+                element['author'].forEach(e => {
+                    if(e['authid']!=elID){
+                        plop[e['authid']] = e['index-name'];
+                    }
+                });
+            });
+
+            if(fin==size){
+                flag+=1;
+            }
+            else{//aumentar lo debido
+                inicio = fin;
+                var cuentaF = size - inicio;
+
+                if(cuentaF>25){
+                    fin= inicio + 25;
+                }
+                else{
+                    fin = size;
+                }
+                
+            }
+            
+        }
+
+        for (var i in plop){
+            plop2.push({'id': i, 'author': plop[i] });
+        }
+        return plop2 ;
+    }
+   
+    //Usado
     async getInfoPublications(scopusID){
         const url = `http://api.elsevier.com/content/abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&apiKey=${this.apiKey}`;
         const response = await fetch(url,{

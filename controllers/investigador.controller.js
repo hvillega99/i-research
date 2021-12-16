@@ -23,6 +23,14 @@ exports.getPerfilInvestigador = async (req, res) =>{
     
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
     
+    
+    //CON ESTO SE SACA LOS 
+    /*
+    const array_pub = publications2.map( (e) => e[3]);
+    const coauthores = await scopus.newCoauthors(array_pub,scopusId);
+    console.log(coauthores);
+    */
+    //CON ESTO SE SACA LOS COAUTHORES
 
     
     //solo con uno
