@@ -81,7 +81,7 @@ exports.getTopAuthors = async (req, res) => {
 exports.getCollaborators = async (req, res) => {
     const {scopusId, publications} = req.params;
 
-    const collaborators = await scival.getCoauthors(publications.split(','),scopusId);
+    const collaborators = await scopus.getCoauthors(publications.split(','),scopusId);
 
     res.json(collaborators);
 }

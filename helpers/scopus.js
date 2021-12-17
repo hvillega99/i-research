@@ -134,35 +134,7 @@ class Scopus{
         );
         return plop;
     }
-    
-    /*
-    async getCoauthors(scopusIdArr,author_x){
-        const scopusId = scopusIdArr.join(',');
-        var plop = {};
-        var plop2 = [];
 
-        const endpoint = `https://api.elsevier.com/content/abstract/citations?scopus_id=${scopusId}&apiKey=7f59af901d2d86f78a1fd60c1bf9426a`
-        const response = await fetch(endpoint);
-        let data = await response.json();
-        console.log(data);
-
-        data['abstract-citations-response']['citeInfoMatrix']['citeInfoMatrixXML']['citationMatrix']['citeInfo'].forEach(element => {
-            element['author'].forEach( elauthor => {
-                if(elauthor['authid']!=author_x){
-                    plop[elauthor['authid']]=elauthor['index-name']
-                }
-            });
-        });
-        
-        for (var i in plop){
-            plop2.push([i,plop[i]]);
-        }
-        return plop2;
-
-    }
-    */
-    
-    //Usado
     async getPublicationsTitle2(scopusId){  
         var flag=0;
         var count = 1;
@@ -205,8 +177,8 @@ class Scopus{
         }
         return plop;
     }
-    //Nuevo
-    async newCoauthors(arrayIds,elID){
+    
+    async getCoauthors(arrayIds,elID){
 
         var flag=0;
         const plop = {};
@@ -276,17 +248,6 @@ class Scopus{
         else{
             articlenum = information['abstracts-retrieval-response']['coredata']['article-number'];
         }
-
-        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['dc:title'] + ', ';
-        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['prism:publicationName'] + ', ';
-        //contenido = contenido + information['abstracts-retrieval-response']['coredata']['prism:volume'] + ', ';
-        
-       // contenido = contenido + articlenum + ', ';
-        
-        //contenido = contenido + '(' +information['abstracts-retrieval-response']['coredata']['prism:coverDate'] + '). ';
-        //contenido = contenido + 'doi:' + information['abstracts-retrieval-response']['coredata']['prism:doi'] + ' ';
-        //contenido = contenido + '(cited ' + information['abstracts-retrieval-response']['coredata']['citedby-count'] + ' times).'
-
         var respuesta = {
             "authors" : plop,
             "title" : information['abstracts-retrieval-response']['coredata']['dc:title'],
@@ -300,45 +261,6 @@ class Scopus{
         
         return respuesta;
     }
-
-
-    /*
-    async getPublicationsTitle2(scopusId){  
-        var flag=0;
-        var count = 1;
-        var espol = 0;
-        var inicio=0;
-        while(flag==0){
-            const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-            const information = await response.json();
-            console.log(information);
-            var number = information['search-results']['opensearch:totalResults'];
-            var iteraciones = Math.ceil(number/25);
-            information['search-results']["entry"].forEach(element => {
-                
-                element['affiliation'].forEach(institution =>{
-                    if(institution['affilname']=='Escuela Superior Politecnica del Litoral Ecuador'){
-                        espol+=1;
-                    }
-                } )
-                
-            }
-            );
-            inicio+=25;
-            count+=1;
-            if(count>iteraciones){
-                flag+=1;
-            }
-          
-        }
-        return espol;
-    }
-    */
-
-   
 
 }
 
