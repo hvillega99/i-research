@@ -96,16 +96,32 @@
             </div>
             <div class="tab-pane fade" id="estadisticas" role="tabpanel" aria-labelledby="contact-tab">
                 <section class="container p-3">
-                    <div class="row"> 
+                    <div class="row text-center"> 
                         <div class="col-md-6">
-                            <div id="info-citaciones"></div>
-                            <canvas id="grafica-citaciones" width="400" height="300">
+                            <div id="info-pie" class="text-start"></div>
+                            <canvas id="grafica-documentos-area" width="400" height="300">
                             </canvas>
+                            <h5>Publicaciones por área</h5>
                         </div>
                         <div class="col-md-6">
-                            <div id="info-publicaciones"></div>
+                            <div id="info-tjp" class="text-start"></div>
+                            <canvas id="grafica-tjp" width="400" height="300">
+                            </canvas>
+                            <h5>Publicaciones en revistas de alto impacto</h5>
+                        </div>
+                    </div>
+                    <div class="row text-center"> 
+                        <div class="col-md-6">
+                            <div id="info-citaciones" class="m-2 text-start"></div>
+                            <canvas id="grafica-citaciones" width="400" height="300">
+                            </canvas>
+                            <h5>Citaciones por año</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="info-publicaciones" class="m-2 text-start"></div>
                             <canvas id="grafica-publicaciones" width="400" height="300">
                             </canvas>
+                            <h5>Publicaciones por año</h5>
                         </div>
                     </div>
                 </section>

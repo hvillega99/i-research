@@ -8,6 +8,21 @@ class Scival{
         this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
     }
 
+    async getPublicationsInTopJournalPercentiles(instId){
+        const url = `${this.uriInstitution}metricTypes=PublicationsInTopJournalPercentiles&institutionIds=${instId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
+        const response = await fetch(url,{
+            headers: {
+                "Accept": "application/json"
+            },
+            redirect: "follow"
+        });
+
+        let data = await response.json();
+        data = data["results"][0]["metrics"][0]["values"];
+
+        return data;
+    }
+
     async getInstitutionCitations(insId){
         const url = `${this.uriInstitution}metricTypes=CitationCount&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}`;
         const response = await fetch(url,{

@@ -2,11 +2,13 @@ const Scival = require('../helpers/scival');
 const Datajson = require('../helpers/jsondata');
 const Scopus = require('../helpers/scopus');
 const Gtsi = require('../helpers/gtsi');
+const CsvParser = require('../helpers/csvParser');
 
 const dbController = new Datajson();
 const scival = new Scival();
 const gtsi = new Gtsi();
 const scopus = new Scopus();
+const parser = new CsvParser();
 
 exports.getUACitationsByYear = async (req, res) => {
     const ua = req.params.ua;
@@ -62,6 +64,11 @@ exports.getEspolPublicationsByYear = async (req, res) => {
     res.send(publications); 
 }
 
+exports.getTopJournalInst = async (req, res) => {
+    const topJournals = await scival.getPublicationsInTopJournalPercentiles('701420');
+    res.send(topJournals);
+}
+
 exports.getTopAuthors = async (req, res) => {
     
     const arrScopusId = dbController.getAllScopusId();
@@ -102,4 +109,9 @@ exports.getPublicationsInfo = async (req, res) => {
     const {id} = req.params;
     const info = await scopus.getInfoPublications(id);
     res.send(info);
+}
+
+exports.getPublicationsByArea = async (req, res) => {
+    const data = await parser.readDocumentsByArea("./resources/data/documents by area.csv");
+    res.json(data);
 }

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hvillega99/api-rc#readme",
   "dependencies": {
+    "csv-parser": "^3.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "fetch-retry": "^5.0.1",

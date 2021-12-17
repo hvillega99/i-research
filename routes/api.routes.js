@@ -32,4 +32,8 @@ router.get('/projects/:author', apiController.getProjectsByAuthor);
 
 router.get('/publicationsInfo/:id', apiController.getPublicationsInfo);
 
+router.get('/publications/areas/inst', apiController.getPublicationsByArea);
+
+router.get('/publications/topJournalPercentiles/inst', apiController.getTopJournalInst);
+
 module.exports = router;
