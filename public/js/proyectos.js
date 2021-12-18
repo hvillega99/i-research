@@ -40,7 +40,14 @@ fetch(`/api/projects/${author}`)
         for(let i=0; i<current.length; i++){
             
             const project = current[i];
-            const areas = '';
+            let areas = project["areasCon"]["objSegunFrascati"];
+
+            if(areas.length>0){
+                areas = Object.values(areas[0]).join(', ');
+            }else{
+                areas = '';
+            }
+
             let collaborators = project["colaboradores"].map(item => `${item["nombre"]}/${item["rol"]}`);
             collaborators = collaborators.join(', ');
     
@@ -53,7 +60,7 @@ fetch(`/api/projects/${author}`)
             const item = `<tr>
                         <td class="description item" id="cp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-c-${i+1}">
                             <strong>${project["titulo"].toUpperCase()}</strong><br>
-                            ÁREA1, ÁREA2<br>
+                            ${areas}<br>
                             ${project["fechainicio"]} -> ${project["fechafin"]}
                         </td>
                     </tr>`;
@@ -70,9 +77,9 @@ fetch(`/api/projects/${author}`)
                                             <p><strong>Fecha inicio:</strong> ${project["fechainicio"]}</p>
                                             <p><strong>Fecha fin:</strong> ${project["fechafin"]}</p>
                                             <p><strong>Participante/Rol:</strong> ${collaborators}</p>
-                                            <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol}</p>
+                                            <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol.length>0? institucionesEspol:"No registra"}</p>
                                             <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
-                                            <p><strong>Áreas de investigación:</strong>  XXXXXX</p>
+                                            <p><strong>Áreas de investigación:</strong> ${areas}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -105,6 +112,15 @@ fetch(`/api/projects/${author}`)
         for(let i=0; i<finished.length; i++){
             
             const project = finished[i];
+
+            let areas = project["areasCon"]["objSegunFrascati"];
+
+            if(areas.length>0){
+                areas = Object.values(areas[0]).join(', ');
+            }else{
+                areas = '';
+            }
+
             let collaborators = project["colaboradores"].map(item => `${item["nombre"]}/${item["rol"]}`);
             collaborators = collaborators.join(', ');
     
@@ -117,7 +133,7 @@ fetch(`/api/projects/${author}`)
             const item = `<tr>
                             <td class="description item" id="fp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-f-${i+1}">
                                 <strong>${project["titulo"].toUpperCase()}</strong><br>
-                                ÁREA1, ÁREA2<br>
+                                ${areas}<br>
                                 ${project["fechainicio"]} -> ${project["fechafin"]}
                             </td>
                         </tr>`;
@@ -136,7 +152,7 @@ fetch(`/api/projects/${author}`)
                                             <p><strong>Participante/Rol:</strong> ${collaborators}</p>
                                             <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol}</p>
                                             <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
-                                            <p><strong>Áreas de investigación:</strong>  XXXXXX</p>
+                                            <p><strong>Áreas de investigación:</strong>  ${areas}</p>
                                         </div>
                                     </div>
                                 </div>

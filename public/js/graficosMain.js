@@ -89,7 +89,7 @@ fetch('/api/publications/areas/inst')
         values.push(item['Documents']);
     })
 
-    new Chart(pieContainer, {
+    const pie = new Chart(pieContainer, {
         type: "pie",
         data: {
             labels: labels,
@@ -111,6 +111,17 @@ fetch('/api/publications/areas/inst')
                     '#E1E861'
                 ]
             }]
+        },
+
+        options: {
+            responsive: true,
+            legend: {
+                display:  true,
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
         }
     })
 
@@ -132,7 +143,6 @@ fetch('api/publications/topJournalPercentiles/inst')
         datasets.push(Object.values(item["valueByYear"]))
     })
 
-    console.log(years, datasets)
 
     new Chart(tjpContainer, {
         type: 'bar',
