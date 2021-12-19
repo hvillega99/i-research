@@ -8,7 +8,7 @@ const handleClick = (id) => {
             content.innerHTML = `<div class="text-start">
                                     <p><strong>Título:</strong> ${data["title"]}</p>
                                     <p><strong>Autores:</strong> ${data["authors"].join(' ; ')}</p>
-                                    <p><strong>Citas:</strong> ${data["cites"]}</p>
+                                    <p><strong>Citas:</strong> ${document.getElementById(`citation-count-${id}`).textContent}</p>
                                     <p><strong>Fecha:</strong> ${data["date"]}</p>
                                     <p><strong>Doi:</strong> ${data["doi"]}</p>
                                     <p><strong>Journal:</strong> ${data["journal"]}</p>

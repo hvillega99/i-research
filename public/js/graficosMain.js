@@ -96,19 +96,19 @@ fetch('/api/publications/areas/inst')
             datasets: [{
                 data: values,
                 backgroundColor: [
-                    '#009ece',
-                    '#b93a3f',
-                    '#7e9e55',
-                    '#9463af',
-                    '#d14905',
-                    '#88e9d2',
-                    '#9c2027',
-                    '#d8bf32',
-                    '#e18f6f',
-                    '#5d181b',
-                    '#2d8a20',
-                    '#EB971B',
-                    '#E1E861'
+                    '#FFCD78',
+                    '#FCECC0',
+                    '#FFFAEE',
+                    '#C6DDAF',
+                    '#9ACC91',
+                    '#72B081',
+                    '#C5EBCA',
+                    '#FCF9F2',
+                    '#FDDAE3',
+                    '#F2BAD1',
+                    '#F2AECB',
+                    '#DB97C6',
+                    '#AB91C4'
                 ]
             }]
         },
@@ -152,28 +152,28 @@ fetch('api/publications/topJournalPercentiles/inst')
                     {
                         label: 'Percentil 1',
                         data: datasets[0],
-                        backgroundColor: years.map(item => '#0dcaf0'),
+                        backgroundColor: years.map(item => '#CCEDE4'),
                         borderWidth: 1
                     },
 
                     {
                         label: 'Percentil 5',
                         data: datasets[1],
-                        backgroundColor: years.map(item => '#20c997'),
+                        backgroundColor: years.map(item => '#A6D2E1'),
                         borderWidth: 1
                     },
 
                     {
                         label: 'Percentil 10',
                         data: datasets[2],
-                        backgroundColor: years.map(item => '#198754'),
+                        backgroundColor: years.map(item => '#A8A6DB'),
                         borderWidth: 1
                     },
 
                     {
                         label: 'Percentil 25',
                         data: datasets[3],
-                        backgroundColor: years.map(item => '#ffc107'),
+                        backgroundColor: years.map(item => '#D3BAE9'),
                         borderWidth: 1
                     },
             ]
