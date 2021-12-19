@@ -180,17 +180,16 @@ fetch('api/publications/topJournalPercentiles/inst')
         },
         options: {
             scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+
                 yAxes: [{
+                    stacked: true,
                     ticks: {
                         beginAtZero: true
                     }
-                }],
-                x: {
-                    stacked: true,
-                },
-                y: {
-                    stacked: true
-                }
+                }]
             },
             legend: {
                 display: true
