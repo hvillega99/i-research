@@ -116,7 +116,7 @@ fetch('/api/publications/areas/inst')
         options: {
             responsive: true,
             legend: {
-                display:  true,
+                display:  false,
             },
             animation: {
                 animateScale: true,

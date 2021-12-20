@@ -9,17 +9,17 @@ exports.getPerfilInvestigador = async (req, res) =>{
     const scival = new Scival();
     const datajson = new Datajson();
 
-    const orcidCountsAndSubjects = await scopus.getDataAndAreas(scopusId);
-    const hIndex = await scopus.getHindex(scopusId);
-
-    //Parte 1 de los nombres de los topicos y sus frecuencias
-    //Buscar los id de las publicaciones
-    //const publications = await scopus.getPublicationsId(scopusId);
-    const publications2 = await scopus.getPublicationsTitle2(scopusId);
-   
-
-    const fcwi = await scival.getFCWI(scopusId);
-    const h5index = await scival.getH5index(scopusId);
+    const [orcidCountsAndSubjects, 
+            hIndex, 
+            publications2, 
+            fcwi, 
+            h5index
+        ] = await Promise.all([scopus.getDataAndAreas(scopusId), 
+                                scopus.getHindex(scopusId), 
+                                scopus.getPublicationsTitle2(scopusId),
+                                scival.getFCWI(scopusId),
+                                scival.getH5index(scopusId)
+                            ]);
     
     const nameAndAffiliations = datajson.getNameAndAffiliations(scopusId);
 

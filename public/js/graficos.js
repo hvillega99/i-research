@@ -20,6 +20,14 @@ fetch(`/api/citationsByYear/${id}`)
             }]
         },
         options: {
+            responsive: true,
+            legend: {
+                display:  false,
+            },
+            title: {
+                display: true,
+                text: 'Citaciones por año'
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -56,6 +64,14 @@ fetch(`/api/publicationsByYear/${id}`)
             }]
         },
         options: {
+            responsive: true,
+            legend: {
+                display:  false,
+            },
+            title: {
+                display: true,
+                text: 'Publicaciones por año'
+            },
             scales: {
                 yAxes: [{
                     ticks: {
