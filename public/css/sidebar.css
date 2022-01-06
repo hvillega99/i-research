@@ -5,7 +5,11 @@
 }
 
 .nav-link{
-    color: #848484;
+    color: black;
+}
+
+.nav-link:hover{
+    background-color: gainsboro;
 }
 
 .current-item{
