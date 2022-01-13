@@ -4,7 +4,7 @@ const parser = require('csv-parser');
 class CsvParser{
 
     constructor(){
-        this.documentsByAreaPath = './resources/data/documents by area.csv';
+        this.documentsByAreaPath = './resources/data/documents.csv';
         this.researchersPath = './resources/data/researches.csv';
     }
 
@@ -35,7 +35,7 @@ class CsvParser{
                 .pipe(parser({
                     separator: ',',
                     newline: '\n',
-                    skipLines: 1,
+                    skipLines: 8,
                     headers: ["Subject areas","Documents"]
                 }))
                 .on('data', row => data.push(row))
