@@ -1,18 +1,19 @@
-const Scival = require('../helpers/scival');
-const Datajson = require('../helpers/jsondata');
+const Unitsdb = require('../helpers/unitsdb');
+const Centersdb = require('../helpers/centersdb');
 
-const dbController = new Datajson();
+const unitsdb = new Unitsdb();
+const centersdb = new Centersdb();
 
 exports.getMainPage = async (req, res) => {
 
     let faculties = [];
     let centros = [];
 
-    dbController.centros.forEach(element => {
+    centersdb.centers.forEach(element => {
         centros.push(element);
     });
 
-    dbController.facultades.forEach(element => {
+    unitsdb.units.forEach(element => {
         faculties.push(element);
     });
 

@@ -1,45 +1,54 @@
 [
     {
+        "id": 1,
         "nombre": "FIEC",
         "nombreCompleto": "Facultad de Ingeniería en Electricidad y Computación",
         "logo": "/logos facultades/fiec.png"
     },
     {
+        "id": 2,
         "nombre": "FICT",
         "nombreCompleto": "Facultad de Ingeniería en Ciencias de la Tierra",
         "logo": "/logos facultades/fict.jpg"
     },
     {
+        "id": 3,
         "nombre": "FADCOM",
         "nombreCompleto": "Facultad de Arte, Diseño y Comunicación Audiovisual",
         "logo": "/logos facultades/fadcom.jpg"
     },
     {
+        "id": 4,
         "nombre": "FCNM",
         "nombreCompleto": "Facultad de Ciencias Naturales y Matemáticas",
         "logo": "/logos facultades/fcnm.png"
     },
     {
+        "id": 5,
         "nombre": "FCSH",
         "nombreCompleto": "Facultad de Ciencias Sociales y Humanísticas",
         "logo": "/logos facultades/fcsh.png"
     },
     {
+        "id": 6,
         "nombre": "ESPAE",
         "nombreCompleto": "Escuela de Negocios de la ESPOL",
         "logo": "/logos facultades/espae.svg"
     },
     {
+        "id": 7,
         "nombre": "FCV",
         "nombreCompleto": "Facultad de Ciencias de la Vida",
         "logo": "/logos facultades/fcv.jpg"
     },
     {
+        "id": 8,
         "nombre": "FIMCP",
         "nombreCompleto": "Facultad de Ingeniería en Mecanica y Ciencias de la Producción",
         "logo": "/logos facultades/fimcp.jpg"
     },
     {
+        "id": 9,
         "nombre": "FIMCM",
         "nombreCompleto": "Facultad de Ingeniería Marítima y Ciencias del Mar",
         "logo": "/logos facultades/fimcm.png"

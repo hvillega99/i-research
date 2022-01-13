@@ -1,45 +1,54 @@
 [
     {
+        "id": 1,
         "nombre": "CIBE",
         "nombreCompleto": "Centro de Investigaciones Biotecnológicas de Ecuador",
         "logo": "/logos centros/cibe.jpg"
     },
     {
+        "id": 2,
         "nombre": "CTI",
         "nombreCompleto": "Centro de Tecnologías de Información",
         "logo": "/logos centros/cti.png"
     },
     {
+        "id": 3,
         "nombre": "CENAIM",
         "nombreCompleto": "Centro Nacional de Acuicultura e Investigaciones Marinas",
         "logo": "/logos centros/cenaim.png"
     },
     {
+        "id": 4,
         "nombre": "CADS",
         "nombreCompleto": "Centro de Agua y Desarrollo Sustentable",
         "logo": "/logos centros/cads.png"
     },
     {
+        "id": 5,
         "nombre": "CIP-RRD",
         "nombreCompleto": "Centro Internacional del Pacífico para la Reducción de Riesgos de Desastres",
         "logo": "/logos centros/cip-rrd.jpg"
     },
     {
+        "id": 5,
         "nombre": "CIPAT",
         "nombreCompleto": "Centro de Investigaciones y Proyectos Aplicados a las Ciencias de la Tierra",
         "logo": "/logos centros/cipat.jpg"
     },
     {
+        "id": 6,
         "nombre": "CIDIS",
         "nombreCompleto": "Centro de Investigación, Desarrollo e Innovación de Sistemas Computacionales",
         "logo": "/logos centros/cidis.jpg"
     },
     {
+        "id": 7,
         "nombre": "CIDNA",
         "nombreCompleto": "Centro de Investigación y Desarrollo de Nanotecnología",
         "logo": "/logos centros/cidna.png"
     },
     {
+        "id": 8,
         "nombre": "CERA",
         "nombreCompleto": "Centro de Energías Renovables y Alternativas",
         "logo": "/logos centros/cera.jpg"

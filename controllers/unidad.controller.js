@@ -1,13 +1,17 @@
-const Datajson = require('../helpers/jsondata');
 const Scopus = require('../helpers/scopus');
+const Unitsdb = require('../helpers/unitsdb');
+
+const Researchersdb = require('../helpers/researchersdb');
+const researches = new Researchersdb();
+
 const scopus = new Scopus();
-const datajson = new Datajson();
+const unitsdb = new Unitsdb;
 
 exports.getPerfilUnidad = async(req, res) =>{
     const nombreUnidad = req.params.uaName;
-    const informacion = datajson.getInformacionUnidad(nombreUnidad);
+    const informacion = unitsdb.getUnit(nombreUnidad);
     if(informacion){
-        const investigadores = datajson.getInvestigadores(nombreUnidad);
+        const investigadores = researches.getResearchersByUnit(nombreUnidad);
         const idArr = investigadores.map(item => item.id);
         const data = await scopus.getMetrics(idArr);
         data.forEach(element => {

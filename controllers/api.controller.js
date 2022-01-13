@@ -1,10 +1,11 @@
 const Scival = require('../helpers/scival');
-const Datajson = require('../helpers/jsondata');
 const Scopus = require('../helpers/scopus');
 const Gtsi = require('../helpers/gtsi');
 const CsvParser = require('../helpers/csvParser');
 
-const dbController = new Datajson();
+const Researchersdb = require('../helpers/researchersdb');
+const dbController = new Researchersdb();
+
 const scival = new Scival();
 const gtsi = new Gtsi();
 const scopus = new Scopus();
@@ -13,7 +14,7 @@ const parser = new CsvParser();
 exports.getUACitationsByYear = async (req, res) => {
     const ua = req.params.ua;
     
-    const investigadores = dbController.getInvestigadores(ua);
+    const investigadores = dbController.getResearchersByUnit(ua);
     const arrScopusId = investigadores.map(item => item.id)
     const data = await scival.getCitations(arrScopusId.join(','));
 
@@ -35,7 +36,7 @@ exports.getUACitationsByYear = async (req, res) => {
 exports.getUAPublicationsByYear = async (req, res) => {
     const ua = req.params.ua;
     
-    const investigadores = dbController.getInvestigadores(ua);
+    const investigadores = dbController.getResearchersByUnit(ua);
     const arrScopusId = investigadores.map(item => item.id)
     const data = await scival.getPublications(arrScopusId.join(','));
 
@@ -112,6 +113,6 @@ exports.getPublicationsInfo = async (req, res) => {
 }
 
 exports.getPublicationsByArea = async (req, res) => {
-    const data = await parser.readDocumentsByArea("./resources/data/documents by area.csv");
+    const data = await parser.getDocumentsByArea();
     res.json(data);
 }
