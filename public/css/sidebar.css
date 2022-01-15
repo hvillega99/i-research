@@ -16,3 +16,8 @@
     color: #213a8f;
     font-weight: bold;
 }
+
+.btn-primary{
+    background-color: #437ddc;
+    border-color: #437ddc;
+}
