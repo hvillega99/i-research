@@ -3,6 +3,7 @@ const path = require("path")
 const morgan = require("morgan");
 const passport = require("passport");
 const multer = require("multer");
+const session = require("express-session");
 
 //initializations
 const app = express();
@@ -18,6 +19,11 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+/*
+app.use(session({secret: 'session_secret'}));
+app.use(passport.initialize());
+app.use(passport.session());
+*/
 
 const storage = multer.diskStorage({
     destination: path.join(__dirname,"public/logos"),
@@ -25,6 +31,15 @@ const storage = multer.diskStorage({
         func(null, file.originalname);
     }
 })
+
+/*
+function authenticateA(req,res,next) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/cas_login')
+}
+*/
 
 app.use(multer({
     storage,
@@ -55,7 +70,6 @@ app.use('/investigador',require('./routes/investigador.routes'));
 app.use('/unidad',require('./routes/unidad_academica.routes'));
 app.use('/centro',require('./routes/centro_investigacion.routes'));
 app.use('/api',require('./routes/api.routes'));
-app.use('/admin', require('./routes/admin.routes'))
 app.use('/cas_login',(req, res, next)=> {
     passport.authenticate('cas', function (err, user, info) {
         if (err) {
@@ -75,7 +89,13 @@ app.use('/cas_login',(req, res, next)=> {
         });
       })(req, res, next);
 })
-
+app.use('/admin'/*,authenticateA */,require('./routes/admin.routes'));
+/*
+app.use('/cas_logout',(req, res)=> {
+  req.logout(); // provided by passport
+  res.redirect('/cas_login');
+});
+*/
 
 //start server
 app.listen(app.get("port"), () => {
