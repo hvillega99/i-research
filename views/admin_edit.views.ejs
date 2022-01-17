@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Editar <%= type %> </h5>
                         
-                        <form action="/admin/unidades/edit/<%= unit.id %>" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/<%= type %>/edit/<%= unit.id %>" method="POST" enctype="multipart/form-data">
         
                             <div class="d-flex flex-column align-items-center">
                                 <img class="img-fluid rounded" id="logo" height="35%" width="35%" src="<%= unit.logo %>">
@@ -64,7 +64,7 @@
         
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Aceptar</button>
-                                <a href="/admin/unidades" class="btn btn-secondary">Cancelar</a>       
+                                <a href="/admin/<%= type %>" class="btn btn-secondary">Cancelar</a>       
                             </div>
         
                         </form>

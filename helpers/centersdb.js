@@ -10,6 +10,10 @@ class Centersdb{
         return this.centers.find(unit => unit.nombre == nombre.toLocaleUpperCase());
     }
 
+    getCenterById(idCenter){
+        return this.centers.find(center => center.id == idCenter);
+    }
+
     findCenter(terms) {
         let results = this.centers.filter(function (currentElement) {
             return currentElement.nombre.includes(terms.toLocaleUpperCase()) || currentElement.nombreCompleto.toLocaleUpperCase().includes(terms.toLocaleUpperCase());
@@ -24,6 +28,8 @@ class Centersdb{
     }
 
     removeCenter(idCenter){
+        const {logo} = this.centers.find(center => center.id == idCenter);
+        fs.rmSync(`./public/${logo}`);
         this.centers = this.centers.filter(center => center.id != idCenter);
         fs.writeFileSync(this.filePath, JSON.stringify(this.centers), 'utf-8');
     }

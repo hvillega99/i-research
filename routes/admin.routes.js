@@ -8,12 +8,15 @@ router.get('/investigadores', adminController.loadResearches);
 
 router.get('/unidades', adminController.loadUnits);
 router.post('/unidades', adminController.addUnit);
-
-router.get('/unidades/delete/:idUnit', adminController.deleteUnit);
-router.get('/unidades/edit/:idUnit', adminController.loadEditUnitForm);
+router.get('/unidades/edit/:idUnit', adminController.loadUnitEditForm);
 router.post('/unidades/edit/:idUnit', adminController.editUnit);
+router.get('/unidades/delete/:idUnit', adminController.deleteUnit);
 
 router.get('/centros', adminController.loadCenters);
+router.post('/centros', adminController.addCenter);
+router.get('/centros/edit/:idCenter', adminController.loadCenterEditForm);
+router.post('/centros/edit/:idCenter', adminController.editCenter);
+router.get('/centros/delete/:idCenter', adminController.deleteCenter);
 
 
 module.exports = router;
