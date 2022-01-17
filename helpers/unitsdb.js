@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 class Unitsdb{
     constructor(){
@@ -8,6 +9,10 @@ class Unitsdb{
 
     getUnit(nombre){
         return this.units.find(unit => unit.nombre == nombre.toLocaleUpperCase());
+    }
+
+    getUnitById(idUnit){
+        return this.units.find(unit => unit.id == idUnit);
     }
 
     findUnit(terms) {
@@ -24,6 +29,8 @@ class Unitsdb{
     }
 
     removeUnit(idUnit){
+        const {logo} = this.units.find(unit => unit.id == idUnit);
+        fs.rmSync(`./public/${logo}`);
         this.units = this.units.filter(unit => unit.id != idUnit);
         fs.writeFileSync(this.filePath, JSON.stringify(this.units), 'utf-8');
     }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/cabecera.templates.ejs")%>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <title>Editar</title>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="row p-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card">                  
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Editar <%= type %> </h5>
+                        
+                        <form action="/admin/unidades/edit/<%= unit.id %>" method="POST" enctype="multipart/form-data">
+        
+                            <div class="d-flex flex-column align-items-center">
+                                <img class="img-fluid rounded" id="logo" height="35%" width="35%" src="<%= unit.logo %>">
+        
+                                <label for="input-logo" class="form-label btn" 
+                                    data-bs-toggle="tooltip" title="Cargar logo"
+                                >
+                                    <img src="/img/upload_file.png"/>
+        
+                                    <input class="form-control" id="input-logo" 
+                                        type="file" 
+                                        accept="image/png,image/ico,image/svg+xml,image/jpeg" 
+                                        name="logo"
+                                        value="<%= unit.logo %>"
+                                        hidden
+                                    >
+                                </label>
+                            </div>
+                            
+                            <div class="mb-2">
+                                <label for="input-nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="input-nombre" 
+                                    name="nombre" value="<%= unit.nombreCompleto %>" required
+                                >
+                            </div>
+                            <div class="mb-2">
+                                <label for="input-siglas" class="form-label">Siglas</label>
+                                <input type="text" class="form-control" id="input-siglas" 
+                                    name="siglas" value="<%= unit.nombre %>"  required
+                                >
+                            </div>
+                            <div class="mb-2">
+                                <label for="input-publicaciones" class="form-label">Cantidad de publicaciones</label>
+                                <input type="number" class="form-control" id="input-publicaciones" 
+                                    name="publicaciones" value="<%= unit.publicaciones %>" required
+                                >
+                            </div>
+                            <div class="mb-2">
+                                <label for="input-citas" class="form-label">Cantidad de citaciones</label>
+                                <input type="number" class="form-control" id="input-citas" 
+                                    name="citas" value="<%= unit.citas %>" required
+                                >
+                            </div>
+        
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                <a href="/admin/unidades" class="btn btn-secondary">Cancelar</a>       
+                            </div>
+        
+                        </form>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>    
+    <script src="/js/preview.js"></script>
+</body>
+</html>

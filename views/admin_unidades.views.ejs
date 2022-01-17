@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Nueva unidad académica</h5>
                                 
-                                <form action="">
+                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data">
 
                                     <div class="d-flex flex-column align-items-center">
                                         <img class="img-fluid rounded" id="logo" height="35%" width="35%"/>
@@ -77,6 +77,7 @@
                                             <input class="form-control" id="input-logo" 
                                                 type="file" 
                                                 accept="image/png,image/ico,image/svg+xml,image/jpeg" 
+                                                name="logo"
                                                 required
                                                 hidden
                                             >
@@ -84,24 +85,29 @@
                                     </div>
                                     
                                     <div class="mb-2">
-                                        <label for="input-name" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="input-name" required>
+                                        <label for="input-nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="input-nombre" name="nombre" required>
                                     </div>
                                     <div class="mb-2">
                                         <label for="input-siglas" class="form-label">Siglas</label>
-                                        <input type="text" class="form-control" id="input-siglas" required>
+                                        <input type="text" class="form-control" id="input-siglas" name="siglas" required>
                                     </div>
                                     <div class="mb-2">
                                         <label for="input-publicaciones" class="form-label">Cantidad de publicaciones</label>
-                                        <input type="number" class="form-control" id="input-publicaciones" required>
+                                        <input type="number" class="form-control" id="input-publicaciones" name="publicaciones" required>
                                     </div>
                                     <div class="mb-2">
                                         <label for="input-citas" class="form-label">Cantidad de citaciones</label>
-                                        <input type="number" class="form-control" id="input-citas" required>
+                                        <input type="number" class="form-control" id="input-citas" name="citas" required>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                                        <a href="/admin/unidades" class="btn btn-secondary">Cancelar</a>       
+                                    </div>
+                                    
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -125,18 +131,19 @@
                                             <%= item.nombre %>
                                         </td>
                                         <td>
-                                            xx
+                                            <%= item.publicaciones %>
                                         </td>
                                         <td>
-                                            xx
+                                            <%= item.citas %>
                                         </td>
                                         <td class="d-flex">
-                                            <a href="" data-bs-toggle="tooltip" title="Editar">
+                                            <a href="/admin/unidades/edit/<%= item.id %>" data-bs-toggle="tooltip" title="Editar">
                                                 <img class="btn btn-primary me-1" src="/img/edit.png"/>
                                             </a>
-                                            <a href="" data-bs-toggle="tooltip" title="Eliminar">
-                                                <img class="btn btn-danger" src="/img/delete.png"/>
-                                            </a>
+                                            <img class="btn btn-danger" src="/img/delete.png" 
+                                                onclick="deleteUnit(<%= item.id %>)"
+                                                data-bs-toggle="tooltip" title="Eliminar"
+                                            />
                                         </td>
                                     </tr>
                                 <% }) %>
@@ -151,5 +158,12 @@
         </div>
     </div>    
     <script src="/js/preview.js"></script>
+    <script>
+        function deleteUnit(id){
+            if (confirm("¿Está seguro?") == true) {
+                window.location.href = `/admin/unidades/delete/${id}`;
+            } 
+        }
+    </script>
 </body>
 </html>
