@@ -77,58 +77,58 @@ fetch('/api/publicationsByYearEspol')
     title="Cantidad de publicaciones indexadas de la institución\npor cada uno de los últimos seis años."></img>`;
 })
 
-const pieContainer = document.getElementById("grafica-documentos-area");
-fetch('/api/publications/areas/inst')
-.then(response => response.json())
-.then(data => {
-    const labels = [];
-    const values = [];
+// const pieContainer = document.getElementById("grafica-documentos-area");
+// fetch('/api/publications/areas/inst')
+// .then(response => response.json())
+// .then(data => {
+//     const labels = [];
+//     const values = [];
 
-    data.map(item => {
-        labels.push(item['Subject areas']);
-        values.push(item['Documents']);
-    })
+//     data.map(item => {
+//         labels.push(item['Subject areas']);
+//         values.push(item['Documents']);
+//     })
 
-    const pie = new Chart(pieContainer, {
-        type: "pie",
-        data: {
-            labels: labels,
-            datasets: [{
-                data: values,
-                backgroundColor: [
-                    '#FFCD78',
-                    '#FCECC0',
-                    '#FFFAEE',
-                    '#C6DDAF',
-                    '#9ACC91',
-                    '#72B081',
-                    '#C5EBCA',
-                    '#FCF9F2',
-                    '#FDDAE3',
-                    '#F2BAD1',
-                    '#F2AECB',
-                    '#DB97C6',
-                    '#AB91C4'
-                ]
-            }]
-        },
+//     const pie = new Chart(pieContainer, {
+//         type: "pie",
+//         data: {
+//             labels: labels,
+//             datasets: [{
+//                 data: values,
+//                 backgroundColor: [
+//                     '#FFCD78',
+//                     '#FCECC0',
+//                     '#FFFAEE',
+//                     '#C6DDAF',
+//                     '#9ACC91',
+//                     '#72B081',
+//                     '#C5EBCA',
+//                     '#FCF9F2',
+//                     '#FDDAE3',
+//                     '#F2BAD1',
+//                     '#F2AECB',
+//                     '#DB97C6',
+//                     '#AB91C4'
+//                 ]
+//             }]
+//         },
 
-        options: {
-            responsive: true,
-            legend: {
-                display:  false,
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
-            }
-        }
-    })
+//         options: {
+//             responsive: true,
+//             legend: {
+//                 display:  false,
+//             },
+//             animation: {
+//                 animateScale: true,
+//                 animateRotate: true
+//             }
+//         }
+//     })
 
-    const infoPublicaciones = document.getElementById('info-pie');
-    infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-    title="Cantidad de publicaciones indexadas de la institución\npor cada área de conocimiento."></img>`;
-})
+//     const infoPublicaciones = document.getElementById('info-pie');
+//     infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+//     title="Cantidad de publicaciones indexadas de la institución\npor cada área de conocimiento."></img>`;
+// })
 
 const tjpContainer = document.getElementById('grafica-tjp');
 fetch('api/publications/topJournalPercentiles/inst')
