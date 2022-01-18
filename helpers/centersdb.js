@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { v4 } = require('uuid');
 
 class Centersdb{
     constructor(){
@@ -22,7 +23,7 @@ class Centersdb{
     }
 
     addCenter(newCenter){
-        newCenter['id'] = this.centers.length + 1;
+        newCenter['id'] = v4();
         this.centers.push(newCenter);
         fs.writeFileSync(this.filePath, JSON.stringify(this.centers), 'utf-8');
     }
@@ -36,7 +37,8 @@ class Centersdb{
 
     editCenter(idCenter, center){
         center['id'] = idCenter;
-        this.centers[idCenter - 1] = center;
+        const index = this.centers.findIndex(center => center.id == idCenter);
+        this.centers[index] = center;
         fs.writeFileSync(this.filePath, JSON.stringify(this.centers), 'utf-8');
     }
 }

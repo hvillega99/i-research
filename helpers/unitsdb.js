@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { v4 } = require('uuid');
 
 class Unitsdb{
     constructor(){
@@ -22,7 +23,7 @@ class Unitsdb{
     }
 
     addUnit(newUnit){
-        newUnit['id'] = this.units.length + 1;
+        newUnit['id'] = v4();
         this.units.push(newUnit);
         fs.writeFileSync(this.filePath, JSON.stringify(this.units), 'utf-8');
     }
@@ -36,7 +37,8 @@ class Unitsdb{
 
     editUnit(idUnit, unit){
         unit['id'] = idUnit;
-        this.units[idUnit - 1] = unit;
+        const index = this.units.findIndex(unit => unit.id == idUnit);
+        this.units[index] = unit;
         fs.writeFileSync(this.filePath, JSON.stringify(this.units), 'utf-8');
     }
 }

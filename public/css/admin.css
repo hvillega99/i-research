@@ -17,7 +17,14 @@
     font-weight: bold;
 }
 
+/* #437ddc */
+
 .btn-primary{
-    background-color: #437ddc;
-    border-color: #437ddc;
+    background-color: #213a8f;
+    border-color: #213a8f;
+}
+
+.btn-primary:hover{
+    background-color: #214b9f;
+    border-color: #214b9f;
 }

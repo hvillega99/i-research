@@ -4,6 +4,12 @@ const Centersdb = require('../helpers/centersdb');
 const unitsdb = new Unitsdb();
 const centersdb = new Centersdb();
 
+let showMessageUnit = false;
+let messageUnit = '';
+
+let showMessageCenter = false;
+let messageCenter = '';
+
 exports.loadHome = (req, res) => {
     res.send('ADMIN');
 }
@@ -22,12 +28,16 @@ exports.addUnit = (req, res) => {
     }
 
     unitsdb.addUnit(newUnit);
+    showMessageUnit = true;
+    messageUnit = 'Se agregó nueva unidad académica.';
     res.redirect('/admin/unidades');
 }
 
 exports.deleteUnit = (req, res) => {
     const {idUnit} = req.params;
     unitsdb.removeUnit(idUnit);
+    showMessageUnit = true;
+    messageUnit = 'Unidad académica eliminada.';
     res.redirect('/admin/unidades');
 }
 
@@ -52,6 +62,8 @@ exports.editUnit = (req, res) => {
     }
 
     unitsdb.editUnit(idUnit, unit);
+    showMessageUnit = true;
+    messageUnit = 'Información de la unidad académica actualizada.';
     res.redirect('/admin/unidades');
 }
 
@@ -62,7 +74,8 @@ exports.loadUnitEditForm = (req, res) => {
 }
 
 exports.loadUnits = (req, res) => {
-    res.render('../views/admin_unidades.views.ejs',{'units':unitsdb.units});
+    res.render('../views/admin_unidades.views.ejs',{'units':unitsdb.units, showMessageUnit, messageUnit});
+    showMessageUnit=false;
 }
 
 exports.loadResearches = (req, res) => {
@@ -70,7 +83,8 @@ exports.loadResearches = (req, res) => {
 }
 
 exports.loadCenters = (req, res) => {
-    res.render('../views/admin_centros.views.ejs',{'centers':centersdb.centers});
+    res.render('../views/admin_centros.views.ejs',{'centers':centersdb.centers, showMessageCenter, messageCenter});
+    showMessageCenter=false;
 }
 
 exports.addCenter = (req, res) => {
@@ -87,12 +101,16 @@ exports.addCenter = (req, res) => {
     }
 
     centersdb.addCenter(newCenter);
+    showMessageCenter = true;
+    messageCenter = 'Se agregó nuevo centro de investigación.';
     res.redirect('/admin/centros');
 }
 
 exports.deleteCenter = (req, res) => {
     const {idCenter} = req.params;
     centersdb.removeCenter(idCenter);
+    showMessageCenter = true;
+    messageCenter = 'Centro de investigación eliminado.';
     res.redirect('/admin/centros');
 }
 
@@ -117,6 +135,8 @@ exports.editCenter = (req, res) => {
     }
 
     centersdb.editCenter(idCenter, center);
+    showMessageCenter = true;
+    messageCenter = 'Información del centro de investigación actualizada.';
     res.redirect('/admin/centros');
 }
 

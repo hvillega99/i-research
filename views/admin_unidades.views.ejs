@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
     <title>Unidades académicas</title>
 </head>
@@ -19,19 +19,19 @@
                         <h5>Admin</h5>
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
-                        <li>
+                        <li class="mb-3">
                             <a href="/admin/investigadores" class="nav-link px-sm-0 px-2 d-flex">
                                 <img src="/img/sidebar/investigador.png"/>
                                 <span class="ms-1 d-none d-sm-inline">Investigadores</span> 
                             </a>
                         </li>
-                        <li>
+                        <li class="mb-3">
                             <a href="/admin/unidades" class="nav-link px-sm-0 px-2 d-flex">
                                 <img src="/img/sidebar/unidad.png"/>
                                 <span class="ms-1 d-none d-sm-inline current-item">Unidades académicas</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="mb-3">
                             <a href="/admin/centros" class="nav-link px-sm-0 px-2 d-flex">
                                 <img src="/img/sidebar/centro.png"/>
                                 <span class="ms-1 d-none d-sm-inline">Centros de investigación</span>
@@ -56,6 +56,16 @@
                 </div>
             </div>
             <div class="col d-flex flex-column h-sm-100">
+
+                <% if(showMessageUnit){ %>
+
+                    <div class="alert alert-success alert-dismissible fade show mt-2 text-center" role="alert">
+                        <strong><%=messageUnit%></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                <% } %>    
+
                 <main class="row overflow-auto p-4">
                    
                     <div class="col-md-5">
