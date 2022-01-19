@@ -6,6 +6,10 @@ router.get('/', adminController.loadHome);
 
 router.get('/investigadores', adminController.loadResearches);
 
+router.get('/download/investigadores', adminController.downloadResearches);
+router.get('/download/publicaciones', adminController.downloadDocuments);
+
+
 router.get('/unidades', adminController.loadUnits);
 router.post('/unidades', adminController.addUnit);
 router.get('/unidades/edit/:idUnit', adminController.loadUnitEditForm);

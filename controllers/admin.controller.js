@@ -14,6 +14,16 @@ exports.loadHome = (req, res) => {
     res.send('ADMIN');
 }
 
+exports.downloadResearches = (req, res) => {
+    const file = './resources/data/researches.csv';
+    res.download(file);
+}
+
+exports.downloadDocuments = (req, res) => {
+    const file = './resources/data/documents.csv';
+    res.download(file);
+}
+
 exports.addUnit = (req, res) => {
 
     const {filename} = req.file;
