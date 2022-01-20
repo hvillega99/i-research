@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path")
 const morgan = require("morgan");
 const passport = require("passport");
-const multer = require("multer");
 const session = require("express-session");
+const fileUpload = require('express-fileupload');
+
 
 //initializations
 const app = express();
@@ -25,12 +26,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 */
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname,"public/logos"),
-    filename: (req, file, func)=> {
-        func(null, file.originalname);
-    }
-})
+app.use(fileUpload());
+
 
 /*
 function authenticateA(req,res,next) {
@@ -40,11 +37,6 @@ function authenticateA(req,res,next) {
   res.redirect('/cas_login')
 }
 */
-
-app.use(multer({
-    storage,
-    dest: path.join(__dirname,"public/logos")
-}).single('logo'));
 
 //
 passport.use(new (require('passport-cas').Strategy)({

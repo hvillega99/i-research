@@ -2,11 +2,12 @@ const {Router} = require('express');
 const adminController = require('../controllers/admin.controller');
 const router = Router();
 
-router.get('/', adminController.loadHome);
+router.get('/', adminController.loadResearchers);
+router.post('/upload/investigadores', adminController.uploadResearchers);
+router.post('/upload/publicaciones', adminController.uploadDocuments);
 
-router.get('/investigadores', adminController.loadResearches);
 
-router.get('/download/investigadores', adminController.downloadResearches);
+router.get('/download/investigadores', adminController.downloadResearchers);
 router.get('/download/publicaciones', adminController.downloadDocuments);
 
 

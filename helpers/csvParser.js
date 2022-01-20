@@ -1,11 +1,12 @@
 const fs = require('fs');
 const parser = require('csv-parser');
+const resources = require('../resources/resources.json');
 
 class CsvParser{
 
     constructor(){
-        this.documentsByAreaPath = './resources/data/documents.csv';
-        this.researchersPath = './resources/data/researches.csv';
+        this.documentsByAreaPath = `${resources.path}${resources.documents}`;
+        this.researchersPath = `${resources.path}${resources.researchers}`;
     }
 
     getResearchers(){

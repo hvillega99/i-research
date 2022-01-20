@@ -1,5 +1,7 @@
 const Unitsdb = require('../helpers/unitsdb');
 const Centersdb = require('../helpers/centersdb');
+const resources = require('../resources/resources.json');
+const fs = require('fs');
 
 const unitsdb = new Unitsdb();
 const centersdb = new Centersdb();
@@ -10,37 +12,79 @@ let messageUnit = '';
 let showMessageCenter = false;
 let messageCenter = '';
 
-exports.loadHome = (req, res) => {
-    res.send('ADMIN');
+exports.uploadResearchers = (req, res) => {
+    try {
+        
+        const {file} = req.files;
+        file.mv(resources.path + file.name);
+
+        resources.researchers = file.name;
+        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+        
+        res.redirect('/admin');
+
+    } catch (err) {
+
+        console.log('No se pudo subir el archivo');
+        res.redirect('/admin');
+    }
 }
 
-exports.downloadResearches = (req, res) => {
-    const file = './resources/data/researches.csv';
+exports.uploadDocuments = (req, res) => {
+    try {
+        
+        const {file} = req.files;
+        file.mv(resources.path + file.name);
+
+        resources.documents = file.name;
+        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+
+        res.redirect('/admin');
+
+    } catch (err) {
+
+        console.log('No se pudo subir el archivo');
+        res.redirect('/admin');
+    }
+}
+
+exports.downloadResearchers = (req, res) => {
+    const file = `${resources.path}${resources.researchers}`;
     res.download(file);
 }
 
 exports.downloadDocuments = (req, res) => {
-    const file = './resources/data/documents.csv';
+    const file = `${resources.path}${resources.documents}`;
     res.download(file);
 }
 
 exports.addUnit = (req, res) => {
 
-    const {filename} = req.file;
-    const {nombre, siglas, publicaciones, citas} = req.body;
+    try {
+        
+        const {logo} = req.files;
+        const {nombre, siglas, publicaciones, citas} = req.body;
+        logo.mv('./public/logos/' + logo.name);
 
-    const newUnit = {
-        nombre: siglas,
-        nombreCompleto: nombre,
-        logo: `/logos/${filename}`,
-        publicaciones,
-        citas
+        const newUnit = {
+            nombre: siglas,
+            nombreCompleto: nombre,
+            logo: `/logos/${logo.name}`,
+            publicaciones,
+            citas
+        }
+    
+        unitsdb.addUnit(newUnit);
+        showMessageUnit = true;
+        messageUnit = 'Se agregó nueva unidad académica.';
+        res.redirect('/admin/unidades');
+
+
+    } catch (err) {
+
+        console.log('No se pudo agregar la unidad académica');
+        res.redirect('/admin/unidades');
     }
-
-    unitsdb.addUnit(newUnit);
-    showMessageUnit = true;
-    messageUnit = 'Se agregó nueva unidad académica.';
-    res.redirect('/admin/unidades');
 }
 
 exports.deleteUnit = (req, res) => {
@@ -52,29 +96,37 @@ exports.deleteUnit = (req, res) => {
 }
 
 exports.editUnit = (req, res) => {
-    const {idUnit} = req.params;
-    const {nombre, siglas, publicaciones, citas} = req.body; 
-    let logo = '';
+    try {
+        const {idUnit} = req.params;
+        const {nombre, siglas, publicaciones, citas} = req.body;
+        let pathLogo;
 
-    if(req.file){
-        const {filename} = req.file;
-        logo = `/logos/${filename}`;
-    }else{
-        logo = unitsdb.getUnitById(idUnit).logo;
+        if(req.files){
+            const {logo} = req.files;
+            logo.mv('./public/logos/' + logo.name);
+            pathLogo = `/logos/${logo.name}`;
+        }else{
+            pathLogo = unitsdb.getUnitById(idUnit).logo;
+        }
+
+        const unit = {
+            nombre: siglas,
+            nombreCompleto: nombre,
+            logo: pathLogo,
+            publicaciones,
+            citas
+        }
+    
+        unitsdb.editUnit(idUnit, unit);
+        showMessageUnit = true;
+        messageUnit = 'Información de la unidad académica actualizada.';
+        res.redirect('/admin/unidades');
+
+    } catch (err) {
+
+        console.log('No se pudo editar la información de la unidad académica');
+        res.redirect('/admin/unidades');
     }
-
-    const unit = {
-        nombre: siglas,
-        nombreCompleto: nombre,
-        logo,
-        publicaciones,
-        citas
-    }
-
-    unitsdb.editUnit(idUnit, unit);
-    showMessageUnit = true;
-    messageUnit = 'Información de la unidad académica actualizada.';
-    res.redirect('/admin/unidades');
 }
 
 exports.loadUnitEditForm = (req, res) => {
@@ -88,8 +140,12 @@ exports.loadUnits = (req, res) => {
     showMessageUnit=false;
 }
 
-exports.loadResearches = (req, res) => {
-    res.render('../views/admin_investigadores.views.ejs');
+exports.loadResearchers = (req, res) => {
+    res.render('../views/admin_investigadores.views.ejs', 
+    {
+        "documentFile": resources.documents, 
+        "researcherFile": resources.researchers
+    });
 }
 
 exports.loadCenters = (req, res) => {
@@ -98,22 +154,30 @@ exports.loadCenters = (req, res) => {
 }
 
 exports.addCenter = (req, res) => {
+    try {
+        
+        const {logo} = req.files;
+        const {nombre, siglas, publicaciones, citas} = req.body;
+        logo.mv('./public/logos/' + logo.name);
 
-    const {filename} = req.file;
-    const {nombre, siglas, publicaciones, citas} = req.body;
+        const newCenter = {
+            nombre: siglas,
+            nombreCompleto: nombre,
+            logo: `/logos/${logo.name}`,
+            publicaciones,
+            citas
+        }
+    
+        centersdb.addCenter(newCenter);
+        showMessageCenter = true;
+        messageCenter = 'Se agregó nuevo centro de investigación.';
+        res.redirect('/admin/centros');
 
-    const newCenter = {
-        nombre: siglas,
-        nombreCompleto: nombre,
-        logo: `/logos/${filename}`,
-        publicaciones,
-        citas
+    } catch (err) {
+
+        console.log('No se pudo agregar el centro de investigación');
+        res.redirect('/admin/centros');
     }
-
-    centersdb.addCenter(newCenter);
-    showMessageCenter = true;
-    messageCenter = 'Se agregó nuevo centro de investigación.';
-    res.redirect('/admin/centros');
 }
 
 exports.deleteCenter = (req, res) => {
@@ -125,29 +189,38 @@ exports.deleteCenter = (req, res) => {
 }
 
 exports.editCenter = (req, res) => {
-    const {idCenter} = req.params;
-    const {nombre, siglas, publicaciones, citas} = req.body; 
-    let logo = '';
 
-    if(req.file){
-        const {filename} = req.file;
-        logo = `/logos/${filename}`;
-    }else{
-        logo = centersdb.getCenterById(idCenter).logo;
+    try {
+        const {idCenter} = req.params;
+        const {nombre, siglas, publicaciones, citas} = req.body;
+        let pathLogo;
+
+        if(req.files){
+            const {logo} = req.files;
+            logo.mv('./public/logos/' + logo.name);
+            pathLogo = `/logos/${logo.name}`;
+        }else{
+            pathLogo = centersdb.getCenterById(idCenter).logo;
+        }
+
+        const center = {
+            nombre: siglas,
+            nombreCompleto: nombre,
+            logo: pathLogo,
+            publicaciones,
+            citas
+        }
+    
+        centersdb.editCenter(idCenter, center);
+        showMessageCenter = true;
+        messageCenter = 'Información del centro de investigación actualizada.';
+        res.redirect('/admin/centros');
+
+    } catch (err) {
+
+        console.log('No se pudo editar la información del centro de investigación', err);
+        res.redirect('/admin/centros');
     }
-
-    const center = {
-        nombre: siglas,
-        nombreCompleto: nombre,
-        logo,
-        publicaciones,
-        citas
-    }
-
-    centersdb.editCenter(idCenter, center);
-    showMessageCenter = true;
-    messageCenter = 'Información del centro de investigación actualizada.';
-    res.redirect('/admin/centros');
 }
 
 exports.loadCenterEditForm = (req, res) => {

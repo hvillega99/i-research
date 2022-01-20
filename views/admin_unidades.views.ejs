@@ -20,9 +20,9 @@
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
                         <li class="mb-3">
-                            <a href="/admin/investigadores" class="nav-link px-sm-0 px-2 d-flex">
+                            <a href="/admin" class="nav-link px-sm-0 px-2 d-flex">
                                 <img src="/img/sidebar/investigador.png"/>
-                                <span class="ms-1 d-none d-sm-inline">Investigadores</span> 
+                                <span class="ms-1 d-none d-sm-inline">Archivos de investigadores</span> 
                             </a>
                         </li>
                         <li class="mb-3">
@@ -150,6 +150,7 @@
                                             <a href="/admin/unidades/edit/<%= item.id %>" data-bs-toggle="tooltip" title="Editar">
                                                 <img class="btn btn-primary me-1" src="/img/edit.png"/>
                                             </a>
+                                            
                                             <img class="btn btn-danger" src="/img/delete.png" 
                                                 onclick="deleteUnit(<%= item.id %>)"
                                                 data-bs-toggle="tooltip" title="Eliminar"

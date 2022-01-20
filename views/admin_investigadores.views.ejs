@@ -20,9 +20,9 @@
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
                         <li class="mb-3">
-                            <a href="/admin/investigadores" class="nav-link px-sm-0 px-2 d-flex">
+                            <a href="/admin" class="nav-link px-sm-0 px-2 d-flex">
                                 <img src="/img/sidebar/investigador.png"/>
-                                <span class="ms-1 d-none d-sm-inline current-item">Investigadores</span> 
+                                <span class="ms-1 d-none d-sm-inline current-item">Archivos de investigadores</span> 
                             </a>
                         </li>
                         <li class="mb-3">
@@ -62,7 +62,7 @@
                         <div class="card m-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Publicaciones por área</h5>
-                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data">
+                                <form action="/admin/upload/publicaciones" method="POST" enctype="multipart/form-data">
                                     <div class="d-flex flex-column align-items-center">
                                         
                                         <label for="input-dafile" class="form-label btn" 
@@ -70,7 +70,7 @@
                                         >
                                             <h6 id="dafilename">
                                                 <a href="/admin/download/publicaciones">
-                                                    file.csv
+                                                    <%= documentFile %>
                                                 </a>
                                             </h6>
 
@@ -79,7 +79,7 @@
                                             <input class="form-control" id="input-dafile" 
                                                 type="file" 
                                                 accept="text/csv" 
-                                                name="logo"
+                                                name="file"
                                                 required
                                                 hidden
                                             >
@@ -99,12 +99,12 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Lista de investigadores</h5>
                                 
-                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data">
+                                <form action="/admin/upload/investigadores" method="POST" enctype="multipart/form-data">
     
                                     <div class="d-flex flex-column align-items-center">
                                         <h6 id="rsfilename">
                                             <a href="/admin/download/investigadores">
-                                                file.csv
+                                                <%= researcherFile %>
                                             </a>
                                         </h6>
                                         
@@ -116,7 +116,7 @@
                                             <input class="form-control" id="input-rsfile" 
                                                 type="file" 
                                                 accept="text/csv" 
-                                                name="rsfile"
+                                                name="file"
                                                 required
                                                 hidden
                                             >
