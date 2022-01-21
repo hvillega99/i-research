@@ -132,6 +132,14 @@ fetch(`/api/projects/${author}`)
                 areas = '';
             }
 
+            let rolautor = '';
+
+            for(let i=0; i<project["colaboradores"].length; i++){
+                if(project["colaboradores"][i]["nombre"].includes(fname.toUpperCase()) && project["colaboradores"][i]["nombre"].includes(lastname.toUpperCase())){
+                    rolautor = project["colaboradores"][i]["rol"];
+                }
+            }
+
             let collaborators = project["colaboradores"].map(item => `${item["nombre"]}/${item["rol"]}`);
             collaborators = collaborators.join(', ');
     
