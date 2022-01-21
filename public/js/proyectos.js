@@ -48,6 +48,15 @@ fetch(`/api/projects/${author}`)
                 areas = '';
             }
 
+            // let rolautor = project["colaboradores"].map(item => `${item["nombre"].includes(fname.toUpperCase(), lastname.toUpperCase())}`)
+            let rolautor = '';
+
+            for(let i=0; i<project["colaboradores"].length; i++){
+                if(project["colaboradores"][i]["nombre"].includes(fname.toUpperCase()) && project["colaboradores"][i]["nombre"].includes(lastname.toUpperCase())){
+                    rolautor = project["colaboradores"][i]["rol"];
+                }
+            }
+
             let collaborators = project["colaboradores"].map(item => `${item["nombre"]}/${item["rol"]}`);
             collaborators = collaborators.join(', ');
     
@@ -61,7 +70,9 @@ fetch(`/api/projects/${author}`)
                         <td class="description item" id="cp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-c-${i+1}">
                             <strong>${project["titulo"].toUpperCase()}</strong><br>
                             ${areas}<br>
+                            Rol: ${rolautor}<br>
                             ${project["fechainicio"]} -> ${project["fechafin"]}
+
                         </td>
                     </tr>`;
             
