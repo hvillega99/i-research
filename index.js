@@ -20,23 +20,23 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-/*
+
 app.use(session({secret: 'session_secret'}));
 app.use(passport.initialize());
 app.use(passport.session());
-*/
+
 
 app.use(fileUpload());
 
 
-/*
+
 function authenticateA(req,res,next) {
   if(req.isAuthenticated()) {
     return next();
   }
   res.redirect('/cas_login')
 }
-*/
+
 
 //
 passport.use(new (require('passport-cas').Strategy)({
@@ -72,22 +72,22 @@ app.use('/cas_login',(req, res, next)=> {
           return res.redirect('/');
         }
         req.logIn(user, function (err) {
-          console.log('XDDDDDDDD');  
+          //console.log('XDDDDDDDD');  
           if (err) {   
             return next(err);
           }
           //req.session.messages = '';
-          return res.redirect('/admin/investigadores');
+          return res.redirect('/admin');
         });
       })(req, res, next);
 })
-app.use('/admin'/*,authenticateA */,require('./routes/admin.routes'));
-/*
+app.use('/admin',authenticateA ,require('./routes/admin.routes'));
+
 app.use('/cas_logout',(req, res)=> {
   req.logout(); // provided by passport
   res.redirect('/cas_login');
 });
-*/
+
 
 //start server
 app.listen(app.get("port"), () => {
