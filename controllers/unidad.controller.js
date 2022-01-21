@@ -12,50 +12,29 @@ exports.getPerfilUnidad = async(req, res) =>{
     const informacion = unitsdb.getUnit(nombreUnidad);
     if(informacion){
         const investigadores = researches.getResearchersByUnit(nombreUnidad);
-        const idArr = investigadores.map(item => item.id);
-        const data = await scopus.getMetrics(idArr);
-        data.forEach(element => {
-            const scopusId = element['coredata']['dc:identifier'].split(':')[1];
-            const publicaciones = element['coredata']['document-count'];
-            const citaciones = element['coredata']['citation-count'];
-            const investigador = investigadores.find(item => item.id == scopusId);
-            
-            investigador['publicaciones'] = publicaciones;
-            investigador['citaciones'] = citaciones;
-        });
-
         
-        const arrPublicaciones = investigadores.map(element => parseInt(element.publicaciones,10));
-        
+        if(investigadores.length > 0){
+            const idArr = investigadores.map(item => item.id);
 
+            const data = await scopus.getMetrics(idArr);
 
-        const totalPublicaciones = arrPublicaciones.reduce((i,s) => {
-            if(i){
-                return i+s;
-            }else{
-                return s;
+            data.forEach(element => {
+                const scopusId = element['coredata']['dc:identifier'].split(':')[1];
+                const publicaciones = element['coredata']['document-count'];
+                const citaciones = element['coredata']['citation-count'];
+                const investigador = investigadores.find(item => item.id == scopusId);
                 
-            }
-        });
-        
-
-
-
-        const arrCitaciones = investigadores.map(element => parseInt(element.citaciones,10));
-        const totalCitaciones = arrCitaciones.reduce((i,s) => {
-            if(i){
-                return i+s;
-            }else{
-                return s;
-            }
-        });
+                investigador['publicaciones'] = publicaciones;
+                investigador['citaciones'] = citaciones;
+            });
+        }
 
         res.render("../views/unidad_academica.views.ejs", {siglas: informacion.nombre, 
                                                             nombre: informacion.nombreCompleto,
                                                             logo: informacion.logo,
                                                             totalInvestigadores: investigadores.length,
-                                                            totalPublicaciones,
-                                                            totalCitaciones,
+                                                            totalPublicaciones: informacion.publicaciones,
+                                                            totalCitaciones: informacion.citas,
                                                             'investigadores': investigadores});
     }else{
         res.send("No existe la url ingresada");

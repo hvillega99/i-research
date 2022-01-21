@@ -16,21 +16,28 @@ exports.getUACitationsByYear = async (req, res) => {
     
     const investigadores = dbController.getResearchersByUnit(ua);
     const arrScopusId = investigadores.map(item => item.id)
-    const data = await scival.getCitations(arrScopusId.join(','));
+    let data; 
+    
+    data = await scival.getCitations(arrScopusId.join(','));
 
-    const years = Object.keys(data[0]);
-    const values = {};
-    years.forEach(year => {
-        values[year] = 0;
-    })
-
-    data.forEach(item => {
+    if(!data.error){
+        const years = Object.keys(data[0]);
+        const values = {};
         years.forEach(year => {
-            values[year] += item[year]
+            values[year] = 0;
         })
-    })
+    
+        data.forEach(item => {
+            years.forEach(year => {
+                values[year] += item[year]
+            })
+        })
+    
+        res.send(values);
+    }else{
+        res.send({"error": true, "message": "servicio no disponible"});
+    }
 
-    res.send(values);
 }
 
 exports.getUAPublicationsByYear = async (req, res) => {
@@ -38,21 +45,28 @@ exports.getUAPublicationsByYear = async (req, res) => {
     
     const investigadores = dbController.getResearchersByUnit(ua);
     const arrScopusId = investigadores.map(item => item.id)
-    const data = await scival.getPublications(arrScopusId.join(','));
+    let data;
+    
+    data = await scival.getPublications(arrScopusId.join(','));
 
-    const years = Object.keys(data[0]);
-    const values = {};
-    years.forEach(year => {
-        values[year] = 0;
-    })
-
-    data.forEach(item => {
+    if(!data.error){
+        const years = Object.keys(data[0]);
+        const values = {};
         years.forEach(year => {
-            values[year] += item[year]
+            values[year] = 0;
         })
-    })
+    
+        data.forEach(item => {
+            years.forEach(year => {
+                values[year] += item[year]
+            })
+        })
+    
+        res.send(values);
+    }else{
+        return {"error": true, "message": "servicio no disponible"};
+    }
 
-    res.send(values);
 }
 
 exports.getEspolCitationsByYear = async (req, res) => {
@@ -75,15 +89,20 @@ exports.getTopAuthors = async (req, res) => {
     const arrScopusId = dbController.getAllScopusId();
     let authors = [];
 
-    for(let i=0; i<10; i++){
-        let subArray = await scival.getHIndexAll(arrScopusId.slice(Math.round((i/10)*arrScopusId.length), Math.round(((i+1)/10)*arrScopusId.length)));
-        authors = [...authors, ...subArray];
-     }
- 
-     authors.sort((x, y) => y.h - x.h);
-     authors = authors.slice(0, 10);
-
-     res.json(authors);
+    try{
+        for(let i=0; i<10; i++){
+            let subArray;
+            subArray = await scival.getHIndexAll(arrScopusId.slice(Math.round((i/10)*arrScopusId.length), Math.round(((i+1)/10)*arrScopusId.length)));
+            authors = [...authors, ...subArray];
+        }
+     
+        authors.sort((x, y) => y.h - x.h);
+        authors = authors.slice(0, 10);
+    
+        res.json(authors);
+    }catch (err) {
+        res.json({"error": true, "message": "servicio no disponible"});
+    }
 }
 
 exports.getCollaborators = async (req, res) => {

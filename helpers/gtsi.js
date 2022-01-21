@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 class Gtsi {
     constructor(){
-        this.url = 'http://192.168.253.6:8081/api/Investigacion/GetProyectos';
+        this.url = 'http://192.168.253.6:8081/api/Investigacion';
     }
 
     removeAccents = (str) => {
@@ -22,7 +22,8 @@ class Gtsi {
 
     async getProjects(author){
 
-        const response = await fetch(this.url);
+        const uri = `${this.url}/GetProyectos`;
+        const response = await fetch(uri);
         const result = await response.json();
 
         const [name, lastname] = author.split('-');
@@ -42,7 +43,8 @@ class Gtsi {
 
     async getProjectsByUnit(unit){
 
-        const response = await fetch(this.url);
+        const uri = `${this.url}/GetProyectos`;
+        const response = await fetch(uri);
         const result = await response.json();
 
         const [name, acronym] = unit.split('-');
@@ -57,6 +59,22 @@ class Gtsi {
         let current = data.filter(item => item["estado"]==="EN EJECUCION");
         let finished = data.filter(item => item["estado"]==="FINALIZADO");
         return {current, finished, counting};
+    }
+
+    async getContratoByOrcid(orcid){
+        const uri = `${this.url}/GetContratoByOrcid/${orcid}`;
+
+        try{
+            const response = await fetch(uri);
+            const data = await response.json();
+            return {
+                'cedula': data.strIdentificacion,
+                'nombres': data.strNombres,
+                'apellidos': data.strApellidos
+            }
+        }catch(err){
+            return {"error": true, "message": "servicio no disponible"};
+        }
     }
 }
 
