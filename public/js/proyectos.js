@@ -153,6 +153,7 @@ fetch(`/api/projects/${author}`)
                             <td class="description item" id="fp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-f-${i+1}">
                                 <strong>${project["titulo"].toUpperCase()}</strong><br>
                                 ${areas}<br>
+                                Rol: ${rolautor}<br>
                                 ${project["fechainicio"]} -> ${project["fechafin"]}
                             </td>
                         </tr>`;
