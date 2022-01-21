@@ -18,15 +18,23 @@ exports.getPerfilUnidad = async(req, res) =>{
 
             const data = await scopus.getMetrics(idArr);
 
-            data.forEach(element => {
-                const scopusId = element['coredata']['dc:identifier'].split(':')[1];
-                const publicaciones = element['coredata']['document-count'];
-                const citaciones = element['coredata']['citation-count'];
-                const investigador = investigadores.find(item => item.id == scopusId);
-                
-                investigador['publicaciones'] = publicaciones;
-                investigador['citaciones'] = citaciones;
-            });
+            if(!data.error){
+                data.forEach(element => {
+                    const scopusId = element['coredata']['dc:identifier'].split(':')[1];
+                    const publicaciones = element['coredata']['document-count'];
+                    const citaciones = element['coredata']['citation-count'];
+                    const investigador = investigadores.find(item => item.id == scopusId);
+                    
+                    investigador['publicaciones'] = publicaciones;
+                    investigador['citaciones'] = citaciones;
+                });
+            }else{
+                investigadores.map(investigador => {
+                    investigador['publicaciones'] = '#';
+                    investigador['citaciones'] = '#';
+                })
+            }
+
         }
 
         res.render("../views/unidad_academica.views.ejs", {siglas: informacion.nombre, 

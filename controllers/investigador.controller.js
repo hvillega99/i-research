@@ -22,26 +22,9 @@ exports.getPerfilInvestigador = async (req, res) =>{
                                 scopus.getPublicationsTitle2(scopusId),
                                 scival.getFCWI(scopusId),
                                 scival.getH5index(scopusId)
-                            ]);
-                            
-    if(fcwi.error){
-        fcwi = '-1';
-    }
-
-    if(h5index.error){
-        h5index = '-1';
-    }
-
-    if(hIndex.error){
-        hIndex  = '-1';
-    }
-
-    if(publications2.error){
-        publications2 = [];
-    }
+                            ]);                       
                             
     const information = {...orcidCountsAndSubjects};
-
     const contrato = await gtsi.getContratoByOrcid(information.orcid);
     let srcFoto;
 

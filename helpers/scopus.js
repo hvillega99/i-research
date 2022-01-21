@@ -10,48 +10,65 @@ class Scopus{
     //Usado
     async getDataAndAreas(scopusId){
 
-        const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`;
-        const response = await fetch(url,{
-            headers:{'Accept': 'application/json'}
-        });
-
-        const information = await response.json();
-        const data = information['author-retrieval-response'][0].coredata;
-        const areas = information['author-retrieval-response'][0]['subject-areas']['subject-area'];
-
-        return {
-            orcid: data.orcid,
-            documentos: data['document-count'],
-            citas: data['citation-count'],
-            areas: areas.map(item => item['$']).slice(0,6)
-        };
+        try{
+            const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+    
+            const information = await response.json();
+            const data = information['author-retrieval-response'][0].coredata;
+            const areas = information['author-retrieval-response'][0]['subject-areas']['subject-area'];
+    
+            return {
+                orcid: data.orcid,
+                documentos: data['document-count'],
+                citas: data['citation-count'],
+                areas: areas.map(item => item['$']).slice(0,6)
+            };
+        }catch (err) {
+            console.log(err);
+            return {
+                orcid: -1,
+                documentos: -1,
+                citas: -1,
+                areas: -1,
+                error: true,
+                message: 'servicio no disponible'
+            };
+        }
     }
     
     //Usado
     async getHindex(scopusId){
-        const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
-        const response = await fetch(url,{
-            headers:{'Accept': 'application/json'}
-        });
-
-        let data = await response.json();
-        data = data['author-retrieval-response'][0]['h-index'];
-
-        return data;
+        try{
+            const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+    
+            let data = await response.json();
+            data = data['author-retrieval-response'][0]['h-index'];
+    
+            return data;
+        }catch (err) {
+            return -1
+        }
     }
 
     async getMetrics(idArr){
-
-        const url = `${this.uri}author_id/${idArr}?apiKey=${this.apiKey}&view=metrics`;
-        const response = await fetch(url,{
-            headers:{'Accept': 'application/json'}
-        });
-       
-        const data = await response.json();
-    
-        return data['author-retrieval-response-list']['author-retrieval-response'];
-
+        try {
+            const url = `${this.uri}author_id/${idArr}?apiKey=${this.apiKey}&view=metrics`;
+            const response = await fetch(url,{
+                headers:{'Accept': 'application/json'}
+            });
+           
+            const data = await response.json();
         
+            return data['author-retrieval-response-list']['author-retrieval-response'];
+        }catch (err) {
+            return {"error": true, "message": "servicio no disponible"};
+        }  
     }
 
     async getPublicationsId(scopusId){
@@ -136,46 +153,50 @@ class Scopus{
     }
 
     async getPublicationsTitle2(scopusId){  
-        var flag=0;
-        var count = 1;
-        var inicio=0;
-        var plop = []
-        while(flag==0){
-            const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-            const information = await response.json();
-            var number = information['search-results']['opensearch:totalResults'];
-            var iteraciones = Math.ceil(number/25);
-            information['search-results']["entry"].forEach(element => {
+        try{
+            var flag=0;
+            var count = 1;
+            var inicio=0;
+            var plop = []
+            while(flag==0){
+                const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
+                const response = await fetch(url,{
+                    headers:{'Accept': 'application/json'}
+                });
+                const information = await response.json();
+                var number = information['search-results']['opensearch:totalResults'];
+                var iteraciones = Math.ceil(number/25);
+                information['search-results']["entry"].forEach(element => {
+                    
+                    var plop2 = [];
                 
-                var plop2 = [];
-            
-                var title= element['dc:title'];
-                var citation = element['citedby-count'];
-                
-                var year = element['prism:coverDate'].split('-')[0]
-                var elscopus = element['dc:identifier'].split(':')[1];
-                
-                plop2.push(title);
-                plop2.push(citation);
-    
-                plop2.push(year);
-                plop2.push(elscopus);
-    
-                plop.push(plop2);
-                
+                    var title= element['dc:title'];
+                    var citation = element['citedby-count'];
+                    
+                    var year = element['prism:coverDate'].split('-')[0]
+                    var elscopus = element['dc:identifier'].split(':')[1];
+                    
+                    plop2.push(title);
+                    plop2.push(citation);
+        
+                    plop2.push(year);
+                    plop2.push(elscopus);
+        
+                    plop.push(plop2);
+                    
+                }
+                );
+                inicio+=25;
+                count+=1;
+                if(count>iteraciones){
+                    flag+=1;
+                }
+              
             }
-            );
-            inicio+=25;
-            count+=1;
-            if(count>iteraciones){
-                flag+=1;
-            }
-          
+            return plop;
+        }catch(err){
+            return -1;
         }
-        return plop;
     }
     
     async getCoauthors(arrayIds,elID){

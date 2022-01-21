@@ -109,7 +109,7 @@ class Scival{
     
             return values[keys[keys.length - 1]];
         }catch(err){
-            return {"error": true, "message": "servicio no disponible"};
+            return -1;
         }
     }
 
@@ -129,7 +129,7 @@ class Scival{
             }
             return 0;
         }catch(e){
-            return {"error": true, "message": "servicio no disponible"};
+            return -1;
         }
 
     }

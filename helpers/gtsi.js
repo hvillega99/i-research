@@ -21,44 +21,53 @@ class Gtsi {
     }
 
     async getProjects(author){
+        try {
+            const uri = `${this.url}/GetProyectos`;
+            const response = await fetch(uri);
+            const result = await response.json();
+    
+            const [name, lastname] = author.split('-');
+    
+    
+            const data = result.filter(item => item["colaboradores"].some(e => {
+                return e["nombre"].includes(this.removeAccents(name).toUpperCase()) && e["nombre"].includes(this.removeAccents(lastname).toUpperCase());
+            }));
+    
+            const years = data.map(item => item["fechainicio"].split('/')[2]);
+            const counting = this.countProjectsByYear(years);
+    
+            let current = data.filter(item => item["estado"]==="EN EJECUCION");
+            let finished = data.filter(item => item["estado"]==="FINALIZADO");
+            return {current, finished, counting};
 
-        const uri = `${this.url}/GetProyectos`;
-        const response = await fetch(uri);
-        const result = await response.json();
-
-        const [name, lastname] = author.split('-');
-
-
-        const data = result.filter(item => item["colaboradores"].some(e => {
-            return e["nombre"].includes(this.removeAccents(name).toUpperCase()) && e["nombre"].includes(this.removeAccents(lastname).toUpperCase());
-        }));
-
-        const years = data.map(item => item["fechainicio"].split('/')[2]);
-        const counting = this.countProjectsByYear(years);
-
-        let current = data.filter(item => item["estado"]==="EN EJECUCION");
-        let finished = data.filter(item => item["estado"]==="FINALIZADO");
-        return {current, finished, counting};
+        }catch (err) {
+            return {"error": true, "message": "servicio no disponible"};
+        }
     }
 
     async getProjectsByUnit(unit){
 
-        const uri = `${this.url}/GetProyectos`;
-        const response = await fetch(uri);
-        const result = await response.json();
+        try{
+            const uri = `${this.url}/GetProyectos`;
+            const response = await fetch(uri);
+            const result = await response.json();
+    
+            const [name, acronym] = unit.split('-');
+    
+            const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
+                return e["unidad"].includes(this.removeAccents(acronym).toUpperCase()) || e["unidad"].includes(this.removeAccents(name).toUpperCase());
+            }));
+    
+            const years = data.map(item => item["fechainicio"].split('/')[2]);
+            const counting = this.countProjectsByYear(years);
+    
+            let current = data.filter(item => item["estado"]==="EN EJECUCION");
+            let finished = data.filter(item => item["estado"]==="FINALIZADO");
+            return {current, finished, counting};
+        }catch(err){
+            return {"error": true, "message": "servicio no disponible"};
+        }
 
-        const [name, acronym] = unit.split('-');
-
-        const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
-            return e["unidad"].includes(this.removeAccents(acronym).toUpperCase()) || e["unidad"].includes(this.removeAccents(name).toUpperCase());
-        }));
-
-        const years = data.map(item => item["fechainicio"].split('/')[2]);
-        const counting = this.countProjectsByYear(years);
-
-        let current = data.filter(item => item["estado"]==="EN EJECUCION");
-        let finished = data.filter(item => item["estado"]==="FINALIZADO");
-        return {current, finished, counting};
     }
 
     async getContratoByOrcid(orcid){
