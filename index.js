@@ -77,6 +77,8 @@ app.use('/cas_login',(req, res, next)=> {
             return next(err);
           }
           //req.session.messages = '';
+          app.locals.user = user;
+          console.log(app.locals);
           return res.redirect('/admin');
         });
       })(req, res, next);
