@@ -5,6 +5,11 @@ const passport = require("passport");
 const session = require("express-session");
 const fileUpload = require('express-fileupload');
 
+const caminos = require('./resources/resources.json');
+const usuariosAd = caminos['path']
+const keyUsuariosAd = caminos['users'];
+const losUsers = require(usuariosAd+keyUsuariosAd);
+
 
 //initializations
 const app = express();
@@ -65,6 +70,9 @@ app.use('/investigador',require('./routes/investigador.routes'));
 app.use('/unidad',require('./routes/unidad_academica.routes'));
 app.use('/centro',require('./routes/centro_investigacion.routes'));
 app.use('/api',require('./routes/api.routes'));
+app.use('/noAutorizado',(req,res)=>{
+  return res.render('../views/permiso.views.ejs')
+})
 app.use('/cas_login',(req, res, next)=> {
     passport.authenticate('cas', function (err, user, info) {
         if (err) {
@@ -74,6 +82,11 @@ app.use('/cas_login',(req, res, next)=> {
           req.session.messages = info.message;
           return res.redirect('/');
         }
+       const listaAd = losUsers['users'];
+       if(!(user in listaAd)){
+         return res.redirect('/noAutorizado')
+       }
+
         req.logIn(user, function (err) {
           //console.log('XDDDDDDDD');  
           if (err) {   
