@@ -35,7 +35,7 @@ exports.getUACitationsByYear = async (req, res) => {
     
         res.send(values);
     }else{
-        res.send({"error": true, "message": "servicio no disponible"});
+        res.send(data);
     }
 
 }
@@ -46,7 +46,7 @@ exports.getUAPublicationsByYear = async (req, res) => {
     const investigadores = dbController.getResearchersByUnit(ua);
     const arrScopusId = investigadores.map(item => item.id)
     let data;
-    
+
     data = await scival.getPublications(arrScopusId.join(','));
 
     if(!data.error){
@@ -60,11 +60,10 @@ exports.getUAPublicationsByYear = async (req, res) => {
             years.forEach(year => {
                 values[year] += item[year]
             })
-        })
-    
+        })  
         res.send(values);
     }else{
-        return {"error": true, "message": "servicio no disponible"};
+        res.send(data);
     }
 
 }

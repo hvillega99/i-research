@@ -9,9 +9,11 @@
 </head>
 <body>
     <main>
-        
+        <a href="/admin" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Administrar">
+            <img src="/img/admin.png" alt="admin">
+        </a>
         <div class="finder mt-5" style="height: 50vh;">
-            <img src="/img/logo-espol.png" alt="logo">
+            <img src="/img/logo-espol.png" class="text-start" alt="logo">
 
             <h2 class="m-4"><b>Repositorio de investigadores</b></h2>
             
@@ -103,7 +105,7 @@
                             <div id="info-tjp" class="text-start"></div>
                             <canvas id="grafica-tjp" width="400" height="300">
                             </canvas>
-                            <h5>Publicaciones en revistas de alto impacto</h5>
+                            <h5 id="title-tjp"></h5>
                         </div>
                     </div>
                     <div class="row text-center"> 
@@ -111,13 +113,13 @@
                             <div id="info-citaciones" class="m-2 text-start"></div>
                             <canvas id="grafica-citaciones" width="400" height="300">
                             </canvas>
-                            <h5>Citaciones por año</h5>
+                            <h5 id="title-citaciones"></h5>
                         </div>
                         <div class="col-md-6">
                             <div id="info-publicaciones" class="m-2 text-start"></div>
                             <canvas id="grafica-publicaciones" width="400" height="300">
                             </canvas>
-                            <h5>Publicaciones por año</h5>
+                            <h5 id="title-publicaciones"></h5>
                         </div>
                     </div>
                 </section>

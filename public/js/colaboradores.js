@@ -42,5 +42,6 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
                         </table>`;
 })
 .catch(e => {
-    console.log('No se pudo obtener los coautores', e);
+    console.error('No se pudieron obtener los coautores');
+    divColab.innerHTML = '<p>No disponible</p>';
 })
