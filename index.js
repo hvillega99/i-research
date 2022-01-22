@@ -51,7 +51,7 @@ passport.use(new (require('passport-cas').Strategy)({
     ssoBaseURL: 'http://auth.test.espol.edu.ec',
     serverBaseURL: 'http://localhost:3000'
   }, function(login, done) {
-    console.log(login);
+    //console.log(login);
     return done(null, login);
   }));
 
@@ -83,7 +83,10 @@ app.use('/cas_login',(req, res, next)=> {
           return res.redirect('/');
         }
        const listaAd = losUsers['users'];
-       if(!(user in listaAd)){
+       console.log(user);
+       console.log(listaAd);
+       
+       if(!(listaAd.includes(user))){
          return res.redirect('/noAutorizado')
        }
 
