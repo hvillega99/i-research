@@ -11,3 +11,10 @@ dainput.onchange = function(e) {
     const name = document.getElementById('dafilename');
     name.innerHTML = dainput.value.split('\\').pop();
 }
+
+const usrinput = document.getElementById("input-usrfile");
+
+usrinput.onchange = function(e) {
+    const name = document.getElementById('usrfilename');
+    name.innerHTML = usrinput.value.split('\\').pop();
+}

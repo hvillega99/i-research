@@ -55,8 +55,8 @@
 
                 <% } %> 
 
-                <main class="row overflow-auto d-flex flex-column align-items-center">
-                    <div class="col-md-6">
+                <main class="row overflow-auto">
+                    <div class="col-md-4">
                         <div class="card m-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Publicaciones por área</h5>
@@ -85,7 +85,7 @@
                                     </div>
             
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Actualizar archivo</button>
+                                        <button type="submit" class="btn btn-primary">Actualizar</button>
                                         <a href="/admin" class="btn btn-secondary">Cancelar</a>   
                                     </div>    
                                 </form>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="card m-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Lista de investigadores</h5>
@@ -123,7 +123,46 @@
                                     </div>
             
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Actualizar archivo</button>
+                                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                                        <a href="/admin" class="btn btn-secondary">Cancelar</a>   
+                                    </div>
+                                    
+                                </form>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card m-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Usuarios</h5>
+                                
+                                <form action="/admin/upload/usuarios" method="POST" enctype="multipart/form-data">
+    
+                                    <div class="d-flex flex-column align-items-center">
+                                        <h6 id="usrfilename">
+                                            <a href="/admin/download/usuarios">
+                                                <%= usersFile %>
+                                            </a>
+                                        </h6>
+                                        
+                                        <label for="input-usrfile" class="form-label btn" 
+                                            data-bs-toggle="tooltip" title="Cargar archivo"
+                                        >
+                                            <img src="/img/upload_doc.png"/>
+    
+                                            <input class="form-control" id="input-usrfile" 
+                                                type="file" 
+                                                accept="text/json" 
+                                                name="file"
+                                                required
+                                                hidden
+                                            >
+                                        </label>
+                                    </div>
+            
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Actualizar</button>
                                         <a href="/admin" class="btn btn-secondary">Cancelar</a>   
                                     </div>
                                     

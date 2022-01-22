@@ -72,6 +72,29 @@ exports.uploadDocuments = (req, res) => {
     }
 }
 
+exports.uploadUsers = (req, res) => {
+    try {
+        
+        const {file} = req.files;
+        file.mv(resources.path + file.name);
+
+        resources.users = file.name;
+        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+
+        message.content = 'Archivo de usuarios con privilegios actualizado';
+        message.show = true;
+        res.redirect('/admin');
+
+    } catch (err) {
+
+        message.content = 'No se pudo actualizar el archivo de usuarios con privilegios';
+        message.type = 'danger';
+        message.show = true;
+        console.log(err);
+        res.redirect('/admin');
+    }
+}
+
 exports.downloadResearchers = (req, res) => {
     const file = `${resources.path}${resources.researchers}`;
     res.download(file);
@@ -79,6 +102,11 @@ exports.downloadResearchers = (req, res) => {
 
 exports.downloadDocuments = (req, res) => {
     const file = `${resources.path}${resources.documents}`;
+    res.download(file);
+}
+
+exports.downloadUsers = (req, res) => {
+    const file = `${resources.path}${resources.users}`;
     res.download(file);
 }
 
@@ -186,6 +214,7 @@ exports.loadResearchers = (req, res) => {
     {
         "documentFile": resources.documents, 
         "researcherFile": resources.researchers,
+        "usersFile": resources.users,
         message
     });
     message.show = false;
