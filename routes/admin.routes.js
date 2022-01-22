@@ -6,11 +6,13 @@ router.get('/', adminController.loadResearchers);
 router.post('/upload/investigadores', adminController.uploadResearchers);
 router.post('/upload/publicaciones', adminController.uploadDocuments);
 router.post('/upload/usuarios', adminController.uploadUsers);
+router.post('/upload/apikey', adminController.uploadApiKey);
 
 
 router.get('/download/investigadores', adminController.downloadResearchers);
 router.get('/download/publicaciones', adminController.downloadDocuments);
 router.get('/download/usuarios', adminController.downloadUsers);
+router.get('/download/apikey', adminController.downloadApiKey);
 
 
 router.get('/unidades', adminController.loadUnits);

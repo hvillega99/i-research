@@ -55,119 +55,162 @@
 
                 <% } %> 
 
-                <main class="row overflow-auto">
-                    <div class="col-md-4">
-                        <div class="card m-4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Publicaciones por área</h5>
-                                <form action="/admin/upload/publicaciones" method="POST" enctype="multipart/form-data">
-                                    <div class="d-flex flex-column align-items-center">
-                                        
-                                        <label for="input-dafile" class="form-label btn" 
-                                            data-bs-toggle="tooltip" title="Cargar archivo"
-                                        >
-                                            <h6 id="dafilename">
-                                                <a href="/admin/download/publicaciones">
-                                                    <%= documentFile %>
+                <main>
+                    <div class="row overflow-auto d-flex justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card m-4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Publicaciones por área</h5>
+                                    <form action="/admin/upload/publicaciones" method="POST" enctype="multipart/form-data">
+                                        <div class="d-flex flex-column align-items-center">
+                                            
+                                            <label for="input-dafile" class="form-label btn" 
+                                                data-bs-toggle="tooltip" title="Cargar archivo"
+                                            >
+                                                <h6 id="dafilename">
+                                                    <a href="/admin/download/publicaciones">
+                                                        <%= documentFile %>
+                                                    </a>
+                                                </h6>
+    
+                                                <img src="/img/upload_doc.png"/>
+        
+                                                <input class="form-control" id="input-dafile" 
+                                                    type="file" 
+                                                    accept="text/csv" 
+                                                    name="file"
+                                                    required
+                                                    hidden
+                                                >
+                                            </label>
+                                        </div>
+                
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            <a href="/admin" class="btn btn-secondary">Cancelar</a>   
+                                        </div>    
+                                    </form>
+        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card m-4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Lista de investigadores</h5>
+                                    
+                                    <form action="/admin/upload/investigadores" method="POST" enctype="multipart/form-data">
+        
+                                        <div class="d-flex flex-column align-items-center">
+                                            <h6 id="rsfilename">
+                                                <a href="/admin/download/investigadores">
+                                                    <%= researcherFile %>
                                                 </a>
                                             </h6>
-
-                                            <img src="/img/upload_doc.png"/>
-    
-                                            <input class="form-control" id="input-dafile" 
-                                                type="file" 
-                                                accept="text/csv" 
-                                                name="file"
-                                                required
-                                                hidden
+                                            
+                                            <label for="input-rsfile" class="form-label btn" 
+                                                data-bs-toggle="tooltip" title="Cargar archivo"
                                             >
-                                        </label>
-                                    </div>
-            
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                                        <a href="/admin" class="btn btn-secondary">Cancelar</a>   
-                                    </div>    
-                                </form>
-    
+                                                <img src="/img/upload_doc.png"/>
+        
+                                                <input class="form-control" id="input-rsfile" 
+                                                    type="file" 
+                                                    accept="text/csv" 
+                                                    name="file"
+                                                    required
+                                                    hidden
+                                                >
+                                            </label>
+                                        </div>
+                
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            <a href="/admin" class="btn btn-secondary">Cancelar</a>   
+                                        </div>
+                                        
+                                    </form>
+        
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card m-4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Lista de investigadores</h5>
-                                
-                                <form action="/admin/upload/investigadores" method="POST" enctype="multipart/form-data">
-    
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h6 id="rsfilename">
-                                            <a href="/admin/download/investigadores">
-                                                <%= researcherFile %>
-                                            </a>
-                                        </h6>
-                                        
-                                        <label for="input-rsfile" class="form-label btn" 
-                                            data-bs-toggle="tooltip" title="Cargar archivo"
-                                        >
-                                            <img src="/img/upload_doc.png"/>
-    
-                                            <input class="form-control" id="input-rsfile" 
-                                                type="file" 
-                                                accept="text/csv" 
-                                                name="file"
-                                                required
-                                                hidden
-                                            >
-                                        </label>
-                                    </div>
-            
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                                        <a href="/admin" class="btn btn-secondary">Cancelar</a>   
-                                    </div>
+                    <div class="row overflow-auto d-flex justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card m-4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Usuarios</h5>
                                     
-                                </form>
-    
+                                    <form action="/admin/upload/usuarios" method="POST" enctype="multipart/form-data">
+        
+                                        <div class="d-flex flex-column align-items-center">
+                                            <h6 id="usrfilename">
+                                                <a href="/admin/download/usuarios">
+                                                    <%= usersFile %>
+                                                </a>
+                                            </h6>
+                                            
+                                            <label for="input-usrfile" class="form-label btn" 
+                                                data-bs-toggle="tooltip" title="Cargar archivo"
+                                            >
+                                                <img src="/img/upload_doc.png"/>
+        
+                                                <input class="form-control" id="input-usrfile" 
+                                                    type="file" 
+                                                    accept="text/json" 
+                                                    name="file"
+                                                    required
+                                                    hidden
+                                                >
+                                            </label>
+                                        </div>
+                
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            <a href="/admin" class="btn btn-secondary">Cancelar</a>   
+                                        </div>
+                                        
+                                    </form>
+        
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card m-4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Usuarios</h5>
-                                
-                                <form action="/admin/upload/usuarios" method="POST" enctype="multipart/form-data">
-    
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h6 id="usrfilename">
-                                            <a href="/admin/download/usuarios">
-                                                <%= usersFile %>
-                                            </a>
-                                        </h6>
-                                        
-                                        <label for="input-usrfile" class="form-label btn" 
-                                            data-bs-toggle="tooltip" title="Cargar archivo"
-                                        >
-                                            <img src="/img/upload_doc.png"/>
-    
-                                            <input class="form-control" id="input-usrfile" 
-                                                type="file" 
-                                                accept="text/json" 
-                                                name="file"
-                                                required
-                                                hidden
-                                            >
-                                        </label>
-                                    </div>
-            
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                                        <a href="/admin" class="btn btn-secondary">Cancelar</a>   
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="card m-4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">API Key</h5>
                                     
-                                </form>
-    
+                                    <form action="/admin/upload/apikey" method="POST" enctype="multipart/form-data">
+        
+                                        <div class="d-flex flex-column align-items-center">
+                                            <h6 id="akfilename">
+                                                <a href="/admin/download/apikey">
+                                                    <%= apikeyFile %>
+                                                </a>
+                                            </h6>
+                                            
+                                            <label for="input-akfile" class="form-label btn" 
+                                                data-bs-toggle="tooltip" title="Cargar archivo"
+                                            >
+                                                <img src="/img/upload_doc.png"/>
+        
+                                                <input class="form-control" id="input-akfile" 
+                                                    type="file" 
+                                                    accept="text/json" 
+                                                    name="file"
+                                                    required
+                                                    hidden
+                                                >
+                                            </label>
+                                        </div>
+                
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            <a href="/admin" class="btn btn-secondary">Cancelar</a>   
+                                        </div>
+                                        
+                                    </form>
+        
+                                </div>
                             </div>
                         </div>
                     </div>

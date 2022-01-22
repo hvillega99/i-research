@@ -1,10 +1,12 @@
 const fetch = require('node-fetch');
+const resources = require('../resources/resources.json');
+const apiKey = require(`.${resources.path}${resources.apikey}`);
 
 class Scopus{
 
     constructor(){
         this.uri = "https://api.elsevier.com/content/author/";
-        this.apiKey = "d65494974182038129c6a7821afc8b56";
+        this.apiKey = apiKey.key;
     }
 
     //Usado

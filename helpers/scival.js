@@ -1,11 +1,13 @@
 const fetch = require('node-fetch');
+const resources = require('../resources/resources.json');
+const apiKey = require(`.${resources.path}${resources.apikey}`);
 
 class Scival{
     
     constructor(){
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
-        this.apiKey = "d2f270ed229df1d1aa750351fa2c101b";
+        this.apiKey = apiKey.key;
     }
 
     async getPublicationsInTopJournalPercentiles(instId){

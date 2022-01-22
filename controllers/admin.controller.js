@@ -95,6 +95,29 @@ exports.uploadUsers = (req, res) => {
     }
 }
 
+exports.uploadApiKey = (req, res) => {
+    try {
+        
+        const {file} = req.files;
+        file.mv(resources.path + file.name);
+
+        resources.apikey = file.name;
+        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+
+        message.content = 'Archivo de API Key actualizado';
+        message.show = true;
+        res.redirect('/admin');
+
+    } catch (err) {
+
+        message.content = 'No se pudo actualizar el archivo de API Key';
+        message.type = 'danger';
+        message.show = true;
+        console.log(err);
+        res.redirect('/admin');
+    }
+}
+
 exports.downloadResearchers = (req, res) => {
     const file = `${resources.path}${resources.researchers}`;
     res.download(file);
@@ -107,6 +130,11 @@ exports.downloadDocuments = (req, res) => {
 
 exports.downloadUsers = (req, res) => {
     const file = `${resources.path}${resources.users}`;
+    res.download(file);
+}
+
+exports.downloadApiKey = (req, res) => {
+    const file = `${resources.path}${resources.apikey}`;
     res.download(file);
 }
 
@@ -215,6 +243,7 @@ exports.loadResearchers = (req, res) => {
         "documentFile": resources.documents, 
         "researcherFile": resources.researchers,
         "usersFile": resources.users,
+        "apikeyFile": resources.apikey,
         message
     });
     message.show = false;

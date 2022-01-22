@@ -18,3 +18,10 @@ usrinput.onchange = function(e) {
     const name = document.getElementById('usrfilename');
     name.innerHTML = usrinput.value.split('\\').pop();
 }
+
+const akinput = document.getElementById("input-akfile");
+
+akinput.onchange = function(e) {
+    const name = document.getElementById('akfilename');
+    name.innerHTML = akinput.value.split('\\').pop();
+}
