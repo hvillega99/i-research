@@ -83,8 +83,7 @@ app.use('/cas_login',(req, res, next)=> {
           return res.redirect('/');
         }
        const listaAd = losUsers['users'];
-       console.log(user);
-       console.log(listaAd);
+      
        
        if(!(listaAd.includes(user))){
          return res.redirect('/noAutorizado')
