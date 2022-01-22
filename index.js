@@ -87,7 +87,7 @@ app.use('/admin',authenticateA ,require('./routes/admin.routes'));
 
 app.use('/cas_logout',(req, res)=> {
   req.logout(); // provided by passport
-  res.redirect('/cas_login');
+  res.redirect('/');
 });
 
 
