@@ -12,8 +12,8 @@ fetch('/api/publications/areas/inst')
     let totalOthers = 0;
 
     data.map(item => {
-                if(item['Documents'] < 100) {
-                  labelsOthers.push(item['Subject areas']);
+                if(item['Documents'] <= 130) {
+                  labelsOthers.push(`${item['Subject areas']}: ${item['Documents']}`);
                   valuesOthers.push(item['Documents']);
                   totalOthers += parseInt(item['Documents']);
                 }
@@ -22,8 +22,8 @@ fetch('/api/publications/areas/inst')
                   values.push(item['Documents']);
                 }
             })
-
-    labels.push("Otros");
+    labelsOthers.push('total');
+    labels.push(labelsOthers.join(' - '));
     values.push(totalOthers.toString());
 
     console.log(labels);

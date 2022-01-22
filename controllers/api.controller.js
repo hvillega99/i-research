@@ -132,5 +132,16 @@ exports.getPublicationsInfo = async (req, res) => {
 
 exports.getPublicationsByArea = async (req, res) => {
     const data = await parser.getDocumentsByArea();
+    let total = 0;
+
+    data.forEach(item => {
+        total += parseInt(item.Documents);
+    })
+
+    data.forEach(item => {
+        const percent = (parseInt(item.Documents)/total)*100;
+        item["Percent"] = percent;
+    })
+
     res.json(data);
 }
