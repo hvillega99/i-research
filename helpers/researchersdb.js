@@ -8,12 +8,21 @@ const parser = new CsvParser();
 
 class Researchersdb{
 
+    static instance;
+
     constructor(){
+
+        if(!!Researchersdb.instance){
+            return Researchersdb.instance;
+        }
+
         this.researchers = []
         parser.getResearchers()
         .then(data => {
             this.researchers = data;
         })
+        
+        Researchersdb.instance = this;
     }
 
     searchById(scopusId){

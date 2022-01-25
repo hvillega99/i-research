@@ -2,9 +2,18 @@ const fs = require('fs');
 const { v4 } = require('uuid');
 
 class Unitsdb{
+
+    static instance;
+
     constructor(){
+
+        if(!!Unitsdb.instance){
+            return Unitsdb.instance;
+        }
+
         this.units = require("../resources/data/unidadesAcademicas.json");
         this.filePath = './resources/data/unidadesAcademicas.json';
+        Unitsdb.instance = this;
     }
 
     getUnit(nombre){

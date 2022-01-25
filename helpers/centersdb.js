@@ -2,9 +2,18 @@ const fs = require('fs');
 const { v4 } = require('uuid');
 
 class Centersdb{
+
+    static instance;
+
     constructor(){
+
+        if(!!Centersdb.instance){
+            return Centersdb.instance;
+        }
+        
         this.centers = require("../resources/data/centros.json");
         this.filePath = './resources/data/centros.json';
+        Centersdb.instance = this;
     }
 
     getCenter(nombre){

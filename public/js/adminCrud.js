@@ -1,3 +1,12 @@
+/* const validationMessage = document.getElementById('message');
+
+document.getElementById('button-submit').onclick = (e) => {
+    const logo = document.getElementById('input-logo');
+    if(!logo.value){
+        validationMessage.innerHTML = '<p id="message" class="badge bg-danger">Seleccione un archivo</p>';
+    }
+} */
+
 document.getElementById("input-logo").onchange = function(e) {
     // Creamos el objeto de la clase FileReader
     const reader = new FileReader();
@@ -9,6 +18,7 @@ document.getElementById("input-logo").onchange = function(e) {
     reader.onload = function(){
         const image = document.getElementById('logo');
         image.src = reader.result;
+        validationMessage.innerHTML = '';
     };
 }
 

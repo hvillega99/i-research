@@ -22,17 +22,20 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
                 tagName = `<p>${element["author"]}</p>`;
             }
             tbody += `<tr>
-                        <td><img src="/img/author.png" class="h-25 w-25"></td> 
                         <td id="${element["id"]}">
                             ${tagName}
-                            <p>Scopus id:
-                            <a  
-                              href="https://www.scopus.com/authid/detail.uri?authorId=${element["id"]}"
-                              target="_blank"> 
-                              ${element["id"]}
-                            </a>
-                            </p>
                         </td>   
+                        <td>
+                            <p>
+                                Scopus id:
+                                <a  
+                                    href="https://www.scopus.com/authid/detail.uri?authorId=${element["id"]}"
+                                    target="_blank"
+                                > 
+                                    ${element["id"]}
+                                </a>
+                            </p>
+                        </td>
                     </tr>`;
         });
         tbody += '</tbody>';

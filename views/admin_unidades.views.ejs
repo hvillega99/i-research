@@ -60,7 +60,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Nueva unidad académica</h5>
                                 
-                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data">
+                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data" id="add-form">
 
                                     <div class="d-flex flex-column align-items-center">
                                         <img class="img-fluid rounded" id="logo" height="35%" width="35%"/>
@@ -74,8 +74,8 @@
                                                 type="file" 
                                                 accept="image/png,image/ico,image/svg+xml,image/jpeg" 
                                                 name="logo"
+                                                style="opacity: 0; width: 0; height: 0; border: none; position: absolute; pointer-events: none;"
                                                 required
-                                                hidden
                                             >
                                         </label>
                                     </div>
@@ -101,8 +101,8 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Aceptar</button>
-                                        <a href="/admin/unidades" class="btn btn-secondary">Cancelar</a>       
+                                        <button type="submit" class="btn btn-primary" id="button-submit">Aceptar</button>
+                                        <a href="/admin/unidades" class="btn btn-secondary" id="button-cancel">Cancelar</a>       
                                     </div>
                                     
                                 </form>

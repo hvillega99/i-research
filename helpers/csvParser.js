@@ -4,9 +4,18 @@ const resources = require('../resources/resources.json');
 
 class CsvParser{
 
+    static instance;
+    
     constructor(){
+
+        if(!!CsvParser.instance){
+            return CsvParser.instance;
+        }
+
         this.documentsByAreaPath = `${resources.path}${resources.documents}`;
         this.researchersPath = `${resources.path}${resources.researchers}`;
+
+        CsvParser.instance = this;
     }
 
     getResearchers(){
@@ -29,6 +38,8 @@ class CsvParser{
     }
 
     getDocumentsByArea(){
+
+        console.log(this.documentsByAreaPath)
 
         return new Promise((resolve, reject) => {
             const data = [];

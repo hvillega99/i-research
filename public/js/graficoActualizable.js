@@ -24,13 +24,13 @@ fetch('/api/publications/areas/inst')
                 else{
                   labels.push(item['Subject areas']);
                   values.push(item['Documents']);
-                  percents.push(`%${item['Percent'].toFixed(2)}`);
+                  percents.push(`${item['Percent'].toFixed(2)}%`);
                 }
             })
     labelsOthers.push('total');
     labels.push(labelsOthers.join(' - '));
     values.push(totalOthers.toString());
-    percents.push(`%${totalPercent}`);
+    percents.push(`${totalPercent}%`);
 
     // console.log(labels);
     // console.log(values);
