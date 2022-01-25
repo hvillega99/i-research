@@ -15,6 +15,11 @@ class Researchersdb{
             this.researchers = data;
         })
     }
+
+    searchById(scopusId){
+        const result = this.researchers.find(e => e['Scopus Author ID'] == scopusId);
+        return result;
+    }
    
 
     searchByName(name){    

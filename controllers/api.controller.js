@@ -107,9 +107,19 @@ exports.getTopAuthors = async (req, res) => {
 exports.getCollaborators = async (req, res) => {
     const {scopusId, publications} = req.params;
 
-    const collaborators = await scopus.getCoauthors(publications.split(','),scopusId);
+    let collaborators = [];
 
-    res.json(collaborators);
+    try{
+        collaborators = await scopus.getCoauthors(publications.split(','),scopusId);
+        collaborators.forEach(e => {
+            const result = dbController.searchById(e.id);
+            e["fromEspol"] = result != undefined;
+        })
+        res.json(collaborators);
+    }catch (err) {
+        res.json({error: true, message: 'servicio no disponible'});
+    }
+
 }
 
 exports.getProjectsByAuthor = async (req, res) => {
