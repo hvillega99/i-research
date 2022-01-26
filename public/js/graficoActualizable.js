@@ -55,7 +55,8 @@ var svg = d3.select(pieContainer)
 // set the color scale
 var color = d3.scaleOrdinal()
 .domain(labels)
-.range(['#FFCD78','#C6DDAF','#9ACC91','#72B081','#C5EBCA','#FDDAE3','#F2BAD1','#F2AECB','#DB97C6','#AB91C4'])
+//.range(['#FFCD78','#C6DDAF','#9ACC91','#72B081','#C5EBCA','#FDDAE3','#F2BAD1','#F2AECB','#DB97C6','#AB91C4'])
+.range(['#009ece', '#b93a3f', '#7e9e55', '#9463af', '#d14905', '#88e9d2', '#9c2027', '#d8bf32', '#e18f6f', '#5d181b', '#2d8a20'])
 
 // Compute the position of each group on the pie:
 var pie = d3.pie()
