@@ -1,19 +1,20 @@
 const fetch = require('node-fetch');
-const resources = require('../resources/resources.json');
-const apiKey = require(`.${resources.path}${resources.apikey}`);
+const Resourcesdb = require('./resourcesdb');
+const resources = new Resourcesdb();
 
 class Scopus{
 
     constructor(){
         this.uri = "https://api.elsevier.com/content/author/";
-        this.apiKey = apiKey.key;
     }
 
     //Usado
     async getDataAndAreas(scopusId){
 
+        const apiKey = resources.getApiKey();
+
         try{
-            const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}`;
+            const url = `${this.uri}author_id/${scopusId}?apiKey=${apiKey}`;
             const response = await fetch(url,{
                 headers:{'Accept': 'application/json'}
             });
@@ -43,8 +44,9 @@ class Scopus{
     
     //Usado
     async getHindex(scopusId){
+        const apiKey = resources.getApiKey();
         try{
-            const url = `${this.uri}author_id/${scopusId}?apiKey=${this.apiKey}&view=metrics`;
+            const url = `${this.uri}author_id/${scopusId}?apiKey=${apiKey}&view=metrics`;
             const response = await fetch(url,{
                 headers:{'Accept': 'application/json'}
             });
@@ -59,8 +61,9 @@ class Scopus{
     }
 
     async getMetrics(idArr){
+        const apiKey = resources.getApiKey();
         try {
-            const url = `${this.uri}author_id/${idArr}?apiKey=${this.apiKey}&view=metrics`;
+            const url = `${this.uri}author_id/${idArr}?apiKey=${apiKey}&view=metrics`;
             const response = await fetch(url,{
                 headers:{'Accept': 'application/json'}
             });
@@ -74,7 +77,8 @@ class Scopus{
     }
 
     async getPublicationsId(scopusId){
-        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const apiKey = resources.getApiKey();
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${apiKey}`;
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
@@ -87,7 +91,8 @@ class Scopus{
    
 
     async getTopics(scopusId){
-        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const apiKey = resources.getApiKey();
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${apiKey}`;
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
@@ -102,11 +107,11 @@ class Scopus{
             );
         var mapa = {}
         for await (let publicationID of plop){
-            const endpoint2 = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${this.apiKey}&httpAccept=application/json`;
+            const endpoint2 = `https://api.elsevier.com/analytics/scival/publication/${publicationID}?apiKey=${apiKey}&httpAccept=application/json`;
             const response2 = await fetch(endpoint2);
             const data = await response2.json();
             const topicID = await data.publication.topicId;
-            const endpoint3 = `https://api.elsevier.com/analytics/scival/topic/${topicID}?apiKey=${this.apiKey}`;
+            const endpoint3 = `https://api.elsevier.com/analytics/scival/topic/${topicID}?apiKey=${apiKey}`;
             const response3 = await fetch(endpoint3);
             const data3 = await response3.json();
             const nametopics = await data3.topic.name
@@ -125,7 +130,9 @@ class Scopus{
     }
 
     async getPublicationsTitle(scopusId){
-        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${this.apiKey}`;
+        const apiKey = resources.getApiKey();
+
+        const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&apiKey=${apiKey}`;
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
@@ -155,13 +162,15 @@ class Scopus{
     }
 
     async getPublicationsTitle2(scopusId){  
+        const apiKey = resources.getApiKey();
+
         try{
             var flag=0;
             var count = 1;
             var inicio=0;
             var plop = []
             while(flag==0){
-                const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${this.apiKey}`;
+                const url = `http://api.elsevier.com/content/search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${apiKey}`;
                 const response = await fetch(url,{
                     headers:{'Accept': 'application/json'}
                 });
@@ -254,9 +263,11 @@ class Scopus{
    
     //Usado
     async getInfoPublications(scopusID){
+        const apiKey = resources.getApiKey();
+
         try{
 
-            const url = `http://api.elsevier.com/content/abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&apiKey=${this.apiKey}`;
+            const url = `http://api.elsevier.com/content/abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&apiKey=${apiKey}`;
             const response = await fetch(url,{
                 headers:{'Accept': 'application/json'}
             });

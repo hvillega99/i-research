@@ -1,6 +1,8 @@
 const fs = require('fs');
 const parser = require('csv-parser');
-const resources = require('../resources/resources.json');
+
+const Resourcesdb = require('./resourcesdb');
+const resources = new Resourcesdb();
 
 class CsvParser{
 
@@ -12,16 +14,16 @@ class CsvParser{
             return CsvParser.instance;
         }
 
-        this.documentsByAreaPath = `${resources.path}${resources.documents}`;
-        this.researchersPath = `${resources.path}${resources.researchers}`;
-
         CsvParser.instance = this;
     }
 
     getResearchers(){
+
+        const researchersPath = `${resources.files.path}${resources.files.researchers}`;
+
         return new Promise((resolve, reject) => {
             const data = [];
-            fs.createReadStream(this.researchersPath)
+            fs.createReadStream(researchersPath)
                 .pipe(parser({
                     separator: ',',
                     newline: '\n',
@@ -39,11 +41,11 @@ class CsvParser{
 
     getDocumentsByArea(){
 
-        console.log(this.documentsByAreaPath)
+        const documentsPath = `${resources.files.path}${resources.files.documents}`;
 
         return new Promise((resolve, reject) => {
             const data = [];
-            fs.createReadStream(this.documentsByAreaPath)
+            fs.createReadStream(documentsPath)
                 .pipe(parser({
                     separator: ',',
                     newline: '\n',

@@ -5,10 +5,8 @@ const passport = require("passport");
 const session = require("express-session");
 const fileUpload = require('express-fileupload');
 
-const caminos = require('./resources/resources.json');
-const usuariosAd = caminos['path']
-const keyUsuariosAd = caminos['users'];
-const losUsers = require(usuariosAd+keyUsuariosAd);
+const Resourcesdb = require('./helpers/resourcesdb');
+const resources = new Resourcesdb();
 
 
 //initializations
@@ -51,7 +49,6 @@ passport.use(new (require('passport-cas').Strategy)({
     ssoBaseURL: 'http://auth.test.espol.edu.ec',
     serverBaseURL: 'http://localhost:3000'
   }, function(login, done) {
-    //console.log(login);
     return done(null, login);
   }));
 
@@ -82,7 +79,7 @@ app.use('/cas_login',(req, res, next)=> {
           req.session.messages = info.message;
           return res.redirect('/');
         }
-       const listaAd = losUsers['users'];
+       const listaAd = resources.getUsers();
       
        
        if(!(listaAd.includes(user))){
@@ -90,13 +87,11 @@ app.use('/cas_login',(req, res, next)=> {
        }
 
         req.logIn(user, function (err) {
-          //console.log('XDDDDDDDD');  
           if (err) {   
             return next(err);
           }
           //req.session.messages = '';
           app.locals.user = user;
-          console.log(app.locals);
           return res.redirect('/admin');
         });
       })(req, res, next);

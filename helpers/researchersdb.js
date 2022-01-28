@@ -25,6 +25,10 @@ class Researchersdb{
         Researchersdb.instance = this;
     }
 
+    async update(){
+        this.researchers = await parser.getResearchers();
+    }
+
     searchById(scopusId){
         const result = this.researchers.find(e => e['Scopus Author ID'] == scopusId);
         return result;

@@ -1,11 +1,16 @@
 const Unitsdb = require('../helpers/unitsdb');
 const Centersdb = require('../helpers/centersdb');
-const resources = require('../resources/resources.json');
+const Researchersdb = require('../helpers/researchersdb');
+
+const Resourcesdb = require('../helpers/resourcesdb');
+const resources = new Resourcesdb();
+
 const fs = require('fs');
 const path = require('path');
 
 const unitsdb = new Unitsdb();
 const centersdb = new Centersdb();
+const researchersdb = new Researchersdb();
 
 
 const message = {
@@ -26,14 +31,24 @@ const messageCenter = {
     type: 'success'
 }
 
-exports.uploadResearchers = (req, res) => {
+exports.uploadResearchers = async (req, res) => {
     try {
         
         const {file} = req.files;
-        file.mv(resources.path + file.name);
 
-        resources.researchers = file.name;
-        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+        let name = file.name;
+        
+        if(name == resources.files.researchers){
+            const elements = name.split('.');
+            const ext = elements.pop();
+            name = `${elements.join('')}(1).${ext}`;
+        }
+        
+        resources.files.researchers = name;
+        resources.save()
+        file.mv(resources.files.path + name);
+
+        await researchersdb.update();
         
         message.content = 'Lista de investigadores actualizada';
         message.show = true;
@@ -53,10 +68,18 @@ exports.uploadDocuments = (req, res) => {
     try {
         
         const {file} = req.files;
-        file.mv(resources.path + file.name);
 
-        resources.documents = file.name;
-        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+        let name = file.name;
+        
+        if(name == resources.files.documents){
+            const elements = name.split('.');
+            const ext = elements.pop();
+            name = `${elements.join('')}(1).${ext}`;
+        }
+        
+        resources.files.documents = name;
+        resources.save();
+        file.mv(resources.files.path + name);
 
         message.content = 'Archivo de publicaciones por áreas actualizado';
         message.show = true;
@@ -76,10 +99,18 @@ exports.uploadUsers = (req, res) => {
     try {
         
         const {file} = req.files;
-        file.mv(resources.path + file.name);
 
-        resources.users = file.name;
-        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+        let name = file.name;
+        
+        if(name == resources.files.users){
+            const elements = name.split('.');
+            const ext = elements.pop();
+            name = `${elements.join('')}(1).${ext}`;
+        }
+        
+        resources.files.users = name;
+        resources.save();
+        file.mv(resources.files.path + name);
 
         message.content = 'Archivo de usuarios con privilegios actualizado';
         message.show = true;
@@ -99,10 +130,18 @@ exports.uploadApiKey = (req, res) => {
     try {
         
         const {file} = req.files;
-        file.mv(resources.path + file.name);
-
-        resources.apikey = file.name;
-        fs.writeFileSync('./resources/resources.json', JSON.stringify(resources), 'utf-8');
+        
+        let name = file.name;
+        
+        if(name == resources.files.apikey){
+            const elements = name.split('.');
+            const ext = elements.pop();
+            name = `${elements.join('')}(1).${ext}`;
+        }
+        
+        resources.files.apikey = name;
+        resources.save();
+        file.mv(resources.files.path + name);
 
         message.content = 'Archivo de API Key actualizado';
         message.show = true;
@@ -119,22 +158,22 @@ exports.uploadApiKey = (req, res) => {
 }
 
 exports.downloadResearchers = (req, res) => {
-    const file = `${resources.path}${resources.researchers}`;
+    const file = `${resources.files.path}${resources.files.researchers}`;
     res.download(file);
 }
 
 exports.downloadDocuments = (req, res) => {
-    const file = `${resources.path}${resources.documents}`;
+    const file = `${resources.files.path}${resources.files.documents}`;
     res.download(file);
 }
 
 exports.downloadUsers = (req, res) => {
-    const file = `${resources.path}${resources.users}`;
+    const file = `${resources.files.path}${resources.files.users}`;
     res.download(file);
 }
 
 exports.downloadApiKey = (req, res) => {
-    const file = `${resources.path}${resources.apikey}`;
+    const file = `${resources.files.path}${resources.files.apikey}`;
     res.download(file);
 }
 
@@ -242,10 +281,10 @@ exports.loadUnits = (req, res) => {
 exports.loadResearchers = (req, res) => {
     res.render('../views/admin_investigadores.views.ejs', 
     {
-        "documentFile": resources.documents, 
-        "researcherFile": resources.researchers,
-        "usersFile": resources.users,
-        "apikeyFile": resources.apikey,
+        "documentFile": resources.files.documents, 
+        "researcherFile": resources.files.researchers,
+        "usersFile": resources.files.users,
+        "apikeyFile": resources.files.apikey,
         message
     });
     message.show = false;
