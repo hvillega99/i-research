@@ -73,7 +73,7 @@ fetch(`/api/projects/${author}`)
                             <td class="description item" id="cp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-c-${i+1}">
                                 <strong>${project["titulo"].toUpperCase()}</strong><br>
                                 ${areas}<br>
-                                Rol: ${rolautor}<br>
+                                Rol: ${rolautor.toLocaleLowerCase()}<br>
                                 ${project["fechainicio"]} -> ${project["fechafin"]}
     
                             </td>
@@ -156,7 +156,7 @@ fetch(`/api/projects/${author}`)
                                 <td class="description item" id="fp-${i+1}" data-bs-toggle="modal" data-bs-target="#modal-f-${i+1}">
                                     <strong>${project["titulo"].toUpperCase()}</strong><br>
                                     ${areas}<br>
-                                    Rol: ${rolautor}<br>
+                                    Rol: ${rolautor.toLocaleLowerCase()}<br>
                                     ${project["fechainicio"]} -> ${project["fechafin"]}
                                 </td>
                             </tr>`;
@@ -210,7 +210,7 @@ fetch(`/api/projects/${author}`)
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Publicaciones',
+                    label: 'Proyectos',
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),

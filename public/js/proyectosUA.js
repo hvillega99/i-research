@@ -177,7 +177,7 @@ fetch(`/api/projects/ua/${unit}`)
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Publicaciones',
+                    label: 'Proyectos',
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
