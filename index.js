@@ -102,7 +102,7 @@ app.use('/admin',borradoCache ,authenticateA ,require('./routes/admin.routes'));
 
 app.use('/cas_logout',(req, res)=> {
   req.logout(); // provided by passport
-  res.redirect('/');
+  res.redirect(casConfig.casLogout);
   
 });
 
