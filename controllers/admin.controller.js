@@ -5,7 +5,7 @@ const Researchersdb = require('../helpers/researchersdb');
 const Resourcesdb = require('../helpers/resourcesdb');
 const resources = new Resourcesdb();
 
-const fs = require('fs');
+//const fs = require('fs');
 const path = require('path');
 
 const unitsdb = new Unitsdb();
@@ -43,6 +43,8 @@ exports.uploadResearchers = async (req, res) => {
             const ext = elements.pop();
             name = `${elements.join('')}(1).${ext}`;
         }
+
+        //fs.rmSync(`${resources.files.path}${resources.files.researchers}`);
         
         resources.files.researchers = name;
         resources.save()
@@ -50,13 +52,13 @@ exports.uploadResearchers = async (req, res) => {
 
         await researchersdb.update();
         
-        message.content = 'Lista de investigadores actualizada';
+        message.content = 'Archivo de investigadores actualizado.';
         message.show = true;
         res.redirect('/admin');
 
     } catch (err) {
 
-        message.content = 'No se pudo actualizar la lista de investigadores';
+        message.content = 'Algo salió mal en la actualización de investigadores, intente de nuevo por favor.';
         message.type = 'danger';
         message.show = true;
         console.log(err);
@@ -76,18 +78,20 @@ exports.uploadDocuments = (req, res) => {
             const ext = elements.pop();
             name = `${elements.join('')}(1).${ext}`;
         }
+
+        //fs.rmSync(`${resources.files.path}${resources.files.documents}`);
         
         resources.files.documents = name;
         resources.save();
         file.mv(resources.files.path + name);
 
-        message.content = 'Archivo de publicaciones por áreas actualizado';
+        message.content = 'Archivo de publicaciones por áreas actualizado.';
         message.show = true;
         res.redirect('/admin');
 
     } catch (err) {
 
-        message.content = 'No se pudo actualizar el archivo de publicaciones por áreas';
+        message.content = 'Algo salió mal en la actualización de publicaciones por áreas, intente de nuevo por favor.';
         message.type = 'danger';
         message.show = true;
         console.log(err);
@@ -112,13 +116,13 @@ exports.uploadUsers = (req, res) => {
         resources.save();
         file.mv(resources.files.path + name);
 
-        message.content = 'Archivo de usuarios con privilegios actualizado';
+        message.content = 'Archivo de usuarios con privilegios actualizado.';
         message.show = true;
         res.redirect('/admin');
 
     } catch (err) {
 
-        message.content = 'No se pudo actualizar el archivo de usuarios con privilegios';
+        message.content = 'No se pudo actualizar el archivo de usuarios con privilegios.';
         message.type = 'danger';
         message.show = true;
         console.log(err);
@@ -143,13 +147,13 @@ exports.uploadApiKey = (req, res) => {
         resources.save();
         file.mv(resources.files.path + name);
 
-        message.content = 'Archivo de API Key actualizado';
+        message.content = 'Archivo de API Key actualizado.';
         message.show = true;
         res.redirect('/admin');
 
     } catch (err) {
 
-        message.content = 'No se pudo actualizar el archivo de API Key';
+        message.content = 'No se pudo actualizar el archivo de API Key.';
         message.type = 'danger';
         message.show = true;
         console.log(err);
@@ -203,7 +207,7 @@ exports.addUnit = (req, res) => {
 
     } catch (err) {
 
-        messageUnit.content = 'No se pudo agregar la unidad académica';
+        messageUnit.content = 'No se pudo agregar la unidad académica.';
         messageUnit.type = 'danger';
         messageUnit.show = true;
         res.redirect('/admin/unidades');
@@ -259,7 +263,7 @@ exports.editUnit = (req, res) => {
 
     } catch (err) {
 
-        messageUnit.content = 'No se pudo editar la información de la unidad académica';
+        messageUnit.content = 'No se pudo editar la información de la unidad académica.';
         messageUnit.show = true;
         messageUnit.type = 'danger'
         res.redirect('/admin/unidades');
@@ -320,7 +324,7 @@ exports.addCenter = (req, res) => {
         res.redirect('/admin/centros');
 
     } catch (err) {
-        messageCenter.content = 'No se pudo agregar el centro de investigación';
+        messageCenter.content = 'No se pudo agregar el centro de investigación.';
         messageCenter.type = 'danger';
         messageCenter.show = true;
         res.redirect('/admin/centros');
@@ -377,7 +381,7 @@ exports.editCenter = (req, res) => {
 
     } catch (err) {
 
-        messageCenter.content = 'No se pudo editar la información del centro de investigación';
+        messageCenter.content = 'No se pudo editar la información del centro de investigación.';
         messageCenter.type = 'danger';
         messageCenter.show = true;
         res.redirect('/admin/centros');
