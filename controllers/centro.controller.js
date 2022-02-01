@@ -44,6 +44,6 @@ exports.getPerfilCentro = async(req, res) =>{
                                                             totalCitaciones: informacion.citas,
                                                             'investigadores': investigadores});
     }else{
-        res.send("No existe la url ingresada");
+        res.render('../views/notFound.views.ejs');
     }
 }

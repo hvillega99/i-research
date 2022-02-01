@@ -8,6 +8,8 @@ const fileUpload = require('express-fileupload');
 const Resourcesdb = require('./helpers/resourcesdb');
 const resources = new Resourcesdb();
 
+const casConfig = require('./casConfig.json');
+
 
 //initializations
 const app = express();
@@ -46,8 +48,8 @@ function authenticateA(req,res,next) {
 
 //
 passport.use(new (require('passport-cas').Strategy)({
-    ssoBaseURL: 'http://auth.test.espol.edu.ec',
-    serverBaseURL: 'http://localhost:3000'
+    ssoBaseURL: casConfig.casURL,
+    serverBaseURL: casConfig.baseURL
   }, function(login, done) {
     return done(null, login);
   }));
@@ -103,6 +105,10 @@ app.use('/cas_logout',(req, res)=> {
   res.redirect('/');
   
 });
+
+app.use('*',(req, res)=> {
+  res.render('notFound.views.ejs');
+})
 
 
 //start server

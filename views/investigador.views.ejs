@@ -79,27 +79,27 @@
                     <div class="col-md-2">
                         <h5>Métricas</h5>
                         
-                        <%if(information.documentos > 0){ %>
+                        <%if(information.documentos >= 0){ %>
                             <h5><%= information.documentos%></h5>
                             <p>Publicaciones</p>
                         <% } %>
                         
-                        <%if(information.citas > 0){ %>
+                        <%if(information.citas >= 0){ %>
                             <h5><%= information.citas%></h5>
                             <p>Citaciones</p>
                         <% } %>
                         
-                        <%if(information.hIndex > 0){ %>
+                        <%if(information.hIndex >= 0){ %>
                             <h5><%= information.hIndex%></h5>
                             <p>H-index</p>
                         <% } %>
 
-                        <%if(information.h5Index > 0){ %>
+                        <%if(information.h5Index >= 0 && information.h5Index != null){ %>
                             <h5><%= information.h5Index%></h5>
                             <p>H5-index</p>
                         <% } %>
 
-                        <%if(information.fcwi > 0){ %>
+                        <%if(information.fcwi >= 0){ %>
                             <h5><%= information.fcwi%></h5>
                             <p>FCWI</p>
                         <% } %>

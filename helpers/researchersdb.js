@@ -52,7 +52,7 @@ class Researchersdb{
 
     getResearchersByUnit(unit){
         const arr = [];
-        const result = this.researchers.filter(item => {
+        const data = this.researchers.filter(item => {
             if(item['Level 3'] == unit.toLocaleUpperCase() && !arr.includes(item["Scopus Author ID"])){
                 arr.push(item["Scopus Author ID"]);
                 return true;
@@ -60,7 +60,11 @@ class Researchersdb{
             return false;
         });
 
-        return result.map(item => ({autor: item['Author'], id: item["Scopus Author ID"]}));
+        const result = data.map(item => ({autor: item['Author'], id: item["Scopus Author ID"]}));
+
+        result.sort((x, y) =>  x['autor'].localeCompare(y['autor'], {ignorePunctuation: true}));
+
+        return result;
     }
 
     getNameAndAffiliations(scopusId){
