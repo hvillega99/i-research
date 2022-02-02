@@ -37,18 +37,20 @@ fetch('/api/publications/areas/inst')
     // console.log(labelsOthers);
     // console.log(valuesOthers);
 
-var width = 550
-height = 500
-margin = 40
+var width = 380
+var height = 500
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-var radius = Math.min(width, height) / 2 - margin
+// var radius = Math.min(width, height) / 2
+var radius = 190
 
 // append the svg object to the div
 var svg = d3.select(pieContainer)
 .append("svg")
-.attr("width", width)
-.attr("height", height)
+// .attr("width", width)
+// .attr("height", height)
+.attr("viewBox", `-70 60 ${height} ${width}`)
+// .attr("preserveAspectRatio", "xMidYMin meet")
 .append("g")
 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
