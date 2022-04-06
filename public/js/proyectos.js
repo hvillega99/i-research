@@ -1,4 +1,4 @@
-let [fname, lastname] = document.getElementById('name').textContent.split(', ');
+let [fname, lastname] = document.getElementById('scopusName').textContent.split(', ');
 
 if(fname.includes('-')){
     fname = fname.replace('-', ' ');

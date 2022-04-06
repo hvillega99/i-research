@@ -27,19 +27,23 @@ exports.getPerfilInvestigador = async (req, res) =>{
                                 ]);                       
                                 
         const information = {...orcidCountsAndSubjects};
+
         const contrato = await gtsi.getContratoByOrcid(information.orcid);
+        
+        const nameAndAffiliations = researches.getNameAndAffiliations(scopusId);
+        
         let srcFoto;
-    
+
         if(contrato.error){
             srcFoto = '/img/author.png';
+            information['nombre'] = nameAndAffiliations.name;
         }else{
             srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
+            information['nombre'] = `${contrato.apellidos} ${contrato.nombres}`;
         }
-    
-        const nameAndAffiliations = researches.getNameAndAffiliations(scopusId);
-    
+        
         information['srcFoto'] = srcFoto;
-        information['nombre'] = nameAndAffiliations.name;
+        information['nombreScopus'] = nameAndAffiliations.name;
         information['afiliaciones'] = nameAndAffiliations.affiliations;
         information['id'] = scopusId;
         information['fcwi'] = fcwi;

@@ -38,8 +38,12 @@ class Researchersdb{
     searchByName(name){    
         const nombres = []
         return this.researchers.filter( resultado =>
-            {  
-                if(resultado["Author"].toLocaleLowerCase().includes(name.toLocaleLowerCase())){
+            {   
+                
+                const terms = name.split(' ');
+                const condition = terms.every(term => resultado['Author'].toLocaleLowerCase().includes(term.toLocaleLowerCase()));
+
+                if(condition){
                     if(nombres.indexOf(resultado["Author"])==-1){
                         nombres.push(resultado["Author"])
                         return true;

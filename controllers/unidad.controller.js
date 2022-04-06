@@ -18,6 +18,14 @@ exports.getPerfilUnidad = async(req, res) =>{
 
             const data = await scopus.getMetrics(idArr);
 
+            /* let data = await scopus.getMetrics(idArr.slice(0, parseInt(0.25*idArr.length)));
+            let data2 = await scopus.getMetrics(idArr.slice(parseInt(0.25*idArr.length), parseInt(0.50*idArr.length)));
+            let data3 = await scopus.getMetrics(idArr.slice(parseInt(0.50*idArr.length), parseInt(0.75*idArr.length)));
+            let data4 = await scopus.getMetrics(idArr.slice(parseInt(0.75*idArr.length)));
+
+
+            data = [...data, ...data2, ...data3, ...data4]; */
+
             if(!data.error){
                 data.forEach(element => {
                     const scopusId = element['coredata']['dc:identifier'].split(':')[1];

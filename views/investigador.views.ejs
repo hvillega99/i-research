@@ -18,6 +18,7 @@
                         <img src="<%= information.srcFoto %>" class="me-2 rounded h-100 w-25 img-fluid"/>  
                         <div>
                             <h3 id="name"><%= information.nombre%></h3>
+                            <p id="scopusName" style="display: none"><%= information.nombreScopus %></p>
                             <% information.afiliaciones.unidades.forEach(item => { %>
     
                                 <p class="badge rounded-pill bg-secondary">

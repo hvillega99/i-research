@@ -12,7 +12,7 @@ const handleClick = (id) => {
                                         <p><strong>Autores:</strong> ${data["authors"].join(' ; ')}</p>
                                         <p><strong>Citas:</strong> ${document.getElementById(`citation-count-${id}`).textContent}</p>
                                         <p><strong>Fecha:</strong> ${data["date"]}</p>
-                                        <p><strong>Doi:</strong> ${data["doi"]}</p>
+                                        <p><strong>Doi:</strong> <a target="_blank" href=https://doi.org/${data["doi"]}>${data["doi"]}</a> </p>
                                         <p><strong>Journal:</strong> ${data["journal"]}</p>
                                         <p><strong>Articlenum:</strong> ${data["articlenum"]}</p>
                                     </div>`;
