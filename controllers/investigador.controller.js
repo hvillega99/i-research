@@ -21,7 +21,7 @@ exports.getPerfilInvestigador = async (req, res) =>{
                 h5index
             ] = await Promise.all([scopus.getDataAndAreas(scopusId), 
                                     scopus.getHindex(scopusId), 
-                                    scopus.getPublicationsTitle2(scopusId),
+                                    scopus.getPublicationsTitle(scopusId),
                                     scival.getFCWI(scopusId),
                                     scival.getH5index(scopusId)
                                 ]);                       
