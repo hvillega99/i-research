@@ -42,6 +42,9 @@
                     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#estadisticas" type="button" role="tab" aria-controls="contact" aria-selected="false">Estadísticas</button>
                 </li>
                 <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#sdg-tab" type="button" role="tab" aria-controls="contact" aria-selected="false">ODS</button>
+                </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#autores-top" type="button" role="tab" aria-controls="contact" aria-selected="false">Autores top</button>
                 </li>
             </ul>
@@ -122,6 +125,25 @@
                             <h5 id="title-publicaciones"></h5>
                         </div>
                     </div>
+                </section>
+            </div>
+            <div class="tab-pane fade" id="sdg-tab" role="tabpanel" aria-labelledby="contact-tab">
+                <section class="container p-3 text-center">
+        
+        
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+
+                            <div class="d-flex flex-wrap">
+                                <%for(let i = 1; i < 17; i++) {%>                           
+                                    <img src="/img/sdg/sdg<%=i%>.svg" class="img-thumbnail sdg-item" width="120px" height="120px" alt="sdg<%=i%>">
+                                <% } %>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
                 </section>
             </div>
             <div class="tab-pane fade" id="autores-top" role="tabpanel" aria-labelledby="contact-tab">

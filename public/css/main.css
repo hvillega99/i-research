@@ -196,3 +196,8 @@
 }
 /*Comentario 3*/
 /*Comentario 4*/
+
+.sdg-item:hover{
+    filter: brightness(1.20);
+    cursor: pointer;
+}
