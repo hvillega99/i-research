@@ -128,16 +128,40 @@
                 </section>
             </div>
             <div class="tab-pane fade" id="sdg-tab" role="tabpanel" aria-labelledby="contact-tab">
-                <section class="container p-3 text-center">
+                <section class="container p-3 text-center" id="sdg-container">
         
         
                     <div class="row justify-content-center">
                         <div class="col-md-8">
 
-                            <div class="d-flex flex-wrap">
-                                <%for(let i = 1; i < 17; i++) {%>                           
-                                    <img src="/img/sdg/sdg<%=i%>.svg" class="img-thumbnail sdg-item" width="120px" height="120px" alt="sdg<%=i%>">
-                                <% } %>
+                            <div id="sdg-panel">
+                                <div class="d-flex flex-wrap m-4">
+                                    <%for(let i = 1; i < 17; i++) {%>                           
+                                        <img src="/img/ods/ods<%=i%>.jpg" class="m-1 sdg-item" 
+                                            width="120px" height="120px" alt="sdg<%=i%>"
+                                            onclick=showList("<%=i%>")
+                                        >
+                                    <% } %>
+                                </div>
+                            </div>
+
+
+                            <div id="sdg-publications" class="m-4" style="display: none">
+
+                                <div class="d-flex justify-content-center">
+                                    <h5 class="mx-4" id="title-list"></h5>
+                                    <button type="button" class="btn-close" 
+                                        onclick=hideList()
+                                        id="btn-close-publications" 
+                                        aria-label="Cerrar"
+                                    >
+                                    </button>
+                                </div>
+
+                                <div class="spinner-border m-5" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+
                             </div>
                             
                         </div>
@@ -174,5 +198,6 @@
     <script src="/js/graficoActualizable.js"></script>
     <script src="/js/graficosMain.js"></script>
     <script src="/js/topAuthors.js"></script>
+    <script src="/js/sdg.js"></script>
 </body>
 </html>
