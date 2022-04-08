@@ -283,82 +283,116 @@ class Scopus{
         }
     }
 
-        //Obtiene el numero de publicaciones de una facultad o centro especifico; en un año determinado
-        async getNPublications(arrayIDS,year){
-            const apiKey = resources.getApiKey();
+    //Obtiene el numero de publicaciones de una facultad o centro especifico; en un año determinado
+    async getNPublications(arrayIDS,year){
+        const apiKey = resources.getApiKey();
             
-            //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
-            var xlr = 1;
-            var designio = ''
-            arrayIDS.forEach(dato => {
-                if(xlr!=arrayIDS.length){
-                    var tetra = `AU-ID(${dato}) OR `
-                    designio+= tetra
-                    xlr++;
-                }
-                else{
-                    var tetra2 = `AU-ID(${dato})`
-                    designio+= tetra2
-                }
-            })
-            //
+        //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
+        var xlr = 1;
+        var designio = ''
+        arrayIDS.forEach(dato => {
+            if(xlr!=arrayIDS.length){
+                var tetra = `AU-ID(${dato}) OR `
+                designio+= tetra
+                xlr++;
+            }
+            else{
+                var tetra2 = `AU-ID(${dato})`
+                designio+= tetra2
+            }
+        })
+        //
     
-            const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&apiKey=${apiKey}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-            const information = await response.json();
-            return information['search-results']['opensearch:totalResults'];
+        /*
+        const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&apiKey=${apiKey}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const information = await response.json();
+        return information['search-results']['opensearch:totalResults'];
+        */
+        try{
+            var flag=0;
+            var count = 1;
+            var inicio=0;
+            var plop = []
+            var acu = 0;
+            while(flag==0){
+                const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}`;
+                const response = await fetch(url,{
+                    headers:{'Accept': 'application/json'}
+                });
+                const information = await response.json();
+                var number = information['search-results']['opensearch:totalResults'];
+                var iteraciones = Math.ceil(number/25);
+                information['search-results']["entry"].forEach(element => {
+                    acu+= parseInt(element['citedby-count']);
+                }
+                );
+                inicio+=25;
+                count+=1;
+                if(count>iteraciones){
+                    plop.push({'publications': parseInt(number), 'citations':acu, 'year':year});
+                    flag+=1;
+                }
+                  
+            }
+            return plop;
+        }catch(err){
+            return -1;
         }
 
-        async getODSpublications(queryODS){
-            const apiKey = resources.getApiKey();
+
+    }
+
+    async getODSpublications(queryODS){
+        const apiKey = resources.getApiKey();
     
-            try{
-                var flag=0;
-                var count = 1;
-                var inicio=0;
-                var plop = []
-                while(flag==0){
-                    const url = `http://api.elsevier.com/content/search/scopus?query=${queryODS} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}`;
-                    const response = await fetch(url,{
-                        headers:{'Accept': 'application/json'}
-                    });
-                    const information = await response.json();
-                    var number = information['search-results']['opensearch:totalResults'];
-                    var iteraciones = Math.ceil(number/25);
-                    information['search-results']["entry"].forEach(element => {
+        try{
+            var flag=0;
+            var count = 1;
+            var inicio=0;
+            var plop = []
+            while(flag==0){
+                const url = `http://api.elsevier.com/content/search/scopus?query=${queryODS} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}`;
+                const response = await fetch(url,{
+                    headers:{'Accept': 'application/json'}
+                });
+                const information = await response.json();
+                var number = information['search-results']['opensearch:totalResults'];
+                var iteraciones = Math.ceil(number/25);
+                information['search-results']["entry"].forEach(element => {
                         
-                        var plop2 = [];
+                    var plop2 = [];
                     
-                        var title= element['dc:title'];
-                        var citation = element['citedby-count'];
+                    var title= element['dc:title'];
+                    var citation = element['citedby-count'];
                         
-                        var year = element['prism:coverDate'].split('-')[0]
-                        var elscopus = element['dc:identifier'].split(':')[1];
+                    var year = element['prism:coverDate'].split('-')[0]
+                    var elscopus = element['dc:identifier'].split(':')[1];
                         
-                        plop2.push(title);
-                        plop2.push(citation);
+                    plop2.push(title);
+                    plop2.push(citation);
             
-                        plop2.push(year);
-                        plop2.push(elscopus);
+                    plop2.push(year);
+                    plop2.push(elscopus);
             
-                        plop.push(plop2);
+                    plop.push(plop2);
                         
-                    }
-                    );
-                    inicio+=25;
-                    count+=1;
-                    if(count>iteraciones){
-                        flag+=1;
-                    }
-                  
                 }
-                return plop;
-            }catch(err){
-                return -1;
+                );
+                inicio+=25;
+                count+=1;
+                if(count>iteraciones){
+                    flag+=1;
+                }
+                  
             }
+            return plop;
+        }catch(err){
+            return -1;
         }
+    }
 
 }
 

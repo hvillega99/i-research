@@ -17,6 +17,9 @@ exports.getPerfilUnidad = async(req, res) =>{
             const idArr = investigadores.map(item => item.id);
 
             const data = await scopus.getMetrics(idArr);
+            const prueba15 = await scopus.getNPublications(idArr,2016);
+            console.log('Info facultad: ');
+            console.log(prueba15);
 
             /* let data = await scopus.getMetrics(idArr.slice(0, parseInt(0.25*idArr.length)));
             let data2 = await scopus.getMetrics(idArr.slice(parseInt(0.25*idArr.length), parseInt(0.50*idArr.length)));
