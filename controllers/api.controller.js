@@ -68,6 +68,23 @@ exports.getUAPublicationsByYear = async (req, res) => {
 
 }
 
+exports.getBibliometricsUnit = async (req, res) => {
+    const {ua} = req.params;
+    const researchers = dbController.getResearchersByUnit(ua);
+    const arrScopusId = researchers.map(item => item.id);
+
+    const data = await Promise.all([
+        scopus.getNPublications(arrScopusId, 2016), 
+        scopus.getNPublications(arrScopusId, 2017), 
+        scopus.getNPublications(arrScopusId, 2018), 
+        scopus.getNPublications(arrScopusId, 2019), 
+        scopus.getNPublications(arrScopusId, 2020),
+        scopus.getNPublications(arrScopusId, 2021),
+    ]);
+
+    res.send(data);
+}
+
 exports.getEspolCitationsByYear = async (req, res) => {
     const citations = await scival.getInstitutionCitations('701420');
     res.send(citations);

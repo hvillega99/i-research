@@ -1,22 +1,31 @@
 const id = document.getElementById('uaId').textContent.toLowerCase();
 
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch(`/api/citationsByYear/ua/${id}`)
+fetch(`/api/bibliometricsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
     if(!dataset.error){
-        const years = Object.keys(dataset);
-        const values = years.map(year => dataset[year]);
-        const maxValue = Math.max.apply( Math, values );
+
+        const years = [];
+        const publications = [];
+        const citations = [];
+
+        dataset.forEach(item => {
+            years.push(item.year);
+            publications.push(item.publications);
+            citations.push(item.citations);
+        })
+        
+        const maxValue = Math.max.apply( Math, citations);
         new Chart(grafica1, {
             type: 'bar',
             data: {
                 labels: years,
                 datasets: [{
                     label: 'Citaciones',
-                    data: values,
-                    backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
-                    borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
+                    data: citations,
+                    backgroundColor: years.map(item => 'rgba(33, 58, 143, 0.2)'),
+                    borderColor: years.map(item => 'rgba(34, 50, 101, 1)'),
                     borderWidth: 1
                 }]
             },
@@ -41,28 +50,18 @@ fetch(`/api/citationsByYear/ua/${id}`)
         });
     
         const infoCitaciones = document.getElementById('info-citaciones')
-        infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+        infoCitaciones.innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
         title="Citaciones de las publicaciones de la unidad académica\nde los últimos cinco años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
-    }else{
-        console.error('citaciones por año no disponibles');
-    }
-})
 
-const grafica2 = document.getElementById("grafica-publicaciones");
-fetch(`/api/publicationsByYear/ua/${id}`)
-.then(response => response.json())
-.then(dataset => {
-    if(!dataset.error){
-        const years = Object.keys(dataset);
-        const values = years.map(year => dataset[year]);
-        const maxValue = Math.max.apply( Math, values );
+        const grafica2 = document.getElementById("grafica-publicaciones");
+        const maxValue2 = Math.max.apply( Math, publications);
         new Chart(grafica2, {
             type: 'bar',
             data: {
                 labels: years,
                 datasets: [{
                     label: 'Publicaciones',
-                    data: values,
+                    data: publications,
                     backgroundColor: years.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: years.map(item => 'rgba(34, 50, 101, 1)'),
                     borderWidth: 1
@@ -81,16 +80,17 @@ fetch(`/api/publicationsByYear/ua/${id}`)
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            stepSize: maxValue < 20? 1:0
+                            stepSize: maxValue2 < 20? 1:0
                         }
                     }]
                 }
             }
         });
         const infoPublicaciones = document.getElementById('info-publicaciones')
-        infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+        infoPublicaciones.innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         title="Cantidad de publicaciones indexadas de la unidad académica\npor cada uno de los últimos cinco años."></img>`;
+    
     }else{
-        console.error('publicaciones por año no disponibles');
+        console.error('información bibliométrica no disponible');
     }
 })

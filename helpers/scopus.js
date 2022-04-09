@@ -284,7 +284,7 @@ class Scopus{
     }
 
     //Obtiene el numero de publicaciones de una facultad o centro especifico; en un año determinado
-    async getNPublications(arrayIDS,year){
+    async getNPublications(arrayIDS, year){
         const apiKey = resources.getApiKey();
             
         //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
@@ -315,10 +315,10 @@ class Scopus{
             var flag=0;
             var count = 1;
             var inicio=0;
-            var plop = []
+            var plop = {};
             var acu = 0;
             while(flag==0){
-                const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}`;
+                const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}`;
                 const response = await fetch(url,{
                     headers:{'Accept': 'application/json'}
                 });
@@ -332,14 +332,14 @@ class Scopus{
                 inicio+=25;
                 count+=1;
                 if(count>iteraciones){
-                    plop.push({'publications': parseInt(number), 'citations':acu, 'year':year});
+                    plop = {'publications': parseInt(number), 'citations':acu, 'year':year};
                     flag+=1;
                 }
                   
             }
             return plop;
         }catch(err){
-            return -1;
+            return {"error": true, "message": "servicio no disponible"};
         }
 
 
