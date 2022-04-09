@@ -318,7 +318,7 @@ class Scopus{
             var plop = {};
             var acu = 0;
             while(flag==0){
-                const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}`;
+                const url = `http://api.elsevier.com/content/search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}`;
                 const response = await fetch(url,{
                     headers:{'Accept': 'application/json'}
                 });

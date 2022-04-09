@@ -19,6 +19,7 @@
                     <div class="col-10">
                         <h2 id="uaId"><%= siglas %></h2>
                         <h3 id="uaName"><%= nombre %></h3>
+                        <p id="uaType" style="display: none">unidad académica</p>
                     </div>
                 </div>
             </section>
@@ -36,18 +37,30 @@
                         <h5><%= totalCitaciones %></h5>
                         <p>Citaciones</p>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 text-center">
                         <div id="info-citaciones">
-                            <div class="spinner-border text-center" role="status">
+                            Citaciones por año
+                            <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                            title="Citaciones de las publicaciones de la unidad académica&#10de los últimos seis años.&#10Estos son siempre los años en los que se publicaron&#10los artículos y no se refieren a los años en los que se&#10recibieron las citas.">
+                            </img>`
+                        </div>
+                        <div id="spinner-citas" class="mt-4">
+                            <div class="spinner-border" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
                         <canvas id="grafica-citaciones" width="400" height="300">
                         </canvas>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 text-center">
                         <div id="info-publicaciones">
-                            <div class="spinner-border text-center" role="status">
+                            Publicaciones por año
+                            <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                            title="Cantidad de publicaciones indexadas de la unidad académica&#10por cada uno de los últimos seis años.">
+                            </img>`
+                        </div>
+                        <div id="spinner-publicaciones" class="mt-4">
+                            <div class="spinner-border" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>

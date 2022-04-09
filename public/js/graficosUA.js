@@ -1,9 +1,12 @@
 const id = document.getElementById('uaId').textContent.toLowerCase();
 
-const grafica1 = document.getElementById("grafica-citaciones");
+const spinnerPublicaciones = document.querySelector("#spinner-publicaciones");
+const spinnerCitas = document.querySelector("#spinner-citas");
+
 fetch(`/api/bibliometricsByYear/ua/${id}`)
 .then(response => response.json())
 .then(dataset => {
+
     if(!dataset.error){
 
         const years = [];
@@ -16,8 +19,9 @@ fetch(`/api/bibliometricsByYear/ua/${id}`)
             citations.push(item.citations);
         })
         
+        const graficaCitas = document.getElementById("grafica-citaciones");
         const maxValue = Math.max.apply( Math, citations);
-        new Chart(grafica1, {
+        new Chart(graficaCitas, {
             type: 'bar',
             data: {
                 labels: years,
@@ -35,7 +39,7 @@ fetch(`/api/bibliometricsByYear/ua/${id}`)
                     display:  false,
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Citaciones por año'
                 },
                 scales: {
@@ -48,14 +52,12 @@ fetch(`/api/bibliometricsByYear/ua/${id}`)
                 }
             }
         });
-    
-        const infoCitaciones = document.getElementById('info-citaciones')
-        infoCitaciones.innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
-        title="Citaciones de las publicaciones de la unidad académica\nde los últimos cinco años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
 
-        const grafica2 = document.getElementById("grafica-publicaciones");
+        spinnerCitas.style.display = "none";
+
+        const graficaPublicaciones = document.getElementById("grafica-publicaciones");
         const maxValue2 = Math.max.apply( Math, publications);
-        new Chart(grafica2, {
+        new Chart(graficaPublicaciones, {
             type: 'bar',
             data: {
                 labels: years,
@@ -73,7 +75,7 @@ fetch(`/api/bibliometricsByYear/ua/${id}`)
                     display:  false,
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Publicaciones por año'
                 },
                 scales: {
@@ -86,11 +88,12 @@ fetch(`/api/bibliometricsByYear/ua/${id}`)
                 }
             }
         });
-        const infoPublicaciones = document.getElementById('info-publicaciones')
-        infoPublicaciones.innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-        title="Cantidad de publicaciones indexadas de la unidad académica\npor cada uno de los últimos cinco años."></img>`;
-    
+
+        spinnerPublicaciones.style.display = "none";
+        
     }else{
         console.error('información bibliométrica no disponible');
+        spinnerCitas = 'No disponible';
+        spinnerPublicaciones = 'No disponible';
     }
 })
