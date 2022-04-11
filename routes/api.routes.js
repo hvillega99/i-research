@@ -14,6 +14,8 @@ router.get("/publicationsByYear/:scopusId", async (req, res) => {
     res.send(publications); 
 });
 
+router.get("/publicationsBySDG/:sdg", apiController.getPublicationsBySDG);
+
 router.get('/bibliometricsByYear/ua/:ua', apiController.getBibliometricsUnit);
 
 router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);

@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const Resourcesdb = require('./resourcesdb');
 const resources = new Resourcesdb();
+const sdgQueries = require('./sdgQueries');
 //Pequeña prueba
 
 class Scopus{
@@ -283,7 +284,13 @@ class Scopus{
         }
     }
 
-    //Obtiene el numero de publicaciones de una facultad o centro especifico; en un año determinado
+
+    /**
+     * Obtiene el número de publicaciones y citaciones de una unidad académica en un año determinado
+     * @param {Array} arrayIDS - Array de Scopus ID de los investigadores de la unidad
+     * @param {Number} year - Año de la búsqueda
+     * @returns 
+     */
     async getNPublications(arrayIDS, year){
         const apiKey = resources.getApiKey();
             
@@ -345,8 +352,16 @@ class Scopus{
 
     }
 
-    async getODSpublications(queryODS){
+    /**
+     * Obtiene las publicaciones relacionadas con un ODS
+     * 
+     * @param {String} SDG_number - Número de ODS
+     * @returns {Object} - Objeto con los datos de las publicaciones del ODS
+     */
+
+    async getSDGpublications(SDG_number){
         const apiKey = resources.getApiKey();
+        const query = sdgQueries[`sdg${SDG_number}`];
     
         try{
             var flag=0;
@@ -354,7 +369,7 @@ class Scopus{
             var inicio=0;
             var plop = []
             while(flag==0){
-                const url = `http://api.elsevier.com/content/search/scopus?query=${queryODS} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}`;
+                const url = `http://api.elsevier.com/content/search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}`;
                 const response = await fetch(url,{
                     headers:{'Accept': 'application/json'}
                 });
@@ -390,7 +405,7 @@ class Scopus{
             }
             return plop;
         }catch(err){
-            return -1;
+            return {"error": true, "message": "servicio no disponible"};
         }
     }
 

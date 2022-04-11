@@ -11,6 +11,12 @@ const gtsi = new Gtsi();
 const scopus = new Scopus();
 const parser = new CsvParser();
 
+exports.getPublicationsBySDG = async (req, res) => {
+    const {sdg} = req.params;
+    const result = await scopus.getSDGpublications(sdg);
+    res.send(result);
+}
+
 exports.getBibliometricsUnit = async (req, res) => {
     const {ua} = req.params;
     const researchers = dbController.getResearchersByUnit(ua);
