@@ -7,9 +7,22 @@ const handleClick = (id) => {
         .then(response => response.json())
         .then(data => {
             if(!data.error){
+
+                const authors = data['authors'];
+                const fromEspol = [];
+                const notFromEspol = [];
+
+                authors.fromEspol.forEach(author => {
+                    fromEspol.push(`<a target="_blank" href=/investigador/${author.scopusId}>${author.name}</a>`);
+                })
+                authors.notFromEspol.forEach(author => {
+                    notFromEspol.push(author.name);
+                })
+
                 content.innerHTML = `<div class="text-start">
                                         <p><strong>Título:</strong> ${data["title"]}</p>
-                                        <p><strong>Autores:</strong> ${data["authors"].join(' ; ')}</p>
+                                        <p><strong>Autores de Espol:</strong> ${fromEspol.join(' ; ')}</p>
+                                        <p><strong>Otros autores:</strong> ${notFromEspol.length>0 ? notFromEspol.join(' ; ') : 'No registra'}</p>
                                         <p><strong>Citas:</strong> ${document.getElementById(`citation-count-${id}`).textContent}</p>
                                         <p><strong>Fecha:</strong> ${data["date"]}</p>
                                         <p><strong>Doi:</strong> <a target="_blank" href=https://doi.org/${data["doi"]}>${data["doi"]}</a> </p>

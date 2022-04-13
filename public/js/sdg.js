@@ -18,15 +18,21 @@ const sgdNames = {
 }
 
 const sdgPanel = document.getElementById('sdg-panel');
-const sdgPublications = document.getElementById('sdg-publications');
 
 const showList = async (sdg) =>{
+
+    const sdgPublications = document.getElementById(`sdg${sdg}-publications`);
+
     sdgPanel.style.display = 'none';
     sdgPublications.style.display = 'block';
-    document.getElementById('title-list').innerHTML = `Publicaciones sobre ODS ${sdg}: ${sgdNames[sdg]}`;
 
-    const listContainer = document.getElementById('list-container');
-    listContainer.innerHTML = '<div class="spinner-border m-5" role="status"><span class="visually-hidden">Loading...</span></div>';
+    document.getElementById(`title-list-${sdg}`).innerHTML = `Publicaciones sobre ODS ${sdg}: ${sgdNames[sdg]}`;
+
+    const listContainer = document.getElementById(`list-container-${sdg}`);
+
+    /* if(document.getElementById(`waiting-sdg${sdg}`)){
+        
+    } */
 
     const response = await fetch(`/api/publicationsBySDG/${sdg}`);
     const publications = await response.json();
@@ -82,7 +88,12 @@ const showList = async (sdg) =>{
     }
 }
 
-const hideList = () => {
+const hideList = (sdg) => {
+    const sdgPublications = document.getElementById(`sdg${sdg}-publications`);
+
+    const listContainer = document.getElementById(`list-container-${sdg}`);
+    listContainer.innerHTML = '<div class="spinner-border m-5" role="status"><span class="visually-hidden">Loading...</span></div>';
+
     sdgPanel.style.display = 'block';
     sdgPublications.style.display = 'none';
 }

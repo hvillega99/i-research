@@ -40,7 +40,8 @@ class Researchersdb{
         return this.researchers.filter( resultado =>
             {   
                 
-                const terms = name.split(' ');
+                let terms = name.replace('.', '');
+                terms = terms.split(' ');
                 const condition = terms.every(term => resultado['Author'].toLocaleLowerCase().includes(term.toLocaleLowerCase()));
 
                 if(condition){

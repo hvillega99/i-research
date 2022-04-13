@@ -28,7 +28,7 @@ fetch(`/api/citationsByYear/${id}`)
                     display:  false,
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Citaciones por año'
                 },
                 scales: {
@@ -42,9 +42,6 @@ fetch(`/api/citationsByYear/${id}`)
             }
         });
     
-        const infoCitaciones = document.getElementById('info-citaciones')
-        infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
-        title="Citaciones de las publicaciones del autor\nde los últimos cinco años.\nEstos son siempre los años en los que se\npublicaron los artículos y no se refieren a\nlos años en los que se recibieron las citas."></img>`;
     }else{
         console.error('citaciones por año no disponibles');
     }
@@ -77,7 +74,7 @@ fetch(`/api/publicationsByYear/${id}`)
                     display:  false,
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Publicaciones por año'
                 },
                 scales: {
@@ -91,9 +88,6 @@ fetch(`/api/publicationsByYear/${id}`)
             }
         });
     
-        const infoPublicaciones = document.getElementById('info-publicaciones');
-        infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-        title="Cantidad de publicaciones indexadas del autor\npor cada uno de los últimos cinco años."></img>`;
     }else{
         console.error('publicaciones por año no disponibles');
     }

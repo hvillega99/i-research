@@ -102,6 +102,22 @@ exports.getProjectsByUnit = async (req, res) => {
 exports.getPublicationsInfo = async (req, res) => {
     const {id} = req.params;
     const info = await scopus.getInfoPublications(id);
+
+    const authorsList = [];
+    info.authors.forEach(item => {
+        const result = dbController.searchByName(item);
+        const fromEspol = result.length > 0;
+        const scopusId = result.length>0 ? result[0]['Scopus Author ID'] : '';
+        authorsList.push({name: item, fromEspol, scopusId});
+    });
+
+    const authors = {
+        fromEspol: authorsList.filter(item => item.fromEspol),
+        notFromEspol: authorsList.filter(item => !item.fromEspol)
+    }
+
+    info["authors"] = authors;
+    
     res.send(info);
 }
 

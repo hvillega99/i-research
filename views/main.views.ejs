@@ -145,23 +145,29 @@
                                 </div>
                             </div>
 
+                            <% for(let i = 1; i<17; i++) { %>
 
-                            <div id="sdg-publications" class="m-4" style="display: none">
-
-                                <div class="d-flex justify-content-center">
-                                    <h5 class="mx-4" id="title-list"></h5>
-                                    <button type="button" class="btn-close" 
-                                        onclick=hideList()
-                                        id="btn-close-publications" 
-                                        aria-label="Cerrar"
-                                    >
-                                    </button>
+                                <div id="sdg<%= i %>-publications" class="m-4" style="display: none">
+    
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="mx-4" id="title-list-<%= i %>"></h5>
+                                        <button type="button" class="btn-close" 
+                                            onclick=hideList("<%= i %>")
+                                            aria-label="Cerrar"
+                                        >
+                                        </button>
+                                    </div>
+    
+                                    <div id="list-container-<%= i %>">
+                                        <div class="spinner-border m-5" role="status" id="waiting-sdg<%= i %>">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                    
+    
                                 </div>
+                            <% } %>
 
-                                <div id="list-container"></div>
-                                
-
-                            </div>
                             
                         </div>
                     </div>
