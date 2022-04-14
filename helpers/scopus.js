@@ -257,7 +257,10 @@ class Scopus{
             const information = await response.json();
             var plop = [];
             for(let x of information['abstracts-retrieval-response']['authors']['author']){
-                plop.push({ [x['ce:indexed-name']] : x['@auid'] });
+                plop.push({ 
+                            'name': x['ce:indexed-name'], 
+                            'scopusId': x['@auid']
+                        });
             }
     
             var articlenum;

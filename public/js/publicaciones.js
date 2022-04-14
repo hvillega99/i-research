@@ -16,7 +16,7 @@ const handleClick = (id) => {
                     fromEspol.push(`<a target="_blank" href=/investigador/${author.scopusId}>${author.name}</a>`);
                 })
                 authors.notFromEspol.forEach(author => {
-                    notFromEspol.push(author.name);
+                    notFromEspol.push(`<a target="_blank" href=https://www.scopus.com/authid/detail.uri?authorId=${author.scopusId}>${author.name}</a>`);
                 })
 
                 content.innerHTML = `<div class="text-start">

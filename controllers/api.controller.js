@@ -103,13 +103,17 @@ exports.getPublicationsInfo = async (req, res) => {
     const {id} = req.params;
     const info = await scopus.getInfoPublications(id);
 
-    /*
+    
     const authorsList = [];
     info.authors.forEach(item => {
-        const result = dbController.searchByName(item);
-        const fromEspol = result.length > 0;
-        const scopusId = result.length>0 ? result[0]['Scopus Author ID'] : '';
-        authorsList.push({name: item, fromEspol, scopusId});
+
+        const scopusId = item.scopusId;
+        const result = dbController.searchById(scopusId);
+        const fromEspol = result != undefined;
+
+        item['fromEspol'] = fromEspol;
+
+        authorsList.push(item);
     });
 
     const authors = {
@@ -118,7 +122,7 @@ exports.getPublicationsInfo = async (req, res) => {
     }
 
     info["authors"] = authors;
-    */
+   
     res.send(info);
 }
 
