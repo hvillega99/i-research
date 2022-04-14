@@ -103,6 +103,7 @@ exports.getPublicationsInfo = async (req, res) => {
     const {id} = req.params;
     const info = await scopus.getInfoPublications(id);
 
+    /*
     const authorsList = [];
     info.authors.forEach(item => {
         const result = dbController.searchByName(item);
@@ -117,7 +118,7 @@ exports.getPublicationsInfo = async (req, res) => {
     }
 
     info["authors"] = authors;
-    
+    */
     res.send(info);
 }
 
