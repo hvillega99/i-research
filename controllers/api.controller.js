@@ -11,6 +11,17 @@ const gtsi = new Gtsi();
 const scopus = new Scopus();
 const parser = new CsvParser();
 
+exports.getDocumentCountBySDG = async (req, res) => {
+
+    const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+    const data = await Promise.all(
+        sdg_numbers.map(sdg => scopus.getSDGdocumentCount(sdg))
+    )
+    
+    res.send(data);
+}
+
 exports.getPublicationsBySDG = async (req, res) => {
     const {sdg} = req.params;
     const result = await scopus.getSDGpublications(sdg);

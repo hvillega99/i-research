@@ -34,7 +34,7 @@ const showList = async (sdg) =>{
         
     } */
 
-    const response = await fetch(`/api/publicationsBySDG/${sdg}`);
+    const response = await fetch(`/api/sdg/publications/${sdg}`);
     const publications = await response.json();
 
     if(!publications.error) {
@@ -97,3 +97,77 @@ const hideList = (sdg) => {
     sdgPanel.style.display = 'block';
     sdgPublications.style.display = 'none';
 }
+
+const sdgColors = {
+    1: '#e5243b',
+    2: '#DDA63A',
+    3: '#4C9F38',
+    4: '#C5192D',
+    5: '#FF3A21',
+    6: '#26BDE2',
+    7: '#FCC30B',
+    8: '#A21942',
+    9: '#FD6925',
+    10: '#DD1367',
+    11: '#FD9D24',
+    12: '#BF8B2E',
+    13: '#3F7E44',
+    14: '#0A97D9',
+    15: '#56C02B',
+    16: '#00689D',
+}
+
+const graficaSDG = document.getElementById("grafica-sdg");
+fetch('/api/sdg/documentCount')
+.then(response => response.json())
+.then(arr => {
+
+    const data = arr.filter(item => !item.error);
+
+    if(data.length > 0) {
+
+        const sdgNumbers = data.map(item => item.sdg);
+        const sdgLabels = sdgNumbers.map(sdg => `ODS ${sdg}`);
+        const values = data.map(item => item.publications);
+    
+        const grafica = document.getElementById('grafica-sdg')
+    
+        const maxValue = Math.max.apply( Math, values );
+        new Chart(grafica, {
+            type: 'bar',
+            data: {
+                labels: sdgLabels,
+                datasets: [{
+                    label: 'Publicaciones',
+                    data: values,
+                    backgroundColor: sdgNumbers.map(sdg => sdgColors[sdg]),
+                    borderColor: sdgNumbers.map(sdg => sdgColors[sdg]),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: maxValue < 20? 1:0
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+    
+        const infoSDG = document.getElementById('info-sdg')
+        infoSDG.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+        title="Cantidad de publicaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
+    
+        const title = document.getElementById('title-sdg');
+        title.textContent = 'Publicaciones por ODS';
+    }else{
+        console.error('No se pudo obtener la información correspondiente a la cantidad de publicaciones por ODS');
+    }
+    
+})

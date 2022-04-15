@@ -356,7 +356,32 @@ class Scopus{
     }
 
     /**
-     * Obtiene las publicaciones relacionadas con un ODS
+     * Devuelve la cantidad de publicaciones relacionadas con un ODS
+     * 
+     * @param {String} SDG_number - Número de ODS
+     * @returns 
+     */
+
+    async getSDGdocumentCount(SDG_number){
+        const apiKey = resources.getApiKey();
+        const query = sdgQueries[`sdg${SDG_number}`];
+        try{
+                const url = `http://api.elsevier.com/content/search/scopus?query=${query} AND AF-ID(60072061)&apiKey=${apiKey}`;
+                const response = await fetch(url,{
+                    headers:{'Accept': 'application/json'}
+                });
+                const information = await response.json();
+                var number = information['search-results']['opensearch:totalResults'];
+                var plop = {'sdg': SDG_number, 'publications': parseInt(number)}
+                return plop;
+        }catch(err){
+            console.log(`***ODS: ${SDG_number}***:`, err);
+            return {"error": true, "message": "servicio no disponible"};
+        }
+    }
+
+    /**
+     * Devuelve las publicaciones relacionadas con un ODS
      * 
      * @param {String} SDG_number - Número de ODS
      * @returns {Object} - Objeto con los datos de las publicaciones del ODS

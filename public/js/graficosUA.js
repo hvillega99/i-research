@@ -3,7 +3,7 @@ const id = document.getElementById('uaId').textContent.toLowerCase();
 const spinnerPublicaciones = document.querySelector("#spinner-publicaciones");
 const spinnerCitas = document.querySelector("#spinner-citas");
 
-fetch(`/api/bibliometricsByYear/ua/${id}`)
+fetch(`/api/unit/bibliometrics/${id}`)
 .then(response => response.json())
 .then(dataset => {
 

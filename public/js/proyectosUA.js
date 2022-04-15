@@ -7,7 +7,7 @@ const finishedCount = document.getElementById('num-finished-projects');
 const currentContainer = document.getElementById('current-projects');
 const finishedContainer = document.getElementById('finished-projects');
 
-fetch(`/api/projects/ua/${unit}`)
+fetch(`/api/unit/projects/${unit}`)
 .then(response => response.json())
 .then(data => {
 
