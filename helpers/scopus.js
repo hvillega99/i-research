@@ -207,7 +207,8 @@ class Scopus{
         }
 
         while(flag==0){        
-            const url = `https://bibliometrics.pythonanywhere.com/decinv/${arrayIds.slice(inicio, fin)}/citation_overview/`;
+            //const url = `https://bibliometrics.pythonanywhere.com/decinv/${arrayIds.slice(inicio, fin)}/citation_overview/`;
+            const url = `https://api.elsevier.com/content/abstract/citations?scopus_id=${arrayIds.slice(inicio, fin)}&apiKey=9f0747197d3085331ac6cf4f882a292c&insttoken=0e21058503771eee8805e4a50f34ecbd`;
             const response = await fetch(url,{
                 headers:{'Accept': 'application/json'}
             });
