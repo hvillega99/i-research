@@ -17,7 +17,7 @@ exports.getDocumentCountBySDG = async (req, res) => {
 
     const data = await Promise.all(
         sdg_numbers.map(sdg => scopus.getSDGdocumentCount(sdg))
-    )
+    );
     
     res.send(data);
 }
