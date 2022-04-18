@@ -22,6 +22,10 @@ class Resourcesdb {
         const apiKey = require(`.${this.files.path}${this.files.apikey}`);
         return apiKey['key'];
     }
+    getInsttoken(){
+        const apiKey = require(`.${this.files.path}${this.files.apikey}`);
+        return apiKey['insttoken'];
+    }
 
     getUsers(){
         const users = require(`.${this.files.path}${this.files.users}`);
