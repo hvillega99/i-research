@@ -10,17 +10,22 @@ class Scopus{
         this.uri = "https://api.elsevier.com/content/";   
     }
 
-    //Usado -
-    async getDataAndAreas(scopusId){
+    async comunX(urlX){
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
+        const url = `${this.uri}${urlX}apiKey=${apiKey}&insttoken=${insttoken}`;
+        const response = await fetch(url,{
+            headers:{'Accept': 'application/json'}
+        });
+        const The_information = await response.json();
+        return The_information;
+    }
+
+    //Usado -
+    async getDataAndAreas(scopusId){
         try{
-            const url = `${this.uri}author/author_id/${scopusId}?apiKey=${apiKey}&insttoken=${insttoken}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-    
-            const information = await response.json();
+            const part_url = `author/author_id/${scopusId}?`;
+            const information = await this.comunX(part_url);
             const data = information['author-retrieval-response'][0].coredata;
             const areas = information['author-retrieval-response'][0]['subject-areas']['subject-area'];
     
@@ -45,18 +50,10 @@ class Scopus{
     
     //Usado -
     async getHindex(scopusId){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         try{
-            const url = `${this.uri}author/author_id/${scopusId}?apiKey=${apiKey}&insttoken=${insttoken}&view=metrics`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-    
-            let data = await response.json();
-            data = data['author-retrieval-response'][0]['h-index'];
-    
-            return data;
+            const part_url = `author/author_id/${scopusId}?view=metrics&`;
+            let data = await this.comunX(part_url);
+            return data['author-retrieval-response'][0]['h-index'];
         }catch (err) {
             return -1
         }
@@ -64,16 +61,9 @@ class Scopus{
 
     //Usado -
     async getMetrics(idArr){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         try {
-            const url = `${this.uri}author/author_id/${idArr}?apiKey=${apiKey}&insttoken=${insttoken}&view=metrics`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-           
-            const data = await response.json();
-        
+            const part_url = `author/author_id/${idArr}?view=metrics&`;
+            const data = await this.comunX(part_url);
             return data['author-retrieval-response-list']['author-retrieval-response'];
         }catch (err) {
             return {"error": true, "message": "servicio no disponible"};
@@ -81,20 +71,15 @@ class Scopus{
     }
    
     //Usado +
-    async getPublicationsTitle(scopusId){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();  
+    async getPublicationsTitle(scopusId){  
         try{
             var flag=0;
             var count = 1;
             var inicio=0;
             var plop = []
             while(flag==0){
-                const url = `${this.uri}search/scopus?query=AU-ID(${scopusId})&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
-                const response = await fetch(url,{
-                    headers:{'Accept': 'application/json'}
-                });
-                const information = await response.json();
+                const part_url = `search/scopus?query=AU-ID(${scopusId})&start=${inicio}&`;
+                const information = await this.comunX(part_url);
                 var number = information['search-results']['opensearch:totalResults'];
                 var iteraciones = Math.ceil(number/25);
                 information['search-results']["entry"].forEach(element => {
@@ -139,8 +124,6 @@ class Scopus{
      */
     async getNPublications(arrayIDS, year){     
         //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         var xlr = 1;
         var designio = ''
         arrayIDS.forEach(dato => {
@@ -161,11 +144,8 @@ class Scopus{
             var plop = {};
             var acu = 0;
             while(flag==0){
-                const url = `${this.uri}search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
-                const response = await fetch(url,{
-                    headers:{'Accept': 'application/json'}
-                });
-                const information = await response.json();
+                const part_url = `search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&`;
+                const information = await this.comunX(part_url);
                 var number = information['search-results']['opensearch:totalResults'];
                 var iteraciones = Math.ceil(number/25);
                 information['search-results']["entry"].forEach(element => {
@@ -197,16 +177,11 @@ class Scopus{
      */
 
     async getSDGdocumentCount(SDG_number){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         const query = sdgQueries[`sdg${SDG_number}`];
         if(SDG_number!='8'){
             try{
-                    const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&apiKey=${apiKey}&insttoken=${insttoken}`;
-                    const response = await fetch(url,{
-                        headers:{'Accept': 'application/json'}
-                    });
-                    const information = await response.json();
+                    const part_url = `search/scopus?query=${query} AND AF-ID(60072061)&`;
+                    const information = await this.comunX(part_url);
                     var number = information['search-results']['opensearch:totalResults'];
                     var plop = {'sdg': SDG_number, 'publications': parseInt(number)}
                     return plop;
@@ -220,11 +195,8 @@ class Scopus{
             var number = 0;
             try{
                 while(cola!=query.length){
-                    const url = `${this.uri}search/scopus?query=${query[cola]} AND AF-ID(60072061)&apiKey=${apiKey}&insttoken=${insttoken}`;
-                    const response = await fetch(url,{
-                        headers:{'Accept': 'application/json'}
-                    });
-                    const information = await response.json();
+                    const part_url = `search/scopus?query=${query[cola]} AND AF-ID(60072061)&`;
+                    const information = await this.comunX(part_url);
                     number += parseInt(information['search-results']['opensearch:totalResults']);
                     cola+=1;
                 }
@@ -247,8 +219,6 @@ class Scopus{
      */
 
     async getSDGpublications(SDG_number){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         const query = sdgQueries[`sdg${SDG_number}`];
         if(SDG_number!='8'){
             try{
@@ -257,11 +227,8 @@ class Scopus{
                 var inicio=0;
                 var plop = []
                 while(flag==0){
-                    const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
-                    const response = await fetch(url,{
-                        headers:{'Accept': 'application/json'}
-                    });
-                    const information = await response.json();
+                    const part_url = `search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&`;
+                    const information = await this.comunX(part_url);
                     var number = information['search-results']['opensearch:totalResults'];
                     var iteraciones = Math.ceil(number/25);
                     information['search-results']["entry"].forEach(element => {
@@ -305,11 +272,8 @@ class Scopus{
                     var count = 1;
                     var inicio=0;
                     while(flag==0){
-                        const url = `${this.uri}search/scopus?query=${query[cola]} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
-                        const response = await fetch(url,{
-                            headers:{'Accept': 'application/json'}
-                        });
-                        const information = await response.json();
+                        const part_url = `search/scopus?query=${query[cola]} AND AF-ID(60072061)&start=${inicio}&`;
+                        const information = await this.comunX(part_url);
                         var number = information['search-results']['opensearch:totalResults'];
                         var iteraciones = Math.ceil(number/25);
                         information['search-results']["entry"].forEach(element => {
@@ -352,8 +316,6 @@ class Scopus{
 
      //Usado *
      async getCoauthors(arrayIds,elID){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken(); 
         var flag=0;
         const plop = {};
         const plop2 = [];
@@ -366,11 +328,8 @@ class Scopus{
         }
 
         while(flag==0){        
-            const url = `${this.uri}abstract/citations?scopus_id=${arrayIds.slice(inicio, fin)}&apiKey=${apiKey}&insttoken=${insttoken}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-            const information = await response.json();
+            const part_url = `abstract/citations?scopus_id=${arrayIds.slice(inicio, fin)}&`;
+            const information = await this.comunX(part_url);
             information['abstract-citations-response']['citeInfoMatrix']['citeInfoMatrixXML']['citationMatrix']['citeInfo'].forEach(element => {
                 element['author'].forEach(e => {
                     if(e['authid']!=elID){
@@ -405,15 +364,9 @@ class Scopus{
    
     //Usado *
     async getInfoPublications(scopusID){
-        const apiKey = resources.getApiKey();
-        const insttoken = resources.getInsttoken();
         try{
-
-            const url = `${this.uri}abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&apiKey=${apiKey}&insttoken=${insttoken}`;
-            const response = await fetch(url,{
-                headers:{'Accept': 'application/json'}
-            });
-            const information = await response.json();
+            const part_url = `abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&`;
+            const information = await this.comunX(part_url);
             var plop = [];
             for(let x of information['abstracts-retrieval-response']['authors']['author']){
                 plop.push({ 
