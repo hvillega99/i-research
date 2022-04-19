@@ -7,13 +7,13 @@ class Scival{
     constructor(){
         this.uri = "https://api.elsevier.com/analytics/scival/author/metrics?";
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
-        this.apiKey = resources.getApiKey();
-        this.insttoken = resources.getInsttoken();
     }
 
     //Usado
     async getPublicationsInTopJournalPercentiles(instId){
-        const url = `${this.uriInstitution}metricTypes=PublicationsInTopJournalPercentiles&institutionIds=${instId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}&insttoken=${this.insttoken}`; 
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const url = `${this.uriInstitution}metricTypes=PublicationsInTopJournalPercentiles&institutionIds=${instId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${apiKey}&insttoken=${insttoken}`; 
         let data;
         
         try {
@@ -36,7 +36,9 @@ class Scival{
 
     //Usado
     async getInstitutionCitations(insId){
-        const url = `${this.uriInstitution}metricTypes=CitationCount&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}&insttoken=${this.insttoken}`;
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const url = `${this.uriInstitution}metricTypes=CitationCount&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${apiKey}&insttoken=${insttoken}`;
         let data;
         
         try{
@@ -58,7 +60,9 @@ class Scival{
 
     //Usado
     async getInstitutionPublications(insId){
-        const url = `${this.uriInstitution}metricTypes=ScholarlyOutput&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}&insttoken=${this.insttoken}`;
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const url = `${this.uriInstitution}metricTypes=ScholarlyOutput&institutionIds=${insId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${apiKey}&insttoken=${insttoken}`;
         let data;
 
         try{
@@ -79,8 +83,10 @@ class Scival{
 
     //Usado
     async getHIndexAll(scopusIdArr){
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
         const scopusId = scopusIdArr.join(',');
-        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}&insttoken=${this.insttoken}`
+        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrs&includeSelfCitations=true&byYear=false&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${apiKey}&insttoken=${insttoken}`
 
         try{
             const response = await fetch(endpoint);
@@ -105,7 +111,9 @@ class Scival{
     
     //Usado
     async getH5index(scopusId){
-        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${this.apiKey}&insttoken=${this.insttoken}`
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const endpoint = `${this.uri}metricTypes=HIndices&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=h5Index&apiKey=${apiKey}&insttoken=${insttoken}`
         
         try{
             const response = await fetch(endpoint);
@@ -122,7 +130,9 @@ class Scival{
 
     //Usado
     async getFCWI(scopusId){
-        const endpoint = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${this.apiKey}&insttoken=${this.insttoken}`;
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const endpoint = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&apiKey=${apiKey}&insttoken=${insttoken}`;
         
         try{
             const response = await fetch(endpoint);
@@ -144,7 +154,9 @@ class Scival{
 
     //Usado
     async getPublications(scopusId){
-        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}&insttoken=${this.insttoken}`;
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const endpoint = `${this.uri}metricTypes=ScholarlyOutput&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${apiKey}&insttoken=${insttoken}`;
 
         try{
             const response = await fetch(endpoint);
@@ -159,7 +171,9 @@ class Scival{
     
     //Usado
     async getCitations(scopusId){
-        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${this.apiKey}&insttoken=${this.insttoken}`;
+        const apiKey = resources.getApiKey();
+        const insttoken = resources.getInsttoken();
+        const endpoint = `${this.uri}metricTypes=CitationCount&authors=${scopusId}&yearRange=5yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&indexType=hIndex&apiKey=${apiKey}&insttoken=${insttoken}`;
 
         try{
             const response = await fetch(endpoint);
