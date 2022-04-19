@@ -60,7 +60,13 @@
                         <div class="col-md-4">
                             <div class="card m-4">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Publicaciones por área</h5>
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="card-title text-center">Publicaciones por área</h5>
+                                        <img src="/img/help2.ico" class="btn" data-toggle="tooltip" data-placement="top" 
+                                        data-bs-toggle="modal" data-bs-target="#help-areas"
+                                        title="Ayuda">
+                                        </img>
+                                    </div>
                                     <form action="/admin/upload/publicaciones" method="POST" enctype="multipart/form-data">
                                         <div class="d-flex flex-column align-items-center">
                                             
@@ -89,17 +95,51 @@
                 
                                         <div class="text-center" id="buttons-documents"></div>    
                                     </form>
-        
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="help-areas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Archivo de publicaciones por área</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Tipo de archivo:</strong> csv</p>
+
+                                        <p>
+                                            <strong>Estructura:</strong>
+                                            <img src="/img/document-count.jpg" width="99%"/>
+                                        </p>
+
+                                        <p>
+                                            <strong>“Subject areas”:</strong> nombre del área<br/>
+                                            <strong>“Documents”:</strong> cantidad de publicaciones<br/>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-4">
                             <div class="card m-4">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Lista de investigadores</h5>
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="card-title text-center">Lista de investigadores</h5>
+                                        <img src="/img/help2.ico" class="btn" data-toggle="tooltip" data-placement="top" 
+                                        data-bs-toggle="modal" data-bs-target="#help-investigadores"
+                                        title="Ayuda">
+                                        </img>
+                                    </div>
                                     
                                     <form action="/admin/upload/investigadores" method="POST" enctype="multipart/form-data">
-        
+                                        
+
                                         <div class="d-flex flex-column align-items-center">
                                             <h6 id="rsfilename">
                                                 <a href="/admin/download/investigadores">
@@ -129,13 +169,49 @@
         
                                 </div>
                             </div>
+
+                            <div class="modal fade" id="help-investigadores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Archivo de investigadores</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Tipo de archivo:</strong> csv</p>
+
+                                        <p>
+                                            <strong>Estructura:</strong>
+                                            <img src="/img/csv.jpg" width="99%"/>
+                                        </p>
+
+                                        <p>
+                                            <strong>“Author”:</strong> nombre del autor<br/>
+                                            <strong>“Scopus Author ID”:</strong> Scopus ID del autor<br/>
+                                            <strong>“Level 3”:</strong> Nombre de la unidad académica o del centro de investigación<br/>
+                                        </p>
+
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="row overflow-auto d-flex justify-content-center">
                         <div class="col-md-4">
                             <div class="card m-4">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Usuarios</h5>
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="card-title text-center">Usuarios</h5>
+                                        <img src="/img/help2.ico" class="btn" data-toggle="tooltip" data-placement="top" 
+                                        data-bs-toggle="modal" data-bs-target="#help-usuarios"
+                                        title="Ayuda">
+                                        </img>
+                                    </div>
                                     
                                     <form action="/admin/upload/usuarios" method="POST" enctype="multipart/form-data">
         
@@ -168,11 +244,45 @@
         
                                 </div>
                             </div>
+
+                            <div class="modal fade" id="help-usuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Archivo de usuarios</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Tipo de archivo:</strong> json</p>
+
+                                        <p>
+                                            <strong>Estructura:</strong>
+                                            <img src="/img/usuarios.jpg" width="99%"/>
+                                        </p>
+
+                                        <p>
+                                            <strong>“users”:</strong> usuarios ESPOL que tendrán privilegios de administrador en el sistema<br/>
+                                        </p>
+
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="col-md-4">
                             <div class="card m-4">
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">API Key</h5>
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="card-title text-center">API Key</h5>
+                                        <img src="/img/help2.ico" class="btn" data-toggle="tooltip" data-placement="top" 
+                                        data-bs-toggle="modal" data-bs-target="#help-apikey"
+                                        title="Ayuda">
+                                        </img>
+                                    </div>
                                     
                                     <form action="/admin/upload/apikey" method="POST" enctype="multipart/form-data">
         
@@ -205,6 +315,35 @@
         
                                 </div>
                             </div>
+
+                            <div class="modal fade" id="help-apikey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Archivo de API Key</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Tipo de archivo:</strong> json</p>
+
+                                        <p>
+                                            <strong>Estructura:</strong>
+                                            <img src="/img/apikey.jpg" width="99%"/>
+                                        </p>
+
+                                        <p>
+                                            <strong>“key”:</strong> API Key de Elsevier<br/>
+                                            <strong>“insttoken”:</strong> Token institucional <br/>
+                                        </p>
+
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </main>
