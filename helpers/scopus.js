@@ -200,19 +200,42 @@ class Scopus{
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
         const query = sdgQueries[`sdg${SDG_number}`];
-        try{
-                const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&apiKey=${apiKey}&insttoken=${insttoken}`;
-                const response = await fetch(url,{
-                    headers:{'Accept': 'application/json'}
-                });
-                const information = await response.json();
-                var number = information['search-results']['opensearch:totalResults'];
-                var plop = {'sdg': SDG_number, 'publications': parseInt(number)}
-                return plop;
-        }catch(err){
-            console.log(`***ODS: ${SDG_number}***:`, err);
-            return {"error": true, "message": "servicio no disponible"};
+        if(SDG_number!='8'){
+            try{
+                    const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&apiKey=${apiKey}&insttoken=${insttoken}`;
+                    const response = await fetch(url,{
+                        headers:{'Accept': 'application/json'}
+                    });
+                    const information = await response.json();
+                    var number = information['search-results']['opensearch:totalResults'];
+                    var plop = {'sdg': SDG_number, 'publications': parseInt(number)}
+                    return plop;
+            }catch(err){
+                console.log(`***ODS: ${SDG_number}***:`, err);
+                return {"error": true, "message": "servicio no disponible"};
+            }
         }
+        else{
+            var cola = 0;
+            var number = 0;
+            try{
+                while(cola!=query.length){
+                    const url = `${this.uri}search/scopus?query=${query[cola]} AND AF-ID(60072061)&apiKey=${apiKey}&insttoken=${insttoken}`;
+                    const response = await fetch(url,{
+                        headers:{'Accept': 'application/json'}
+                    });
+                    const information = await response.json();
+                    number += parseInt(information['search-results']['opensearch:totalResults']);
+                    cola+=1;
+                }
+                var plop = {'sdg': SDG_number, 'publications': number}
+                return plop;
+            }catch(err){
+                console.log(`***ODS: ${SDG_number}***:`, err);
+                return {"error": true, "message": "servicio no disponible"};
+            }
+        }
+
     }
 
     //Usado +
@@ -227,49 +250,103 @@ class Scopus{
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
         const query = sdgQueries[`sdg${SDG_number}`];
-        try{
-            var flag=0;
-            var count = 1;
-            var inicio=0;
-            var plop = []
-            while(flag==0){
-                const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
-                const response = await fetch(url,{
-                    headers:{'Accept': 'application/json'}
-                });
-                const information = await response.json();
-                var number = information['search-results']['opensearch:totalResults'];
-                var iteraciones = Math.ceil(number/25);
-                information['search-results']["entry"].forEach(element => {
+        if(SDG_number!='8'){
+            try{
+                var flag=0;
+                var count = 1;
+                var inicio=0;
+                var plop = []
+                while(flag==0){
+                    const url = `${this.uri}search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
+                    const response = await fetch(url,{
+                        headers:{'Accept': 'application/json'}
+                    });
+                    const information = await response.json();
+                    var number = information['search-results']['opensearch:totalResults'];
+                    var iteraciones = Math.ceil(number/25);
+                    information['search-results']["entry"].forEach(element => {
+                            
+                        var plop2 = [];
                         
-                    var plop2 = [];
+                        var title= element['dc:title'];
+                        var citation = element['citedby-count'];
+                            
+                        var year = element['prism:coverDate'].split('-')[0]
+                        var elscopus = element['dc:identifier'].split(':')[1];
+                            
+                        plop2.push(title);
+                        plop2.push(citation);
+                
+                        plop2.push(year);
+                        plop2.push(elscopus);
+                
+                        plop.push(plop2);
+                            
+                    }
+                    );
+                    inicio+=25;
+                    count+=1;
+                    if(count>iteraciones){
+                        flag+=1;
+                    }
                     
-                    var title= element['dc:title'];
-                    var citation = element['citedby-count'];
-                        
-                    var year = element['prism:coverDate'].split('-')[0]
-                    var elscopus = element['dc:identifier'].split(':')[1];
-                        
-                    plop2.push(title);
-                    plop2.push(citation);
-            
-                    plop2.push(year);
-                    plop2.push(elscopus);
-            
-                    plop.push(plop2);
-                        
                 }
-                );
-                inicio+=25;
-                count+=1;
-                if(count>iteraciones){
-                    flag+=1;
-                }
-                  
+                return plop;
+            }catch(err){
+                return {"error": true, "message": "servicio no disponible"};
             }
-            return plop;
-        }catch(err){
-            return {"error": true, "message": "servicio no disponible"};
+        }
+        else{
+            var cola = 0;
+            var plop = [];
+            try{
+                while(cola!=query.length){
+                    var flag=0;
+                    var count = 1;
+                    var inicio=0;
+                    while(flag==0){
+                        const url = `${this.uri}search/scopus?query=${query[cola]} AND AF-ID(60072061)&start=${inicio}&apiKey=${apiKey}&insttoken=${insttoken}`;
+                        const response = await fetch(url,{
+                            headers:{'Accept': 'application/json'}
+                        });
+                        const information = await response.json();
+                        var number = information['search-results']['opensearch:totalResults'];
+                        var iteraciones = Math.ceil(number/25);
+                        information['search-results']["entry"].forEach(element => {
+                                
+                            var plop2 = [];
+                            
+                            var title= element['dc:title'];
+                            var citation = element['citedby-count'];
+                                
+                            var year = element['prism:coverDate'].split('-')[0]
+                            var elscopus = element['dc:identifier'].split(':')[1];
+                                
+                            plop2.push(title);
+                            plop2.push(citation);
+                    
+                            plop2.push(year);
+                            plop2.push(elscopus);
+                    
+                            plop.push(plop2);
+                                
+                        }
+                        );
+                        inicio+=25;
+                        count+=1;
+                        if(count>iteraciones){
+                            flag+=1;
+                        }
+                        
+                    }
+                    cola+=1;
+                
+
+                }
+                return plop;
+            }catch(err){
+                return {"error": true, "message": "servicio no disponible"};
+            }
         }
     }
 

@@ -13,7 +13,7 @@ const parser = new CsvParser();
 
 exports.getDocumentCountBySDG = async (req, res) => {
 
-    const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16];
+    const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
     const data1 = await Promise.all(
         sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGdocumentCount(sdg))
