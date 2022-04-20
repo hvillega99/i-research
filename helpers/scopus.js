@@ -21,7 +21,73 @@ class Scopus{
         return The_information;
     }
 
-    //Usado -
+    async comunX2(urlX){
+        var flag=0;
+        var count = 1;
+        var inicio=0;
+        var plop = []
+        while(flag==0){
+            const part_url = `${urlX}&start=${inicio}&`;
+            const information = await this.comunX(part_url);
+            var number = information['search-results']['opensearch:totalResults'];
+            var iteraciones = Math.ceil(number/25);
+            information['search-results']["entry"].forEach(element => {
+                
+                var plop2 = [];
+            
+                var title= element['dc:title'];
+                var citation = element['citedby-count'];
+                
+                var year = element['prism:coverDate'].split('-')[0]
+                var elscopus = element['dc:identifier'].split(':')[1];
+                
+                plop2.push(title);
+                plop2.push(citation);
+    
+                plop2.push(year);
+                plop2.push(elscopus);
+    
+                plop.push(plop2);
+                
+            }
+            );
+            inicio+=25;
+            count+=1;
+            if(count>iteraciones){
+                flag+=1;
+            }
+          
+        }
+        return plop;
+    }
+
+    async comunX3(urlX){
+        var flag=0;
+        var count = 1;
+        var inicio=0;
+        var plop = {};
+        var acu = 0;
+        while(flag==0){
+            const part_url = `${urlX}&start=${inicio}&`;
+            const information = await this.comunX(part_url);
+            var number = information['search-results']['opensearch:totalResults'];
+            var iteraciones = Math.ceil(number/25);
+            information['search-results']["entry"].forEach(element => {
+                acu+= parseInt(element['citedby-count']);
+            }
+            );
+            inicio+=25;
+            count+=1;
+            if(count>iteraciones){
+                plop = {'publications': parseInt(number), 'citations':acu};
+                flag+=1;
+            }
+          
+        }
+        return plop;
+    }
+
+    //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
     async getDataAndAreas(scopusId){
         try{
             const part_url = `author/author_id/${scopusId}?`;
@@ -48,7 +114,7 @@ class Scopus{
         }
     }
     
-    //Usado -
+    //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
     async getHindex(scopusId){
         try{
             const part_url = `author/author_id/${scopusId}?view=metrics&`;
@@ -59,7 +125,7 @@ class Scopus{
         }
     }
 
-    //Usado -
+    //Usado - OK
     async getMetrics(idArr){
         try {
             const part_url = `author/author_id/${idArr}?view=metrics&`;
@@ -70,52 +136,18 @@ class Scopus{
         }  
     }
    
-    //Usado +
+    //Usado + OK
     async getPublicationsTitle(scopusId){  
         try{
-            var flag=0;
-            var count = 1;
-            var inicio=0;
-            var plop = []
-            while(flag==0){
-                const part_url = `search/scopus?query=AU-ID(${scopusId})&start=${inicio}&`;
-                const information = await this.comunX(part_url);
-                var number = information['search-results']['opensearch:totalResults'];
-                var iteraciones = Math.ceil(number/25);
-                information['search-results']["entry"].forEach(element => {
-                    
-                    var plop2 = [];
-                
-                    var title= element['dc:title'];
-                    var citation = element['citedby-count'];
-                    
-                    var year = element['prism:coverDate'].split('-')[0]
-                    var elscopus = element['dc:identifier'].split(':')[1];
-                    
-                    plop2.push(title);
-                    plop2.push(citation);
-        
-                    plop2.push(year);
-                    plop2.push(elscopus);
-        
-                    plop.push(plop2);
-                    
-                }
-                );
-                inicio+=25;
-                count+=1;
-                if(count>iteraciones){
-                    flag+=1;
-                }
-              
-            }
-            return plop;
+            const url_x = `search/scopus?query=AU-ID(${scopusId})`;
+            const respuesta = await this.comunX2(url_x);
+            return respuesta;
         }catch(err){
             return -1;
         }
     }
     
-    //Usado +
+    //Usado + OK
     /**
      * Obtiene el número de publicaciones y citaciones de una unidad académica en un año determinado
      * @param {Array} arrayIDS - Array de Scopus ID de los investigadores de la unidad
@@ -137,38 +169,18 @@ class Scopus{
                 designio+= tetra2
             }
         })
+        //************** 
         try{
-            var flag=0;
-            var count = 1;
-            var inicio=0;
-            var plop = {};
-            var acu = 0;
-            while(flag==0){
-                const part_url = `search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}&start=${inicio}&`;
-                const information = await this.comunX(part_url);
-                var number = information['search-results']['opensearch:totalResults'];
-                var iteraciones = Math.ceil(number/25);
-                information['search-results']["entry"].forEach(element => {
-                    acu+= parseInt(element['citedby-count']);
-                }
-                );
-                inicio+=25;
-                count+=1;
-                if(count>iteraciones){
-                    plop = {'publications': parseInt(number), 'citations':acu, 'year':year};
-                    flag+=1;
-                }
-                  
-            }
+            const url_x = `search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}`;
+            const respuesta = await this.comunX3(url_x);
+            var plop = {'publications': respuesta.publications, 'citations': respuesta.citations, 'year':year};
             return plop;
         }catch(err){
             return {"error": true, "message": "servicio no disponible"};
         }
-
-
     }
 
-    //Usado +
+    //Usado + OK
     /**
      * Devuelve la cantidad de publicaciones relacionadas con un ODS
      * 
@@ -180,11 +192,10 @@ class Scopus{
         const query = sdgQueries[`sdg${SDG_number}`];
         if(SDG_number!='8'){
             try{
-                    const part_url = `search/scopus?query=${query} AND AF-ID(60072061)&`;
-                    const information = await this.comunX(part_url);
-                    var number = information['search-results']['opensearch:totalResults'];
-                    var plop = {'sdg': SDG_number, 'publications': parseInt(number)}
-                    return plop;
+                const url_x = `search/scopus?query=${query} AND AF-ID(60072061)`;
+                const respuesta = await this.comunX3(url_x);
+                var plop = {'sdg': SDG_number, 'publications': respuesta.publications, 'citations': respuesta.citations};
+                return plop;
             }catch(err){
                 console.log(`***ODS: ${SDG_number}***:`, err);
                 return {"error": true, "message": "servicio no disponible"};
@@ -192,15 +203,17 @@ class Scopus{
         }
         else{
             var cola = 0;
-            var number = 0;
+            var publicaciones = 0;
+            var citaciones = 0;
             try{
                 while(cola!=query.length){
-                    const part_url = `search/scopus?query=${query[cola]} AND AF-ID(60072061)&`;
-                    const information = await this.comunX(part_url);
-                    number += parseInt(information['search-results']['opensearch:totalResults']);
-                    cola+=1;
+                    const url_x = `search/scopus?query=${query[cola]} AND AF-ID(60072061)`;
+                    const respuesta = await this.comunX3(url_x);
+                    publicaciones+= respuesta.publications
+                    citaciones+= respuesta.citations
+                    cola+=1; 
                 }
-                var plop = {'sdg': SDG_number, 'publications': number}
+                var plop = {'sdg': SDG_number, 'publications': publicaciones, 'citations':citaciones};
                 return plop;
             }catch(err){
                 console.log(`***ODS: ${SDG_number}***:`, err);
@@ -210,7 +223,7 @@ class Scopus{
 
     }
 
-    //Usado +
+    //Usado + OK
     /**
      * Devuelve las publicaciones relacionadas con un ODS
      * 
@@ -222,43 +235,9 @@ class Scopus{
         const query = sdgQueries[`sdg${SDG_number}`];
         if(SDG_number!='8'){
             try{
-                var flag=0;
-                var count = 1;
-                var inicio=0;
-                var plop = []
-                while(flag==0){
-                    const part_url = `search/scopus?query=${query} AND AF-ID(60072061)&start=${inicio}&`;
-                    const information = await this.comunX(part_url);
-                    var number = information['search-results']['opensearch:totalResults'];
-                    var iteraciones = Math.ceil(number/25);
-                    information['search-results']["entry"].forEach(element => {
-                            
-                        var plop2 = [];
-                        
-                        var title= element['dc:title'];
-                        var citation = element['citedby-count'];
-                            
-                        var year = element['prism:coverDate'].split('-')[0]
-                        var elscopus = element['dc:identifier'].split(':')[1];
-                            
-                        plop2.push(title);
-                        plop2.push(citation);
-                
-                        plop2.push(year);
-                        plop2.push(elscopus);
-                
-                        plop.push(plop2);
-                            
-                    }
-                    );
-                    inicio+=25;
-                    count+=1;
-                    if(count>iteraciones){
-                        flag+=1;
-                    }
-                    
-                }
-                return plop;
+                const url_x = `search/scopus?query=${query} AND AF-ID(60072061)`;
+                const respuesta = await this.comunX2(url_x);
+                return respuesta;
             }catch(err){
                 return {"error": true, "message": "servicio no disponible"};
             }
@@ -268,53 +247,20 @@ class Scopus{
             var plop = [];
             try{
                 while(cola!=query.length){
-                    var flag=0;
-                    var count = 1;
-                    var inicio=0;
-                    while(flag==0){
-                        const part_url = `search/scopus?query=${query[cola]} AND AF-ID(60072061)&start=${inicio}&`;
-                        const information = await this.comunX(part_url);
-                        var number = information['search-results']['opensearch:totalResults'];
-                        var iteraciones = Math.ceil(number/25);
-                        information['search-results']["entry"].forEach(element => {
-                                
-                            var plop2 = [];
-                            
-                            var title= element['dc:title'];
-                            var citation = element['citedby-count'];
-                                
-                            var year = element['prism:coverDate'].split('-')[0]
-                            var elscopus = element['dc:identifier'].split(':')[1];
-                                
-                            plop2.push(title);
-                            plop2.push(citation);
-                    
-                            plop2.push(year);
-                            plop2.push(elscopus);
-                    
-                            plop.push(plop2);
-                                
-                        }
-                        );
-                        inicio+=25;
-                        count+=1;
-                        if(count>iteraciones){
-                            flag+=1;
-                        }
-                        
-                    }
+                    const url_x = `search/scopus?query=${query[cola]} AND AF-ID(60072061)`;
+                    const respuesta = await this.comunX2(url_x);
+                    plop.push(respuesta);
                     cola+=1;
-                
-
                 }
-                return plop;
+                var concatenacion = [].concat(...plop);
+                return concatenacion;
             }catch(err){
                 return {"error": true, "message": "servicio no disponible"};
             }
         }
     }
 
-     //Usado *
+     //Usado * OK
      async getCoauthors(arrayIds,elID){
         var flag=0;
         const plop = {};
@@ -350,10 +296,8 @@ class Scopus{
                 }
                 else{
                     fin = size;
-                }
-                
-            }
-            
+                }   
+            }  
         }
 
         for (var i in plop){
@@ -362,7 +306,7 @@ class Scopus{
         return plop2 ;
     }
    
-    //Usado *
+    //Usado * OK
     async getInfoPublications(scopusID){
         try{
             const part_url = `abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&`;
