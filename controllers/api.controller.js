@@ -160,7 +160,25 @@ exports.getPublicationsByArea = async (req, res) => {
 }
 
 exports.getNDocsByCountry = async (req, res) => {
-    const {country} = req.params;
-    const projects = await scopus.getPublicationsByCountry(country);
-    res.send(projects);
+
+    const countries = require('../resources/data/list_countries.json');
+
+    const data = [];
+
+    const p = 20;
+
+    for(let i=0; i<p ; i++){
+        
+        const result = await Promise.all(
+            countries.slice(parseInt((i/p)*countries.length), parseInt(((i+1)/p)*countries.length))
+            .map(country => scopus.getPublicationsByCountry(country.name))
+        )
+
+        result.forEach(item =>{
+            country = countries.find(country => country.name == item.country);
+            data.push({id: country.id, ...item});
+        })
+    }
+
+    res.send(data);
 }

@@ -1,4 +1,4 @@
-                     <html>
+<html>
 <head>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
@@ -31,8 +31,21 @@
 
     anychart.onDocumentReady(function () {
       anychart.data.loadJsonFile(
-        'countries.json',
-        function (data) {
+        'data/countries.json',
+        async function (data) {
+
+          let values = await fetch('/api/espol/collaboration/documentCount');
+          values = await values.json();
+
+          values.forEach(item => {
+            if(!item.error){
+              const id = item.id;
+              const country = data.find(e => e.id == id);
+              country.documentCount = item.publications;
+            }
+          })
+          
+          
           var map = anychart.map();
 
           map
@@ -80,7 +93,7 @@
             });
 
           var scale = anychart.scales.ordinalColor([
-            { less: 1 },
+            { less: 0 },
             { from: 1, to: 25 },
             { from: 25, to: 100 },
             { from: 100, to: 250 },
@@ -89,8 +102,8 @@
           ]);
           scale.colors([
             '#ffffff',
+            '#81d4fa',
             '#4fc3f7',
-            '#29b6f6',
             '#039be5',
             '#0277bd',
             '#014377',

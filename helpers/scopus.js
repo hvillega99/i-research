@@ -268,7 +268,7 @@ class Scopus{
             var plop = {'country': country, 'publications': parseInt(respuesta['search-results']['opensearch:totalResults'])};
             return plop;
         }catch(err){
-            return {"error": true, "message": "servicio no disponible"};
+            return {"error": true, "message": "error al obtener los datos", country};
         }
 
     }
