@@ -260,7 +260,20 @@ class Scopus{
         }
     }
 
-     //Usado * OK
+    //Pronto a usar 
+    async getPublicationsByCountry(country){
+        try{
+            const url_x = `search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country})&`;
+            const respuesta = await this.comunX(url_x);
+            var plop = {'country': country, 'publications': parseInt(respuesta['search-results']['opensearch:totalResults'])};
+            return plop;
+        }catch(err){
+            return {"error": true, "message": "servicio no disponible"};
+        }
+
+    }
+
+    //Usado * OK
      async getCoauthors(arrayIds,elID){
         var flag=0;
         const plop = {};
