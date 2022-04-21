@@ -1,0 +1,143 @@
+                     <html>
+<head>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-map.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <script src="https://cdn.anychart.com/geodata/latest/custom/world/world.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+  <style type="text/css">
+
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  
+</style>
+</head>
+<body>
+  
+  <div id="container"></div>
+  
+
+  <script>
+
+    anychart.onDocumentReady(function () {
+      anychart.data.loadJsonFile(
+        'countries.json',
+        function (data) {
+          var map = anychart.map();
+
+          map
+            .title()
+            .enabled(true)
+            .useHtml(true)
+            .padding([10, 0, 10, 0])
+            .text(
+              'Colaboraciones internacionales de ESPOL<br/>(publicaciones por país)'
+            );
+
+            map.listen('click', (e) => {
+              let index = e.pointIndex;
+              console.log(data[index]);
+            });
+
+          map.geoData('anychart.maps.world');
+          map.interactivity().selectionMode('none');
+          map.padding(0);
+
+          var dataSet = anychart.data.set(data);
+          var densityData = dataSet.mapAs({ value: 'documentCount' });
+          var series = map.choropleth(densityData);
+
+          series.labels(false);
+
+          series
+            .hovered()
+            .fill('#f48fb1')
+            .stroke(anychart.color.darken('#f48fb1'));
+
+          series
+            .selected()
+            .fill('#c2185b')
+            .stroke(anychart.color.darken('#c2185b'));
+
+          series
+            .tooltip()
+            .useHtml(true)
+            .format(function () {
+              return (
+                '<span style="color: #d9d9d9">Publicaciones</span>: ' +
+                this.getData('documentCount')
+              );
+            });
+
+          var scale = anychart.scales.ordinalColor([
+            { less: 1 },
+            { from: 1, to: 25 },
+            { from: 25, to: 100 },
+            { from: 100, to: 250 },
+            { from: 250, to: 1000 },
+            { greater: 1000 }
+          ]);
+          scale.colors([
+            '#ffffff',
+            '#4fc3f7',
+            '#29b6f6',
+            '#039be5',
+            '#0277bd',
+            '#014377',
+          ]);
+
+          var colorRange = map.colorRange();
+          colorRange.enabled(true).padding([0, 0, 20, 0]);
+          colorRange
+            .ticks()
+            .enabled(true)
+            .stroke('3 #ffffff')
+            .position('center')
+            .length(7);
+          colorRange.colorLineSize(5);
+          colorRange.marker().size(7);
+          colorRange
+            .labels()
+            .fontSize(11)
+            .padding(3, 0, 0, 0)
+            .format(function () {
+              var range = this.colorRange;
+              var name;
+              if (isFinite(range.start + range.end)) {
+                name = range.start + ' - ' + range.end;
+              } else if (isFinite(range.start)) {
+                name = 'Más de ' + range.start;
+              } else {
+                name = '0';
+              }
+              return name;
+            });
+
+          series.colorScale(scale);
+
+          // create zoom controls
+          var zoomController = anychart.ui.zoom();
+          zoomController.render(map);
+
+          // set container id for the chart
+          map.container('container');
+          // initiate chart drawing
+          map.draw();
+        }
+      );
+    });
+  
+</script>
+</body>
+</html>
+                

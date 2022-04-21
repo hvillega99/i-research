@@ -69,9 +69,15 @@ app.use('/investigador',require('./routes/investigador.routes'));
 app.use('/unidad',require('./routes/unidad_academica.routes'));
 app.use('/centro',require('./routes/centro_investigacion.routes'));
 app.use('/api',require('./routes/api.routes'));
+
+app.use('/map', (req, res)=>{
+    res.render('map.ejs')  
+})
+
 app.use('/noAutorizado',(req,res)=>{
   return res.render('../views/permiso.views.ejs')
 })
+
 app.use('/cas_login',(req, res, next)=> {
     passport.authenticate('cas', function (err, user, info) {
         if (err) {
