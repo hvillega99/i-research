@@ -116,15 +116,17 @@ class Scopus{
     
                 plop.push(plop2);
 
+                
                 //CODIGO QUE GUARDARA LAS UNIVERSIDADES
-                element['affiliation'].forEach( uInformation => {
-                    if(uInformation['affiliation-country']==the_country){
-                        universities.push(uInformation['affilname'])
-                    }
-                })
-                ;
+                if(element['affiliation']){
+                    element['affiliation'].forEach( uInformation => {
+                        if(uInformation['affiliation-country']==the_country){
+                            universities.push(uInformation['affilname'])
+                        }
+                    });
+                }
                 //**********
-
+                
                 
             }
             );
