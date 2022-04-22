@@ -182,3 +182,9 @@ exports.getNDocsByCountry = async (req, res) => {
 
     res.send(data);
 }
+
+exports.getInfoDocsByCountry = async (req, res) => {
+    const {country} = req.params;
+    const projects = await scopus.getPublicationsInfoByCountry(country);
+    res.send(projects);
+}

@@ -87,6 +87,61 @@ class Scopus{
         return plop;
     }
 
+    async comunX4(urlX,the_country){
+        var flag=0;
+        var count = 1;
+        var inicio=0;
+        var plop = []
+        var universities = [];
+        while(flag==0){
+            const part_url = `${urlX}&start=${inicio}&`;
+            const information = await this.comunX(part_url);
+            var number = information['search-results']['opensearch:totalResults'];
+            var iteraciones = Math.ceil(number/25);
+            information['search-results']["entry"].forEach(element => {
+                
+                var plop2 = [];
+            
+                var title= element['dc:title'];
+                var citation = element['citedby-count'];
+                
+                var year = element['prism:coverDate'].split('-')[0]
+                var elscopus = element['dc:identifier'].split(':')[1];
+                
+                plop2.push(title);
+                plop2.push(citation);
+    
+                plop2.push(year);
+                plop2.push(elscopus);
+    
+                plop.push(plop2);
+
+                //CODIGO QUE GUARDARA LAS UNIVERSIDADES
+                element['affiliation'].forEach( uInformation => {
+                    if(uInformation['affiliation-country']==the_country){
+                        universities.push(uInformation['affilname'])
+                    }
+                })
+                ;
+                //**********
+
+                
+            }
+            );
+            inicio+=25;
+            count+=1;
+            if(count>iteraciones){
+                flag+=1;
+            }
+          
+        }
+        //Conjunto de universidades sin repetir
+        /*
+        return {'publications': plop, 'institutions': [...new Set(universities)]};
+        */
+        return {'publications': plop, 'institutions': universities};
+    }
+
     //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
     async getDataAndAreas(scopusId){
         try{
@@ -267,6 +322,18 @@ class Scopus{
             const respuesta = await this.comunX(url_x);
             var plop = {'country': country, 'publications': parseInt(respuesta['search-results']['opensearch:totalResults'])};
             return plop;
+        }catch(err){
+            return {"error": true, "message": "error al obtener los datos", country};
+        }
+
+    }
+
+    //Pronto a usar
+    async getPublicationsInfoByCountry(country){
+        try{
+            const url_x = `search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country})&`;
+            const respuesta = await this.comunX4(url_x,country);
+            return respuesta;
         }catch(err){
             return {"error": true, "message": "error al obtener los datos", country};
         }
