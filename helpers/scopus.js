@@ -91,8 +91,7 @@ class Scopus{
         var flag=0;
         var count = 1;
         var inicio=0;
-        var plop = []
-        var universities = [];
+        var plop = {};
         while(flag==0){
             const part_url = `${urlX}&start=${inicio}&`;
             const information = await this.comunX(part_url);
@@ -114,14 +113,16 @@ class Scopus{
                 plop2.push(year);
                 plop2.push(elscopus);
     
-                plop.push(plop2);
-
-                
-                //CODIGO QUE GUARDARA LAS UNIVERSIDADES
+                //CODIGO QUE GUARDARA LAS UNIVERSIDADES JUNTO SUS PUBLICACIONES
                 if(element['affiliation']){
                     element['affiliation'].forEach( uInformation => {
                         if(uInformation['affiliation-country']==the_country){
-                            universities.push(uInformation['affilname'])
+                            if(plop[uInformation['affilname']]){
+                                plop[uInformation['affilname']].push(plop2);
+                            }
+                            else{
+                                plop[uInformation['affilname']] = [plop2];
+                            }
                         }
                     });
                 }
@@ -137,11 +138,7 @@ class Scopus{
             }
           
         }
-        //Conjunto de universidades sin repetir
-        /*
-        return {'publications': plop, 'institutions': [...new Set(universities)]};
-        */
-        return {'publications': plop, 'institutions': universities};
+        return plop;
     }
 
     //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
