@@ -88,56 +88,69 @@ class Scopus{
     }
 
     async comunX4(urlX,the_country){
-        var flag=0;
-        var count = 1;
-        var inicio=0;
+        var maxPub = 200;
         var plop = {};
-        while(flag==0){
-            const part_url = `${urlX}&start=${inicio}&`;
-            const information = await this.comunX(part_url);
-            var number = information['search-results']['opensearch:totalResults'];
-            var iteraciones = Math.ceil(number/25);
-            information['search-results']["entry"].forEach(element => {
-                
-                var plop2 = [];
-            
-                var title= element['dc:title'];
-                var citation = element['citedby-count'];
-                
-                var year = element['prism:coverDate'].split('-')[0]
-                var elscopus = element['dc:identifier'].split(':')[1];
-                
-                plop2.push(title);
-                plop2.push(citation);
-    
-                plop2.push(year);
-                plop2.push(elscopus);
-    
-                //CODIGO QUE GUARDARA LAS UNIVERSIDADES JUNTO SUS PUBLICACIONES
-                if(element['affiliation']){
-                    element['affiliation'].forEach( uInformation => {
-                        if(uInformation['affiliation-country']==the_country){
-                            if(plop[uInformation['affilname']]){
-                                plop[uInformation['affilname']].push(plop2);
-                            }
-                            else{
-                                plop[uInformation['affilname']] = [plop2];
-                            }
-                        }
-                    });
+        const part_url = `${urlX}&`;
+        const information = await this.comunX(part_url);
+        var number = information['search-results']['opensearch:totalResults'];
+        var p = Math.ceil(number/maxPub);
+        
+        for(let i=0; i<p ; i++){
+            var indicesI = [];
+            var q = 0;
+            while(q<8){
+                var indice = (i*maxPub) + (25*q)
+                if(indice >= number){
+                    q=8;
                 }
-                //**********
-                
-                
+                else{
+                    indicesI.push(indice)
+                    q+=1
+                }
             }
-            );
-            inicio+=25;
-            count+=1;
-            if(count>iteraciones){
-                flag+=1;
-            }
-          
+            const result = await Promise.all(
+                indicesI.map( elemento => this.comunX(`${urlX}&start=${elemento}&`))
+            )
+            result.forEach(information =>{
+                information['search-results']["entry"].forEach(element => {
+                
+                    var plop2 = [];
+                
+                    var title= element['dc:title'];
+                    var citation = element['citedby-count'];
+                    
+                    var year = element['prism:coverDate'].split('-')[0]
+                    var elscopus = element['dc:identifier'].split(':')[1];
+                    
+                    plop2.push(title);
+                    plop2.push(citation);
+        
+                    plop2.push(year);
+                    plop2.push(elscopus);
+        
+                    //CODIGO QUE GUARDARA LAS UNIVERSIDADES JUNTO SUS PUBLICACIONES
+                    if(element['affiliation']){
+                        element['affiliation'].forEach( uInformation => {
+                            if(uInformation['affiliation-country']==the_country){
+                                if(plop[uInformation['affilname']]){
+                                    plop[uInformation['affilname']].push(plop2);
+                                }
+                                else{
+                                    plop[uInformation['affilname']] = [plop2];
+                                }
+                            }
+                        });
+                    }
+                    //**********
+                    
+                    
+                }
+                );
+            })
         }
+        
+      
+        
         return plop;
     }
 
