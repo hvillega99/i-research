@@ -21,7 +21,7 @@ class Scopus{
         return The_information;
     }
 
-    async comunX2(urlX){
+    async comunX2(urlX){ //No se puede tocar (La funcion que utiliza este metodo; es invocada por un promise.all)
         var flag=0;
         var count = 1;
         var inicio=0;
@@ -61,7 +61,7 @@ class Scopus{
         return plop;
     }
 
-    async comunX3(urlX){
+    async comunX3(urlX){ //No se puede tocar (La funcion que utiliza este metodo; es invocada por un promise.all)
         var flag=0;
         var count = 1;
         var inicio=0;
