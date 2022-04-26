@@ -11,6 +11,8 @@ const gtsi = new Gtsi();
 const scopus = new Scopus();
 const parser = new CsvParser();
 
+const countries = require('../resources/data/list_countries.json');
+
 exports.getDocumentCountBySDG = async (req, res) => {
 
     const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -161,8 +163,6 @@ exports.getPublicationsByArea = async (req, res) => {
 
 exports.getNDocsByCountry = async (req, res) => {
 
-    const countries = require('../resources/data/list_countries.json');
-
     const data = [];
 
     const p = 20;
@@ -185,6 +185,22 @@ exports.getNDocsByCountry = async (req, res) => {
 
 exports.getInfoDocsByCountry = async (req, res) => {
     const {country} = req.params;
-    const projects = await scopus.getPublicationsInfoByCountry(country);
-    res.send(projects);
+
+    const countryData = countries.find(e => e.id == country.toUpperCase());
+
+    if(countryData){
+
+        let countryName = ''; 
+
+        countryData.name.split(' ').forEach(item => {
+            countryName += item.charAt(0).toUpperCase() + item.slice(1).toLowerCase() + ' ';
+        })
+
+        countryName = countryName.slice(0, countryName.length-1);
+
+        const projects = await scopus.getPublicationsInfoByCountry(countryName);
+        res.send(projects);
+    }else{
+        res.send({error: true, message: 'país no encontrado'});
+    }
 }

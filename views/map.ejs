@@ -1,5 +1,6 @@
 <html>
 <head>
+  <%- include("templates/cabecera.templates.ejs")%>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
@@ -23,6 +24,24 @@
 </style>
 </head>
 <body>
+
+  <div>
+    MAPA
+    <div class="modal fade" id="md" data-bs-backdrop="static" tabindex="-1">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="md-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="md-content"></div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
   
   <div id="container"></div>
   
@@ -57,9 +76,32 @@
               'Colaboraciones internacionales de ESPOL<br/>(publicaciones por país)'
             );
 
-            map.listen('click', (e) => {
-              let index = e.pointIndex;
-              console.log(data[index]);
+            map.listen('click', async (e) => {
+              const index = e.pointIndex;
+              const country = data[index];
+              console.log(country);
+
+              document.getElementById('md-title').textContent = `Instituciones de ${country.name} con publicaciones en conjunto con ESPOL`;
+
+              var myModal = new bootstrap.Modal(document.getElementById('md'));
+              myModal.show();
+
+              const response = await fetch(`/api/espol/collaboration/documents/${country.id}`);
+              const information = await response.json();
+              console.log(information);
+
+              const instArr = Object.keys(information);
+
+              let mdContent = document.querySelector('#md-content');
+
+              let content = ''; 
+
+              instArr.forEach(i=> {
+                content += `<p>${i}</p>`;
+              });
+
+              mdContent.innerHTML = content;
+
             });
 
           map.geoData('anychart.maps.world');

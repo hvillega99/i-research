@@ -40,6 +40,6 @@ router.get('/publications/topJournalPercentiles/inst', apiController.getTopJourn
 
 router.get('/espol/collaboration/documentCount',apiController.getNDocsByCountry);
 
-router.get('/espol/collaboration/documentInfo/:country',apiController.getInfoDocsByCountry);
+router.get('/espol/collaboration/documents/:country',apiController.getInfoDocsByCountry);
 
 module.exports = router;
