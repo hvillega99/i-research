@@ -109,7 +109,7 @@ class Scopus{
                 }
             }
             const result = await Promise.all(
-                indicesI.map( elemento => this.comunX(`${urlX}&start=${elemento}&`))
+                indicesI.map( elemento => this.comunX(`${urlX}&view=COMPLETE&start=${elemento}&`))
             )
             result.forEach(information =>{
                 information['search-results']["entry"].forEach(element => {
