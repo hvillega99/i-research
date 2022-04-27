@@ -131,14 +131,17 @@ class Scopus{
                     //CODIGO QUE GUARDARA LAS UNIVERSIDADES JUNTO SUS PUBLICACIONES
                     if(element['affiliation']){
                         element['affiliation'].forEach( uInformation => {
-                            if(uInformation['affiliation-country']==the_country){
-                                if(plop[uInformation['affilname']]){
-                                    plop[uInformation['affilname']].push(plop2);
-                                }
-                                else{
-                                    plop[uInformation['affilname']] = [plop2];
+                            if(uInformation['afid']!="60072061"){
+                                if(uInformation['affiliation-country']==the_country){
+                                    if(plop[uInformation['affilname']]){
+                                        plop[uInformation['affilname']].push(plop2);
+                                    }
+                                    else{
+                                        plop[uInformation['affilname']] = [plop2];
+                                    }
                                 }
                             }
+
                         });
                     }
                     //**********
