@@ -8,16 +8,17 @@
         "name": "netherlands"
     },
     {
-        "id": "HT",
-        "name": "haiti"
-    },
-    {
         "id": "PR",
         "name": "puerto rico"
     },
     {
         "id": "IN",
         "name": "india"
+    },
+    
+    {
+        "id": "BD",
+        "name": "bangladesh"
     },
     {
         "id": "IL",
@@ -52,14 +53,6 @@
         "name": "united kingdom"
     },
     {
-        "id": "TT",
-        "name": "trinidad and tobago"
-    },
-    {
-        "id": "JM",
-        "name": "jamaica"
-    },
-    {
         "id": "PK",
         "name": "pakistan"
     },
@@ -76,20 +69,12 @@
         "name": "italy"
     },
     {
-        "id": "KW",
-        "name": "kuwait"
-    },
-    {
         "id": "CH",
         "name": "switzerland"
     },
     {
         "id": "QA",
         "name": "qatar"
-    },
-    {
-        "id": "AD",
-        "name": "andorra"
     },
     {
         "id": "CY",
@@ -118,10 +103,6 @@
     {
         "id": "PL",
         "name": "poland"
-    },
-    {
-        "id": "CV",
-        "name": "cape verde"
     },
     {
         "id": "FR",
@@ -208,10 +189,6 @@
         "name": "egypt"
     },
     {
-        "id": "SL",
-        "name": "sierra leone"
-    },
-    {
         "id": "RO",
         "name": "romania"
     },
@@ -256,20 +233,8 @@
         "name": "jordan"
     },
     {
-        "id": "SZ",
-        "name": "swaziland"
-    },
-    {
         "id": "SN",
         "name": "senegal"
-    },
-    {
-        "id": "LS",
-        "name": "lesotho"
-    },
-    {
-        "id": "BN",
-        "name": "brunei"
     },
     {
         "id": "TN",
@@ -300,14 +265,6 @@
         "name": "mexico"
     },
     {
-        "id": "GQ",
-        "name": "equatorial guinea"
-    },
-    {
-        "id": "ER",
-        "name": "eritrea"
-    },
-    {
         "id": "TZ",
         "name": "tanzania"
     },
@@ -318,10 +275,6 @@
     {
         "id": "IR",
         "name": "iran"
-    },
-    {
-        "id": "FJ",
-        "name": "fiji"
     },
     {
         "id": "PA",
@@ -344,36 +297,12 @@
         "name": "cameroon"
     },
     {
-        "id": "GN",
-        "name": "guinea"
-    },
-    {
         "id": "ZA",
         "name": "south africa"
     },
     {
-        "id": "PW",
-        "name": "palau"
-    },
-    {
-        "id": "GW",
-        "name": "guinea-bissau"
-    },
-    {
         "id": "CO",
         "name": "colombia"
-    },
-    {
-        "id": "LR",
-        "name": "liberia"
-    },
-    {
-        "id": "MG",
-        "name": "madagascar"
-    },
-    {
-        "id": "ZW",
-        "name": "zimbabwe"
     },
     {
         "id": "US",
@@ -392,20 +321,8 @@
         "name": "mozambique"
     },
     {
-        "id": "KG",
-        "name": "kyrgyzstan"
-    },
-    {
         "id": "EE",
         "name": "estonia"
-    },
-    {
-        "id": "LA",
-        "name": "laos"
-    },
-    {
-        "id": "BS",
-        "name": "bahamas"
     },
     {
         "id": "BR",
@@ -432,18 +349,6 @@
         "name": "finland"
     },
     {
-        "id": "SS",
-        "name": "south sudan"
-    },
-    {
-        "id": "ZM",
-        "name": "zambia"
-    },
-    {
-        "id": "SD",
-        "name": "sudan"
-    },
-    {
         "id": "NZ",
         "name": "new zealand"
     },
@@ -468,20 +373,12 @@
         "name": "norway"
     },
     {
-        "id": "PG",
-        "name": "papua new guinea"
-    },
-    {
         "id": "NE",
         "name": "niger"
     },
     {
         "id": "AR",
         "name": "argentina"
-    },
-    {
-        "id": "BZ",
-        "name": "belize"
     },
     {
         "id": "SA",
@@ -496,32 +393,12 @@
         "name": "mali"
     },
     {
-        "id": "TM",
-        "name": "turkmenistan"
-    },
-    {
         "id": "BO",
         "name": "bolivia"
     },
     {
-        "id": "TD",
-        "name": "chad"
-    },
-    {
         "id": "RU",
         "name": "russian federation"
-    },
-    {
-        "id": "CF",
-        "name": "central african republic"
-    },
-    {
-        "id": "GA",
-        "name": "gabon"
-    },
-    {
-        "id": "KZ",
-        "name": "kazakhstan"
     },
     {
         "id": "GY",
@@ -558,10 +435,6 @@
     {
         "id": "MN",
         "name": "mongolia"
-    },
-    {
-        "id": "MO",
-        "name": "macau"
     },
     {
         "id": "TW",

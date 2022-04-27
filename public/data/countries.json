@@ -6,7 +6,7 @@
     },
     {
         "id": "SG",
-        "name": "Singapore",
+        "name": "Singapur",
         "documentCount": 0
     },
     {
@@ -81,7 +81,7 @@
     },
     {
         "id": "NL",
-        "name": "Netherlands",
+        "name": "Paises Bajos",
         "documentCount": 0
     },
     {
@@ -106,7 +106,7 @@
     },
     {
         "id": "BE",
-        "name": "Belgium",
+        "name": "Bélgica",
         "documentCount": 0
     },
     {
@@ -116,12 +116,12 @@
     },
     {
         "id": "PH",
-        "name": "Philippines",
+        "name": "Filipinas",
         "documentCount": 0
     },
     {
         "id": "JP",
-        "name": "Japan",
+        "name": "Japón",
         "documentCount": 0
     },
     {
@@ -151,7 +151,7 @@
     },
     {
         "id": "GB",
-        "name": "United Kingdom",
+        "name": "Reino Unido",
         "documentCount": 0
     },
     {
@@ -166,7 +166,7 @@
     },
     {
         "id": "PK",
-        "name": "Pakistan",
+        "name": "Pakistán",
         "documentCount": 0
     },
     {
@@ -181,7 +181,7 @@
     },
     {
         "id": "DO",
-        "name": "Dominican Republic",
+        "name": "República Dominicana",
         "documentCount": 0
     },
     {
@@ -196,7 +196,7 @@
     },
     {
         "id": "IT",
-        "name": "Italy",
+        "name": "Italia",
         "documentCount": 0
     },
     {
@@ -206,7 +206,7 @@
     },
     {
         "id": "CH",
-        "name": "Switzerland",
+        "name": "Suiza",
         "documentCount": 0
     },
     {
@@ -256,7 +256,7 @@
     },
     {
         "id": "CY",
-        "name": "Cyprus",
+        "name": "Chipre",
         "documentCount": 0
     },
     {
@@ -276,17 +276,17 @@
     },
     {
         "id": "CZ",
-        "name": "Czech Republic",
+        "name": "República Checa",
         "documentCount": 0
     },
     {
         "id": "DK",
-        "name": "Denmark",
+        "name": "Dinamarca",
         "documentCount": 0
     },
     {
         "id": "TH",
-        "name": "Thailand",
+        "name": "Tailandia",
         "documentCount": 0
     },
     {
@@ -296,12 +296,12 @@
     },
     {
         "id": "PL",
-        "name": "Poland",
+        "name": "Polonia",
         "documentCount": 0
     },
     {
         "id": "CV",
-        "name": "Cape Verde",
+        "name": "Cabo Verde",
         "documentCount": 0
     },
     {
@@ -311,12 +311,12 @@
     },
     {
         "id": "FR",
-        "name": "France",
+        "name": "Francia",
         "documentCount": 0
     },
     {
         "id": "SY",
-        "name": "Syria",
+        "name": "Siria",
         "documentCount": 0
     },
     {
@@ -326,7 +326,7 @@
     },
     {
         "id": "SK",
-        "name": "Slovakia",
+        "name": "Eslovaquia",
         "documentCount": 0
     },
     {
@@ -336,17 +336,17 @@
     },
     {
         "id": "AZ",
-        "name": "Azerbaijan",
+        "name": "Azerbayán",
         "documentCount": 0
     },
     {
         "id": "HU",
-        "name": "Hungary",
+        "name": "Hungría",
         "documentCount": 0
     },
     {
         "id": "MD",
-        "name": "Moldova",
+        "name": "Moldavia",
         "documentCount": 0
     },
     {
@@ -366,7 +366,7 @@
     },
     {
         "id": "SI",
-        "name": "Slovenia",
+        "name": "Eslovenia",
         "documentCount": 0
     },
     {
@@ -376,12 +376,12 @@
     },
     {
         "id": "TR",
-        "name": "Turkey",
+        "name": "Turquía",
         "documentCount": 0
     },
     {
         "id": "AE",
-        "name": "United Arab Emirates",
+        "name": "Emiratos Árabes Unidos",
         "documentCount": 0
     },
     {
@@ -396,7 +396,7 @@
     },
     {
         "id": "ES",
-        "name": "Spain",
+        "name": "España",
         "documentCount": 0
     },
     {
@@ -406,7 +406,7 @@
     },
     {
         "id": "BJ",
-        "name": "Benin",
+        "name": "Benín",
         "documentCount": 0
     },
     {
@@ -416,37 +416,37 @@
     },
     {
         "id": "MY",
-        "name": "Malaysia",
+        "name": "Malasia",
         "documentCount": 0
     },
     {
         "id": "EG",
-        "name": "Egypt",
+        "name": "Egipto",
         "documentCount": 0
     },
     {
         "id": "SL",
-        "name": "Sierra Leone",
+        "name": "Sierra Leona",
         "documentCount": 0
     },
     {
         "id": "RO",
-        "name": "Romania",
+        "name": "Rumanía",
         "documentCount": 0
     },
     {
         "id": "KH",
-        "name": "Cambodia",
+        "name": "Camboya",
         "documentCount": 0
     },
     {
         "id": "GR",
-        "name": "Greece",
+        "name": "Grecia",
         "documentCount": 0
     },
     {
         "id": "ET",
-        "name": "Ethiopia",
+        "name": "Etiopía",
         "documentCount": 0
     },
     {
@@ -466,7 +466,7 @@
     },
     {
         "id": "HR",
-        "name": "Croatia",
+        "name": "Croacia",
         "documentCount": 0
     },
     {
@@ -476,22 +476,22 @@
     },
     {
         "id": "UA",
-        "name": "Ukraine",
+        "name": "Ucrania",
         "documentCount": 0
     },
     {
         "id": "BA",
-        "name": "Bosnia and Herzegovina",
+        "name": "Bosnia y Herzegovina",
         "documentCount": 0
     },
     {
         "id": "MA",
-        "name": "Morocco",
+        "name": "Marruecos",
         "documentCount": 0
     },
     {
         "id": "JO",
-        "name": "Jordan",
+        "name": "Jordania",
         "documentCount": 0
     },
     {
@@ -531,7 +531,7 @@
     },
     {
         "id": "IE",
-        "name": "Ireland",
+        "name": "Irlanda",
         "documentCount": 0
     },
     {
@@ -556,7 +556,7 @@
     },
     {
         "id": "MX",
-        "name": "Mexico",
+        "name": "México",
         "documentCount": 0
     },
     {
@@ -566,7 +566,7 @@
     },
     {
         "id": "TJ",
-        "name": "Tajikistan",
+        "name": "Tayikistán",
         "documentCount": 0
     },
     {
@@ -591,7 +591,7 @@
     },
     {
         "id": "IR",
-        "name": "Iran",
+        "name": "Irán",
         "documentCount": 0
     },
     {
@@ -601,7 +601,7 @@
     },
     {
         "id": "PA",
-        "name": "Panama",
+        "name": "Panamá",
         "documentCount": 0
     },
     {
@@ -611,7 +611,7 @@
     },
     {
         "id": "LT",
-        "name": "Lithuania",
+        "name": "Lituania",
         "documentCount": 0
     },
     {
@@ -621,7 +621,7 @@
     },
     {
         "id": "CM",
-        "name": "Cameroon",
+        "name": "Camerún",
         "documentCount": 0
     },
     {
@@ -631,7 +631,7 @@
     },
     {
         "id": "ZA",
-        "name": "South Africa",
+        "name": "Sudafrica",
         "documentCount": 0
     },
     {
@@ -681,7 +681,7 @@
     },
     {
         "id": "US",
-        "name": "United States",
+        "name": "Estados Unidos",
         "documentCount": 0
     },
     {
@@ -691,7 +691,7 @@
     },
     {
         "id": "LV",
-        "name": "Latvia",
+        "name": "Letonia",
         "documentCount": 0
     },
     {
@@ -721,12 +721,12 @@
     },
     {
         "id": "BR",
-        "name": "Brazil",
+        "name": "Brasil",
         "documentCount": 0
     },
     {
         "id": "PE",
-        "name": "Peru",
+        "name": "Perú",
         "documentCount": 0
     },
     {
@@ -736,7 +736,7 @@
     },
     {
         "id": "SE",
-        "name": "Sweden",
+        "name": "Suecia",
         "documentCount": 0
     },
     {
@@ -751,7 +751,7 @@
     },
     {
         "id": "FI",
-        "name": "Finland",
+        "name": "Finlandia",
         "documentCount": 0
     },
     {
@@ -771,7 +771,7 @@
     },
     {
         "id": "NZ",
-        "name": "New Zealand",
+        "name": "Nueva Zelanda",
         "documentCount": 0
     },
     {
@@ -791,7 +791,7 @@
     },
     {
         "id": "NO",
-        "name": "Norway",
+        "name": "Noruega",
         "documentCount": 0
     },
     {
@@ -821,12 +821,12 @@
     },
     {
         "id": "SA",
-        "name": "Saudi Arabia",
+        "name": "Arabia Saudita",
         "documentCount": 0
     },
     {
         "id": "OM",
-        "name": "Oman",
+        "name": "Omán",
         "documentCount": 0
     },
     {
@@ -851,7 +851,7 @@
     },
     {
         "id": "RU",
-        "name": "Russia",
+        "name": "Rusia",
         "documentCount": 0
     },
     {
@@ -876,12 +876,12 @@
     },
     {
         "id": "CA",
-        "name": "Canada",
+        "name": "Canadá",
         "documentCount": 0
     },
     {
         "id": "LY",
-        "name": "Libya",
+        "name": "Libia",
         "documentCount": 0
     },
     {
@@ -971,7 +971,7 @@
     },
     {
         "id": "TW",
-        "name": "Taiwan",
+        "name": "Taiwán",
         "documentCount": 0
     },
     {
@@ -981,7 +981,7 @@
     },
     {
         "id": "KR",
-        "name": "South Korea",
+        "name": "Corea",
         "documentCount": 0
     },
     {

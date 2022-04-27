@@ -23,7 +23,7 @@ const handleClick = (id) => {
                                         <p><strong>Título:</strong> ${data["title"]}</p>
                                         <p><strong>Autores de Espol:</strong> ${fromEspol.join(' ; ')}</p>
                                         <p><strong>Otros autores:</strong> ${notFromEspol.length>0 ? notFromEspol.join(' ; ') : 'No registra'}</p>
-                                        <p><strong>Citas:</strong> ${document.getElementById(`citation-count-${id}`).textContent}</p>
+                                        <p><strong>Citas:</strong> ${data["cites"]}</p>
                                         <p><strong>Fecha:</strong> ${data["date"]}</p>
                                         <p><strong>Doi:</strong> <a target="_blank" href=https://doi.org/${data["doi"]}>${data["doi"]}</a> </p>
                                         <p><strong>Journal:</strong> ${data["journal"]}</p>
@@ -34,6 +34,7 @@ const handleClick = (id) => {
                 content.innerHTML = '<p>No disponible</p>';
                 console.error(`no se pudo obtener la información de la publicación ${id}`)
             }
+            //document.getElementById(`citation-count-${id}`).textContent
         })
     }
 }

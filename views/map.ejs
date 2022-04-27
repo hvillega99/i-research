@@ -1,6 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%- include("templates/cabecera.templates.ejs")%>
+  <link rel="stylesheet" type="text/css" href="/css/table.css">
+  <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+  <title>Colaboración Internacional</title>
+</head>
+<body>
+  <%- include("templates/navbar.templates.ejs", {titulo: "Colaboración internacional"})%>
+  <style type="text/css">
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 95%;
+      margin: 0;
+      padding: 0;
+    } 
+  </style>
+
+  <div id="container">
+    <div class="text-center mt-5">
+      <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="md-countries"></div>
+  
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
@@ -10,189 +41,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-  <style type="text/css">
 
-    html,
-    body,
-    #container {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  
-</style>
-</head>
-<body>
-
-  <div>
-    MAPA
-    <div class="modal fade" id="md" data-bs-backdrop="static" tabindex="-1">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="md-title"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="md-content"></div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div id="container"></div>
-  
-
-  <script>
-
-    anychart.onDocumentReady(function () {
-      anychart.data.loadJsonFile(
-        'data/countries.json',
-        async function (data) {
-
-          let values = await fetch('/api/espol/collaboration/documentCount');
-          values = await values.json();
-
-          values.forEach(item => {
-            if(!item.error){
-              const id = item.id;
-              const country = data.find(e => e.id == id);
-              country.documentCount = item.publications;
-            }
-          })
-          
-          
-          var map = anychart.map();
-
-          map
-            .title()
-            .enabled(true)
-            .useHtml(true)
-            .padding([10, 0, 10, 0])
-            .text(
-              'Colaboraciones internacionales de ESPOL<br/>(publicaciones por país)'
-            );
-
-            map.listen('click', async (e) => {
-              const index = e.pointIndex;
-              const country = data[index];
-              console.log(country);
-
-              document.getElementById('md-title').textContent = `Instituciones de ${country.name} con publicaciones en conjunto con ESPOL`;
-
-              var myModal = new bootstrap.Modal(document.getElementById('md'));
-              myModal.show();
-
-              const response = await fetch(`/api/espol/collaboration/documents/${country.id}`);
-              const information = await response.json();
-              console.log(information);
-
-              const instArr = Object.keys(information);
-
-              let mdContent = document.querySelector('#md-content');
-
-              let content = ''; 
-
-              instArr.forEach(i=> {
-                content += `<p>${i}</p>`;
-              });
-
-              mdContent.innerHTML = content;
-
-            });
-
-          map.geoData('anychart.maps.world');
-          map.interactivity().selectionMode('none');
-          map.padding(0);
-
-          var dataSet = anychart.data.set(data);
-          var densityData = dataSet.mapAs({ value: 'documentCount' });
-          var series = map.choropleth(densityData);
-
-          series.labels(false);
-
-          series
-            .hovered()
-            .fill('#f48fb1')
-            .stroke(anychart.color.darken('#f48fb1'));
-
-          series
-            .selected()
-            .fill('#c2185b')
-            .stroke(anychart.color.darken('#c2185b'));
-
-          series
-            .tooltip()
-            .useHtml(true)
-            .format(function () {
-              return (
-                '<span style="color: #d9d9d9">Publicaciones</span>: ' +
-                this.getData('documentCount')
-              );
-            });
-
-          var scale = anychart.scales.ordinalColor([
-            { less: 0 },
-            { from: 1, to: 25 },
-            { from: 25, to: 100 },
-            { from: 100, to: 250 },
-            { from: 250, to: 1000 },
-            { greater: 1000 }
-          ]);
-          scale.colors([
-            '#ffffff',
-            '#81d4fa',
-            '#4fc3f7',
-            '#039be5',
-            '#0277bd',
-            '#014377',
-          ]);
-
-          var colorRange = map.colorRange();
-          colorRange.enabled(true).padding([0, 0, 20, 0]);
-          colorRange
-            .ticks()
-            .enabled(true)
-            .stroke('3 #ffffff')
-            .position('center')
-            .length(7);
-          colorRange.colorLineSize(5);
-          colorRange.marker().size(7);
-          colorRange
-            .labels()
-            .fontSize(11)
-            .padding(3, 0, 0, 0)
-            .format(function () {
-              var range = this.colorRange;
-              var name;
-              if (isFinite(range.start + range.end)) {
-                name = range.start + ' - ' + range.end;
-              } else if (isFinite(range.start)) {
-                name = 'Más de ' + range.start;
-              } else {
-                name = '0';
-              }
-              return name;
-            });
-
-          series.colorScale(scale);
-
-          // create zoom controls
-          var zoomController = anychart.ui.zoom();
-          zoomController.render(map);
-
-          // set container id for the chart
-          map.container('container');
-          // initiate chart drawing
-          map.draw();
-        }
-      );
-    });
-  
-</script>
+  <script src="/js/collaborationMap.js"></script>
+  <script src="/js/publicaciones.js"></script>
 </body>
-</html>
-                
+</html>               
