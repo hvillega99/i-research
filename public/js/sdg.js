@@ -51,7 +51,7 @@ const showList = async (sdg) =>{
         let bodyTable = '<tbody>'
 
         publications.forEach((publication, index) => {
-            bodyTable += `<tr class="item" id="${publication[3]}" onclick="handleClick(${publication[3]})" data-bs-toggle="modal" data-bs-target="#modal-${publication[3]}">
+            bodyTable += `<tr class="item" id="${publication[3]}" onclick="handleClick(${publication[3]}, ${publication[3]})" data-bs-toggle="modal" data-bs-target="#modal-${publication[3]}">
                             <th scope="row">${index+1}</th>
                             <td>${publication[0]}</td>
                             <td id="citation-count-${publication[3]}">${publication[1]}</td>

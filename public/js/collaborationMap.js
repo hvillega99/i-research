@@ -1,3 +1,9 @@
+const manageList = (show, hide, title, country) => {
+    document.getElementById(show).style.display = 'block';
+    document.getElementById(hide).style.display = 'none';
+    document.getElementById(`md-${country}-title`).textContent = title;
+}
+
 const showCountryInfo = async (e, data) => {
 
     const index = e.pointIndex;
@@ -11,6 +17,7 @@ const showCountryInfo = async (e, data) => {
     myModal.show();
 
     if(document.getElementById(`waiting-${country.id}`)){
+
     
         const response = await fetch(`/api/espol/collaboration/documents/${country.id}`);
         const information = await response.json();
@@ -19,55 +26,102 @@ const showCountryInfo = async (e, data) => {
     
         let mdContent = document.querySelector(`#md-${country.id}-content`);
     
-        let content = ''; 
+        let content = '';
+
+        let publicationTables = '';
     
         instArr.forEach((inst, index)=> {
     
             const publications = information[inst];
             let contentPublications = '';
     
-            publications.forEach((pub, index) => {
-                contentPublications += `<p onclick="handleClick(${pub[3]})" id="${pub[3]}" data-bs-toggle="modal" 
-                                        class="item" data-bs-target="#modal-${pub[3]}">
-                                            ${pub[0]}
-                                        </p>`;
+            publications.forEach((pub, idx) => {
 
-                if(index < publications.length-1){
-                    contentPublications += '<hr>';
-                }
-    
-                contentPublications += `<div class="modal fade" id="modal-${pub[3]}" tabindex="-1" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <h5 class="modal-title">Publicación</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                              </div>
-                                              <div class="modal-body" id="content-${pub[3]}">
-                                                <div class="spinner-border" role="status" id="waiting-${pub[3]}">
-                                                  <span class="visually-hidden">Loading...</span>
+                contentPublications += `<tr class="publication-item item" onclick="handleClick('${pub[3]}', '${country.id}-${index}-${pub[3]}')" data-bs-toggle="modal" data-bs-target="#md${country.id}-${index}-${pub[3]}">
+                                            <th scope="row">
+                                                ${idx + 1}
+                                            </th>
+                                            <td>
+                                                <p>${pub[0]}</p>
+                                            </td>
+                                            <td>
+                                                <p>${pub[1]}</p>
+                                            </td>
+                                            <td>
+                                                <p>${pub[2]}</p>
+                                            </td>
+                                        </tr>
+                                        <div class="modal fade" id="md${country.id}-${index}-${pub[3]}" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Publicación</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body" id="content-${country.id}-${index}-${pub[3]}">
+                                                        <div class="spinner-border" role="status" id="waiting-${country.id}-${index}-${pub[3]}">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </div>
                                             </div>
-                                          </div>
                                         </div>`;
-                });
-    
-            content += `<div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="false" aria-controls="collapseThree">
-                                ${inst}
-                              </button>
-                            </h2>
-                            <div id="collapse${index}" class="accordion-collapse collapse">
-                              <div class="accordion-body">
-                                ${contentPublications}
-                              </div>
-                            </div>
-                        </div>`;
+            });
+            
+            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst}', '${country.id}')">
+                            <th scope="row">${index + 1}</th>
+                            <td>
+                                <p>${inst}</p>
+                            </td>
+                            <td>
+                                <p>${publications.length}</p>
+                            </td>
+                        </tr>`;
+
+            publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
+                                    
+                                    <table class="table fixed_header mt-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Título</th>
+                                                <th scope="col">Citaciones</th>
+                                                <th scope="col">Año de publicación</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${contentPublications}
+                                        </tbody>
+                                    </table>
+
+                                    <button type="button" class="btn btn-primary btn-sm mb-0" 
+                                        aria-label="Cerrar"
+                                        onclick="manageList('table-${country.id}', 
+                                        'table-${country.id}-inst${index}', 
+                                        'Instituciones de ${country.name} con publicaciones en conjunto con ESPOL', 
+                                        '${country.id}')"
+                                    >
+                                        Volver
+                                    </button>
+                                </div>`;
+
         });
     
-        mdContent.innerHTML = content;
+        mdContent.innerHTML = `<div id="table-${country.id}">
+                                <table class="table fixed_header">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Institución</th>
+                                            <th scope="col">Publicaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${content}
+                                    </tbody>
+                                </table>
+                            </div>
+                            ${publicationTables}`;
     }
 
 }
@@ -83,25 +137,25 @@ const loadCountryValues = (data, values) => {
             country.documentCount = item.publications;
 
             document.querySelector('#md-countries')
-            .innerHTML += `<div class="modal" id="md-${id}" data-bs-backdrop="static" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-scrollable">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title text-center">
-                                        Instituciones de ${country.name} con publicaciones en conjunto con ESPOL
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <div class="accordion" id="md-${id}-content">
-                                        <div class="text-center">
-                                            <div class="spinner-border" role="status" id="waiting-${id}">
-                                                <span class="visually-hidden">Loading...</span>
+            .innerHTML += `<div class="modal fade" id="md-${id}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-center" id="md-${id}-title">
+                                                Instituciones de ${country.name} con publicaciones en conjunto con ESPOL
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="md-${id}-content">
+                                                <div class="text-center">
+                                                    <div class="spinner-border" role="status" id="waiting-${id}">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
                                 </div>
                             </div>`;
         }else{

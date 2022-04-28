@@ -1,8 +1,8 @@
-const handleClick = (id) => {
-
-    if(document.getElementById(`waiting-${id}`)){
-        let content = document.getElementById(`content-${id}`);
-
+const handleClick = (id, idContent) => {
+    
+    if(document.getElementById(`waiting-${idContent}`)){
+        let content = document.getElementById(`content-${idContent}`);
+        
         fetch(`/api/publicationsInfo/${id}`)
         .then(response => response.json())
         .then(data => {

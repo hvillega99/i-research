@@ -170,7 +170,7 @@
                                             <% i = 0 %>
                                             <% information.publicaciones.forEach(item => { %>
                                                 <% i++ %>
-                                                <tr class="publication-item item" id="<%= item[3] %>" onclick="handleClick(<%= item[3] %>)" data-bs-toggle="modal" data-bs-target="#modal-<%= item[3] %>">
+                                                <tr class="publication-item item" id="<%= item[3] %>" onclick="handleClick(<%= item[3] %>, <%= item[3] %>)" data-bs-toggle="modal" data-bs-target="#modal-<%= item[3] %>">
                                                     <th scope="row"><%= i %></th>
                                                     <td id="titulo-<%= i %>">
                                                         <p><%= item[0]%></p>
