@@ -1,13 +1,13 @@
-const uaAcronym = document.getElementById('uaId').textContent;
-const uaName = document.getElementById('uaName').textContent;
-const unit = `${uaName.split(', ').join(',')}-${uaAcronym}`;
+const uaId = document.getElementById('uaId').textContent;
+//const uaName = document.getElementById('uaName').textContent;
+//const unit = `${uaName.split(', ').join(',')}-${uaAcronym}`;
 const total = document.getElementById('num-total-projects');
 const currentCount = document.getElementById('num-current-projects');
 const finishedCount = document.getElementById('num-finished-projects');
 const currentContainer = document.getElementById('current-projects');
 const finishedContainer = document.getElementById('finished-projects');
 
-fetch(`/api/unit/projects/${unit}`)
+fetch(`/api/unit/projects/${uaId}`)
 .then(response => response.json())
 .then(data => {
 
@@ -56,7 +56,7 @@ fetch(`/api/unit/projects/${unit}`)
                         </tr>`;
                 
                 const modal = `<div class="modal fade" id="modal-c-${i+1}" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Proyecto</h5>
@@ -129,7 +129,7 @@ fetch(`/api/unit/projects/${unit}`)
                             </tr>`;
                 
                 const modal = `<div class="modal fade" id="modal-f-${i+1}" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Proyecto</h5>

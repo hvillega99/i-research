@@ -32,6 +32,10 @@
                         <h5>Métricas</h5>
                         <h5><%= totalInvestigadores %></h5>
                         <p>Investigadores</p>
+                        <h5><%= totalMujeres %></h5>
+                        <p>Mujeres</p>
+                        <h5><%= totalHombres %></h5>
+                        <p>Hombres</p>
                         <h5><%= totalPublicaciones %></h5>
                         <p>Publicaciones</p>
                         <h5><%= totalCitaciones %></h5>
@@ -105,7 +109,7 @@
                                         <% i = 0 %>
                                         <% investigadores.forEach(item => { %>
                                             <% i++ %>
-                                            <tr class="item" onclick="window.location.href='/investigador/<%= item.id %>'">
+                                            <tr class="item <%= item.sexo %>" onclick="window.location.href='/investigador/<%= item.id %>'">
                                                 <th scope="row"><%= i %></th>
                                                 <td id="<%= item.id %>" class="autor">
                                                     <%= item.autor %>

@@ -5,11 +5,6 @@ class Gtsi {
         this.url = 'http://192.168.253.6:8081/api/Investigacion';
     }
 
-    removeAccents = (str) => {
-        const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U','Š':'S','š':'s'};
-	    return str.split('').map( letra => acentos[letra] || letra).join('').toString();	
-    }
-
     countProjectsByYear = (arr) => {
         const counting = {};
 
@@ -20,18 +15,11 @@ class Gtsi {
         return counting;
     }
 
-    async getProjects(author){
+    async getProjects(scopusId){
         try {
-            const uri = `${this.url}/GetProyectos`;
+            const uri = `${this.url}/GetProyectosByScopusId/${scopusId}`;
             const response = await fetch(uri);
-            const result = await response.json();
-    
-            const [name, lastname] = author.split('-');
-    
-    
-            const data = result.filter(item => item["colaboradores"].some(e => {
-                return e["nombre"].includes(this.removeAccents(name).toUpperCase()) && e["nombre"].includes(this.removeAccents(lastname).toUpperCase());
-            }));
+            const data = await response.json();
     
             const years = data.map(item => item["fechainicio"].split('/')[2]);
             const counting = this.countProjectsByYear(years);
@@ -48,16 +36,10 @@ class Gtsi {
     async getProjectsByUnit(unit){
 
         try{
-            const uri = `${this.url}/GetProyectos`;
+            const uri = `${this.url}/GetProyectosByUnidad/${unit}`;
             const response = await fetch(uri);
-            const result = await response.json();
-    
-            const [name, acronym] = unit.split('-');
-    
-            const data = result.filter(item => item["instituciones"]["institucionesEspol"].some(e => {
-                return e["unidad"].includes(this.removeAccents(acronym).toUpperCase()) || e["unidad"].includes(this.removeAccents(name).toUpperCase());
-            }));
-    
+            const data = await response.json();
+
             const years = data.map(item => item["fechainicio"].split('/')[2]);
             const counting = this.countProjectsByYear(years);
     
@@ -82,8 +64,36 @@ class Gtsi {
                 'apellidos': data.strApellidos
             }
         }catch(err){
-            return {"error": true, "message": "servicio no disponible"};
+            return {"error": true, "message": "no se pudo obtener la información del investigador"};
         }
+    }
+
+    async getContratoByScopusId(scopusId){
+        const uri = `${this.url}/GetContratoByScopusId/${scopusId}`;
+
+        try{
+            const response = await fetch(uri);
+            const data = await response.json();
+            return {
+                'cedula': data.strIdentificacion,
+                'nombres': data.strNombres,
+                'apellidos': data.strApellidos,
+                'sexo': data.strSexo,
+                scopusId
+            }
+        }catch(err){
+            return {"error": true, "message": "no se pudo obtener la información del investigador", scopusId};
+        }
+    }
+
+    async getContratosByScopusId(scopusIdArr){
+        
+        const contratos = await Promise.all(
+            scopusIdArr.map(async (scopusId) => this.getContratoByScopusId(scopusId))
+        )
+
+        //console.log(contratos)
+        return contratos;
     }
 }
 

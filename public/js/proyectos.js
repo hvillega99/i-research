@@ -1,19 +1,4 @@
-let [fname, lastname] = document.getElementById('scopusName').textContent.split(', ');
-
-if(fname.includes('-')){
-    fname = fname.replace('-', ' ');
-}
-
-if(lastname.includes('-')){
-    lastname = lastname.replace('-', ' ');
-}
-
-if(lastname.includes('.')){
-    lastname = lastname.split('.')[0];
-}
-
-const author = `${fname}-${lastname}`;
-
+const scopusID = document.querySelector('#scopusId').textContent;
 
 const total = document.getElementById('num-total-projects');
 const currentCount = document.getElementById('num-current-projects');
@@ -21,7 +6,7 @@ const finishedCount = document.getElementById('num-finished-projects');
 const currentContainer = document.getElementById('current-projects');
 const finishedContainer = document.getElementById('finished-projects');
 
-fetch(`/api/projects/${author}`)
+fetch(`/api/projects/${scopusID}`)
 .then(response => response.json())
 .then(data => {
 
@@ -55,7 +40,7 @@ fetch(`/api/projects/${author}`)
                 let rolautor = '';
     
                 for(let i=0; i<project["colaboradores"].length; i++){
-                    if(project["colaboradores"][i]["nombre"].includes(fname.toUpperCase()) && project["colaboradores"][i]["nombre"].includes(lastname.toUpperCase())){
+                    if(project["colaboradores"][i]["scopusId"] && project["colaboradores"][i]["scopusId"].includes(scopusID)){
                         rolautor = project["colaboradores"][i]["rol"];
                     }
                 }
@@ -80,7 +65,7 @@ fetch(`/api/projects/${author}`)
                         </tr>`;
                 
                 const modal = `<div class="modal fade" id="modal-c-${i+1}" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Proyecto</h5>
@@ -138,7 +123,7 @@ fetch(`/api/projects/${author}`)
                 let rolautor = '';
     
                 for(let i=0; i<project["colaboradores"].length; i++){
-                    if(project["colaboradores"][i]["nombre"].includes(fname.toUpperCase()) && project["colaboradores"][i]["nombre"].includes(lastname.toUpperCase())){
+                    if(project["colaboradores"][i]["scopusId"] && project["colaboradores"][i]["scopusId"].includes(scopusID)){
                         rolautor = project["colaboradores"][i]["rol"];
                     }
                 }
@@ -162,7 +147,7 @@ fetch(`/api/projects/${author}`)
                             </tr>`;
                 
                 const modal = `<div class="modal fade" id="modal-f-${i+1}" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Proyecto</h5>

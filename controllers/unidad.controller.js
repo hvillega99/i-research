@@ -1,33 +1,28 @@
 const Scopus = require('../helpers/scopus');
 const Unitsdb = require('../helpers/unitsdb');
+const Gtsi = require('../helpers/gtsi');
 
 const Researchersdb = require('../helpers/researchersdb');
 const researches = new Researchersdb();
 
 const scopus = new Scopus();
 const unitsdb = new Unitsdb;
+const gtsi = new Gtsi();
 
 exports.getPerfilUnidad = async(req, res) =>{
     const nombreUnidad = req.params.uaName;
     const informacion = unitsdb.getUnit(nombreUnidad);
     if(informacion){
+
         const investigadores = researches.getResearchersByUnit(nombreUnidad);
-        
+        let countM = 0;
+        let countF = 0;
+
         if(investigadores.length > 0){
+
             const idArr = investigadores.map(item => item.id);
-
+            const contratos = await gtsi.getContratosByScopusId(idArr);
             const data = await scopus.getMetrics(idArr);
-            /* const prueba15 = await scopus.getNPublications(idArr,2016);
-            console.log('Info facultad: ');
-            console.log(prueba15); */
-
-            /* let data = await scopus.getMetrics(idArr.slice(0, parseInt(0.25*idArr.length)));
-            let data2 = await scopus.getMetrics(idArr.slice(parseInt(0.25*idArr.length), parseInt(0.50*idArr.length)));
-            let data3 = await scopus.getMetrics(idArr.slice(parseInt(0.50*idArr.length), parseInt(0.75*idArr.length)));
-            let data4 = await scopus.getMetrics(idArr.slice(parseInt(0.75*idArr.length)));
-
-
-            data = [...data, ...data2, ...data3, ...data4]; */
 
             if(!data.error){
                 data.forEach(element => {
@@ -35,9 +30,17 @@ exports.getPerfilUnidad = async(req, res) =>{
                     const publicaciones = element['coredata']['document-count'];
                     const citaciones = element['coredata']['citation-count'];
                     const investigador = investigadores.find(item => item.id == scopusId);
-                    
+                    const contrato = contratos.find(item => item.scopusId == scopusId);
+
+                    if(contrato.sexo){
+                        investigador['sexo'] = contrato.sexo
+                        contrato.sexo == 'M' ? countM++ : countF++;
+                    }else{
+                        investigador['sexo'] = 'X';
+                    }
+
                     investigador['publicaciones'] = publicaciones;
-                    investigador['citaciones'] = citaciones;
+                    investigador['citaciones'] = citaciones; 
                 });
             }else{
                 investigadores.map(investigador => {
@@ -52,6 +55,8 @@ exports.getPerfilUnidad = async(req, res) =>{
                                                             nombre: informacion.nombreCompleto,
                                                             logo: informacion.logo,
                                                             totalInvestigadores: investigadores.length,
+                                                            totalHombres: countM,
+                                                            totalMujeres: countF,
                                                             totalPublicaciones: informacion.publicaciones,
                                                             totalCitaciones: informacion.citas,
                                                             'investigadores': investigadores});
