@@ -1,10 +1,12 @@
 const Scopus = require('../helpers/scopus');
 const Centersdb = require('../helpers/centersdb');
 const Researchersdb = require('../helpers/researchersdb');
+const Gtsi = require('../helpers/gtsi');
 
 const researches = new Researchersdb();
 const scopus = new Scopus();
 const centersdb = new Centersdb();
+const gtsi = new Gtsi();
 
 exports.getPerfilCentro = async(req, res) =>{
     const nombreCentro = req.params.ciName;
@@ -12,10 +14,12 @@ exports.getPerfilCentro = async(req, res) =>{
 
     if(informacion){
         const investigadores = researches.getResearchersByUnit(nombreCentro);
+        let countM = 0;
+        let countF = 0;
 
         if(investigadores.length > 0){
             const idArr = investigadores.map(item => item.id);
-
+            const contratos = await gtsi.getContratosByScopusId(idArr);
             const data = await scopus.getMetrics(idArr);
 
             if(!data.error){
@@ -24,6 +28,14 @@ exports.getPerfilCentro = async(req, res) =>{
                     const publicaciones = element['coredata']['document-count'];
                     const citaciones = element['coredata']['citation-count'];
                     const investigador = investigadores.find(item => item.id == scopusId);
+                    const contrato = contratos.find(item => item.scopusId == scopusId);
+
+                    if(contrato.sexo){
+                        investigador['sexo'] = contrato.sexo
+                        contrato.sexo == 'M' ? countM++ : countF++;
+                    }else{
+                        investigador['sexo'] = 'X';
+                    }
                     
                     investigador['publicaciones'] = publicaciones;
                     investigador['citaciones'] = citaciones;
@@ -40,6 +52,8 @@ exports.getPerfilCentro = async(req, res) =>{
                                                             nombre: informacion.nombreCompleto,
                                                             logo: informacion.logo,
                                                             totalInvestigadores: investigadores.length,
+                                                            totalHombres: countM,
+                                                            totalMujeres: countF,
                                                             totalPublicaciones: informacion.publicaciones ,
                                                             totalCitaciones: informacion.citas,
                                                             'investigadores': investigadores});

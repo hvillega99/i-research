@@ -2,12 +2,13 @@ const manageList = (show, hide, title, country) => {
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
     document.getElementById(`md-${country}-title`).textContent = title;
+    console.log(show);
 }
 
 const showCountryInfo = async (e, data) => {
 
-    const index = e.pointIndex;
-    const country = data[index];
+    const {pointIndex} = e;
+    const country = data[pointIndex];
 
     if(!country || country.documentCount ==0){
         return;
@@ -23,16 +24,26 @@ const showCountryInfo = async (e, data) => {
         const information = await response.json();
     
         const instArr = Object.keys(information);
-    
+
+        const institutions = instArr.map(inst => {
+            return {
+                name: inst,
+                documents: information[inst],
+                documentCount: information[inst].length
+            }
+        });
+
+        institutions.sort((a, b) => b.documentCount - a.documentCount);
+
         let mdContent = document.querySelector(`#md-${country.id}-content`);
     
         let content = '';
 
         let publicationTables = '';
     
-        instArr.forEach((inst, index)=> {
+        institutions.forEach((inst, index)=> {
     
-            const publications = information[inst];
+            const publications = inst.documents;
             let contentPublications = '';
     
             publications.forEach((pub, idx) => {
@@ -68,13 +79,13 @@ const showCountryInfo = async (e, data) => {
                                         </div>`;
             });
             
-            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst}', '${country.id}')">
+            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst.name}', '${country.id}')">
                             <th scope="row">${index + 1}</th>
                             <td>
-                                <p>${inst}</p>
+                                <p>${inst.name}</p>
                             </td>
                             <td>
-                                <p>${publications.length}</p>
+                                <p>${inst.documentCount}</p>
                             </td>
                         </tr>`;
 

@@ -18,6 +18,17 @@
     cursor: pointer;
 }
 
+.option{
+    color: black;
+    border-color: #233264;
+}
+
+.option:hover{
+    background-color: #233264;
+    border-color: #233264;
+}
+
+
 /* #projects-by-year{
     width:35vw !important;
     height:35vh !important;
