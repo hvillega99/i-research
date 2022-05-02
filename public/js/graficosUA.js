@@ -3,6 +3,9 @@ const id = document.getElementById('uaId').textContent.toLowerCase();
 const spinnerPublicaciones = document.querySelector("#spinner-publicaciones");
 const spinnerCitas = document.querySelector("#spinner-citas");
 
+const publicaciones = document.querySelector("#total-publications");
+const citaciones = document.querySelector("#total-citations");
+
 fetch(`/api/unit/bibliometrics/${id}`)
 .then(response => response.json())
 .then(dataset => {
@@ -18,6 +21,12 @@ fetch(`/api/unit/bibliometrics/${id}`)
             publications.push(item.publications);
             citations.push(item.citations);
         })
+
+        const totalCitations = citations.reduce((total, item) => total + item, 0);
+        const totalPublications = publications.reduce((total, item) => total + item, 0);
+
+        citaciones.textContent = totalCitations;
+        publicaciones.textContent = totalPublications;
         
         const graficaCitas = document.getElementById("grafica-citaciones");
         const maxValue = Math.max.apply( Math, citations);
@@ -95,5 +104,7 @@ fetch(`/api/unit/bibliometrics/${id}`)
         console.error('información bibliométrica no disponible');
         spinnerCitas = 'No disponible';
         spinnerPublicaciones = 'No disponible';
+        citaciones.textContent = 'No disponible';
+        publicaciones.textContent = 'No disponible';
     }
 })

@@ -1,11 +1,16 @@
 const uaId = document.getElementById('uaId').textContent;
-//const uaName = document.getElementById('uaName').textContent;
-//const unit = `${uaName.split(', ').join(',')}-${uaAcronym}`;
+
 const total = document.getElementById('num-total-projects');
+
 const currentCount = document.getElementById('num-current-projects');
-const finishedCount = document.getElementById('num-finished-projects');
 const currentContainer = document.getElementById('current-projects');
+
+const finishedCount = document.getElementById('num-finished-projects');
 const finishedContainer = document.getElementById('finished-projects');
+
+const countAreas = [];
+
+//{area: '', count: 0}
 
 fetch(`/api/unit/projects/${uaId}`)
 .then(response => response.json())
@@ -31,9 +36,20 @@ fetch(`/api/unit/projects/${uaId}`)
                 const project = current[i];
                 
                 let areas = project["areasCon"]["objSegunFrascati"];
-    
+
                 if(areas.length>0){
-                    areas = Object.values(areas[0]).join(', ');
+
+                    //areas = Object.values(areas[0]).join(', ');
+
+                    areas = areas[0]["subAreaConocimiento"];
+
+                    const result = countAreas.find(x => x.area == areas);
+                    if(result){
+                        result.count++;
+                    }else{
+                        countAreas.push({area: areas, count: 1});
+                    }
+
                 }else{
                     areas = '';
                 }
@@ -106,7 +122,16 @@ fetch(`/api/unit/projects/${uaId}`)
                 let areas = project["areasCon"]["objSegunFrascati"];
     
                 if(areas.length>0){
-                    areas = Object.values(areas[0]).join(', ');
+                    //areas = Object.values(areas[0]).join(', ');
+
+                    areas = areas[0]["subAreaConocimiento"];
+
+                    const result = countAreas.find(x => x.area == areas);
+                    if(result){
+                        result.count++;
+                    }else{
+                        countAreas.push({area: areas, count: 1});
+                    }
                 }else{
                     areas = '';
                 }
@@ -202,10 +227,21 @@ fetch(`/api/unit/projects/${uaId}`)
         document.getElementById('temp-spinner').innerHTML = '';
         document.getElementById('info').innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         title="Cantidad de proyectos iniciados por año"></img>`;
+
+        countAreas.sort((a,b) => b.count - a.count);
+        const listAreas = countAreas.map(e => e.area);
+
+        const divAreas = document.querySelector('#areas');
+
+        listAreas.slice(0, 4).forEach(area => {
+            divAreas.innerHTML += `<p class="badge rounded-pill bg-secondary mx-1">${area}</p>`;
+        });
+        
         
     }else{
         const proyectosView = document.getElementById("proyectos");
         proyectosView.innerHTML='<p class="text-center">No disponible</p>';
+        document.querySelector('#areas').innerHTML = 'No disponible';
     }
 
 })

@@ -12,7 +12,25 @@
     <main>
         <div id="maincontainer">
             <section class="container p-3">
+
                 <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <img src="<%= logo %>" class="rounded img-fluid">
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <h2 id="uaId"><%= siglas %></h2>
+                            <h3 id="uaName"><%= nombre %></h3>
+                            <p id="uaType" style="display: none">unidad académica</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="areas">
+                        <h5>Áreas de investigación</h5>
+                    </div>
+                </div>
+
+                <!-- <div class="row align-items-center">
                     <div class="col-2">
                         <img src="<%= logo %>" class="w-100 h-100">
                     </div>
@@ -21,7 +39,7 @@
                         <h3 id="uaName"><%= nombre %></h3>
                         <p id="uaType" style="display: none">unidad académica</p>
                     </div>
-                </div>
+                </div> -->
             </section>
 
             <div class="division"></div>
@@ -36,9 +54,17 @@
                         <p>Mujeres</p>
                         <h5><%= totalHombres %></h5>
                         <p>Hombres</p>
-                        <h5><%= totalPublicaciones %></h5>
+                        <h5 id="total-publications">
+                            <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </h5>
                         <p>Publicaciones</p>
-                        <h5><%= totalCitaciones %></h5>
+                        <h5 id="total-citations">
+                            <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </h5>
                         <p>Citaciones</p>
                     </div>
                     <div class="col-md-5 text-center">
@@ -97,11 +123,11 @@
                             <div class="col-md-8">
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
-                                    <label class="btn btn-outline-primary option" for="btnradio1">Todos</label>
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                    <label class="btn btn-outline-primary option" for="btnradio2">Hombres</label>
+                                    <label class="btn btn-outline-primary option" for="btnradio1" id="opt-todos" onclick="showAll()">Todos</label>
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                    <label class="btn btn-outline-primary option" for="btnradio3">Mujeres</label>
+                                    <label class="btn btn-outline-primary option" for="btnradio3" id="optf" onclick="filterByGender('F')">Mujeres</label>
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                    <label class="btn btn-outline-primary option" for="btnradio2" id="optm" onclick="filterByGender('M')">Hombres</label>
                                 </div>
                                 <table class="table fixed_header">
                                     <thead>
@@ -116,7 +142,7 @@
                                         <% i = 0 %>
                                         <% investigadores.forEach(item => { %>
                                             <% i++ %>
-                                            <tr class="item <%= item.sexo %>" onclick="window.location.href='/investigador/<%= item.id %>'">
+                                            <tr class="item i-item <%= item.sexo %>" onclick="window.location.href='/investigador/<%= item.id %>'">
                                                 <th scope="row"><%= i %></th>
                                                 <td id="<%= item.id %>" class="autor">
                                                     <%= item.autor %>
@@ -198,6 +224,7 @@
         </div>  
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/genderFilter.js"></script>
     <script src="/js/graficosUA.js"></script>
     <script src="/js/proyectosUA.js"></script>
 </body>
