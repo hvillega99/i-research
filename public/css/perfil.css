@@ -18,6 +18,12 @@
     cursor: pointer;
 }
 
+.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+    color: #fff;
+    background-color: #233264;
+    border-color: #233264;
+}
+
 .option{
     color: black;
     border-color: #233264;
