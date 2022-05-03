@@ -204,3 +204,20 @@ exports.getInfoDocsByCountry = async (req, res) => {
         res.send({error: true, message: 'país no encontrado'});
     }
 }
+
+exports.getAuthorCountByGender = async (req, res) => {
+    const idArr = dbController.getAllScopusId();
+    const response = await gtsi.getContratosByScopusId(idArr);
+
+    let countF = 0;
+    let countM = 0;
+
+    response.forEach(item => {
+        if(item.sexo){
+            item.sexo == 'F' ? countF++ : countM++;
+        }
+    })
+
+    res.send({'mujeres': countF, 'hombres': countM});
+
+}

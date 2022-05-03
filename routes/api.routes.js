@@ -14,19 +14,10 @@ router.get("/publicationsByYear/:scopusId", async (req, res) => {
     res.send(publications); 
 });
 
-router.get("/sdg/publications/:sdg", apiController.getPublicationsBySDG);
-
-router.get("/sdg/documentCount", apiController.getDocumentCountBySDG);
 
 router.get('/unit/bibliometrics/:ua', apiController.getBibliometricsUnit);
 
 router.get('/unit/projects/:ua', apiController.getProjectsByUnit);
-
-router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);
-
-router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear);
-
-router.get('/topAuthors', apiController.getTopAuthors);
 
 router.get('/collaborators/:scopusId/:publications', apiController.getCollaborators);
 
@@ -34,12 +25,25 @@ router.get('/projects/:author', apiController.getProjectsByAuthor);
 
 router.get('/publicationsInfo/:id', apiController.getPublicationsInfo);
 
-router.get('/publications/areas/inst', apiController.getPublicationsByArea);
 
-router.get('/publications/topJournalPercentiles/inst', apiController.getTopJournalInst);
+router.get("/sdg/publications/:sdg", apiController.getPublicationsBySDG);
+
+router.get("/sdg/documentCount", apiController.getDocumentCountBySDG);
 
 router.get('/espol/collaboration/documentCount',apiController.getNDocsByCountry);
 
 router.get('/espol/collaboration/documents/:country',apiController.getInfoDocsByCountry);
+
+router.get('/espol/metrics/authorsByGender',apiController.getAuthorCountByGender);
+
+router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);
+
+router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear);
+
+router.get('/publications/topJournalPercentiles/inst', apiController.getTopJournalInst);
+
+router.get('/topAuthors', apiController.getTopAuthors);
+
+router.get('/publications/areas/inst', apiController.getPublicationsByArea);
 
 module.exports = router;
