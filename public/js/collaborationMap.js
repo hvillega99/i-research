@@ -79,7 +79,7 @@ const showCountryInfo = async (e, data) => {
                                         </div>`;
             });
             
-            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst.name}', '${country.id}')">
+            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst.name.replace("'","’")}', '${country.id}')">
                             <th scope="row">${index + 1}</th>
                             <td>
                                 <p>${inst.name}</p>
