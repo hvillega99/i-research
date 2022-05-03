@@ -186,7 +186,7 @@ exports.addUnit = (req, res) => {
     try {
         
         const {logo} = req.files;
-        const {color, nombre, siglas, publicaciones, citas} = req.body;
+        const {color, nombre, siglas} = req.body;
         const nameLogo = Date.now() + path.extname(logo.name)
         logo.mv('./public/logos/' + nameLogo);
 
@@ -194,9 +194,7 @@ exports.addUnit = (req, res) => {
             color,
             nombre: siglas,
             nombreCompleto: nombre,
-            logo: `/logos/${nameLogo}`,
-            publicaciones,
-            citas
+            logo: `/logos/${nameLogo}`
         }
     
         unitsdb.addUnit(newUnit);
@@ -235,7 +233,7 @@ exports.deleteUnit = (req, res) => {
 exports.editUnit = (req, res) => {
     try {
         const {idUnit} = req.params;
-        const {color, nombre, siglas, publicaciones, citas} = req.body;
+        const {color, nombre, siglas} = req.body;
         let pathLogo;
 
         if(req.files){
@@ -251,9 +249,7 @@ exports.editUnit = (req, res) => {
             color,
             nombre: siglas,
             nombreCompleto: nombre,
-            logo: pathLogo,
-            publicaciones,
-            citas
+            logo: pathLogo
         }
     
         unitsdb.editUnit(idUnit, unit);
@@ -305,7 +301,7 @@ exports.addCenter = (req, res) => {
     try {
         
         const {logo} = req.files;
-        const {color, nombre, siglas, publicaciones, citas} = req.body;
+        const {color, nombre, siglas} = req.body;
         const nameLogo = Date.now() + path.extname(logo.name)
         logo.mv('./public/logos/' + nameLogo);
 
@@ -313,9 +309,7 @@ exports.addCenter = (req, res) => {
             color,
             nombre: siglas,
             nombreCompleto: nombre,
-            logo: `/logos/${nameLogo}`,
-            publicaciones,
-            citas
+            logo: `/logos/${nameLogo}`
         }
 
         centersdb.addCenter(newCenter);
@@ -353,7 +347,7 @@ exports.editCenter = (req, res) => {
 
     try {
         const {idCenter} = req.params;
-        const {color, nombre, siglas, publicaciones, citas} = req.body;
+        const {color, nombre, siglas} = req.body;
         let pathLogo;
 
         if(req.files){
@@ -369,9 +363,7 @@ exports.editCenter = (req, res) => {
             color,
             nombre: siglas,
             nombreCompleto: nombre,
-            logo: pathLogo,
-            publicaciones,
-            citas
+            logo: pathLogo
         }
     
         centersdb.editCenter(idCenter, center);

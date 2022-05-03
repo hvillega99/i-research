@@ -41,3 +41,19 @@ for(let i = 0; i < buttonsDelUnit.length; i++){
         }
     }
 }
+
+const form = document.getElementById('form-add');
+
+if(form){
+    const cancelBtn = document.getElementById('button-cancel');
+    
+    cancelBtn.onclick = (e) => {
+        form.reset();
+        document.getElementById('logo').src = '';
+        cancelBtn.style.display = 'none';
+    }
+    
+    form.oninput = () => {
+        cancelBtn.style.display = '';
+    };
+}

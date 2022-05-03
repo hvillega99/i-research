@@ -60,7 +60,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Nueva unidad académica</h5>
                                 
-                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data" id="add-form">
+                                <form action="/admin/unidades" method="POST" enctype="multipart/form-data" id="form-add">
 
                                     <div class="d-flex flex-column align-items-center">
                                         <img class="img-fluid rounded" id="logo" height="35%" width="35%"/>
@@ -91,18 +91,10 @@
                                         <label for="input-siglas" class="form-label">Siglas</label>
                                         <input type="text" class="form-control" id="input-siglas" name="siglas" required>
                                     </div>
-                                    <div class="mb-2">
-                                        <label for="input-publicaciones" class="form-label">Cantidad de publicaciones</label>
-                                        <input type="number" class="form-control" id="input-publicaciones" name="publicaciones" required>
-                                    </div>
-                                    <div class="mb-2">
-                                        <label for="input-citas" class="form-label">Cantidad de citaciones</label>
-                                        <input type="number" class="form-control" id="input-citas" name="citas" required>
-                                    </div>
 
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary" id="button-submit">Aceptar</button>
-                                        <a href="/admin/unidades" class="btn btn-secondary" id="button-cancel">Cancelar</a>       
+                                        <a class="btn btn-secondary" style="display: none;" id="button-cancel">Cancelar</a>       
                                     </div>
                                     
                                 </form>
@@ -115,9 +107,9 @@
                         <table class="table fixed_header">
                             <thead>
                               <tr class=text-start>
-                                <th scope="col">Unidad</th>
-                                <th scope="col">Docs</th>
-                                <th scope="col">Citas</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Logos</th>
+                                <th scope="col">Unidades</th>
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
@@ -127,13 +119,13 @@
                                     <% i++ %>
                                     <tr>
                                         <td>
-                                            <%= item.nombre %>
+                                            <%= i %>
                                         </td>
                                         <td>
-                                            <%= item.publicaciones %>
+                                            <img class="img-fluid rounded" src="<%= item.logo %>">
                                         </td>
                                         <td>
-                                            <%= item.citas %>
+                                            <%= item.nombreCompleto %>
                                         </td>
                                         <td class="d-flex">
                                             <a href="/admin/unidades/edit/<%= item.id %>" data-bs-toggle="tooltip" title="Editar">
