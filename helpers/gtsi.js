@@ -95,6 +95,30 @@ class Gtsi {
         //console.log(contratos)
         return contratos;
     }
+
+    async getAuthorsByKeywords(keywords){
+        
+        const uri = `${this.url}/GetProyectosByKeyword/${keywords}`;
+        var listaInv = {}
+        try{
+            const response = await fetch(uri);
+            const data = await response.json();
+            
+            data.forEach( proyecto => {
+                proyecto["colaboradores"].forEach( investigador => {
+                    if(investigador["scopusId"]!=null){
+                        if(!listaInv[investigador["scopusId"]]){
+                            listaInv[investigador["scopusId"]] = {'nombre':investigador["nombre"],'cedula':investigador["cedula"]}
+                        }
+                       
+                    }
+                })
+            });
+            return listaInv;
+        }catch(err){
+            return {"error": true, "message": "no se pudo obtener la información de investigadores con estas palabras claves", keywords};
+        }
+    }
 }
 
 module.exports = Gtsi;
