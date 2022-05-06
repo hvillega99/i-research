@@ -6,6 +6,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
 #input-finder{
     margin: 5px 5px 5px 15%;
     width: 70%;
@@ -15,6 +16,8 @@
 .finder{
     text-align: center;
 }
+
+
 
 #submit-finder{
     margin: 5px;
@@ -201,3 +204,9 @@
     filter: brightness(1.20);
     cursor: pointer;
 }
+
+#myHeader{
+    background-color: #ffffff;
+    top: -1px;
+}
+

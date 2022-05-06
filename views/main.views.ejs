@@ -30,27 +30,28 @@
             </form>
         </div>
 
-        <div class="container text-center">
+        <div class="container text-center" id="myHeader">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#unidades-academicas" type="button" role="tab" aria-controls="home" aria-selected="true">Unidades académicas</button>
+                    <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#unidades-academicas" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="tecla()">Unidades académicas</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#centros-investigacion" type="button" role="tab" aria-controls="profile" aria-selected="false">Centros de investigación</button>
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#centros-investigacion" type="button" role="tab" aria-controls="profile" aria-selected="false" onclick="tecla()">Centros de investigación</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#estadisticas" type="button" role="tab" aria-controls="contact" aria-selected="false">Estadísticas</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#estadisticas" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">Estadísticas</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#sdg-tab" type="button" role="tab" aria-controls="contact" aria-selected="false">ODS</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#sdg-tab" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">ODS</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#autores-top" type="button" role="tab" aria-controls="contact" aria-selected="false">Autores top</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#autores-top" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">Autores top</button>
                 </li>
             </ul>
+            <div class="division" id="division"></div>
         </div>
-
-        <div class="division"></div>
+        
+        
 
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="unidades-academicas" role="tabpanel" aria-labelledby="home-tab">
@@ -222,5 +223,6 @@
     <script src="/js/sdg.js"></script>
     <script src="/js/publicaciones.js"></script>
     <script src="/js/gender.js"></script>
+    <script src="/js/staticHeader.js"></script>
 </body>
 </html>
