@@ -70,7 +70,7 @@ app.use('/unidad',require('./routes/unidad_academica.routes'));
 app.use('/centro',require('./routes/centro_investigacion.routes'));
 app.use('/api',require('./routes/api.routes'));
 
-app.use('/map', (req, res)=>{
+app.use('/colaboracion', (req, res)=>{
     res.render('map.ejs')  
 })
 

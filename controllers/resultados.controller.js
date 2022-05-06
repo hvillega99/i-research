@@ -11,8 +11,6 @@ const gtsi = new Gtsi();
 exports.find = async (req, res) =>{
     const {terms} = req.body;
 
-    console.log(req.body);
-
     let data = researches.searchByName(terms);
 
     let investigadores = [];
@@ -37,9 +35,24 @@ exports.find = async (req, res) =>{
             srcFoto
         })
     }
-        
-    console.log(investigadores);
 
+    const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
+    const idList = Object.keys(kwResults);
+    const autByKw = [];
+
+    idList.forEach(scopusId => {
+        const result = researches.searchById(scopusId);
+        if(result){
+            const name = result.Author;
+            const ci = kwResults[scopusId].cedula;
+            autByKw.push({
+                scopusId,
+                name,
+                srcFoto: `https://talentohumano.espol.edu.ec/imgEmpleado/${ci}.jpg`
+            });
+        }
+    });
+        
     const resultadosCentros = centersdb.findCenter(terms);
     const resultadosFacultades = unitsdb.findUnit(terms);
     const totalResultados = data.length + resultadosCentros.length + resultadosFacultades.length;
@@ -48,5 +61,7 @@ exports.find = async (req, res) =>{
                                                 investigadores, 
                                                 facultades: resultadosFacultades, 
                                                 centros: resultadosCentros, 
+                                                autoresKw: autByKw,
+                                                totalKw: autByKw.length,
                                                 terminos: terms});
 };

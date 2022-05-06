@@ -46,6 +46,4 @@ router.get('/topAuthors', apiController.getTopAuthors);
 
 router.get('/publications/areas/inst', apiController.getPublicationsByArea);
 
-router.get('/collaborators/:keywords', apiController.getAuthors_keywords);
-
 module.exports = router;

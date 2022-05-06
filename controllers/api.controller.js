@@ -221,9 +221,3 @@ exports.getAuthorCountByGender = async (req, res) => {
     res.send({'mujeres': countF, 'hombres': countM});
 
 }
-
-exports.getAuthors_keywords = async (req, res) => {
-    const {keywords} = req.params;
-    const investigadores = await gtsi.getAuthorsByKeywords(keywords);
-    res.send(investigadores);
-}

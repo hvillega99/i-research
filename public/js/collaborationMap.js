@@ -2,7 +2,6 @@ const manageList = (show, hide, title, country) => {
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
     document.getElementById(`md-${country}-title`).textContent = title;
-    console.log(show);
 }
 
 const showCountryInfo = async (e, data) => {

@@ -35,147 +35,198 @@
             </div>
         </header>
 
-        <h3><%= total %> resultado(s) de búsqueda para: <%= terminos %></h3>
-
-        <div class="container">
-            <div class="row justify-content-center" id="resultados">
-                <div class="col-md-6">
-
-                    <% investigadores.forEach(resultado => { %>
-
-                        <div class="card m-4">
-
-                            <div class="card-header text-center">
-                                Investigador
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="<%= resultado.srcFoto %>" class="rounded img-fluid" style="object-fit: contain" >
+        <% if(total>0){ %>
+            <h3><%= total %> resultado(s) de búsqueda para <%= terminos %>:</h3>
+            <div class="container">
+                <div class="row justify-content-center" id="resultados">
+                    <div class="col-md-6">
+    
+                        <% investigadores.forEach(resultado => { %>
+    
+                            <div class="card m-4">
+    
+                                <div class="card-header text-center">
+                                    Investigador
+                                </div>
+    
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3">
+                                            <img src="<%= resultado.srcFoto %>" class="rounded img-fluid" style="object-fit: contain" >
+                                        </div>
+                                        <div class="col-7 pe-5">
+                                            <h5 class="card-title"><%= resultado.name %></h5>
+    
+                                            <form action="/investigador/<%= resultado.scopusId %>" 
+                                                method="get">
+    
+                                                    <input type="submit" 
+                                                    class="btn btn-primary" 
+                                                    value="Ver perfil"
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#loadingModal">
+    
+                                            </form> 
+                                        </div>
                                     </div>
-                                    <div class="col-7 pe-5">
-                                        <h5 class="card-title"><%= resultado.name %></h5>
-
-                                        <form action="/investigador/<%= resultado.scopusId %>" 
+                                </div>
+    
+                            </div>
+                        
+                        <% }) %>
+    
+                        <% facultades.forEach(facultad => { %>
+    
+                            <div class="card m-4">
+    
+                                <div class="card-header text-center">
+                                    Unidad académica
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3">
+                                            <img src="<%= facultad.logo %>" class="rounded img-fluid" style="object-fit: contain" >
+                                        </div>
+                                        <div class="col-7 pe-5">
+                                            <h5 class="card-title"><%= facultad.nombre %></h5>
+                            
+                                            <form action="/unidad/<%= facultad.nombre %>" 
                                             method="get">
-
-                                                <input type="submit" 
-                                                class="btn btn-primary" 
-                                                value="Ver perfil"
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#loadingModal">
-
-                                        </form> 
+    
+                                                    <input type="submit" 
+                                                    class="btn btn-primary" 
+                                                    value="Ver perfil"
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#loadingModal">
+    
+                                            </form> 
+                                        </div>
                                     </div>
                                 </div>
+    
                             </div>
-
-                        </div>
-                    
-                    <% }) %>
-
-                    <% facultades.forEach(facultad => { %>
-
-                        <div class="card m-4">
-
-                            <div class="card-header text-center">
-                                Unidad académica
-                            </div>
-                            
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="<%= facultad.logo %>" class="rounded img-fluid" style="object-fit: contain" >
-                                    </div>
-                                    <div class="col-7 pe-5">
-                                        <h5 class="card-title"><%= facultad.nombre %></h5>
                         
-                                        <form action="/unidad/<%= facultad.nombre %>" 
-                                        method="get">
-
-                                                <input type="submit" 
-                                                class="btn btn-primary" 
-                                                value="Ver perfil"
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#loadingModal">
-
-                                        </form> 
-                                    </div>
+                        <% }) %>
+    
+                        <% centros.forEach(centro => { %>
+    
+                            <div class="card m-4">
+    
+                                <div class="card-header text-center">
+                                    Centro de investigación
                                 </div>
-                            </div>
-
-                        </div>
-                    
-                    <% }) %>
-
-                    <% centros.forEach(centro => { %>
-
-                        <div class="card m-4">
-
-                            <div class="card-header text-center">
-                                Centro de investigación
-                            </div>
+                                
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3">
+                                            <img src="<%= centro.logo %>" class="rounded img-fluid" style="object-fit: contain" >
+                                        </div>
+                                        <div class="col-7 pe-5">
+                                            <h5 class="card-title"><%= centro.nombre %></h5>
                             
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="<%= centro.logo %>" class="rounded img-fluid" style="object-fit: contain" >
-                                    </div>
-                                    <div class="col-7 pe-5">
-                                        <h5 class="card-title"><%= centro.nombre %></h5>
-                        
-                                        <form action="/centro/<%= centro.nombre %>" 
-                                        method="get">
-                                                <input type="submit" 
-                                                class="btn btn-primary" 
-                                                value="Ver perfil"
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#loadingModal">
-                                        </form> 
+                                            <form action="/centro/<%= centro.nombre %>" 
+                                            method="get">
+                                                    <input type="submit" 
+                                                    class="btn btn-primary" 
+                                                    value="Ver perfil"
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#loadingModal">
+                                            </form> 
+                                        </div>
                                     </div>
                                 </div>
+    
                             </div>
+                        
+                        <% }) %>
+    
+                    </div>
+                </div>
+            </div>
+        <% } %>
 
-                        </div>
-                    
-                    <% }) %>
+
+        <% if(totalKw>0){ %>
+            <h3><%= totalKw %> investigador(es) trabajan sobre <%= terminos %>:</h3>
+            
+            <div class="container">
+                <div class="row justify-content-center" id="resultados">
+                    <div class="col-md-6">
+    
+                        <% autoresKw.forEach(autor => { %>
+    
+                            <div class="card m-4">
+    
+                                <div class="card-header text-center">
+                                    Investigador
+                                </div>
+    
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3">
+                                            <img src="<%= autor.srcFoto %>" class="rounded img-fluid" style="object-fit: contain" >
+                                        </div>
+                                        <div class="col-7 pe-5">
+                                            <h5 class="card-title"><%= autor.name %></h5>
+    
+                                            <form action="/investigador/<%= autor.scopusId %>" 
+                                                method="get">
+    
+                                                    <input type="submit" 
+                                                    class="btn btn-primary" 
+                                                    value="Ver perfil"
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#loadingModal">
+    
+                                            </form> 
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        
+                        <% }) %>
+    
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+        <% if(total==0 && totalKw==0){ %>
+            <h3>No se econtraron resultados para <%= terminos %></h3>
+        <% } %>
 
 
-
-                    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" 
+        <div class="modal fade" id="loadingModal" data-bs-backdrop="static" 
                     data-bs-keyboard="false" tabindex="-1" 
                     aria-labelledby="staticBackdropLabel" 
                     aria-hidden="true">
 
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title text-center">Cargando perfil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex justify-content-center">
+
                         <div class="modal-dialog">
 
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Cargando perfil</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                                <div class="modal-body d-flex justify-content-center">
-
-                                    <div class="modal-dialog">
-
-                                        <div class="spinner-border text-secondary" role="status" 
-                                        style="width: 3rem; height: 3rem;">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-
-                                    </div>
-
-                                </div> 
+                            <div class="spinner-border text-secondary" role="status" 
+                             style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
 
                         </div>
 
-                    </div>
-
+                    </div> 
                 </div>
+
             </div>
+
         </div>
 
     </main>
