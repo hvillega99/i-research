@@ -208,5 +208,11 @@
 #myHeader{
     background-color: #ffffff;
     top: -1px;
+    z-index: 1;
+}
+#division{
+    border-bottom: 0.1px solid #848484;
+    top: 0px;
+    z-index: 1;
 }
 

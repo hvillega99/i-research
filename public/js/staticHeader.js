@@ -1,14 +1,18 @@
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
+var divisionLine = document.getElementById("division");
 var sticky = header.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset > sticky) {
     header.style.position="sticky"
-    header.style["z-index"]="1"
+    divisionLine.style.position="sticky"
+    divisionLine.style.top=`${header.offsetHeight}px`
   } else {
     header.style.position="relative"
+    divisionLine.style.position="relative"
+    divisionLine.style.top="0px"
   }
 }
 
