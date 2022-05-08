@@ -13,16 +13,16 @@ const parser = new CsvParser();
 
 const countries = require('../resources/data/list_countries.json');
 
-exports.getDocumentCountBySDG = async (req, res) => {
+exports.getBibliometricsBySDG = async (req, res) => {
 
     const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
     const data1 = await Promise.all(
-        sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGdocumentCount(sdg))
+        sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGbibliometrics(sdg))
     );
 
     const data2 = await Promise.all(
-        sdg_numbers.slice(8, 16).map(sdg => scopus.getSDGdocumentCount(sdg))
+        sdg_numbers.slice(8, 16).map(sdg => scopus.getSDGbibliometrics(sdg))
     );
     
     const data = [...data1, ...data2];

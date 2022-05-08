@@ -258,7 +258,7 @@ class Scopus{
      * @returns 
      */
 
-    async getSDGdocumentCount(SDG_number){
+    async getSDGbibliometrics(SDG_number){
         const query = sdgQueries[`sdg${SDG_number}`];
         if(SDG_number!='8'){
             try{

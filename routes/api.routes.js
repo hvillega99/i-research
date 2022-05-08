@@ -28,7 +28,7 @@ router.get('/publicationsInfo/:id', apiController.getPublicationsInfo);
 
 router.get("/sdg/publications/:sdg", apiController.getPublicationsBySDG);
 
-router.get("/sdg/documentCount", apiController.getDocumentCountBySDG);
+router.get("/sdg/bibliometrics", apiController.getBibliometricsBySDG);
 
 router.get('/espol/collaboration/documentCount',apiController.getNDocsByCountry);
 

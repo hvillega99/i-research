@@ -118,7 +118,7 @@ const sdgColors = {
 }
 
 const graficaSDG = document.getElementById("grafica-sdg");
-fetch('/api/sdg/documentCount')
+fetch('/api/sdg/bibliometrics')
 .then(response => response.json())
 .then(arr => {
 
@@ -128,18 +128,20 @@ fetch('/api/sdg/documentCount')
 
         const sdgNumbers = data.map(item => item.sdg);
         const sdgLabels = sdgNumbers.map(sdg => `ODS ${sdg}`);
-        const values = data.map(item => item.publications);
+
+        const sdgPublications = data.map(item => item.publications);
+        const sdgCitations = data.map(item => item.citations);
     
-        const grafica = document.getElementById('grafica-sdg')
+        const sdgPublicationsGraph = document.getElementById('grafica-sdg')
     
-        const maxValue = Math.max.apply( Math, values );
-        new Chart(grafica, {
+        const maxValue = Math.max.apply( Math, sdgPublications );
+        new Chart(sdgPublicationsGraph, {
             type: 'bar',
             data: {
                 labels: sdgLabels,
                 datasets: [{
                     label: 'Publicaciones',
-                    data: values,
+                    data: sdgPublications,
                     backgroundColor: sdgNumbers.map(sdg => sdgColors[sdg]),
                     borderColor: sdgNumbers.map(sdg => sdgColors[sdg]),
                     borderWidth: 1
@@ -160,14 +162,55 @@ fetch('/api/sdg/documentCount')
             }
         });
     
-        const infoSDG = document.getElementById('info-sdg')
-        infoSDG.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+        const infoSDGPublications = document.getElementById('info-sdg')
+        infoSDGPublications.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
         title="Cantidad de publicaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
     
-        const title = document.getElementById('title-sdg');
-        title.textContent = 'Publicaciones por ODS';
+        const titleSDGpublications = document.getElementById('title-sdg');
+        titleSDGpublications.textContent = 'Publicaciones por ODS';
+
+
+        const sdgCitationsGraph = document.getElementById('grafica-sdg2');
+
+        const maxValue2 = Math.max.apply( Math, sdgCitations );
+
+        new Chart(sdgCitationsGraph, {
+            type: 'bar',
+            data: {
+                labels: sdgLabels,
+                datasets: [{
+                    label: 'Citaciones',
+                    data: sdgCitations,
+                    backgroundColor: sdgNumbers.map(sdg => sdgColors[sdg]),
+                    borderColor: sdgNumbers.map(sdg => sdgColors[sdg]),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: maxValue2 < 20? 1:0
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+
+        const infoSDGCitations = document.getElementById('info-sdg2');
+        infoSDGCitations.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+        title="Cantidad de citaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
+
+        const titleSDGCitations = document.getElementById('title-sdg2');
+        titleSDGCitations.textContent = 'Citaciones por ODS';
+
+
     }else{
-        console.error('No se pudo obtener la información correspondiente a la cantidad de publicaciones por ODS');
+        console.error('No se pudo obtener la información bibliométrica de los ODS');
     }
     
 })
