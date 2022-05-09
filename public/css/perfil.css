@@ -28,7 +28,11 @@
     border-color: #233264;
 }
 
-
+.divisions{
+    border-bottom: 0.1px solid #848484;
+    /*margin-top: 5px;*/
+    margin-bottom: 5px;
+}
 /* #projects-by-year{
     width:35vw !important;
     height:35vh !important;
