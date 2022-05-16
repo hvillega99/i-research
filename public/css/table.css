@@ -14,10 +14,16 @@
     display: block;
 }
 
-.fixed_header th, .fixed_header td {
+.fixed_header thead th{
     text-align: left;
-    width: 30%;
+    width: 35%;
 }
+
+.fixed_header tbody th, .fixed_header tbody td {
+    text-align: left;
+    width: 32%
+}
+
 
 
 .item:hover{
