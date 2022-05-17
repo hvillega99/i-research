@@ -40,7 +40,9 @@
                             <% }) %>
 
                             <%if(information.orcid != -1){ %>
-                                <p>Orcid: <%= information.orcid%> </p>
+                                <p>Orcid: <a id="Orcid"
+                                    href="https://orcid.org/<%= information.orcid %>"
+                                    target="_blank"><%= information.orcid%></a></p>
                             <% } %>
     
                             <p>Scopus id: <a id="scopusId" 
