@@ -33,6 +33,12 @@
     /*margin-top: 5px;*/
     margin-bottom: 5px;
 }
+
+.division{
+    border-bottom: 1.1px solid #848484;
+    top: -1px;
+    z-index: 1;
+}
 /* #projects-by-year{
     width:35vw !important;
     height:35vh !important;
