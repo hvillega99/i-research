@@ -15,10 +15,20 @@
         <a href="/colaboracion" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Colaboración internacional">
             <img src="/img/globe.png" alt="admin">
         </a>
+        <div id="flags" class="flags">
+            <div class="flags_item" data-language="es">
+                <img src="/img/ec.svg" alt="admin">
+            </div>
+            <div class="flags_item" data-language="en">
+                <img src="/img/us.svg" alt="admin">
+            </div>
+        </div>  
+
+
         <div class="finder mt-5" style="height: 50vh;">
             <img src="/img/logo-espol.png" class="text-start" alt="logo">
 
-            <h2 class="m-4"><b>Repositorio de investigadores</b></h2>
+            <h2 class="m-4"><b data-value="Repositorio de investigadores">Repositorio de investigadores</b></h2>
             
             <form method="POST" action="/resultados" class="form-group m-2">
                 <div class="form-group">

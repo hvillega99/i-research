@@ -222,4 +222,13 @@
     z-index: 1;
 }
 */
-
+.flags{
+    width: 75px;
+}
+.flags_item{
+    width: 30px;
+    margin-right: 8px;
+}
+#flags{
+   display: inline-flex; 
+}

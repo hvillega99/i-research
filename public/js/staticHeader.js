@@ -5,6 +5,24 @@ var divisionLine = document.getElementById("division");
 //var whiteSpace = document.getElementById("white_space");
 var sticky = header.offsetTop;
 
+const flagsElement =  document.getElementById("flags");
+const textsToChange = document.querySelectorAll('[data-value]');
+
+flagsElement.addEventListener("click", (e) => {
+  changeLanguage(e.target.parentElement.dataset.language)
+})
+
+const changeLanguage = async (language) => {
+  const requestJson = await fetch(`/languages/${language}.json`);
+  const texts = await requestJson.json();
+
+  //console.log(texts);
+  for (const textToChange of textsToChange) {
+    const value = textToChange.dataset.value;
+    textToChange.textContent = texts[value];
+  }
+};
+
 function myFunction() {
   if (window.pageYOffset > sticky) {
     header.style.position="sticky"
