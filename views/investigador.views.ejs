@@ -159,8 +159,8 @@
                         <div class="row justify-content-center">
                             <div class="col-md-8">
                                 <% if(information.publicaciones.length > 0){ %>
-                                    <table class="table fixed_header">
-                                        <thead>
+                                    <table id="sortedTable" class="table">
+                                        <thead class="clickable-header">
                                           <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Título</th>
@@ -304,5 +304,8 @@
     <script src="/js/colaboradores.js"></script>
     <script src="/js/proyectos.js"></script>
     <script src="/js/publicaciones.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="/js/tableSorter.js"></script>
 </body>
 </html>

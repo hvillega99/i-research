@@ -129,8 +129,8 @@
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                                     <label class="btn btn-outline-primary option" for="btnradio2" id="optm" onclick="filterByGender('M')">Hombres</label>
                                 </div>
-                                <table id="myTable" class="table fixed_header">
-                                    <thead>
+                                <table id="sortedTable" class="table">
+                                    <thead class="clickable-header">
                                       <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Autor</th>
@@ -226,7 +226,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    
+    <script src="/js/tableSorter.js"></script>
     <script src="/js/gender.js"></script>
     <script src="/js/graficosUA.js"></script>
     <script src="/js/proyectosUA.js"></script>

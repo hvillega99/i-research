@@ -1,12 +1,3 @@
-$(document).ready( function () {
-    $('#myTable').DataTable({
-        paging: false,
-        searching: false,
-        info: false,
-        scrollY: 400
-    });
-} );
-
 const loadGenderGraph = async (canvas, title, info) => {
     const response = await fetch('/api/espol/metrics/authorsByGender');
     const data = await response.json();
