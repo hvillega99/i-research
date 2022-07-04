@@ -1,36 +1,12 @@
-.fixed_header{
-    width: 100%;
-    table-layout: fixed;
-}
-
-.fixed_header tbody{
-    display:block;
-    width: 100%;
-    overflow: auto;
-    height: 60vh;
-}
-
-.fixed_header thead tr {
-    display: block;
-}
-
-.fixed_header thead th{
-    text-align: left;
-    width: 35%;
-}
-
-.fixed_header tbody th, .fixed_header tbody td {
-    text-align: left;
-    width: 32%
-}
-
-
-
 .item:hover{
     background-color: #cfe2ff;
     cursor:pointer;
 }
-
 .item:active{
     background-color: rgba(33, 58, 143, 0.2);
+}
+
+thead{
+    cursor: pointer;
+    border-color: black;
 }
