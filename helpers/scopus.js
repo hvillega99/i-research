@@ -125,12 +125,16 @@ class Scopus{
                     
                     var year = element['prism:coverDate'].split('-')[0]
                     var elscopus = element['dc:identifier'].split(':')[1];
+
+                    var publicationPlace = element['prism:publicationName'];
                     
                     plop2.push(title);
                     plop2.push(citation);
         
                     plop2.push(year);
                     plop2.push(elscopus);
+
+                    plop2.push(publicationPlace);
         
                     //CODIGO QUE GUARDARA LAS UNIVERSIDADES JUNTO SUS PUBLICACIONES
                     if(element['affiliation']){
