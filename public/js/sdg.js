@@ -45,6 +45,7 @@ const showList = async (sdg) =>{
                                         <th scope="col">Título</th>
                                         <th scope="col">Citaciones</th>
                                         <th scope="col">Año de publicación</th>
+                                        <th scope="col">Publicado en</th>
                                     </tr>
                             </thead>`;
 
@@ -56,6 +57,7 @@ const showList = async (sdg) =>{
                             <td>${publication[0]}</td>
                             <td id="citation-count-${publication[3]}">${publication[1]}</td>
                             <td>${publication[2]}</td>
+                            <td>${publication[4]}</td>
                         </tr>
                         <div class="modal fade" id="modal-${publication[3]}" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">

@@ -32,16 +32,6 @@ async function idioma(){
   
 }
 
-const changeLanguage = async (language) => {
-  const requestJson = await fetch(`/languages/${language}.json`);
-  const texts = await requestJson.json();
-
-  //console.log(texts);
-  for (const textToChange of textsToChange) {
-    const value = textToChange.dataset.value;
-    textToChange.textContent = texts[value];
-  }
-};
 
 function myFunction() {
   if (window.pageYOffset > sticky) {

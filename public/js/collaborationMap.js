@@ -60,6 +60,9 @@ const showCountryInfo = async (e, data) => {
                                             <td>
                                                 <p>${pub[2]}</p>
                                             </td>
+                                            <td>
+                                                <p>${pub[4]}</p>
+                                            </td>
                                         </tr>
                                         <div class="modal fade" id="md${country.id}-${index}-${pub[3]}" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -97,6 +100,7 @@ const showCountryInfo = async (e, data) => {
                                                 <th scope="col">Título</th>
                                                 <th scope="col">Citaciones</th>
                                                 <th scope="col">Año de publicación</th>
+                                                <th scope="col">Publicado en</th>
                                             </tr>
                                         </thead>
                                         <tbody>
