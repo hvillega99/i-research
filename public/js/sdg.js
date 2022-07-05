@@ -39,7 +39,7 @@ const showList = async (sdg) =>{
 
     if(!publications.error) {
 
-        const headerTable = `<thead>
+        const headerTable = `<thead class="clickable-header">
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Título</th>

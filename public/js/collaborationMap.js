@@ -94,7 +94,7 @@ const showCountryInfo = async (e, data) => {
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
                                     <table id="tablePub${country.id}" class="table">
-                                        <thead>
+                                        <thead class="clickable-header">
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Título</th>
@@ -123,7 +123,7 @@ const showCountryInfo = async (e, data) => {
     
         mdContent.innerHTML = `<div id="table-${country.id}">
                                 <table id="tableCountry${country.id}" class="table">
-                                    <thead>
+                                    <thead class="clickable-header">
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Institución</th>
