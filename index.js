@@ -5,6 +5,8 @@ const passport = require("passport");
 const session = require("express-session");
 const fileUpload = require('express-fileupload');
 
+require('./cache/redis.config.js');
+
 const Resourcesdb = require('./helpers/resourcesdb');
 const resources = new Resourcesdb();
 
