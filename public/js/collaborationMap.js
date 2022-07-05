@@ -93,7 +93,7 @@ const showCountryInfo = async (e, data) => {
 
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
-                                    <table class="table fixed_header mt-0">
+                                    <table id="tablePub${country.id}" class="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -122,7 +122,7 @@ const showCountryInfo = async (e, data) => {
         });
     
         mdContent.innerHTML = `<div id="table-${country.id}">
-                                <table class="table fixed_header">
+                                <table id="tableCountry${country.id}" class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -136,6 +136,24 @@ const showCountryInfo = async (e, data) => {
                                 </table>
                             </div>
                             ${publicationTables}`;
+        
+        $(document).ready( function () {
+            $(`#tableCountry${country.id}`).DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                scrollY: 400
+            });
+        } );
+
+        $(document).ready( function () {
+            $(`#tablePub${country.id}`).DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                scrollY: 400
+            });
+        } );
     }
 
 }

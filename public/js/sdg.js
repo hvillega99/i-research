@@ -78,11 +78,20 @@ const showList = async (sdg) =>{
 
         bodyTable += '</tbody>'
 
-        const table = `<table class="table fixed_header">
+        const table = `<table id="tableODS${sdg}" class="table">
                             ${headerTable}
                             ${bodyTable}
                         </table>`;
         listContainer.innerHTML = table;
+
+        $(document).ready( function () {
+            $(`#tableODS${sdg}`).DataTable({
+                paging: false,
+                searching: false,
+                info: false,
+                scrollY: 400
+            });
+        } );
         
     }else{
         listContainer.innerHTML = 'No disponible';
@@ -209,6 +218,8 @@ fetch('/api/sdg/bibliometrics')
 
         const titleSDGCitations = document.getElementById('title-sdg2');
         titleSDGCitations.textContent = 'Citaciones por ODS';
+
+
 
 
     }else{
