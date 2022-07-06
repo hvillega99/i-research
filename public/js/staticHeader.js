@@ -27,7 +27,18 @@ async function idioma(){
 
   for (const textToChange of textsToChange) {
     const value = textToChange.dataset.value;
-    textToChange.textContent = texts[value];
+    if(textToChange.type=="search"){ //Hay que verificar si esta parte no causa muchas alteraciones
+      textToChange.placeholder = texts[value];
+    }
+    else{ //Hay que verificar si esta parte no causa muchas alteraciones
+      //console.log(textToChange.textContent)
+      textToChange.textContent = texts[value];
+      textToChange.value = texts[value]; //Hay que verificar si esta parte no causa muchas alteraciones
+    }
+    
+    
+    
+
   }
   
 }

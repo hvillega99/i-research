@@ -70,30 +70,5 @@ const filterByGender = (gender) => {
     }
 }
 
-/*
-const textsToChange = document.querySelectorAll('[data-value]');
-const thecheck = document.querySelector(".check")
 
-thecheck.addEventListener("click", idioma)
-
-async function idioma(){
-  //console.log(thecheck.checked)
-  
-  var language_x = "es"
-  if(thecheck.checked){
-    language_x = "en"
-  }
-  const requestJson = await fetch(`/languages/${language_x}.json`);
-  const texts = await requestJson.json();
-
-  for (const textToChange of textsToChange) {
-    const value = textToChange.dataset.value;
-    textToChange.textContent = texts[value];
-  }
-
-  
-  
-  
-}
-*/
  

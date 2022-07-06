@@ -36,28 +36,28 @@
             <section class="container p-3">
                 <div class="row"> 
                     <div class="col-md-2">
-                        <h5>Métricas</h5>
+                        <h5 data-value="Métricas">Métricas</h5>
                         <h5><%= totalInvestigadores %></h5>
-                        <p>Investigadores</p>
+                        <p data-value="Investigadores">Investigadores</p>
                         <h5><%= totalMujeres %></h5>
-                        <p>Mujeres</p>
+                        <p data-value="Mujeres">Mujeres</p>
                         <h5><%= totalHombres %></h5>
-                        <p>Hombres</p>
+                        <p data-value="Hombres">Hombres</p>
                         <h5 id="total-publications">
                             <div class="spinner-border spinner-border-sm" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </h5>
-                        <p>Publicaciones</p>
+                        <p data-value="Publicaciones">Publicaciones</p>
                         <h5 id="total-citations">
                             <div class="spinner-border spinner-border-sm" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </h5>
-                        <p>Citaciones</p>
+                        <p data-value="Citaciones">Citaciones</p>
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-citaciones">
+                        <div id="info-citaciones" data-value="Citaciones por año">
                             Citaciones por año
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Citaciones de las publicaciones con afiliación a ESPOL&#10del centro de investigación de los últimos seis años.&#10Estos son siempre los años en los que se publicaron&#10los artículos y no se refieren a los años en los que se&#10recibieron las citas.">
@@ -72,7 +72,7 @@
                         </canvas>
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-publicaciones">
+                        <div id="info-publicaciones" data-value="Publicaciones por año">
                             Publicaciones por año
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Cantidad de publicaciones indexadas con&#10afiliación a ESPOL del centro de investigación&#10por cada uno de los últimos seis años.">
@@ -92,11 +92,11 @@
             <div class="container text-center">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true">Investigadores</button>
+                        <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true" data-value="Investigadores">Investigadores</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#proyectos" type="button" role="tab" aria-controls="profile" aria-selected="false">Proyectos</button>
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#proyectos" type="button" role="tab" aria-controls="profile" aria-selected="false" data-value="Proyectos">Proyectos</button>
                     </li>
 
                 </ul>
@@ -113,11 +113,11 @@
                             <div class="col-md-8">
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
-                                    <label class="btn btn-outline-primary option" for="btnradio1" id="opt-todos" onclick="showAll()">Todos</label>
+                                    <label class="btn btn-outline-primary option" for="btnradio1" id="opt-todos" onclick="showAll()" data-value="Todos">Todos</label>
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                    <label class="btn btn-outline-primary option" for="btnradio3" id="optf" onclick="filterByGender('F')">Mujeres</label>
+                                    <label class="btn btn-outline-primary option" for="btnradio3" id="optf" onclick="filterByGender('F')" data-value="Mujeres">Mujeres</label>
                                     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                    <label class="btn btn-outline-primary option" for="btnradio2" id="optm" onclick="filterByGender('M')">Hombres</label>
+                                    <label class="btn btn-outline-primary option" for="btnradio2" id="optm" onclick="filterByGender('M')" data-value="Hombres">Hombres</label>
                                 </div>
                                 <table id="sortedTable" class="display" style="width:100%">
                                     <thead class="clickable-header">
@@ -213,6 +213,7 @@
         </div>  
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/config_lang.js"></script>
     <script src="/js/gender.js"></script>
     <script src="/js/graficosUA.js"></script>
     <script src="/js/proyectosUA.js"></script>

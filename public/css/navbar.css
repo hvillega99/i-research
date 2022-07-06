@@ -12,7 +12,7 @@
 
 
 
-/*
+
 .flags{
     width: 75px;
 }
@@ -22,12 +22,13 @@
 
 .language_switch{
     display: flex;
+    margin-top: 8px;
 }
-*/
+
 
 /* The switch - the box around the slider */
 
-/*
+
 .switch {
     position: relative;
     width: 60px;
@@ -90,4 +91,4 @@
     border-radius: 50%;
   }
 
-  */
+  

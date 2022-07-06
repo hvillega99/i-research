@@ -11,7 +11,7 @@ fetch('/api/topAuthors')
                         <thead class="clickable-header">
                             <tr>
                                 <th scope="col" style="text-align:center">#</th>
-                                <th scope="col" style="text-align:center">Autor</th>
+                                <th scope="col" style="text-align:center" data-value="Autor">Autor</th>
                                 <th scope="col" style="text-align:center">H-index</th>
                             </tr>
                         </thead>

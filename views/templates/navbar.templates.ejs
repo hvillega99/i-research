@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="/">
             <img src="/img/logo-espol-2.png" width="99" height="46px" alt="logo">
         </a>
-        <h4><b><%= titulo %></b></h4>
+        <h4><b data-value="<%= titulo %>"><%= titulo %></b></h4>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,10 +11,10 @@
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           </ul>
           <form class="d-flex" method="POST" action="/resultados">
-            <input class="form-control me-2" type="search" placeholder="Buscar" name="terms" required>
-            <button class="btn" type="submit" id="navbar-btn">Buscar</button>
+            <input class="form-control me-2" type="search" placeholder="Buscar" data-value="Buscar" name="terms" required>
+            <button class="btn" type="submit" id="navbar-btn" data-value="Buscar">Buscar</button>
           </form>
-          <!--
+          
           <div class="language_switch">
             <div class="flags_item" title="Spanish">
                 <img src="/img/ec.svg" alt="admin">
@@ -27,7 +27,7 @@
                 <img src="/img/us.svg" alt="admin">
             </div>
         </div>
-        -->
+        
         </div>
       </div>
 

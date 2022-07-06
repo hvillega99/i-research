@@ -50,12 +50,13 @@
             <form method="POST" action="/resultados" class="form-group m-2">
                 <div class="form-group">
                     <input type="search" class="form-control" id="input-finder"
+                    data-value="Buscar investigador, unidad académica, centro de investigación o tópico"
                     placeholder="Buscar investigador, unidad académica, centro de investigación o tópico" 
                     name="terms" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" id="submit-finder" value="Buscar">
+                    <input type="submit" class="btn btn-primary" id="submit-finder" data-value="Buscar" value="Buscar">
                 </div>   
             </form>
         </div>
@@ -63,19 +64,19 @@
         <div class="container text-center" id="myHeader">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#unidades-academicas" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="tecla()">Unidades académicas</button>
+                    <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#unidades-academicas" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="tecla()" data-value="Unidades académicas">Unidades académicas</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#centros-investigacion" type="button" role="tab" aria-controls="profile" aria-selected="false" onclick="tecla()">Centros de investigación</button>
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#centros-investigacion" type="button" role="tab" aria-controls="profile" aria-selected="false" onclick="tecla()" data-value="Centros de investigación">Centros de investigación</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#estadisticas" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">Estadísticas</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#estadisticas" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()" data-value="Estadísticas">Estadísticas</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#sdg-tab" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">ODS</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#autores-top" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()">Autores top</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#autores-top" type="button" role="tab" aria-controls="contact" aria-selected="false" onclick="tecla()" data-value="Autores top">Autores top</button>
                 </li>
             </ul>
             
@@ -92,7 +93,7 @@
                         <div class="unidades_academicas" id="unidades_academicas">
                             <% faculties.forEach(item => { %>
                                 <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
-                                    <div style="color: white;background-color: <%= item.color%>;" class="card-header">
+                                    <div style="color: white;background-color: <%= item.color%>;" class="card-header" data-value="Unidad académica">
                                         Unidad académica
                                     </div>
                                         <div class="card-body">
@@ -113,7 +114,7 @@
                         <div class="centros_investigacion" id="centros_investigacion">
                             <% centros.forEach(item => { %>
                                 <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
-                                    <div style="color: white;background-color: <%= item.color%>;" class="card-header">
+                                    <div style="color: white;background-color: <%= item.color%>;" class="card-header" data-value="Centro de Investigación">
                                         Centro de Investigación
                                     </div>
                                     <div class="card-body">
@@ -134,13 +135,13 @@
                             <div id="info-pie" class="text-start"></div>
                             <div id="grafica-documentos-area" width="400" height="300">
                             </div>
-                            <h5>Publicaciones por área</h5>
+                            <h5 data-value="Publicaciones por área">Publicaciones por área</h5>
                         </div>
                         <div class="col-md-6">
                             <div id="info-tjp" class="text-start"></div>
                             <canvas id="grafica-tjp" width="400" height="300">
                             </canvas>
-                            <h5 id="title-tjp"></h5>
+                            <h5 id="title-tjp" data-value="Publicaciones en revistas de alto impacto"></h5>
                         </div>
                     </div>
                     <div class="row text-center"> 
@@ -148,13 +149,13 @@
                             <div id="info-citaciones" class="m-2 text-start"></div>
                             <canvas id="grafica-citaciones" width="400" height="300">
                             </canvas>
-                            <h5 id="title-citaciones"></h5>
+                            <h5 id="title-citaciones" data-value="Citaciones por año"></h5>
                         </div>
                         <div class="col-md-6">
                             <div id="info-publicaciones" class="m-2 text-start"></div>
                             <canvas id="grafica-publicaciones" width="400" height="300">
                             </canvas>
-                            <h5 id="title-publicaciones"></h5>
+                            <h5 id="title-publicaciones" data-value="Publicaciones por año"></h5>
                         </div>
                     </div>
                     <div class="row text-center"> 
@@ -162,13 +163,13 @@
                             <div id="info-sdg" class="m-2 text-start"></div>
                             <canvas id="grafica-sdg" width="400" height="300">
                             </canvas>
-                            <h5 id="title-sdg"></h5>
+                            <h5 id="title-sdg" data-value="Publicaciones por ODS"></h5>
                         </div>
                         <div class="col-md-6">
                             <div id="info-sdg2" class="m-2 text-start"></div>
                             <canvas id="grafica-sdg2" width="400" height="300">
                             </canvas>
-                            <h5 id="title-sdg2"></h5>
+                            <h5 id="title-sdg2" data-value="Citaciones por ODS"></h5>
                         </div>
                     </div>
                     <div class="row text-center"> 
@@ -176,7 +177,7 @@
                             <div id="info-gender" class="m-2 text-start"></div>
                             <canvas id="grafica-gender" width="400" height="300">
                             </canvas>
-                            <h5 id="title-gender"></h5>
+                            <h5 id="title-gender" data-value="Autores por sexo"></h5>
                         </div>
                     </div>
                 </section>

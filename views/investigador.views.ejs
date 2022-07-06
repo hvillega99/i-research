@@ -81,16 +81,16 @@
             <section class="container p-3">
                 <div class="row"> 
                     <div class="col-md-2">
-                        <h5>Métricas</h5>
+                        <h5 data-value="Métricas">Métricas</h5>
                         
                         <%if(information.documentos >= 0){ %>
                             <h5><%= information.documentos%></h5>
-                            <p>Publicaciones</p>
+                            <p data-value="Publicaciones">Publicaciones</p>
                         <% } %>
                         
                         <%if(information.citas >= 0){ %>
                             <h5><%= information.citas%></h5>
-                            <p>Citaciones</p>
+                            <p data-value="Citaciones">Citaciones</p>
                         <% } %>
                         
                         <%if(information.hIndex >= 0){ %>
@@ -110,7 +110,7 @@
                        
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-citaciones">
+                        <div id="info-citaciones" data-value="Citaciones por año">
                             Citaciones por año
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Citaciones de las publicaciones del autor&#10en los últimos seis años.&#10Estos son siempre los años en los que se&#10publicaron los artículos y no se refieren a&#10los años en los que se recibieron las citas.">
@@ -120,7 +120,7 @@
                         </canvas>
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-publicaciones">
+                        <div id="info-publicaciones" data-value="Publicaciones por año">
                             Publicaciones por año
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Cantidad de publicaciones indexadas del autor&#10por cada uno de los últimos seis años.">
@@ -136,15 +136,15 @@
             <div class="container text-center">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true">Publicaciones</button>
+                        <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#investigadores" type="button" role="tab" aria-controls="home" aria-selected="true" data-value="Publicaciones">Publicaciones</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#colaboradores" type="button" role="tab" aria-controls="profile" aria-selected="false">Colaboradores</button>
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#colaboradores" type="button" role="tab" aria-controls="profile" aria-selected="false" data-value="Colaboradores">Colaboradores</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#proyectos" type="button" role="tab" aria-controls="contact" aria-selected="false">Proyectos</button>
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#proyectos" type="button" role="tab" aria-controls="contact" aria-selected="false" data-value="Proyectos">Proyectos</button>
                     </li>
 
                 </ul>
@@ -301,6 +301,7 @@
         </div>     
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/config_lang.js"></script>
     <script src="/js/graficos.js"></script>
     <script src="/js/colaboradores.js"></script>
     <script src="/js/proyectos.js"></script>
