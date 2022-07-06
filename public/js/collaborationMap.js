@@ -93,7 +93,7 @@ const showCountryInfo = async (e, data) => {
 
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
-                                    <table id="tablePub${country.id}" class="display" style="width:100%">
+                                    <table id="tablePub_${index}" class="display" style="width:100%">
                                         <thead class="clickable-header">
                                             <tr>
                                                 <th scope="col" style="text-align:center">#</th>
@@ -118,6 +118,16 @@ const showCountryInfo = async (e, data) => {
                                         Volver
                                     </button>
                                 </div>`;
+                
+            $(document).ready( function () {
+                $(`#tablePub_${index}`).DataTable({
+                    paging: false,
+                    searching: false,
+                    info: false,
+                    scrollY: 400,
+                    scrollX: true
+                });
+            } );    
 
         });
     
@@ -148,15 +158,7 @@ const showCountryInfo = async (e, data) => {
             });
         } );
 
-        $(document).ready( function () {
-            $(`#tablePub${country.id}`).DataTable({
-                paging: false,
-                searching: false,
-                info: false,
-                scrollY: 400,
-                scrollX: true
-            });
-        } );
+       
     }
 
 }

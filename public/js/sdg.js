@@ -89,7 +89,8 @@ const showList = async (sdg) =>{
                 paging: false,
                 searching: false,
                 info: false,
-                scrollY: 400
+                scrollY: 400,
+                scrollX: true
             });
         } );
         

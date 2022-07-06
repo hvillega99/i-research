@@ -7,7 +7,7 @@ fetch('/api/topAuthors')
         console.error('top no disponible')
         divTable.innerHTML = '<p>No disponible</p>';
     }else{
-        let table = `<table id="sortedTable" class="display" style="width:100%">
+        let table = `<table id="sortedTableTop" class="display" style="width:100%">
                         <thead class="clickable-header">
                             <tr>
                                 <th scope="col" style="text-align:center">#</th>
@@ -34,7 +34,7 @@ fetch('/api/topAuthors')
         divTable.innerHTML = table;
 
         $(document).ready( function () {
-            $('#sortedTable').DataTable({
+            $('#sortedTableTop').DataTable({
                 paging: false,
                 searching: false,
                 info: false,
