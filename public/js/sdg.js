@@ -41,11 +41,11 @@ const showList = async (sdg) =>{
 
         const headerTable = `<thead class="clickable-header">
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Título</th>
-                                        <th scope="col">Citaciones</th>
-                                        <th scope="col">Año de publicación</th>
-                                        <th scope="col">Publicado en</th>
+                                        <th scope="col" style="text-align:center">#</th>
+                                        <th scope="col" style="text-align:center">Título</th>
+                                        <th scope="col" style="text-align:center">Citaciones</th>
+                                        <th scope="col" style="text-align:center">Año de publicación</th>
+                                        <th scope="col" style="text-align:center">Publicado en</th>
                                     </tr>
                             </thead>`;
 
@@ -78,7 +78,7 @@ const showList = async (sdg) =>{
 
         bodyTable += '</tbody>'
 
-        const table = `<table id="tableODS${sdg}" class="table">
+        const table = `<table id="tableODS${sdg}" class="display" style="width:100%">
                             ${headerTable}
                             ${bodyTable}
                         </table>`;

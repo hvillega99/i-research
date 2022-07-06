@@ -1,3 +1,4 @@
+/*
 .fixed_header{
     width: 100%;
     table-layout: fixed;
@@ -19,6 +20,11 @@
     width: 30%;
 }
 
+thead{
+    border-color: black;
+}
+*/
+
 .clickable-header{
     cursor: pointer;
 }
@@ -31,6 +37,4 @@
     background-color: rgba(33, 58, 143, 0.2);
 }
 
-thead{
-    border-color: black;
-}
+/* Para dejar con el mismo estilo del principio */

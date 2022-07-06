@@ -93,14 +93,14 @@ const showCountryInfo = async (e, data) => {
 
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
-                                    <table id="tablePub${country.id}" class="table">
+                                    <table id="tablePub${country.id}" class="display" style="width:100%">
                                         <thead class="clickable-header">
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Título</th>
-                                                <th scope="col">Citaciones</th>
-                                                <th scope="col">Año de publicación</th>
-                                                <th scope="col">Publicado en</th>
+                                                <th scope="col" style="text-align:center">#</th>
+                                                <th scope="col" style="text-align:center">Título</th>
+                                                <th scope="col" style="text-align:center">Citaciones</th>
+                                                <th scope="col" style="text-align:center">Año de publicación</th>
+                                                <th scope="col" style="text-align:center">Publicado en</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -122,12 +122,12 @@ const showCountryInfo = async (e, data) => {
         });
     
         mdContent.innerHTML = `<div id="table-${country.id}">
-                                <table id="tableCountry${country.id}" class="table">
+                                <table id="tableCountry${country.id}" class="display" style="width:100%">
                                     <thead class="clickable-header">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Institución</th>
-                                            <th scope="col">Publicaciones</th>
+                                            <th scope="col" style="text-align:center">#</th>
+                                            <th scope="col" style="text-align:center">Institución</th>
+                                            <th scope="col" style="text-align:center">Publicaciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -142,7 +142,9 @@ const showCountryInfo = async (e, data) => {
                 paging: false,
                 searching: false,
                 info: false,
-                scrollY: 400
+                scrollY: 400,
+                scrollX: true
+
             });
         } );
 
@@ -151,7 +153,8 @@ const showCountryInfo = async (e, data) => {
                 paging: false,
                 searching: false,
                 info: false,
-                scrollY: 400
+                scrollY: 400,
+                scrollX: true
             });
         } );
     }

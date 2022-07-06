@@ -7,12 +7,12 @@ fetch('/api/topAuthors')
         console.error('top no disponible')
         divTable.innerHTML = '<p>No disponible</p>';
     }else{
-        let table = `<table id="sortedTable" class="table">
+        let table = `<table id="sortedTable" class="display" style="width:100%">
                         <thead class="clickable-header">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Autor</th>
-                                <th scope="col">H-index</th>
+                                <th scope="col" style="text-align:center">#</th>
+                                <th scope="col" style="text-align:center">Autor</th>
+                                <th scope="col" style="text-align:center">H-index</th>
                             </tr>
                         </thead>
                         <tbody>`
@@ -38,7 +38,8 @@ fetch('/api/topAuthors')
                 paging: false,
                 searching: false,
                 info: false,
-                scrollY: 400
+                scrollY: 400,
+                scrollX: true
             });
         } );
     }
