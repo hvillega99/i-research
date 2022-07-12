@@ -5,13 +5,13 @@ const passport = require("passport");
 const session = require("express-session");
 const fileUpload = require('express-fileupload');
 
-require('./cache/redis.config.js');
+const Cache = require('./cache/cache.js');
+new Cache();
 
 const Resourcesdb = require('./helpers/resourcesdb');
 const resources = new Resourcesdb();
 
 const casConfig = require('./casConfig.json');
-
 
 //initializations
 const app = express();

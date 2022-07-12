@@ -6,6 +6,9 @@ const CsvParser = require('../helpers/csvParser');
 const Researchersdb = require('../helpers/researchersdb');
 const dbController = new Researchersdb();
 
+const Cache = require('../cache/cache');
+const cache = new Cache();
+
 const scival = new Scival();
 const gtsi = new Gtsi();
 const scopus = new Scopus();
@@ -15,17 +18,25 @@ const countries = require('../resources/data/list_countries.json');
 
 exports.getBibliometricsBySDG = async (req, res) => {
 
-    const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    let data = await cache.get('sdg');
 
-    const data1 = await Promise.all(
-        sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGbibliometrics(sdg))
-    );
+    if(!data){
 
-    const data2 = await Promise.all(
-        sdg_numbers.slice(8, 16).map(sdg => scopus.getSDGbibliometrics(sdg))
-    );
+        const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     
-    const data = [...data1, ...data2];
+        const data1 = await Promise.all(
+            sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGbibliometrics(sdg))
+        );
+    
+        const data2 = await Promise.all(
+            sdg_numbers.slice(8, 16).map(sdg => scopus.getSDGbibliometrics(sdg))
+        );
+        
+        data = [...data1, ...data2];
+
+        await cache.set('sdg', JSON.stringify(data), 60*15);
+
+    }
 
     res.send(data);
 }
@@ -41,13 +52,19 @@ exports.getBibliometricsUnit = async (req, res) => {
     const researchers = dbController.getResearchersByUnit(ua);
     const arrScopusId = researchers.map(item => item.id);
 
-    const date = new Date();
-    const lastYear = date.getFullYear() - 1;
-    const years = [lastYear-5, lastYear-4, lastYear-3, lastYear-2, lastYear-1, lastYear];
+    let data = await cache.get(ua);
 
-    const data = await Promise.all(
-        years.map(year => scopus.getNPublications(arrScopusId, year))
-    );
+    if(!data){
+        const date = new Date();
+        const lastYear = date.getFullYear() - 1;
+        const years = [lastYear-5, lastYear-4, lastYear-3, lastYear-2, lastYear-1, lastYear];
+    
+        data = await Promise.all(
+            years.map(year => scopus.getNPublications(arrScopusId, year))
+        );
+    
+        await cache.set(ua, JSON.stringify(data), 60*15);
+    }
 
     res.send(data);
 }
