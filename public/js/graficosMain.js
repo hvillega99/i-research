@@ -1,3 +1,8 @@
+const thecheckD = document.querySelector(".check")
+thecheckD.addEventListener("click", idiomaD)
+var gf1;
+var gf2;
+var tjp;
 
 const grafica1 = document.getElementById("grafica-citaciones");
 fetch('/api/citationsByYearEspol')
@@ -7,7 +12,7 @@ fetch('/api/citationsByYearEspol')
         const years = Object.keys(dataset);
         const values = years.map(year => dataset[year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(grafica1, {
+        gf1 = new Chart(grafica1, {
             type: 'bar',
             data: {
                 labels: years,
@@ -36,6 +41,7 @@ fetch('/api/citationsByYearEspol')
     
         const infoCitaciones = document.getElementById('info-citaciones')
         infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+        data-value="Citaciones de las publicaciones de la institución de los últimos seis años. Estos son siempre los años en los que se publicaron los artículos y no se refieren a los años en los que se recibieron las citas."
         title="Citaciones de las publicaciones de la institución\nde los últimos seis años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
     
         const title = document.getElementById('title-citaciones');
@@ -54,7 +60,7 @@ fetch('/api/publicationsByYearEspol')
         const years = Object.keys(dataset);
         const values = years.map(year => dataset[year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(grafica2, {
+        gf2 = new Chart(grafica2, {
             type: 'bar',
             data: {
                 labels: years,
@@ -83,6 +89,7 @@ fetch('/api/publicationsByYearEspol')
     
         const infoPublicaciones = document.getElementById('info-publicaciones');
         infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+        data-value="Cantidad de publicaciones indexadas de la institución por cada uno de los últimos seis años."
         title="Cantidad de publicaciones indexadas de la institución\npor cada uno de los últimos seis años."></img>`;
     
         const title = document.getElementById('title-publicaciones');
@@ -91,6 +98,8 @@ fetch('/api/publicationsByYearEspol')
         console.error('publicaciones por año no disponibles');
     }
 })
+
+
 
 // const pieContainer = document.getElementById("grafica-documentos-area");
 // fetch('/api/publications/areas/inst')
@@ -160,7 +169,7 @@ fetch('api/publications/topJournalPercentiles/inst')
         })
     
     
-        new Chart(tjpContainer, {
+        tjp = new Chart(tjpContainer, {
             type: 'bar',
             data: {
                 labels: years,
@@ -216,6 +225,7 @@ fetch('api/publications/topJournalPercentiles/inst')
     
         const infoPublicaciones = document.getElementById('info-tjp');
         infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+        data-value="Cantidad de publicaciones de la institución que se encuentran en el 1%, 5%, 10% o 25% superior de las revistas indexadas más citadas."
         title="Cantidad de publicaciones de la institución que se\nencuentran en el 1%, 5%, 10% ó 25% superior de las\nrevistas indexadas más citadas."></img>`;
         
         const titleTjp = document.getElementById('title-tjp');
@@ -225,3 +235,24 @@ fetch('api/publications/topJournalPercentiles/inst')
     }
 
 })
+
+async function idiomaD(){
+    var labels_tjp;
+    if(thecheck.checked){
+        labels_tjp=['Percentile 1','Percentile 5','Percentile 10','Percentile 25']
+        gf1.data.datasets[0].label="Citations"
+        gf2.data.datasets[0].label="Publications"
+    }
+    else{
+        labels_tjp=['Percentil 1','Percentil 5','Percentil 10','Percentil 25']
+        gf1.data.datasets[0].label="Citaciones"
+        gf2.data.datasets[0].label="Publicaciones"
+    }
+
+    
+    for (var i = 0; i < tjp.data.datasets.length; i++) {
+        tjp.data.datasets[i].label = labels_tjp[i]
+    }
+    
+    //console.log(tf.data.datasets[0].label);
+}

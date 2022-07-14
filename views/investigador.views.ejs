@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <h5>Áreas de investigación</h5>
+                        <h5 data-value="Áreas de investigación">Áreas de investigación</h5>
 
                         <% if(information.areas.length > 0){ %>
                             <% information.areas.forEach(item => { %>
@@ -110,8 +110,8 @@
                        
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-citaciones" data-value="Citaciones por año">
-                            Citaciones por año
+                        <div id="info-citaciones">
+                            <p style="display:inline" data-value="Citaciones por año">Citaciones por año</p>
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Citaciones de las publicaciones del autor&#10en los últimos seis años.&#10Estos son siempre los años en los que se&#10publicaron los artículos y no se refieren a&#10los años en los que se recibieron las citas.">
                             </img>`
@@ -120,8 +120,8 @@
                         </canvas>
                     </div>
                     <div class="col-md-5 text-center">
-                        <div id="info-publicaciones" data-value="Publicaciones por año">
-                            Publicaciones por año
+                        <div id="info-publicaciones">
+                            <p style="display:inline" data-value="Publicaciones por año">Publicaciones por año</p>
                             <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
                             title="Cantidad de publicaciones indexadas del autor&#10por cada uno de los últimos seis años.">
                             </img>`
@@ -164,10 +164,10 @@
                                         <thead class="clickable-header">
                                           <tr>
                                             <th scope="col" style="text-align:center">#</th>
-                                            <th scope="col" style="text-align:center">Título</th>
-                                            <th scope="col" style="text-align:center">Citaciones</th>
-                                            <th scope="col" style="text-align:center">Año de publicación</th>
-                                            <th scope="col" style="text-align:center">Publicado en</th>
+                                            <th scope="col" style="text-align:center" data-value="Título">Título</th>
+                                            <th scope="col" style="text-align:center" data-value="Citaciones">Citaciones</th>
+                                            <th scope="col" style="text-align:center" data-value="Año de publicación">Año de publicación</th>
+                                            <th scope="col" style="text-align:center" data-value="Publicado en">Publicado en</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -194,7 +194,7 @@
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">Publicación</h5>
+                                                                <h5 class="modal-title" data-value="Publicación">Publicación</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body" id="content-<%= item[3] %>">
@@ -245,7 +245,7 @@
         
                         <div class="row justify-content-center text-center" id="proyectos">
                             <div class="col-md-6">   
-                                <h5>Proyectos por año</h5>
+                                <h5 data-value="Proyectos por año">Proyectos por año</h5>
 
                                 <div id="temp-spinner" class="text-center">
                                     <div class="spinner-border" role="status">
@@ -257,7 +257,7 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-evenly">
                                 <div>
-                                    <h5>En ejecución</h5>
+                                    <h5 data-value="En ejecución">En ejecución</h5>
                                     <div id="num-current-projects">
                                         <div class="spinner-border" role="status">
                                             <span class="visually-hidden">Loading...</span>
@@ -266,7 +266,7 @@
                                 </div>
                                 
                                 <div>
-                                    <h5>Finalizados</h5>
+                                    <h5 data-value="Finalizados">Finalizados</h5>
                                     <div id="num-finished-projects">
                                         <div class="spinner-border" role="status">
                                             <span class="visually-hidden">Loading...</span>

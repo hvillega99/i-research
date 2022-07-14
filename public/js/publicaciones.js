@@ -20,15 +20,46 @@ const handleClick = (id, idContent) => {
                 })
 
                 content.innerHTML = `<div class="text-start">
-                                        <p><strong>Título:</strong> ${data["title"]}</p>
-                                        <p><strong>Autores de Espol:</strong> ${fromEspol.join(' ; ')}</p>
-                                        <p><strong>Otros autores:</strong> ${notFromEspol.length>0 ? notFromEspol.join(' ; ') : 'No registra'}</p>
-                                        <p><strong>Citas:</strong> ${data["cites"]}</p>
-                                        <p><strong>Fecha:</strong> ${data["date"]}</p>
+                                        <p><strong data-value="Título:">Título:</strong> ${data["title"]}</p>
+                                        <p><strong data-value="Autores de Espol:">Autores de Espol:</strong> ${fromEspol.join(' ; ')}</p>
+                                        <p><strong data-value="Otros autores:">Otros autores:</strong> ${notFromEspol.length>0 ? notFromEspol.join(' ; ') : 'No registra'}</p>
+                                        <p><strong data-value="Citas:">Citas:</strong> ${data["cites"]}</p>
+                                        <p><strong data-value="Fecha:">Fecha:</strong> ${data["date"]}</p>
                                         <p><strong>Doi:</strong> <a target="_blank" href=https://doi.org/${data["doi"]}>${data["doi"]}</a> </p>
                                         <p><strong>Journal:</strong> ${data["journal"]}</p>
                                         <p><strong>Articlenum:</strong> ${data["articlenum"]}</p>
                                     </div>`;
+                
+                const thecheck_pub = document.querySelector(".check")
+                var pub_language_x = "es"
+                if(thecheck_pub.checked){
+                    pub_language_x = "en"
+                }
+                
+                fetch(`/languages/${pub_language_x}.json`)
+                .then(responseP => responseP.json())
+                .then(Pubtexts => {
+                    const PubtextsToChange = document.querySelectorAll('.text-start p strong[data-value]');
+                    const PubtextsToChange2 = document.querySelectorAll('.modal-title');
+                    //console.log(PubtextsToChange)
+                    for (const PubtextToChange2 of PubtextsToChange2) {
+                        //console.log(PubtextToChange2);
+                        const Pubvalue2 = PubtextToChange2.dataset.value;
+                        PubtextToChange2.textContent = Pubtexts[Pubvalue2];
+                    }
+
+
+                    for (const PubtextToChange of PubtextsToChange) {
+                        console.log(PubtextToChange);
+                        const Pubvalue = PubtextToChange.dataset.value;
+                        PubtextToChange.textContent = Pubtexts[Pubvalue];
+                    }
+                })
+                /*
+                const Pubtexts = await PubrequestJson.json();
+                
+                */
+
             
             }else{
                 content.innerHTML = '<p>No disponible</p>';

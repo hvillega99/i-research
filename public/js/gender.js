@@ -1,8 +1,12 @@
+const thecheckD3 = document.querySelector(".check")
+thecheckD3.addEventListener("click", idiomaD3)
+var gd_graph;
+
 const loadGenderGraph = async (canvas, title, info) => {
     const response = await fetch('/api/espol/metrics/authorsByGender');
     const data = await response.json();
 
-    new Chart(canvas, {
+    gd_graph = new Chart(canvas, {
         type: 'pie',
         data: {
             labels: ['Mujeres', 'Hombres'],
@@ -27,7 +31,7 @@ const loadGenderGraph = async (canvas, title, info) => {
     });
 
     title.textContent = 'Autores por sexo';
-    info.innerHTML = '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" title="Cantidad de autores por sexo."></img>';
+    info.innerHTML = '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" data-value="Cantidad de autores por sexo." title="Cantidad de autores por sexo."></img>';
 }
 
 const genderGraph = document.getElementById('grafica-gender');
@@ -71,4 +75,18 @@ const filterByGender = (gender) => {
 }
 
 
- 
+async function idiomaD3(){
+    if(thecheck.checked){
+        gd_graph.data.labels = ['Women', 'Men']
+        gd_graph.data.datasets[0].label="Gender"
+        
+    }
+    else{
+        gd_graph.data.labels = ['Mujeres', 'Hombres']
+        gd_graph.data.datasets[0].label="Sexo"
+        
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}

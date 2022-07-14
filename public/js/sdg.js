@@ -1,3 +1,9 @@
+const thecheckD2 = document.querySelector(".check")
+thecheckD2.addEventListener("click", idiomaD2)
+var sdgP;
+var sdgC;
+
+
 const sgdNames = {
     1: 'Fin de la pobreza',
     2: 'Hambre cero',
@@ -42,10 +48,10 @@ const showList = async (sdg) =>{
         const headerTable = `<thead class="clickable-header">
                                     <tr>
                                         <th scope="col" style="text-align:center">#</th>
-                                        <th scope="col" style="text-align:center">Título</th>
-                                        <th scope="col" style="text-align:center">Citaciones</th>
-                                        <th scope="col" style="text-align:center">Año de publicación</th>
-                                        <th scope="col" style="text-align:center">Publicado en</th>
+                                        <th scope="col" style="text-align:center" data-value="Título">Título</th>
+                                        <th scope="col" style="text-align:center" data-value="Citaciones">Citaciones</th>
+                                        <th scope="col" style="text-align:center" data-value="Año de publicación">Año de publicación</th>
+                                        <th scope="col" style="text-align:center" data-value="Publicado en">Publicado en</th>
                                     </tr>
                             </thead>`;
 
@@ -63,7 +69,7 @@ const showList = async (sdg) =>{
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Publicación</h5>
+                                        <h5 class="modal-title" data-value="Publicación">Publicación</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body" id="content-${publication[3]}">
@@ -147,7 +153,7 @@ fetch('/api/sdg/bibliometrics')
         const sdgPublicationsGraph = document.getElementById('grafica-sdg')
     
         const maxValue = Math.max.apply( Math, sdgPublications );
-        new Chart(sdgPublicationsGraph, {
+        sdgP = new Chart(sdgPublicationsGraph, {
             type: 'bar',
             data: {
                 labels: sdgLabels,
@@ -176,6 +182,7 @@ fetch('/api/sdg/bibliometrics')
     
         const infoSDGPublications = document.getElementById('info-sdg')
         infoSDGPublications.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+        data-value="Cantidad de publicaciones de la institución por objetivo de desarrollo sostenible."
         title="Cantidad de publicaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
     
         const titleSDGpublications = document.getElementById('title-sdg');
@@ -186,7 +193,7 @@ fetch('/api/sdg/bibliometrics')
 
         const maxValue2 = Math.max.apply( Math, sdgCitations );
 
-        new Chart(sdgCitationsGraph, {
+        sdgC = new Chart(sdgCitationsGraph, {
             type: 'bar',
             data: {
                 labels: sdgLabels,
@@ -215,6 +222,7 @@ fetch('/api/sdg/bibliometrics')
 
         const infoSDGCitations = document.getElementById('info-sdg2');
         infoSDGCitations.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+        data-value="Cantidad de citaciones de la institución por objetivo de desarrollo sostenible."
         title="Cantidad de citaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
 
         const titleSDGCitations = document.getElementById('title-sdg2');
@@ -228,3 +236,17 @@ fetch('/api/sdg/bibliometrics')
     }
     
 })
+
+async function idiomaD2(){
+    if(thecheck.checked){
+        sdgC.data.datasets[0].label="Citations"
+        sdgP.data.datasets[0].label="Publications"
+    }
+    else{
+        sdgC.data.datasets[0].label="Citaciones"
+        sdgP.data.datasets[0].label="Publicaciones"
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}

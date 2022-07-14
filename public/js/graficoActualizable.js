@@ -150,4 +150,5 @@ path = d3.selectAll('path').style('fill',function(d,i){return color[i]})
 
 const infoPublicaciones = document.getElementById('info-pie');
     infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
+    data-value="Cantidad de publicaciones indexadas de la institución por cada área de conocimiento."
     title="Cantidad de publicaciones indexadas de la institución\npor cada área de conocimiento."></img>`;

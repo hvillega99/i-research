@@ -17,6 +17,7 @@ flagsElement.addEventListener("click", (e) => {
 thecheck.addEventListener("click", idioma)
 
 async function idioma(){
+  const textsToChange = document.querySelectorAll('[data-value]');
   //console.log(thecheck.checked)
   var language_x = "es"
   if(thecheck.checked){
@@ -25,10 +26,38 @@ async function idioma(){
   const requestJson = await fetch(`/languages/${language_x}.json`);
   const texts = await requestJson.json();
 
+
+  const textsToChangeTable = document.querySelectorAll('.dataTables_scrollHeadInner table thead tr th');
+  const graphicsTags = document.getElementsByTagName("canvas")
+
+  console.log(graphicsTags)
+
+  
+  for(const the_graph of graphicsTags){
+    console.log(the_graph.chart)
+  }
+  
+  //console.log(obtenerDato)
+  
+  
+  for (const th_text of textsToChangeTable){ 
+     if(th_text.dataset.value){
+      //console.log(th_text)
+      const the_value = th_text.dataset.value
+      th_text.textContent = texts[the_value];
+    }
+  }
+
   for (const textToChange of textsToChange) {
+    //console.log(textToChange)
+    //console.log(textToChange.dataset.value)
+    //console.log('*******************************')
     const value = textToChange.dataset.value;
     if(textToChange.type=="search"){ //Hay que verificar si esta parte no causa muchas alteraciones
       textToChange.placeholder = texts[value];
+    }
+    else if(textToChange.title){
+      textToChange.title = texts[value]
     }
     else{ //Hay que verificar si esta parte no causa muchas alteraciones
       //console.log(textToChange.textContent)
