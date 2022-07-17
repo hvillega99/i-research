@@ -23,7 +23,13 @@ header{
     margin-bottom: 10px;
 }
 
+/*
 h3{
+    text-align: center;
+}
+*/
+
+.text_results{
     text-align: center;
 }
 

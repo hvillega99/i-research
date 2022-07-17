@@ -55,7 +55,7 @@
         </header>
 
         <% if(total>0){ %>
-            <h3><%= total %> resultado(s) de búsqueda para <%= terminos %>:</h3>
+            <div class="text_results"><h3 style="display:inline"><%= total %> <h3 style="display:inline" data-value="resultado(s) de búsqueda para">resultado(s) de búsqueda para</h3> <h3 style="display:inline"><%= terminos %>:</h3></div>
             <div class="container">
                 <div class="row justify-content-center" id="resultados">
                     <div class="col-md-6">
@@ -170,7 +170,7 @@
 
 
         <% if(totalKw>0){ %>
-            <h3><%= totalKw %> investigador(es) trabajan sobre <%= terminos %>:</h3>
+            <div class="text_results"><h3 style="display:inline"><%= totalKw %> <h3 style="display:inline" data-value="investigador(es) trabajan sobre">investigador(es) trabajan sobre</h3> <h3 style="display:inline"><%= terminos %>:</h3></div>
             
             <div class="container">
                 <div class="row justify-content-center" id="resultados">
@@ -217,7 +217,7 @@
         <% } %>
 
         <% if(total==0 && totalKw==0){ %>
-            <h3>No se econtraron resultados para <%= terminos %></h3>
+            <h3 class="text_results">No se econtraron resultados para <%= terminos %></h3>
         <% } %>
 
 

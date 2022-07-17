@@ -42,7 +42,7 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
         divColab.innerHTML = `<table class="table fixed_header">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No. de colaboradores: ${data.length} </th>
+                                        <th scope="col"><p style="display:inline" data-value="No. de colaboradores">No. de colaboradores</p><p style="display:inline">: ${data.length}  </p></th>
                                         <th></th>
                                     </tr>
                                 </thead>
