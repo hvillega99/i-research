@@ -1,3 +1,8 @@
+const thecheckD6 = document.querySelector(".check")
+thecheckD6.addEventListener("click", idiomaD6)
+var citaP;
+var numP;
+
 const id = document.getElementById('scopusId').textContent;
 
 const grafica1 = document.getElementById("grafica-citaciones");
@@ -10,7 +15,7 @@ fetch(`/api/citationsByYear/${id}`)
         const years = Object.keys(dataset[0]);
         const values = years.map(year => dataset[0][year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(grafica1, {
+        citaP = new Chart(grafica1, {
             type: 'bar',
             data: {
                 labels: years,
@@ -56,7 +61,7 @@ fetch(`/api/publicationsByYear/${id}`)
         const years = Object.keys(dataset[0]);
         const values = years.map(year => dataset[0][year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(grafica2, {
+        numP = new Chart(grafica2, {
             type: 'bar',
             data: {
                 labels: years,
@@ -93,3 +98,17 @@ fetch(`/api/publicationsByYear/${id}`)
     }
 
 })
+
+async function idiomaD6(){
+    if(thecheck.checked){
+        citaP.data.datasets[0].label="Citations"
+        numP.data.datasets[0].label="Publications"
+    }
+    else{
+        citaP.data.datasets[0].label="Citaciones"
+        numP.data.datasets[0].label="Publicaciones"
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}

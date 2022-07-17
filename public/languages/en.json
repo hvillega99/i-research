@@ -76,6 +76,11 @@
     "Fecha:": "Date:",
     "ODS" : "SDG",
     "Administrar": "Manage",
-    "Colaboración internacional": "International collaboration"
-    
+    "Colaboración internacional": "International collaboration",
+    "Citaciones de las publicaciones del autor en los últimos seis años. Estos son siempre los años en los que se publicaron los artículos y no se refieren a los años en los que se recibieron las citas.": "Citations of the author's publications in the last six years. These are always the years in which the articles were published and do not refer to the years in which the citations were received.",
+    "Cantidad de publicaciones indexadas del autor por cada uno de los últimos seis años.":"Number of author's indexed publications for each of the last six years.",
+    "Citaciones de las publicaciones con afiliación a ESPOL del centro de investigación de los últimos seis años. Estos son siempre los años en los que se publicaron los artículos y no se refieren a los años en los que se recibieron las citas.": "Citations of the publications with affiliation to ESPOL of the research center of the last six years. These are always the years in which the articles were published and do not refer to the years in which the citations were received.",
+    "Cantidad de publicaciones indexadas con afiliación a ESPOL del centro de investigación por cada uno de los últimos seis años.": "Number of indexed publications affiliated with ESPOL of the research center for each of the last six years.",
+    "Contáctenos": "Contact Us",
+    "Mapa del sitio": "Site Map"    
 }

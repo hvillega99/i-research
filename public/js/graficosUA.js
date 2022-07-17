@@ -1,3 +1,8 @@
+const thecheckD7 = document.querySelector(".check")
+thecheckD7.addEventListener("click", idiomaD7)
+var citaUaP;
+var numUaP;
+
 const id = document.getElementById('uaId').textContent.toLowerCase();
 
 const spinnerPublicaciones = document.querySelector("#spinner-publicaciones");
@@ -30,7 +35,7 @@ fetch(`/api/unit/bibliometrics/${id}`)
         
         const graficaCitas = document.getElementById("grafica-citaciones");
         const maxValue = Math.max.apply( Math, citations);
-        new Chart(graficaCitas, {
+        citaUaP = new Chart(graficaCitas, {
             type: 'bar',
             data: {
                 labels: years,
@@ -66,7 +71,7 @@ fetch(`/api/unit/bibliometrics/${id}`)
 
         const graficaPublicaciones = document.getElementById("grafica-publicaciones");
         const maxValue2 = Math.max.apply( Math, publications);
-        new Chart(graficaPublicaciones, {
+        numUaP = new Chart(graficaPublicaciones, {
             type: 'bar',
             data: {
                 labels: years,
@@ -108,3 +113,17 @@ fetch(`/api/unit/bibliometrics/${id}`)
         publicaciones.textContent = 'No disponible';
     }
 })
+
+async function idiomaD7(){
+    if(thecheck.checked){
+        citaUaP.data.datasets[0].label="Citations"
+        numUaP.data.datasets[0].label="Publications"
+    }
+    else{
+        citaUaP.data.datasets[0].label="Citaciones"
+        numUaP.data.datasets[0].label="Publicaciones"
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}

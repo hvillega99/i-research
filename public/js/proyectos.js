@@ -1,3 +1,7 @@
+const thecheckD5 = document.querySelector(".check")
+thecheckD5.addEventListener("click", idiomaD5)
+var pPic;
+
 const scopusID = document.querySelector('#scopusId').textContent;
 
 const total = document.getElementById('num-total-projects');
@@ -91,7 +95,7 @@ fetch(`/api/projects/${scopusID}`)
             currentContainer.innerHTML = `<table class="table fixed_header">
                                     <thead>
                                         <tr>
-                                            <th scope="col">En ejecución</th>
+                                            <th scope="col" data-value="En ejecución">En ejecución</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -173,7 +177,7 @@ fetch(`/api/projects/${scopusID}`)
             finishedContainer.innerHTML = `<table class="table fixed_header">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Finalizados</th>
+                                                    <th scope="col" data-value="Finalizados">Finalizados</th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>
@@ -190,7 +194,7 @@ fetch(`/api/projects/${scopusID}`)
         const years = Object.keys(counting);
         const values = years.map(year => counting[year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(graph, {
+        pPic = new Chart(graph, {
             type: 'bar',
             data: {
                 labels: years,
@@ -226,3 +230,15 @@ fetch(`/api/projects/${scopusID}`)
     }
 
 })
+
+async function idiomaD5(){
+    if(thecheck.checked){
+        pPic.data.datasets[0].label="Proyects"
+    }
+    else{
+        pPic.data.datasets[0].label="Proyectos"
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}

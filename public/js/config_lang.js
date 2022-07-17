@@ -1,4 +1,4 @@
-const textsToChange = document.querySelectorAll('[data-value]');
+//const textsToChange = document.querySelectorAll('[data-value]');
 const thecheck = document.querySelector(".check")
 
 thecheck.addEventListener("click", idioma)
@@ -27,6 +27,7 @@ async function idioma(){
 
 async function idioma(){
   //console.log(thecheck.checked)
+  const textsToChange = document.querySelectorAll('[data-value]');
   var language_x = "es"
   if(thecheck.checked){
     language_x = "en"

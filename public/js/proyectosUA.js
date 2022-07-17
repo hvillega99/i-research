@@ -1,3 +1,7 @@
+const thecheckD4 = document.querySelector(".check")
+thecheckD4.addEventListener("click", idiomaD4)
+var uapPic;
+
 const uaId = document.getElementById('uaId').textContent;
 
 const total = document.getElementById('num-total-projects');
@@ -98,7 +102,7 @@ fetch(`/api/unit/projects/${uaId}`)
             currentContainer.innerHTML = `<table class="table fixed_header">
                                     <thead>
                                         <tr>
-                                            <th scope="col">En ejecución</th>
+                                            <th scope="col" data-value="En ejecución">En ejecución</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -180,7 +184,7 @@ fetch(`/api/unit/projects/${uaId}`)
             finishedContainer.innerHTML = `<table class="table fixed_header">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Finalizados</th>
+                                                    <th scope="col" data-value="Finalizados">Finalizados</th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>
@@ -197,7 +201,7 @@ fetch(`/api/unit/projects/${uaId}`)
         const years = Object.keys(counting);
         const values = years.map(year => counting[year]);
         const maxValue = Math.max.apply( Math, values );
-        new Chart(graph, {
+        uapPic = new Chart(graph, {
             type: 'bar',
             data: {
                 labels: years,
@@ -245,3 +249,15 @@ fetch(`/api/unit/projects/${uaId}`)
     }
 
 })
+
+async function idiomaD4(){
+    if(thecheck.checked){
+       uapPic.data.datasets[0].label="Proyects"
+    }
+    else{
+        uapPic.data.datasets[0].label="Proyectos"
+    }
+
+    
+    //console.log(tf.data.datasets[0].label);
+}
