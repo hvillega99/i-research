@@ -34,7 +34,7 @@ exports.getBibliometricsBySDG = async (req, res) => {
         
         data = [...data1, ...data2];
 
-        await cache.set('sdg', JSON.stringify(data), 60*15);
+        await cache.set('sdg', JSON.stringify(data));
 
     }
 
@@ -49,6 +49,7 @@ exports.getPublicationsBySDG = async (req, res) => {
 
 exports.getBibliometricsUnit = async (req, res) => {
     const {ua} = req.params;
+    const {instfilter} = req.query;
     const researchers = dbController.getResearchersByUnit(ua);
     const arrScopusId = researchers.map(item => item.id);
 
@@ -60,10 +61,10 @@ exports.getBibliometricsUnit = async (req, res) => {
         const years = [lastYear-5, lastYear-4, lastYear-3, lastYear-2, lastYear-1, lastYear];
     
         data = await Promise.all(
-            years.map(year => scopus.getNPublications(arrScopusId, year))
+            years.map(year => scopus.getNPublications(arrScopusId, year, instfilter))
         );
     
-        await cache.set(ua, JSON.stringify(data), 60*15);
+        await cache.set(ua, JSON.stringify(data));
     }
 
     res.send(data);

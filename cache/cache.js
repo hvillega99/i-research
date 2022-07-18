@@ -43,18 +43,27 @@ class Cache{
         return result;
     }
 
-    async set(key, value, time=null) {
+    async set(key, value) {
         let result;
 
         try{
 
-            result = await this.client.set(key, value);
-            if(time){
-                await this.client.expire(key, time);
-            }
+            result = await this.client.set(key, value, 'EX', this.expire);
 
         }catch(err){
             result = {"error": true, "message": "no se pudo guardar el item"};
+        }
+
+        return result;
+    }
+
+    async del(key) {
+        let result;
+
+        try{
+            result = await this.client.del(key);
+        }catch(err){
+            result = {"error": true, "message": "no se pudo eliminar el item"};
         }
 
         return result;

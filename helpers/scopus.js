@@ -232,7 +232,7 @@ class Scopus{
      * @param {Number} year - Año de la búsqueda
      * @returns 
      */
-    async getNPublications(arrayIDS, year){     
+    async getNPublications(arrayIDS, year, instfilter){     
         //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
         var xlr = 1;
         var designio = ''
@@ -249,7 +249,11 @@ class Scopus{
         })
         //************** 
         try{
-            const url_x = `search/scopus?query=${designio} AND AF-ID(60072061) AND PUBYEAR IS ${year}`;
+            let filter = '';
+            
+            instfilter? filter =  ' AND AF-ID(60072061)' : filter = '';
+
+            const url_x = `search/scopus?query=${designio}${filter} AND PUBYEAR IS ${year}`;
             const respuesta = await this.comunX3(url_x);
             var plop = {'publications': respuesta.publications, 'citations': respuesta.citations, 'year':year};
             return plop;
