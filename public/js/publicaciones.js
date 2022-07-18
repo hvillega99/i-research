@@ -62,7 +62,7 @@ const handleClick = (id, idContent) => {
 
             
             }else{
-                content.innerHTML = '<p>No disponible</p>';
+                content.innerHTML = '<p data-value="No disponible">No disponible</p>';
                 console.error(`no se pudo obtener la información de la publicación ${id}`)
             }
             //document.getElementById(`citation-count-${id}`).textContent

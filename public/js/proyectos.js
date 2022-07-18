@@ -226,7 +226,7 @@ fetch(`/api/projects/${scopusID}`)
         title="Cantidad de proyectos iniciados por año"></img>`;
     }else{
        const proyectosView = document.getElementById("proyectos");
-       proyectosView.innerHTML='<p class="text-center">No disponible</p>';
+       proyectosView.innerHTML='<p data-value="No disponible" class="text-center">No disponible</p>';
     }
 
 })

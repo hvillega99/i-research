@@ -111,8 +111,8 @@ const loadData = (path) => {
             console.error('información bibliométrica no disponible');
             spinnerCitas = 'No disponible';
             spinnerPublicaciones = 'No disponible';
-            citaciones.textContent = 'No disponible';
-            publicaciones.textContent = 'No disponible';
+            citaciones.textContent = '<p data-value="No disponible">No disponible</p>';
+            publicaciones.textContent = '<p data-value="No disponible">No disponible</p>';
         }
     })
 }

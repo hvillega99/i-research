@@ -244,8 +244,8 @@ fetch(`/api/unit/projects/${uaId}`)
         
     }else{
         const proyectosView = document.getElementById("proyectos");
-        proyectosView.innerHTML='<p class="text-center">No disponible</p>';
-        document.querySelector('#areas').innerHTML = 'No disponible';
+        proyectosView.innerHTML='<p data-value="No disponible" class="text-center">No disponible</p>';
+        document.querySelector('#areas').innerHTML = '<p data-value="No disponible">No disponible</p>';
     }
 
 })

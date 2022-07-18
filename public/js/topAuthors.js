@@ -5,7 +5,7 @@ fetch('/api/topAuthors')
 .then(elements => {
     if(elements.error){
         console.error('top no disponible')
-        divTable.innerHTML = '<p>No disponible</p>';
+        divTable.innerHTML = '<p data-value="No disponible">No disponible</p>';
     }else{
         let table = `<table id="sortedTableTop" class="display" style="width:100%">
                         <thead class="clickable-header">

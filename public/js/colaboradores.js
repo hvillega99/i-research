@@ -49,12 +49,12 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
                                 ${tbody}
                             </table>`;
     }else{
-        divColab.innerHTML = '<p>No disponible</p>';
+        divColab.innerHTML = '<p data-value="No disponible">No disponible</p>';
 
     }
     
 })
 .catch(e => {
     console.error('No se pudieron obtener los coautores');
-    divColab.innerHTML = '<p>No disponible</p>';
+    divColab.innerHTML = '<p data-value="No disponible">No disponible</p>';
 })

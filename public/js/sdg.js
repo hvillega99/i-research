@@ -101,7 +101,7 @@ const showList = async (sdg) =>{
         } );
         
     }else{
-        listContainer.innerHTML = 'No disponible';
+        listContainer.innerHTML = '<p data-value="No disponible">No disponible</p>';
         console.error('No se pudo obtener la información correspondiente al ods', sdg);
     }
 }
@@ -238,9 +238,17 @@ fetch('/api/sdg/bibliometrics')
 })
 
 async function idiomaD2(){
+    const sdg_pictures = document.getElementById("sdg-panel");
+    var img_source = 'ods'
+    var n_img = 'ods'
+    var type_img = 'jpg'
+
     if(thecheck.checked){
         sdgC.data.datasets[0].label="Citations"
         sdgP.data.datasets[0].label="Publications"
+        img_source = 'ods_english'
+        n_img = 'sdg'
+        type_img = 'svg'
     }
     else{
         sdgC.data.datasets[0].label="Citaciones"
@@ -248,5 +256,15 @@ async function idiomaD2(){
     }
 
     
-    //console.log(tf.data.datasets[0].label);
+    var sdg_content_picture = ''
+    for(let i = 1; i < 17; i++){
+      sdg_content_picture+= `<img src="/img/${img_source}/${n_img}${i}.${type_img}" class="m-1 sdg-item" 
+                                width="120px" height="120px" alt="sdg${i}"
+                                onclick=showList("${i}")
+                               > ` 
+    }
+      
+    sdg_pictures.innerHTML = ` <div class="d-flex flex-wrap m-4">
+              ${sdg_content_picture}
+          </div>`
 }
