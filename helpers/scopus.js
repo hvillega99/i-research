@@ -251,7 +251,7 @@ class Scopus{
         try{
             let filter = '';
             
-            instfilter? filter =  ' AND AF-ID(60072061)' : filter = '';
+            instfilter == 'true' ? filter =  ' AND AF-ID(60072061)' : filter = '';
 
             const url_x = `search/scopus?query=${designio}${filter} AND PUBYEAR IS ${year}`;
             const respuesta = await this.comunX3(url_x);

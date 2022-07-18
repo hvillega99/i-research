@@ -1,4 +1,3 @@
-/*
 .fixed_header{
     width: 100%;
     table-layout: fixed;
@@ -23,7 +22,7 @@
 thead{
     border-color: black;
 }
-*/
+
 
 .clickable-header{
     cursor: pointer;

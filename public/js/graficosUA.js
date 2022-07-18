@@ -132,11 +132,11 @@ async function idiomaD7(){
     //console.log(tf.data.datasets[0].label);
 }
 
-loadData(`/api/unit/bibliometrics/${id}`);
+loadData(`/api/unit/bibliometrics/${id}?instfilter=true`);
 
 const instfilter = document.getElementById('instfilter');
 
-instfilter.onclick = () =>{
+instfilter.onclick = (e) =>{
 
     citaUaP.destroy();
     numUaP.destroy();
@@ -152,6 +152,6 @@ instfilter.onclick = () =>{
     spinnerPublicaciones.style.display = "block";
     spinnerCitas.style.display = "block";
 
-    loadData(`/api/unit/bibliometrics/${id}?instfilter=true`)
+    loadData(`/api/unit/bibliometrics/${id}?instfilter=${e.target.checked}`)
     
 }

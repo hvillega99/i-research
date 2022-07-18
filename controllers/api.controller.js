@@ -53,7 +53,10 @@ exports.getBibliometricsUnit = async (req, res) => {
     const researchers = dbController.getResearchersByUnit(ua);
     const arrScopusId = researchers.map(item => item.id);
 
-    let data = await cache.get(ua);
+    let key = '';
+    instfilter == 'true' ? key = `${ua}_inf` : key = ua;
+
+    let data = await cache.get(key);
 
     if(!data){
         const date = new Date();
@@ -64,7 +67,7 @@ exports.getBibliometricsUnit = async (req, res) => {
             years.map(year => scopus.getNPublications(arrScopusId, year, instfilter))
         );
     
-        await cache.set(ua, JSON.stringify(data));
+        await cache.set(key, JSON.stringify(data));
     }
 
     res.send(data);
@@ -86,24 +89,39 @@ exports.getTopJournalInst = async (req, res) => {
 }
 
 exports.getTopAuthors = async (req, res) => {
-    
-    const arrScopusId = dbController.getAllScopusId();
-    let authors = [];
 
-    try{
-        for(let i=0; i<10; i++){
-            let subArray;
-            subArray = await scival.getHIndexAll(arrScopusId.slice(Math.round((i/10)*arrScopusId.length), Math.round(((i+1)/10)*arrScopusId.length)));
-            authors = [...authors, ...subArray];
-        }
-     
-        authors.sort((x, y) => y.h - x.h);
-        authors = authors.slice(0, 10);
+    const key = 'top_authors';
+    let data = await cache.get(key);
+
+    if(!data){
+        const arrScopusId = dbController.getAllScopusId();
+        let authors = [];
     
-        res.json(authors);
-    }catch (err) {
-        res.json({"error": true, "message": "servicio no disponible"});
+        try{
+            for(let i=0; i<10; i++){
+                let subArray;
+
+                subArray = await scival.getHIndexAll(
+                        arrScopusId.slice(Math.round((i/10)*arrScopusId.length), 
+                        Math.round(((i+1)/10)*arrScopusId.length))
+                    );
+
+                authors = [...authors, ...subArray];
+            }
+         
+            authors.sort((x, y) => y.h - x.h);
+            authors = authors.slice(0, 10);
+        
+            data = authors;
+
+            await cache.set(key, JSON.stringify(data));
+
+        }catch (err) {
+            console.log(err)
+            data = {"error": true, "message": "servicio no disponible"};
+        }
     }
+    res.send(data);
 }
 
 exports.getCollaborators = async (req, res) => {

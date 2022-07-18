@@ -1,4 +1,5 @@
 const redis = require("redis");
+const config = require("./redis.config.json");
 
 class Cache{
 
@@ -11,8 +12,8 @@ class Cache{
         }
     
         this.client = redis.createClient({
-            url: 'redis://redis-18093.c16.us-east-1-2.ec2.cloud.redislabs.com:18093',
-            password: 'uD1y19Y9za2AepuURZXdi6eQE5s2D5Ml'
+            url: config.url,
+            password: config.password
         });
         
         this.client.connect();
@@ -64,6 +65,18 @@ class Cache{
             result = await this.client.del(key);
         }catch(err){
             result = {"error": true, "message": "no se pudo eliminar el item"};
+        }
+
+        return result;
+    }
+
+    async getKeys(pattern) {
+        let result;
+
+        try{
+            result = await this.client.keys(pattern);
+        }catch(err){
+            result = {"error": true, "message": "no se pudieron obtener las keys"};
         }
 
         return result;
