@@ -13,6 +13,11 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
 .then(result => result.json())
 .then(data=> {
         if(!data.error){
+        var labelCo = 'No. de colaboradores'
+        if(thecheck.checked){
+            labelCo = 'No. of collaborators'
+        }
+
         let tbody = '<tbody>';
         data.forEach(element => {
             let tagName = 'tbody';
@@ -42,7 +47,7 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
         divColab.innerHTML = `<table class="table fixed_header">
                                 <thead>
                                     <tr>
-                                        <th scope="col"><p style="display:inline" data-value="No. de colaboradores">No. de colaboradores</p><p style="display:inline">: ${data.length}  </p></th>
+                                        <th scope="col"><p style="display:inline" data-value="No. de colaboradores">${labelCo}</p><p style="display:inline">: ${data.length}  </p></th>
                                         <th></th>
                                     </tr>
                                 </thead>

@@ -22,6 +22,13 @@ fetch(`/api/unit/projects/${uaId}`)
 
     if(!data.error){
 
+        var label_ejeUA = 'En ejecución'
+        var label_finUA = 'Finalizados'
+        if(thecheck.checked){
+            label_ejeUA = 'In progress'
+            label_finUA = 'Concluded'
+        }
+
         const {current, finished, counting} = data;
     
         total.innerHTML = `<h5>${current.length + finished.length}</h5>`;
@@ -102,7 +109,7 @@ fetch(`/api/unit/projects/${uaId}`)
             currentContainer.innerHTML = `<table class="table fixed_header">
                                     <thead>
                                         <tr>
-                                            <th scope="col" data-value="En ejecución">En ejecución</th>
+                                            <th scope="col" data-value="En ejecución">${label_ejeUA}</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -184,7 +191,7 @@ fetch(`/api/unit/projects/${uaId}`)
             finishedContainer.innerHTML = `<table class="table fixed_header">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col" data-value="Finalizados">Finalizados</th>
+                                                    <th scope="col" data-value="Finalizados">${label_finUA}</th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>

@@ -1,5 +1,20 @@
 const thecheck = document.querySelector(".check")
 
+const loadLanguage = async() => {
+  if(localStorage.getItem('language')){
+    if(localStorage.getItem('language')=='es'){
+      thecheck.checked=false
+    }
+    else{
+      thecheck.checked=true
+    }
+
+    idioma();
+    
+
+  }
+}
+
 
 thecheck.addEventListener("click", idioma)
 
@@ -10,9 +25,9 @@ async function idioma(){
   var language_x = "es"
   if(thecheck.checked){
     language_x = "en"
-    localStorage.setItem('language','en');
-    console.log(localStorage.getItem('language'))
   }
+
+  localStorage.setItem('language',language_x);
   const requestJson = await fetch(`/languages/${language_x}.json`);
   const texts = await requestJson.json();
 
@@ -44,3 +59,5 @@ async function idioma(){
   }  
   
 }
+
+loadLanguage();

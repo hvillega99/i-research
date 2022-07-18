@@ -6,12 +6,23 @@ const loadGenderGraph = async (canvas, title, info) => {
     const response = await fetch('/api/espol/metrics/authorsByGender');
     const data = await response.json();
 
+    var gender_labels = ['Mujeres', 'Hombres']
+    var label_gen_mf = 'Sexo'
+    var title_gender = 'Autores por sexo'
+    var title_gender2 = '"Cantidad de autores por sexo."'
+    if(thecheck.checked){
+        gender_labels = ['Women', 'Men']
+        label_gen_mf = 'Gender'
+        title_gender = 'Authors by gender'
+        title_gender2 = '"Number of authors by gender."'
+    }
+
     gd_graph = new Chart(canvas, {
         type: 'pie',
         data: {
-            labels: ['Mujeres', 'Hombres'],
+            labels: gender_labels,
             datasets: [{
-                label: 'Sexo',
+                label: label_gen_mf,
                 data: [data.mujeres, data.hombres],
                 backgroundColor: ['#D3BAE9', '#A6D2E1'],
                 borderColor: ['#D3BAE9', '#A6D2E1'],
@@ -30,8 +41,8 @@ const loadGenderGraph = async (canvas, title, info) => {
         }
     });
 
-    title.textContent = 'Autores por sexo';
-    info.innerHTML = '<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" data-value="Cantidad de autores por sexo." title="Cantidad de autores por sexo."></img>';
+    title.textContent = title_gender;
+    info.innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" data-value="Cantidad de autores por sexo." title=${title_gender2}></img>`;
 }
 
 const genderGraph = document.getElementById('grafica-gender');

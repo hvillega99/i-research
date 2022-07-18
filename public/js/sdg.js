@@ -32,13 +32,16 @@ const showList = async (sdg) =>{
     sdgPanel.style.display = 'none';
     sdgPublications.style.display = 'block';
 
-    document.getElementById(`title-list-${sdg}`).innerHTML = `Publicaciones sobre ODS ${sdg}: ${sgdNames[sdg]}`;
+    //IDIOMA
+    var title_SDG = 'Publicaciones sobre ODS'
+    if(thecheck.checked){
+        title_SDG = 'Publications on SDGs'
+    }
+    //FIN DE IDIOMA
+
+    document.getElementById(`title-list-${sdg}`).innerHTML = `<div><p style="display:inline" data-value="Publicaciones sobre ODS">${title_SDG}</p> <p style="display:inline"> ${sdg}: ${sgdNames[sdg]}</p></div>`;
 
     const listContainer = document.getElementById(`list-container-${sdg}`);
-
-    /* if(document.getElementById(`waiting-sdg${sdg}`)){
-        
-    } */
 
     const response = await fetch(`/api/sdg/publications/${sdg}`);
     const publications = await response.json();
@@ -145,20 +148,38 @@ fetch('/api/sdg/bibliometrics')
     if(data.length > 0) {
 
         const sdgNumbers = data.map(item => item.sdg);
-        const sdgLabels = sdgNumbers.map(sdg => `ODS ${sdg}`);
-
+       
         const sdgPublications = data.map(item => item.publications);
         const sdgCitations = data.map(item => item.citations);
     
         const sdgPublicationsGraph = document.getElementById('grafica-sdg')
-    
+        
+        //IDIOMA
+        var sdgLabels = sdgNumbers.map(sdg => `ODS ${sdg}`);
+        var label_sdg_publications = 'Publicaciones'
+        var label_sdg_citations = 'Citaciones'
+        var title_sdg_pub = 'Cantidad de publicaciones de la institución\npor objetivo de desarrollo sostenible.'
+        var title_sdg_cit = 'Cantidad de citaciones de la institución\npor objetivo de desarrollo sostenible.'
+        var title_sdg_graph = 'Publicaciones por ODS'
+        var title_sdg_graph2 = 'Citaciones por ODS'
+        if(thecheck.checked){
+            sdgLabels = sdgNumbers.map(sdg => `SDG ${sdg}`)
+            label_sdg_publications = 'Publications'
+            label_sdg_citations = 'Citations'
+            title_sdg_pub = 'Number of publications of the institution by sustainable development goal.'
+            title_sdg_cit = 'Number of citations of the institution by sustainable development goal.'
+            title_sdg_graph = 'Publications per SDG'
+            title_sdg_graph2 = 'Citations per SDG'
+        }
+        //FIN DE IDIOMA
+
         const maxValue = Math.max.apply( Math, sdgPublications );
         sdgP = new Chart(sdgPublicationsGraph, {
             type: 'bar',
             data: {
-                labels: sdgLabels,
+                labels: sdgLabels, //Variable IDIOMA
                 datasets: [{
-                    label: 'Publicaciones',
+                    label: label_sdg_publications, //Variable IDIOMA
                     data: sdgPublications,
                     backgroundColor: sdgNumbers.map(sdg => sdgColors[sdg]),
                     borderColor: sdgNumbers.map(sdg => sdgColors[sdg]),
@@ -183,10 +204,10 @@ fetch('/api/sdg/bibliometrics')
         const infoSDGPublications = document.getElementById('info-sdg')
         infoSDGPublications.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
         data-value="Cantidad de publicaciones de la institución por objetivo de desarrollo sostenible."
-        title="Cantidad de publicaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
+        title="${title_sdg_pub}"></img>`;
     
         const titleSDGpublications = document.getElementById('title-sdg');
-        titleSDGpublications.textContent = 'Publicaciones por ODS';
+        titleSDGpublications.textContent = title_sdg_graph;
 
 
         const sdgCitationsGraph = document.getElementById('grafica-sdg2');
@@ -196,9 +217,9 @@ fetch('/api/sdg/bibliometrics')
         sdgC = new Chart(sdgCitationsGraph, {
             type: 'bar',
             data: {
-                labels: sdgLabels,
+                labels: sdgLabels, //Variable IDIOMA
                 datasets: [{
-                    label: 'Citaciones',
+                    label: label_sdg_citations, //Variable IDIOMA
                     data: sdgCitations,
                     backgroundColor: sdgNumbers.map(sdg => sdgColors[sdg]),
                     borderColor: sdgNumbers.map(sdg => sdgColors[sdg]),
@@ -223,10 +244,10 @@ fetch('/api/sdg/bibliometrics')
         const infoSDGCitations = document.getElementById('info-sdg2');
         infoSDGCitations.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         data-value="Cantidad de citaciones de la institución por objetivo de desarrollo sostenible."
-        title="Cantidad de citaciones de la institución\npor objetivo de desarrollo sostenible."></img>`;
+        title="${title_sdg_cit}"></img>`;
 
         const titleSDGCitations = document.getElementById('title-sdg2');
-        titleSDGCitations.textContent = 'Citaciones por ODS';
+        titleSDGCitations.textContent = title_sdg_graph2;
 
 
 
@@ -238,24 +259,49 @@ fetch('/api/sdg/bibliometrics')
 })
 
 async function idiomaD2(){
-    const sdg_pictures = document.getElementById("sdg-panel");
-    var img_source = 'ods'
-    var n_img = 'ods'
-    var type_img = 'jpg'
-
+    
+    //Esto es temporal
+    var labelnum_SDG = 'ODS';
+    var theLabelsSDG = [];
+    //
     if(thecheck.checked){
         sdgC.data.datasets[0].label="Citations"
         sdgP.data.datasets[0].label="Publications"
-        img_source = 'ods_english'
-        n_img = 'sdg'
-        type_img = 'svg'
+        //Esto es temporal
+        labelnum_SDG = 'SDG'
+        //
     }
     else{
         sdgC.data.datasets[0].label="Citaciones"
         sdgP.data.datasets[0].label="Publicaciones"
     }
 
+    //Esto es temporal
+    for(let i = 1; i < 17; i++){
+         theLabelsSDG.push(`${labelnum_SDG} ${i}`)
+    }
     
+    sdgC.data.labels = theLabelsSDG;
+    sdgP.data.labels = theLabelsSDG;
+    
+    sdgC.update();
+    sdgP.update();
+    //
+
+    change_sdg_pictures();
+    
+}
+
+function change_sdg_pictures(){
+    const sdg_pictures = document.getElementById("sdg-panel");
+    var img_source = 'ods'
+    var n_img = 'ods'
+    var type_img = 'jpg'
+    if(thecheck.checked){
+        img_source = 'ods_english'
+        n_img = 'sdg'
+        type_img = 'svg'
+    }
     var sdg_content_picture = ''
     for(let i = 1; i < 17; i++){
       sdg_content_picture+= `<img src="/img/${img_source}/${n_img}${i}.${type_img}" class="m-1 sdg-item" 
@@ -268,3 +314,6 @@ async function idiomaD2(){
               ${sdg_content_picture}
           </div>`
 }
+
+
+change_sdg_pictures();
