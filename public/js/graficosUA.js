@@ -38,12 +38,18 @@ const loadData = (path) => {
             publicaciones.textContent = totalPublications;
             
             const maxValue = Math.max.apply( Math, citations);
+
+            var cit_graphUA_label = 'Citaciones'
+            if(thecheck.checked){
+                cit_graphUA_label = 'Citations'
+            }
+
             citaUaP = new Chart(graficaCitas, {
                 type: 'bar',
                 data: {
                     labels: years,
                     datasets: [{
-                        label: 'Citaciones',
+                        label: cit_graphUA_label,
                         data: citations,
                         backgroundColor: years.map(item => 'rgba(33, 58, 143, 0.2)'),
                         borderColor: years.map(item => 'rgba(34, 50, 101, 1)'),
@@ -73,12 +79,16 @@ const loadData = (path) => {
             spinnerCitas.style.display = "none";
     
             const maxValue2 = Math.max.apply( Math, publications);
+            var pub_graphUA_label = 'Publicaciones'
+            if(thecheck.checked){
+                pub_graphUA_label = 'Publications'
+            }
             numUaP = new Chart(graficaPublicaciones, {
                 type: 'bar',
                 data: {
                     labels: years,
                     datasets: [{
-                        label: 'Publicaciones',
+                        label: pub_graphUA_label,
                         data: publications,
                         backgroundColor: years.map(item => 'rgba(33, 58, 143, 0.2)'),
                         borderColor: years.map(item => 'rgba(34, 50, 101, 1)'),

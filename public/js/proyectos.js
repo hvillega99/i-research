@@ -16,6 +16,12 @@ fetch(`/api/projects/${scopusID}`)
 
     if(!data.error){
 
+        var label_eje = 'En ejecución'
+        var label_fin = 'Finalizados'
+        if(thecheck.checked){
+            label_eje = 'In progress'
+            label_fin = 'Concluded'
+        }
         const {current, finished, counting} = data;
     
         total.innerHTML = `<h5>${current.length + finished.length}</h5>`;
@@ -95,7 +101,7 @@ fetch(`/api/projects/${scopusID}`)
             currentContainer.innerHTML = `<table class="table fixed_header">
                                     <thead>
                                         <tr>
-                                            <th scope="col" data-value="En ejecución">En ejecución</th>
+                                            <th scope="col" data-value="En ejecución">${label_eje}</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -177,7 +183,7 @@ fetch(`/api/projects/${scopusID}`)
             finishedContainer.innerHTML = `<table class="table fixed_header">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col" data-value="Finalizados">Finalizados</th>
+                                                    <th scope="col" data-value="Finalizados">${label_fin}</th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>

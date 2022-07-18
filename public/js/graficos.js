@@ -12,6 +12,11 @@ fetch(`/api/citationsByYear/${id}`)
 
     if(!dataset.error){
 
+        var cit_graph_label = 'Citaciones'
+        if(thecheck.checked){
+            cit_graph_label = 'Citations'
+        }
+
         const years = Object.keys(dataset[0]);
         const values = years.map(year => dataset[0][year]);
         const maxValue = Math.max.apply( Math, values );
@@ -20,7 +25,7 @@ fetch(`/api/citationsByYear/${id}`)
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Citaciones',
+                    label: cit_graph_label,
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
@@ -58,6 +63,12 @@ fetch(`/api/publicationsByYear/${id}`)
 .then(dataset => {
 
     if(!dataset.error){
+
+        var pub_graph_label = 'Publicaciones'
+        if(thecheck.checked){
+            pub_graph_label = 'Publications'
+        }
+
         const years = Object.keys(dataset[0]);
         const values = years.map(year => dataset[0][year]);
         const maxValue = Math.max.apply( Math, values );
@@ -66,7 +77,7 @@ fetch(`/api/publicationsByYear/${id}`)
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Publicaciones',
+                    label: pub_graph_label,
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),

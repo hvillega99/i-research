@@ -9,6 +9,18 @@ fetch('/api/citationsByYearEspol')
 .then(response => response.json())
 .then(dataset => {
     if(!dataset.error){
+        //IDIOMA
+        var cit_main_pub = 'Citaciones'
+        var cit_main_title = '"Citaciones de las publicaciones de la institución\nde los últimos seis años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."'
+        var text_titlegf1 = 'Citaciones por año'
+        if(thecheck.checked){
+            cit_main_pub = 'Citations'
+            cit_main_title = '"Citations of the institution’s publications for the last six years. These are always years in which the articles were published and do not refer to the years the citations were received."'
+            text_titlegf1 = 'Citations per year'
+        }
+
+        //FIN DE IDIOMA
+
         const years = Object.keys(dataset);
         const values = years.map(year => dataset[year]);
         const maxValue = Math.max.apply( Math, values );
@@ -17,7 +29,7 @@ fetch('/api/citationsByYearEspol')
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Citaciones',
+                    label: cit_main_pub,
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
@@ -42,10 +54,10 @@ fetch('/api/citationsByYearEspol')
         const infoCitaciones = document.getElementById('info-citaciones')
         infoCitaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
         data-value="Citaciones de las publicaciones de la institución de los últimos seis años. Estos son siempre los años en los que se publicaron los artículos y no se refieren a los años en los que se recibieron las citas."
-        title="Citaciones de las publicaciones de la institución\nde los últimos seis años.\nEstos son siempre los años en los que se publicaron\nlos artículos y no se refieren a los años en los que se\nrecibieron las citas."></img>`;
+        title=${cit_main_title}></img>`;
     
         const title = document.getElementById('title-citaciones');
-        title.textContent = 'Citaciones por año';
+        title.textContent = text_titlegf1;
     }else{
         console.error('citaciones por año no disponibles');
     }
@@ -57,6 +69,16 @@ fetch('/api/publicationsByYearEspol')
 .then(dataset => {
 
     if(!dataset.error){
+        //IDIOMA
+        var main_pub = 'Publicaciones'
+        var main_title = '"Cantidad de publicaciones indexadas de la institución\npor cada uno de los últimos seis años."'
+        var text_titlegf2 = 'Publicaciones por año'
+        if(thecheck.checked){
+            main_pub = 'Publications'
+            main_title = '"Number of indexed publications of the institution for each of the last six years."'
+            text_titlegf2 = 'Publications per year'
+        }
+        //FIN DE IDIOMA
         const years = Object.keys(dataset);
         const values = years.map(year => dataset[year]);
         const maxValue = Math.max.apply( Math, values );
@@ -65,7 +87,7 @@ fetch('/api/publicationsByYearEspol')
             data: {
                 labels: years,
                 datasets: [{
-                    label: 'Publicaciones',
+                    label: main_pub,
                     data: values,
                     backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
@@ -90,10 +112,10 @@ fetch('/api/publicationsByYearEspol')
         const infoPublicaciones = document.getElementById('info-publicaciones');
         infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         data-value="Cantidad de publicaciones indexadas de la institución por cada uno de los últimos seis años."
-        title="Cantidad de publicaciones indexadas de la institución\npor cada uno de los últimos seis años."></img>`;
+        title=${main_title}></img>`;
     
         const title = document.getElementById('title-publicaciones');
-        title.textContent = 'Publicaciones por año';
+        title.textContent = text_titlegf2;
     }else{
         console.error('publicaciones por año no disponibles');
     }
@@ -101,65 +123,23 @@ fetch('/api/publicationsByYearEspol')
 
 
 
-// const pieContainer = document.getElementById("grafica-documentos-area");
-// fetch('/api/publications/areas/inst')
-// .then(response => response.json())
-// .then(data => {
-//     const labels = [];
-//     const values = [];
-
-//     data.map(item => {
-//         labels.push(item['Subject areas']);
-//         values.push(item['Documents']);
-//     })
-
-//     const pie = new Chart(pieContainer, {
-//         type: "pie",
-//         data: {
-//             labels: labels,
-//             datasets: [{
-//                 data: values,
-//                 backgroundColor: [
-//                     '#FFCD78',
-//                     '#FCECC0',
-//                     '#FFFAEE',
-//                     '#C6DDAF',
-//                     '#9ACC91',
-//                     '#72B081',
-//                     '#C5EBCA',
-//                     '#FCF9F2',
-//                     '#FDDAE3',
-//                     '#F2BAD1',
-//                     '#F2AECB',
-//                     '#DB97C6',
-//                     '#AB91C4'
-//                 ]
-//             }]
-//         },
-
-//         options: {
-//             responsive: true,
-//             legend: {
-//                 display:  false,
-//             },
-//             animation: {
-//                 animateScale: true,
-//                 animateRotate: true
-//             }
-//         }
-//     })
-
-//     const infoPublicaciones = document.getElementById('info-pie');
-//     infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-//     title="Cantidad de publicaciones indexadas de la institución\npor cada área de conocimiento."></img>`;
-// })
-
 const tjpContainer = document.getElementById('grafica-tjp');
 fetch('api/publications/topJournalPercentiles/inst')
 .then(response => response.json())
 .then(data => {
     
+    
     if(!data.error){
+        //IDIOMA
+        var top_percentile = labels_tjp=['Percentil 1','Percentil 5','Percentil 10','Percentil 25']
+        var topTitle = '"Cantidad de publicaciones de la institución que se\nencuentran en el 1%, 5%, 10% ó 25% superior de las\nrevistas indexadas más citadas."'
+        var text_titleTjp = 'Publicaciones en revistas de alto impacto'
+        if(thecheck.checked){
+            topTitle = '"The number of publications of the institution that are in the top 1%, 5%, 10%, or 25% of the most cited indexed journals."'
+            top_percentile = ['Percentile 1','Percentile 5','Percentile 10','Percentile 25']
+            text_titleTjp = 'Publications in high-impact magazines'
+        }
+        //FIN DE IDIOMA
         
         const years = Object.keys(data[0]["percentageByYear"]);
         const datasets = [];
@@ -175,28 +155,28 @@ fetch('api/publications/topJournalPercentiles/inst')
                 labels: years,
                 datasets: [
                         {
-                            label: 'Percentil 1',
+                            label: top_percentile[0],
                             data: datasets[0],
                             backgroundColor: years.map(item => '#CCEDE4'),
                             borderWidth: 1
                         },
     
                         {
-                            label: 'Percentil 5',
+                            label: top_percentile[1],
                             data: datasets[1],
                             backgroundColor: years.map(item => '#A6D2E1'),
                             borderWidth: 1
                         },
     
                         {
-                            label: 'Percentil 10',
+                            label: top_percentile[2],
                             data: datasets[2],
                             backgroundColor: years.map(item => '#A8A6DB'),
                             borderWidth: 1
                         },
     
                         {
-                            label: 'Percentil 25',
+                            label: top_percentile[3],
                             data: datasets[3],
                             backgroundColor: years.map(item => '#D3BAE9'),
                             borderWidth: 1
@@ -226,10 +206,10 @@ fetch('api/publications/topJournalPercentiles/inst')
         const infoPublicaciones = document.getElementById('info-tjp');
         infoPublicaciones.innerHTML += `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         data-value="Cantidad de publicaciones de la institución que se encuentran en el 1%, 5%, 10% o 25% superior de las revistas indexadas más citadas."
-        title="Cantidad de publicaciones de la institución que se\nencuentran en el 1%, 5%, 10% ó 25% superior de las\nrevistas indexadas más citadas."></img>`;
+        title=${topTitle}></img>`;
         
         const titleTjp = document.getElementById('title-tjp');
-        titleTjp.textContent = 'Publicaciones en revistas de alto impacto';
+        titleTjp.textContent = text_titleTjp;
     }else{
         console.error('publicaciones en revistas de alto impacto no disponibles');
     }
@@ -253,6 +233,8 @@ async function idiomaD(){
     for (var i = 0; i < tjp.data.datasets.length; i++) {
         tjp.data.datasets[i].label = labels_tjp[i]
     }
+
+    tjp.update();
     
     //console.log(tf.data.datasets[0].label);
 }
