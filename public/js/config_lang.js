@@ -56,7 +56,10 @@ async function idioma(){
     for (const table_bug of table_bugs) {
       table_bug.textContent = ''
     }
-  }  
+  }
+  
+  $($.fn.dataTable.tables(true)).DataTable()
+    .columns.adjust();  
   
 }
 

@@ -49,6 +49,7 @@ fetch('/api/topAuthors')
     
         divTable.innerHTML = table;
 
+        
         $(document).ready( function () {
             $('#sortedTableTop').DataTable({
                 paging: false,
@@ -58,6 +59,19 @@ fetch('/api/topAuthors')
                 scrollX: true
             });
         } );
+        
+        
+
+        
+        
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(e){
+            $($.fn.dataTable.tables(true)).DataTable()
+            .columns.adjust();
+        });
+       
+        
+
+       
     }
 
 })

@@ -118,6 +118,12 @@ const showList = async (sdg) =>{
                 scrollX: true
             });
         } );
+
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(e){
+            $($.fn.dataTable.tables(true)).DataTable()
+            .columns.adjust();
+
+        });
         
     }else{
         listContainer.innerHTML = `<p data-value="No disponible">${no_aviliable_sdg}</p>`;
