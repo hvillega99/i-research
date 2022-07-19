@@ -24,9 +24,13 @@ fetch(`/api/unit/projects/${uaId}`)
 
         var label_ejeUA = 'En ejecución'
         var label_finUA = 'Finalizados'
+        var no_pro_finUA = 'No registra proyectos finalizados'
+        var no_pro_ejeUA = 'No registra proyectos en ejecución'
         if(thecheck.checked){
             label_ejeUA = 'In progress'
             label_finUA = 'Concluded'
+            no_pro_finUA = 'Does not register finished projects'
+            no_pro_ejeUA = 'Does not register projects in execution'
         }
 
         const {current, finished, counting} = data;
@@ -38,7 +42,7 @@ fetch(`/api/unit/projects/${uaId}`)
         currentContainer.innerHTML = '';
     
         if(current.length == 0){
-            currentContainer.innerHTML = 'No registra proyectos en ejecución';
+            currentContainer.innerHTML = `<p data-value="No registra proyectos en ejecución">${no_pro_ejeUA}</p>`;
         }else{
             let currentTbody = '<tbody>';
         
@@ -122,7 +126,7 @@ fetch(`/api/unit/projects/${uaId}`)
         finishedContainer.innerHTML = '';
     
         if(finished.length == 0){
-            finishedContainer.innerHTML = 'No registra proyectos finalizados';
+            finishedContainer.innerHTML = `<p data-value="No registra proyectos finalizados">${no_pro_finUA}</p>`;
         }else{
     
             let finishedTbody = '<tbody>';
@@ -250,9 +254,16 @@ fetch(`/api/unit/projects/${uaId}`)
         
         
     }else{
+        //IDIOMA
+        var no_aviliable_proUA = 'No disponible'
+        if(thecheck.checked){
+            no_aviliable_proUA = 'Not available'
+        }
+        //FIN DE IDIOMA
+
         const proyectosView = document.getElementById("proyectos");
-        proyectosView.innerHTML='<p data-value="No disponible" class="text-center">No disponible</p>';
-        document.querySelector('#areas').innerHTML = '<p data-value="No disponible">No disponible</p>';
+        proyectosView.innerHTML=`<p data-value="No disponible" class="text-center">${no_aviliable_proUA}</p>`;
+        document.querySelector('#areas').innerHTML = `<p data-value="No disponible">${no_aviliable_proUA}</p>`;
     }
 
 })

@@ -54,12 +54,25 @@ fetch(`/api/collaborators/${scopusId}/${publications}`)
                                 ${tbody}
                             </table>`;
     }else{
-        divColab.innerHTML = '<p data-value="No disponible">No disponible</p>';
+
+        //IDIOMA
+        var no_aviliable_co = 'No disponible'
+        if(thecheck.checked){
+            no_aviliable_co = 'Not available'
+        }
+        //FIN DE IDIOMA
+        divColab.innerHTML = `<p data-value="No disponible">${no_aviliable_co}</p>`;
 
     }
     
 })
 .catch(e => {
     console.error('No se pudieron obtener los coautores');
-    divColab.innerHTML = '<p data-value="No disponible">No disponible</p>';
+    //IDIOMA
+    var no_aviliable_co2 = 'No disponible'
+    if(thecheck.checked){
+        no_aviliable_co2 = 'Not available'
+    }
+    //FIN DE IDIOMA
+    divColab.innerHTML = `<p data-value="No disponible">${no_aviliable_co2}</p>`;
 })

@@ -34,8 +34,10 @@ const showList = async (sdg) =>{
 
     //IDIOMA
     var title_SDG = 'Publicaciones sobre ODS'
+    var no_aviliable_sdg = 'No disponible'
     if(thecheck.checked){
         title_SDG = 'Publications on SDGs'
+        no_aviliable_sdg = 'Not available'
     }
     //FIN DE IDIOMA
 
@@ -48,13 +50,27 @@ const showList = async (sdg) =>{
 
     if(!publications.error) {
 
+        //IDIOMA
+        
+        var titulo_th_sdg = 'Título'
+        var citaciones_th_sdg = 'Citaciones'
+        var year_th_sdg = 'Año de publicación'
+        var pub_th_sdg = 'Publicado en'
+        if(thecheck.checked){
+            titulo_th_sdg = 'Title'
+            citaciones_th_sdg = 'Citations'
+            year_th_sdg = 'Year of publication'
+            pub_th_sdg = 'Published in'
+        }
+        //FIN DE IDIOMA
+
         const headerTable = `<thead class="clickable-header">
                                     <tr>
                                         <th scope="col" style="text-align:center">#</th>
-                                        <th scope="col" style="text-align:center" data-value="Título">Título</th>
-                                        <th scope="col" style="text-align:center" data-value="Citaciones">Citaciones</th>
-                                        <th scope="col" style="text-align:center" data-value="Año de publicación">Año de publicación</th>
-                                        <th scope="col" style="text-align:center" data-value="Publicado en">Publicado en</th>
+                                        <th scope="col" style="text-align:center" data-value="Título">${titulo_th_sdg}</th>
+                                        <th scope="col" style="text-align:center" data-value="Citaciones">${citaciones_th_sdg}</th>
+                                        <th scope="col" style="text-align:center" data-value="Año de publicación">${year_th_sdg}</th>
+                                        <th scope="col" style="text-align:center" data-value="Publicado en">${pub_th_sdg}</th>
                                     </tr>
                             </thead>`;
 
@@ -104,7 +120,7 @@ const showList = async (sdg) =>{
         } );
         
     }else{
-        listContainer.innerHTML = '<p data-value="No disponible">No disponible</p>';
+        listContainer.innerHTML = `<p data-value="No disponible">${no_aviliable_sdg}</p>`;
         console.error('No se pudo obtener la información correspondiente al ods', sdg);
     }
 }

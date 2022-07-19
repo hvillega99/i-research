@@ -18,9 +18,13 @@ fetch(`/api/projects/${scopusID}`)
 
         var label_eje = 'En ejecución'
         var label_fin = 'Finalizados'
+        var no_pro_fin = 'No registra proyectos finalizados'
+        var no_pro_eje = 'No registra proyectos en ejecución'
         if(thecheck.checked){
             label_eje = 'In progress'
             label_fin = 'Concluded'
+            no_pro_fin = 'Does not register finished projects'
+            no_pro_eje = 'Does not register projects in execution'
         }
         const {current, finished, counting} = data;
     
@@ -31,7 +35,7 @@ fetch(`/api/projects/${scopusID}`)
         currentContainer.innerHTML = '';
     
         if(current.length == 0){
-            currentContainer.innerHTML = 'No registra proyectos en ejecución';
+            currentContainer.innerHTML = `<p data-value="No registra proyectos en ejecución">${no_pro_eje}</p>`;
         }else{
             let currentTbody = '<tbody>';
         
@@ -114,7 +118,7 @@ fetch(`/api/projects/${scopusID}`)
         finishedContainer.innerHTML = '';
     
         if(finished.length == 0){
-            finishedContainer.innerHTML = 'No registra proyectos finalizados';
+            finishedContainer.innerHTML = `<p data-value="No registra proyectos finalizados">${no_pro_fin}</p>`;
         }else{
     
             let finishedTbody = '<tbody>';
@@ -231,8 +235,14 @@ fetch(`/api/projects/${scopusID}`)
         document.getElementById('info').innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
         title="Cantidad de proyectos iniciados por año"></img>`;
     }else{
+        //IDIOMA
+        var no_aviliable_pro = 'No disponible'
+        if(thecheck.checked){
+            no_aviliable_pro = 'Not available'
+        }
+        //FIN DE IDIOMA
        const proyectosView = document.getElementById("proyectos");
-       proyectosView.innerHTML='<p data-value="No disponible" class="text-center">No disponible</p>';
+       proyectosView.innerHTML=`<p data-value="No disponible" class="text-center">${no_aviliable_pro}</p>`;
     }
 
 })

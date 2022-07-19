@@ -118,11 +118,19 @@ const loadData = (path) => {
             spinnerPublicaciones.style.display = "none";
             
         }else{
+
+            //IDIOMA
+            var no_aviliable_graUA = 'No disponible'
+            if(thecheck.checked){
+                no_aviliable_graUA = 'Not available'
+            }
+            //FIN DE IDIOMA
+
             console.error('información bibliométrica no disponible');
             spinnerCitas = 'No disponible';
             spinnerPublicaciones = 'No disponible';
-            citaciones.textContent = '<p data-value="No disponible">No disponible</p>';
-            publicaciones.textContent = '<p data-value="No disponible">No disponible</p>';
+            citaciones.textContent = `<p data-value="No disponible">${no_aviliable_graUA}</p>`;
+            publicaciones.textContent = `<p data-value="No disponible">${no_aviliable_graUA}</p>`;
         }
     })
 }

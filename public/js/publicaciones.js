@@ -62,7 +62,14 @@ const handleClick = (id, idContent) => {
 
             
             }else{
-                content.innerHTML = '<p data-value="No disponible">No disponible</p>';
+                //IDIOMA
+                var no_aviliable_pub = 'No disponible'
+                if(thecheck.checked){
+                    no_aviliable_pub = 'Not available'
+                }
+                //FIN DE IDIOMA
+
+                content.innerHTML = `<p data-value="No disponible">${no_aviliable_pub}</p>`;
                 console.error(`no se pudo obtener la información de la publicación ${id}`)
             }
             //document.getElementById(`citation-count-${id}`).textContent
