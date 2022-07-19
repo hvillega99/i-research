@@ -70,6 +70,13 @@ exports.getBibliometricsUnit = async (req, res) => {
         await cache.set(key, JSON.stringify(data));
     }
 
+    /**********
+     * verificar si existen respuestas con errores
+     * si hay 6 respuestas correctas, enviarlas
+     * caso contrario:
+     * crear lista de años con respuestas y otras con error
+     */
+
     res.send(data);
 }
 

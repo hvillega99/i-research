@@ -5,6 +5,9 @@ const Researchersdb = require('../helpers/researchersdb');
 const Resourcesdb = require('../helpers/resourcesdb');
 const resources = new Resourcesdb();
 
+const Cache = require('../cache/cache');
+const cache = new Cache();
+
 //const fs = require('fs');
 const path = require('path');
 
@@ -52,6 +55,15 @@ exports.uploadResearchers = async (req, res) => {
 
         await researchersdb.update();
         
+        const keys = await cache.getKeys('*');
+
+        if(!keys.error){
+            const saveKeys = ['sdg', 'map'];
+            const delKeys = keys.filter(key => !saveKeys.includes(key));
+            
+            await cache.del(delKeys);
+        }
+
         message.content = 'Archivo de investigadores actualizado.';
         message.show = true;
         res.redirect('/admin');
