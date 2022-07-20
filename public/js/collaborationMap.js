@@ -90,6 +90,22 @@ const showCountryInfo = async (e, data) => {
                                 <p>${inst.documentCount}</p>
                             </td>
                         </tr>`;
+            
+            //IDIOMA
+            var titulo_th_map = 'Título'
+            var citaciones_th_map = 'Citaciones'
+            var year_th_map = 'Año de publicación'
+            var pub_th_map = 'Publicado en'
+            var back_text = 'Volver'
+
+            if(thecheck.checked){
+                titulo_th_map = 'Title'
+                citaciones_th_map = 'Citations'
+                year_th_map = 'Year of publication'
+                pub_th_map = 'Published in'
+                back_text = 'Back'
+            }
+            //FIN DE IDIOMA
 
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
@@ -97,10 +113,10 @@ const showCountryInfo = async (e, data) => {
                                         <thead class="clickable-header">
                                             <tr>
                                                 <th scope="col" style="text-align:center">#</th>
-                                                <th scope="col" style="text-align:center">Título</th>
-                                                <th scope="col" style="text-align:center">Citaciones</th>
-                                                <th scope="col" style="text-align:center">Año de publicación</th>
-                                                <th scope="col" style="text-align:center">Publicado en</th>
+                                                <th scope="col" style="text-align:center" data-value="Título">${titulo_th_map}</th>
+                                                <th scope="col" style="text-align:center" data-value="Citaciones">${citaciones_th_map}</th>
+                                                <th scope="col" style="text-align:center" data-value="Año de publicación">${year_th_map}</th>
+                                                <th scope="col" style="text-align:center" data-value="Publicado en">${pub_th_map}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -108,14 +124,14 @@ const showCountryInfo = async (e, data) => {
                                         </tbody>
                                     </table>
 
-                                    <button type="button" class="btn btn-primary btn-sm mb-0" 
+                                    <button data-value="Volver" type="button" class="btn btn-primary btn-sm mb-0" 
                                         aria-label="Cerrar"
                                         onclick="manageList('table-${country.id}', 
                                         'table-${country.id}-inst${index}', 
                                         'Instituciones de ${country.name} con publicaciones en conjunto con ESPOL', 
                                         '${country.id}')"
                                     >
-                                        Volver
+                                        ${back_text}
                                     </button>
                                 </div>`;
                 
@@ -130,14 +146,24 @@ const showCountryInfo = async (e, data) => {
             } );    
 
         });
+
+        //IDIOMA
+        var  inst_th_map = 'Institución'
+        var pub_nth_map = 'Publicaciones'
+        
+        if(thecheck.checked){
+            inst_th_map = 'Institution'
+            pub_nth_map = 'Publications'
+        }
+        //FIN DE IDIOMA
     
         mdContent.innerHTML = `<div id="table-${country.id}">
                                 <table id="tableCountry${country.id}" class="display" style="width:100%">
                                     <thead class="clickable-header">
                                         <tr>
                                             <th scope="col" style="text-align:center">#</th>
-                                            <th scope="col" style="text-align:center">Institución</th>
-                                            <th scope="col" style="text-align:center">Publicaciones</th>
+                                            <th scope="col" style="text-align:center" data-value="Institución">${inst_th_map}</th>
+                                            <th scope="col" style="text-align:center" data-value="Publicaciones">${pub_nth_map}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -173,14 +199,26 @@ const loadCountryValues = (data, values) => {
             const country = data.find(e => e.id == id);
             country.documentCount = item.publications;
 
+
+            //IDIOMA
+            var inst_mess_1 = 'Instituciones de'
+            var inst_mess_2 = 'con publicaciones en conjunto con ESPOL'
+            
+            if(thecheck.checked){
+                inst_mess_1 = 'Institutions of'
+                inst_mess_2 = 'with publications in conjunction with ESPOL'
+            }
+            //FIN DE IDIOMA
+
             document.querySelector('#md-countries')
             .innerHTML += `<div class="modal fade" id="md-${id}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-center" id="md-${id}-title">
-                                                Instituciones de ${country.name} con publicaciones en conjunto con ESPOL
-                                            </h5>
+
+                                        <div  id="md-${id}-title">
+                                            <h5 style="display:inline" data-value="Instituciones de">${inst_mess_1} </h5> <h5 style="display:inline">${country.name}</h5> <h5 style="display:inline" data-value="con publicaciones en conjunto con ESPOL">${inst_mess_2}</h5>
+                                        </div>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -250,7 +288,7 @@ anychart.onDocumentReady(function () {
             .useHtml(true)
             .format(function () {
             return (
-                '<span style="color: #d9d9d9">Publicaciones</span>: ' +
+                '<span style="color: #d9d9d9" data-value="Publicaciones">Publicaciones</span>: ' +
                 this.getData('documentCount')
             );
             });

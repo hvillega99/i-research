@@ -50,7 +50,6 @@ const handleClick = (id, idContent) => {
 
 
                     for (const PubtextToChange of PubtextsToChange) {
-                        console.log(PubtextToChange);
                         const Pubvalue = PubtextToChange.dataset.value;
                         PubtextToChange.textContent = Pubtexts[Pubvalue];
                     }

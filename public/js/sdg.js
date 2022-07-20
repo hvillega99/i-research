@@ -23,6 +23,25 @@ const sgdNames = {
     16: 'Paz, justicia e instituciones sólidas',
 }
 
+const sgdNamesEng = {
+    1: 'No poverty',
+    2: 'Zero hunger',
+    3: 'Good health and well-being',
+    4: 'Quality Education',
+    5: 'Gender equality',	
+    6: 'Clean water and sanitation',
+    7: 'Affordable and clean energy',
+    8: 'Decent work and economic growth',
+    9: 'Industry, innovation and infrastructure',
+    10: 'Reduced inequality',
+    11: 'Sustainable cities and communities',
+    12: 'Responsible consumption and production',
+    13: 'Climate action',
+    14: 'Life below water',
+    15: 'Life on land',
+    16: 'Peace, justice, and strong institutions',
+}
+
 const sdgPanel = document.getElementById('sdg-panel');
 
 const showList = async (sdg) =>{
@@ -35,13 +54,15 @@ const showList = async (sdg) =>{
     //IDIOMA
     var title_SDG = 'Publicaciones sobre ODS'
     var no_aviliable_sdg = 'No disponible'
+    var sdg_num_name = sgdNames[sdg];
     if(thecheck.checked){
         title_SDG = 'Publications on SDGs'
         no_aviliable_sdg = 'Not available'
+        sdg_num_name = sgdNamesEng[sdg];
     }
     //FIN DE IDIOMA
 
-    document.getElementById(`title-list-${sdg}`).innerHTML = `<div><p style="display:inline" data-value="Publicaciones sobre ODS">${title_SDG}</p> <p style="display:inline"> ${sdg}: ${sgdNames[sdg]}</p></div>`;
+    document.getElementById(`title-list-${sdg}`).innerHTML = `<div><p style="display:inline" data-value="Publicaciones sobre ODS">${title_SDG}</p> <p style="display:inline"> ${sdg}: </p> <p style="display:inline" data-value="${sgdNames[sdg]}">${sdg_num_name}</p></div>`;
 
     const listContainer = document.getElementById(`list-container-${sdg}`);
 
