@@ -1,3 +1,6 @@
+const thecheckD8 = document.querySelector(".check")
+thecheckD8.addEventListener("click", idiomaD8)
+var series;
 const manageList = (show, hide, place, country, menu_type) => {
     //console.log(ms2);
     //console.log(ms3);
@@ -298,7 +301,7 @@ anychart.onDocumentReady(function () {
 
         var dataSet = anychart.data.set(data);
         var densityData = dataSet.mapAs({ value: 'documentCount' });
-        var series = map.choropleth(densityData);
+        series = map.choropleth(densityData);
 
         series.labels(false);
 
@@ -311,13 +314,18 @@ anychart.onDocumentReady(function () {
             .selected()
             .fill('#c2185b')
             .stroke(anychart.color.darken('#c2185b'));
-
+        
+        var map_pub_tag = 'Publicaciones'
+        if(thecheck.checked){
+            map_pub_tag = 'Publications'
+        }
+        
         series
             .tooltip()
             .useHtml(true)
             .format(function () {
             return (
-                '<span style="color: #d9d9d9" data-value="Publicaciones">Publicaciones</span>: ' +
+                `<span style="color: #d9d9d9">${map_pub_tag}</span>: ` +
                 this.getData('documentCount')
             );
             });
@@ -379,3 +387,33 @@ anychart.onDocumentReady(function () {
         }
     );
 });
+
+async function idiomaD8(){
+    
+    
+    if(thecheck.checked){
+        series
+            .tooltip()
+            .useHtml(true)
+            .format(function () {
+            return (
+                '<span style="color: #d9d9d9">Publications</span>: ' +
+                this.getData('documentCount')
+            );
+            });
+    }
+    else{
+        series
+            .tooltip()
+            .useHtml(true)
+            .format(function () {
+            return (
+                '<span style="color: #d9d9d9">Publicaciones</span>: ' +
+                this.getData('documentCount')
+            );
+            });
+    }
+
+    
+    
+}
