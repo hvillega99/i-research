@@ -1,7 +1,34 @@
-const manageList = (show, hide, title, country) => {
+const manageList = (show, hide, place, country, menu_type) => {
+    //console.log(ms2);
+    //console.log(ms3);
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
-    document.getElementById(`md-${country}-title`).textContent = title;
+
+    var inst_mess_a = 'Instituciones de'
+    var inst_mess_b = 'con publicaciones en conjunto con ESPOL'
+    var inst_mess_c = 'Publicaciones en conjunto con'
+
+    var dms1 = inst_mess_a
+    var dms2 = inst_mess_b
+    var dms3 = inst_mess_c
+
+    if(thecheck.checked){
+        inst_mess_a = 'Institutions of'
+        inst_mess_b = 'with publications in conjunction with ESPOL'
+        inst_mess_c = 'Publications in conjunction with'
+    }
+
+    var ms1 = inst_mess_a
+    var ms2 = inst_mess_b
+
+    if(menu_type=='i'){
+        ms1 = inst_mess_c
+        ms2 = ''
+        dms1 = dms3
+        dms2 = ''
+    }
+
+    document.getElementById(`md-${country}-title`).innerHTML = `<h5 style="display:inline" data-value='${dms1}'>${ms1} </h5> <h5 style="display:inline">${place}</h5> <h5 style="display:inline" data-value='${dms2}'>${ms2}</h5>` ;
 }
 
 const showCountryInfo = async (e, data) => {
@@ -81,7 +108,7 @@ const showCountryInfo = async (e, data) => {
                                         </div>`;
             });
             
-            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', 'Publicaciones en conjunto con ${inst.name.replace("'","’")}', '${country.id}')">
+            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', '${inst.name.replace("'","’")}', '${country.id}', 'i')">
                             <th scope="row">${index + 1}</th>
                             <td>
                                 <p>${inst.name}</p>
@@ -97,6 +124,7 @@ const showCountryInfo = async (e, data) => {
             var year_th_map = 'Año de publicación'
             var pub_th_map = 'Publicado en'
             var back_text = 'Volver'
+        
 
             if(thecheck.checked){
                 titulo_th_map = 'Title'
@@ -128,8 +156,9 @@ const showCountryInfo = async (e, data) => {
                                         aria-label="Cerrar"
                                         onclick="manageList('table-${country.id}', 
                                         'table-${country.id}-inst${index}', 
-                                        'Instituciones de ${country.name} con publicaciones en conjunto con ESPOL', 
-                                        '${country.id}')"
+                                        '${country.name}',
+                                        '${country.id}',
+                                        'c')"
                                     >
                                         ${back_text}
                                     </button>
