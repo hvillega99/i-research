@@ -4,8 +4,13 @@ var series;
 const manageList = (show, hide, place, country, menu_type) => {
     //console.log(ms2);
     //console.log(ms3);
+    
+
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
+
+    $($.fn.dataTable.tables(true)).DataTable()
+    .columns.adjust();  
 
     var inst_mess_a = 'Instituciones de'
     var inst_mess_b = 'con publicaciones en conjunto con ESPOL'
@@ -177,6 +182,11 @@ const showCountryInfo = async (e, data) => {
                 });
             } );    
 
+            $('.modal').on('shown.bs.modal', function(e){
+                $($.fn.dataTable.tables(true)).DataTable()
+                .columns.adjust();
+            });
+
         });
 
         //IDIOMA
@@ -215,6 +225,8 @@ const showCountryInfo = async (e, data) => {
 
             });
         } );
+
+        
 
        
     }
