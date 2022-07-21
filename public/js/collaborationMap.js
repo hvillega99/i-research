@@ -98,7 +98,7 @@ const showCountryInfo = async (e, data) => {
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Publicación</h5>
+                                                        <h5 class="modal-title" data-value="Publicación">Publicación</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body" id="content-${country.id}-${index}-${pub[3]}">
@@ -140,7 +140,7 @@ const showCountryInfo = async (e, data) => {
 
             publicationTables += `<div id="table-${country.id}-inst${index}" style="display: none">
                                     
-                                    <table id="tablePub_${index}" class="display" style="width:100%">
+                                    <table id="tablePub_${country.id}_${index}" class="display" style="width:100%">
                                         <thead class="clickable-header">
                                             <tr>
                                                 <th scope="col" style="text-align:center">#</th>
@@ -168,7 +168,7 @@ const showCountryInfo = async (e, data) => {
                                 </div>`;
                 
             $(document).ready( function () {
-                $(`#tablePub_${index}`).DataTable({
+                $(`#tablePub_${country.id}_${index}`).DataTable({
                     paging: false,
                     searching: false,
                     info: false,
@@ -315,7 +315,7 @@ anychart.onDocumentReady(function () {
             .fill('#c2185b')
             .stroke(anychart.color.darken('#c2185b'));
         
-        var map_pub_tag = 'Publicaciones'
+        var map_pub_tag = 'Publicacionesc'
         if(thecheck.checked){
             map_pub_tag = 'Publications'
         }
