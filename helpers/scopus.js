@@ -258,7 +258,7 @@ class Scopus{
             var plop = {'publications': respuesta.publications, 'citations': respuesta.citations, 'year':year};
             return plop;
         }catch(err){
-            return {"error": true, "message": "servicio no disponible"};
+            return {"error": true, "message": "servicio no disponible", "year": year};
         }
     }
 

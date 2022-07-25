@@ -65,24 +65,35 @@ exports.getBibliometricsUnit = async (req, res) => {
 
     let data = await cache.get(key);
 
-    if(!data){
+    if(!data || data.error){
         const date = new Date();
         const lastYear = date.getFullYear() - 1;
         const years = [lastYear-5, lastYear-4, lastYear-3, lastYear-2, lastYear-1, lastYear];
-    
-        data = await Promise.all(
-            years.map(year => scopus.getNPublications(arrScopusId, year, instfilter))
-        );
+
+        data = await getBby(years, arrScopusId, instfilter);
     
         await cache.set(key, JSON.stringify(data));
-    }
+    }else{
+        data = JSON.parse(data);
 
-    /**********
-     * verificar si existen respuestas con errores
-     * si hay 6 respuestas correctas, enviarlas
-     * caso contrario:
-     * crear lista de años con respuestas y otras con error
-     */
+        const err_data = data.filter(item => item.error);
+
+        if(err_data.length > 0){
+                
+                const ok_data = data.filter(item => !item.error);
+    
+                const years = err_data.map(item => item.year);
+    
+                const result = await getBby(years, arrScopusId, instfilter);
+    
+                data = [...ok_data, ...result];
+
+                data.sort((x, y) => x.year - y.year);
+    
+                await cache.set(key, JSON.stringify(data));
+        }
+        
+    }
 
     res.send(data);
 }
@@ -283,6 +294,8 @@ exports.getAuthorCountByGender = async (req, res) => {
 
 }
 
+
+
 const getDbc = async (list_countries, p=25) => {
 
     const data = [];
@@ -318,6 +331,14 @@ const getSdg = async (sdg_numbers) => {
 
         data = [...data, ...result];
     }
+
+    return data;
+}
+
+const getBby = async (years, arrScopusId, instfilter) => {
+    const data = await Promise.all(
+        years.map(year => scopus.getNPublications(arrScopusId, year, instfilter))
+    );
 
     return data;
 }
