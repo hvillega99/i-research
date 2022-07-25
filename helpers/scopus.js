@@ -280,7 +280,7 @@ class Scopus{
                 return plop;
             }catch(err){
                 console.log(`***ODS: ${SDG_number}***:`, err);
-                return {"error": true, "message": "servicio no disponible"};
+                return {"error": true, "message": "servicio no disponible", "sdg": SDG_number};
             }
         }
         else{

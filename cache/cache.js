@@ -26,7 +26,7 @@ class Cache{
             console.log('Conectado a Redis');
         });
 
-        this.expire = 60*60*15;
+        this.expire = 60*60*24;
 
         Cache.instance = this;
         

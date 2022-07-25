@@ -21,22 +21,29 @@ exports.getBibliometricsBySDG = async (req, res) => {
     let data = await cache.get('sdg');
 
     if(!data){
-
-        const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-    
-        const data1 = await Promise.all(
-            sdg_numbers.slice(0, 8).map(sdg => scopus.getSDGbibliometrics(sdg))
-        );
-    
-        const data2 = await Promise.all(
-            sdg_numbers.slice(8, 16).map(sdg => scopus.getSDGbibliometrics(sdg))
-        );
-        
-        data = [...data1, ...data2];
-
+        data = await getSdg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
         await cache.set('sdg', JSON.stringify(data));
+    }else{
+        data = JSON.parse(data);
+
+        const err_data = data.filter(item => item.error);
+
+        if(err_data.length > 0){
+
+            const ok_data = data.filter(item => !item.error);
+
+            const sdg_numbers = err_data.map(item => item.sdg);
+
+            const result = await getSdg(sdg_numbers);
+
+            data = [...ok_data, ...result];
+
+            await cache.set('sdg', JSON.stringify(data));
+        }
 
     }
+
+    data.sort((x, y) => x.sdg - y.sdg);
 
     res.send(data);
 }
@@ -206,21 +213,32 @@ exports.getPublicationsByArea = async (req, res) => {
 
 exports.getNDocsByCountry = async (req, res) => {
 
-    const data = [];
+    let data = await cache.get('dbc');
 
-    const p = 25;
+    if(!data){
+        data = await getDbc(countries);
+        await cache.set('dbc', JSON.stringify(data));
 
-    for(let i=0; i<p ; i++){
-        
-        const result = await Promise.all(
-            countries.slice(parseInt((i/p)*countries.length), parseInt(((i+1)/p)*countries.length))
-            .map(country => scopus.getPublicationsByCountry(country.name))
-        )
+    }else{
 
-        result.forEach(item =>{
-            country = countries.find(country => country.name == item.country);
-            data.push({id: country.id, ...item});
-        })
+        data = JSON.parse(data);
+
+        const err_data = data.filter(item => item.error);
+
+        if(err_data.length > 0){
+
+            const ok_data = data.filter(item => !item.error);
+
+            const list_countries = err_data.map(item => {
+                return {name: item.country, id: item.id}
+            });
+
+            const result = await getDbc(list_countries);
+
+            data = [...ok_data, ...result];
+
+            await cache.set('dbc', JSON.stringify(data));
+        }
     }
 
     res.send(data);
@@ -263,4 +281,43 @@ exports.getAuthorCountByGender = async (req, res) => {
 
     res.send({'mujeres': countF, 'hombres': countM});
 
+}
+
+const getDbc = async (list_countries, p=25) => {
+
+    const data = [];
+
+    for(let i=0; i<p ; i++){
+        
+        const result = await Promise.all(
+            list_countries.slice(parseInt((i/p)*list_countries.length), parseInt(((i+1)/p)*list_countries.length))
+            .map(country => scopus.getPublicationsByCountry(country.name))
+        )
+
+        result.forEach(item =>{
+            country = list_countries.find(country => country.name == item.country);
+            data.push({id: country.id, ...item});
+        })
+    }
+ 
+    return data;
+}
+
+const getSdg = async (sdg_numbers) => {
+    //const sdg_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+    const p = 2;
+    let data = [];
+
+    for (let i = 0; i < p; i++) {
+
+        let result = await Promise.all(
+            sdg_numbers.slice(parseInt((i/p)*sdg_numbers.length), parseInt(((i+1)/p)*sdg_numbers.length))
+            .map(sdg => scopus.getSDGbibliometrics(sdg))
+        )
+
+        data = [...data, ...result];
+    }
+
+    return data;
 }
