@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: white;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo-espol-2.png" width="99" height="46px" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <form id="results_view" method="POST" action="/resultados">
+            <input class="form-control me-2" type="search" placeholder="Busca un investigador, unidad académica o centro de investigación" data-value="Busca un investigador, unidad académica o centro de investigación" name="terms" required>
+            <button class="btn" type="submit" id="navbar-btn" data-value="Buscar">Buscar</button>
+          </form>
+          
+          <div class="language_switch">
+            <div class="flags_item" title="Spanish">
+                <img src="/img/ec.svg" alt="admin">
+            </div>
+            <label class="switch">
+                <input type="checkbox" class="check">
+                <span class="slider round"></span>
+            </label>
+            <div class="flags_item" title="English">
+                <img src="/img/us.svg" alt="admin">
+            </div>
+        </div>
+        
+        </div>
+      </div>
+
+</nav>

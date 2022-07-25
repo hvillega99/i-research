@@ -3,56 +3,13 @@
 <head>
     <%- include("templates/cabecera.templates.ejs")%>
     <link rel="stylesheet" type="text/css" href="/css/resultados.css">
-    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar2.css">
     <title>Resultados de búsqueda</title>
 
 </head>
 <body>
+    <%- include("templates/navbar_results.templates.ejs")%>
     <main>
-
-        <header class="container">
-            <div class="row justify-content-center">
-
-                <div class="col-md-2">
-                    <div class="language_switch">
-                        <div class="flags_item" title="Spanish">
-                            <img src="/img/ec.svg" alt="admin">
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" class="check">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="flags_item" title="English">
-                            <img src="/img/us.svg" alt="admin">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <a href="/"><img src="/img/logo-espol-2.png" width="99" height="46px" alt="logo"></a>
-                </div>
-                
-                <form method="POST" action="/resultados" class="col-md-8 container">
-                    <div class="row justify-content-start">
-
-                        <div class="form-group col-md-11">
-                            <input type="search" class="form-control" id="input-finder"
-                            data-value="Busca un investigador, unidad académica o centro de investigación"
-                            placeholder="Busca un investigador, unidad académica o centro de investigación" 
-                            name="terms" required>
-                            
-                        </div>
-                        <div class="form-group col-md-1">
-                            <input type="submit" class="btn btn-primary" id="submit-finder" data-value="Buscar" value="Buscar">
-                        </div>
-
-                        
-
-                    </div>
-                </form>
-               
-            </div>
-        </header>
 
         <% if(total>0){ %>
             <div class="text_results"><h3 style="display:inline"><%= total %> <h3 style="display:inline" data-value="resultado(s) de búsqueda para">resultado(s) de búsqueda para</h3> <h3 style="display:inline"><%= terminos %>:</h3></div>
