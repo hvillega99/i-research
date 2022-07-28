@@ -94,11 +94,14 @@
                             <% faculties.forEach(item => { %>
                                 <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
                                     <div style="color: white;background-color: <%= item.color%>;" class="card-header" data-value="Unidad académica">
-                                        Unidad académica
+                                        <a href="/unidad/<%= item.nombre %>" style="text-decoration: none; color: black;"><%= item.nombre %></a>
                                     </div>
                                         <div class="card-body">
-                                            <h5 class="card-title"><a href="/unidad/<%= item.nombre %>" style="text-decoration: none; color: black;"><%= item.nombreCompleto %></a></h5>
-                                            <a href="/unidad/<%= item.nombre %>" style="text-decoration: none; color: black;">(<%= item.nombre %>)</a>
+                                            <h5 class="card-title">
+                                                <a href="/unidad/<%= item.nombre %>" style="text-decoration: none; color: black;">
+                                                    <%= item.nombreCompleto %>
+                                                </a>
+                                            </h5>     
                                     </div>
                                 </div>
                             <% }) %>
@@ -115,11 +118,14 @@
                             <% centros.forEach(item => { %>
                                 <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
                                     <div style="color: white;background-color: <%= item.color%>;" class="card-header" data-value="Centro de Investigación">
-                                        Centro de Investigación
+                                        <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: black;">(<%= item.nombre %>)</a>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title"><a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: black;"><%= item.nombreCompleto %></a></h5>
-                                        <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: black;">(<%= item.nombre %>)</a>
+                                        <h5 class="card-title">
+                                            <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: black;">
+                                                <%= item.nombreCompleto %>
+                                            </a>
+                                        </h5>
                                     </div>
                                 </div>
                             <% }) %>
