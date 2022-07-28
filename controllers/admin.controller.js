@@ -198,12 +198,13 @@ exports.addUnit = (req, res) => {
     try {
         
         const {logo} = req.files;
-        const {color, nombre, siglas} = req.body;
+        const {color, nombre, siglas, link} = req.body;
         const nameLogo = Date.now() + path.extname(logo.name)
         logo.mv('./public/logos/' + nameLogo);
 
         const newUnit = {
             color,
+            link,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: `/logos/${nameLogo}`
@@ -245,7 +246,7 @@ exports.deleteUnit = (req, res) => {
 exports.editUnit = (req, res) => {
     try {
         const {idUnit} = req.params;
-        const {color, nombre, siglas} = req.body;
+        const {color, nombre, siglas, link} = req.body;
         let pathLogo;
 
         if(req.files){
@@ -259,6 +260,7 @@ exports.editUnit = (req, res) => {
 
         const unit = {
             color,
+            link,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: pathLogo
@@ -313,12 +315,13 @@ exports.addCenter = (req, res) => {
     try {
         
         const {logo} = req.files;
-        const {color, nombre, siglas} = req.body;
+        const {color, nombre, siglas, link} = req.body;
         const nameLogo = Date.now() + path.extname(logo.name)
         logo.mv('./public/logos/' + nameLogo);
 
         const newCenter = {
             color,
+            link,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: `/logos/${nameLogo}`
@@ -359,7 +362,7 @@ exports.editCenter = (req, res) => {
 
     try {
         const {idCenter} = req.params;
-        const {color, nombre, siglas} = req.body;
+        const {color, nombre, siglas, link} = req.body;
         let pathLogo;
 
         if(req.files){
@@ -373,6 +376,7 @@ exports.editCenter = (req, res) => {
 
         const center = {
             color,
+            link,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: pathLogo
