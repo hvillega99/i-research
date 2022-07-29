@@ -15,15 +15,24 @@
             <section class="container p-3">
 
                 <div class="row align-items-center">
-                    <div class="col-md-2">
-                        <img src="<%= logo %>" class="rounded img-fluid">
-                    </div>
-                    <div class="col-md-4">
+ 
+                    <div class="col-md-6 d-flex jutify-content-center">
+                    
+                        <img src="<%= logo %>" style="object-fit: contain" class="me-2 rounded h-100 w-25 img-fluid"/>
                         <div>
                             <h2 id="uaId"><%= siglas %></h2>
                             <h3 id="uaName"><%= nombre %></h3>
+                            
+                            <% if(link){ %>
+                                <p>
+                                    <a href="http://<%= link %>" target="_blank">
+                                        <%= link %>
+                                    </a>
+                                </p>
+                            <% } %>
                             <p id="uaType" style="display: none">unidad académica</p>
                         </div>
+
                     </div>
 
                     <div class="col-md-6">
@@ -32,16 +41,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="row align-items-center">
-                    <div class="col-2">
-                        <img src="<%= logo %>" class="w-100 h-100">
-                    </div>
-                    <div class="col-10">
-                        <h2 id="uaId"><%= siglas %></h2>
-                        <h3 id="uaName"><%= nombre %></h3>
-                        <p id="uaType" style="display: none">unidad académica</p>
-                    </div>
-                </div> -->
             </section>
 
             <div class="divisions"></div>

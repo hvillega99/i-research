@@ -51,6 +51,7 @@ exports.getPerfilCentro = async(req, res) =>{
         res.render("../views/centro_investigacion.views.ejs", {siglas: informacion.nombre, 
                                                             nombre: informacion.nombreCompleto,
                                                             logo: informacion.logo,
+                                                            link: informacion.link,
                                                             totalInvestigadores: investigadores.length,
                                                             totalHombres: countM,
                                                             totalMujeres: countF,

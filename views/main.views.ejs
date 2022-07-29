@@ -118,7 +118,7 @@
                             <% centros.forEach(item => { %>
                                 <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
                                     <div style="color: white;background-color: <%= item.color%>;" class="card-header" >
-                                        <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: black;">(<%= item.nombre %>)</a>
+                                        <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: white;"><%= item.nombre %></a>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
