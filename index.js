@@ -14,7 +14,7 @@ const resources = new Resourcesdb();
 const casConfig = require('./casConfig.json');
 
 //initializations
-const app = express();
+const app = express()
 
 //settings
 app.set('port', process.env.PORT || 3000);

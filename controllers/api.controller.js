@@ -20,7 +20,7 @@ exports.getBibliometricsBySDG = async (req, res) => {
 
     let data = await cache.get('sdg');
 
-    if(!data){
+    if(!data || data.error){
         data = await getSdg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
         await cache.set('sdg', JSON.stringify(data));
     }else{
@@ -38,12 +38,11 @@ exports.getBibliometricsBySDG = async (req, res) => {
 
             data = [...ok_data, ...result];
 
+            data.sort((x, y) => x.sdg - y.sdg);
             await cache.set('sdg', JSON.stringify(data));
         }
 
     }
-
-    data.sort((x, y) => x.sdg - y.sdg);
 
     res.send(data);
 }
@@ -118,7 +117,7 @@ exports.getTopAuthors = async (req, res) => {
     const key = 'top_authors';
     let data = await cache.get(key);
 
-    if(!data){
+    if(!data || data.error){
         const arrScopusId = dbController.getAllScopusId();
         let authors = [];
     
@@ -226,7 +225,7 @@ exports.getNDocsByCountry = async (req, res) => {
 
     let data = await cache.get('dbc');
 
-    if(!data){
+    if(!data || data.error){
         data = await getDbc(countries);
         await cache.set('dbc', JSON.stringify(data));
 
