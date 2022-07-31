@@ -245,45 +245,59 @@
                 <div class="tab-pane fade" id="proyectos" role="tabpanel" aria-labelledby="profile-tab">
                     <section class="container p-3">
         
-                        <div class="row justify-content-center text-center" id="proyectos">
-                            <div class="col-md-6">   
-                                <h5 data-value="Proyectos por año">Proyectos por año</h5>
+                        <div class="row justify-content-center text-start" id="proyectos">
+                            <div class="col-md-2 flex-column">
+                                <h5>Métricas</h5>
+                                <div id="num-current-projects">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                                <p data-value="En ejecución">En ejecución</p>
+                                <div id="num-finished-projects">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                                <p data-value="Finalizados">Finalizados</p>
+                                <div id="num-total-projects">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                                <p data-value="Total">Total</p>
+                            </div>
 
+                            <div class="col-md-5">   
+                                
+                                <div class="text-center">
+                                    <p style="display:inline">Proyectos por año de inicio</p>
+                                    <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                                    title="Cantidad de proyectos iniciados por año">
+                                    </img>
+                                </div>
+                                
                                 <div id="temp-spinner" class="text-center">
                                     <div class="spinner-border" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </div>
-                                <div id="info" class="text-start mb-2"></div>
+
                                 <canvas id="projects-by-year"></canvas>
                             </div>
-                            <div class="col-md-6 d-flex justify-content-evenly">
-                                <div>
-                                    <h5 data-value="En ejecución">En ejecución</h5>
-                                    <div id="num-current-projects">
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
+                            <div class="col-md-5">   
+                                <div class="text-center">
+                                    <p style="display:inline">Proyectos por año de finalización</p>
+                                    <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                                    title="Cantidad de proyectos por año de finalización">
+                                    </img>
+                                </div>
+                                <div id="f-temp-spinner" class="text-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </div>
-                                
-                                <div>
-                                    <h5 data-value="Finalizados">Finalizados</h5>
-                                    <div id="num-finished-projects">
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h5>Total</h5>
-                                    <div id="num-total-projects">
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <canvas id="projects-by-finish"></canvas>
                             </div>
                         </div>
 

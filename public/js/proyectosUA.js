@@ -33,7 +33,7 @@ fetch(`/api/unit/projects/${uaId}`)
             no_pro_ejeUA = 'Does not register projects in execution'
         }
 
-        const {current, finished, counting} = data;
+        const {current, finished, countingStartYear, countingEndYear} = data;
     
         total.innerHTML = `<h5>${current.length + finished.length}</h5>`;
         currentCount.innerHTML = `<h5>${current.length}</h5>`;
@@ -206,21 +206,24 @@ fetch(`/api/unit/projects/${uaId}`)
         }
     
         document.getElementById('divisor').setAttribute('class','division');
+
+        const startYears = Object.keys(countingStartYear);
+        const startValues = startYears.map(year => countingStartYear[year]);
+        const endYears = Object.keys(countingEndYear);
+        const endValues = endYears.map(year => countingEndYear[year]);
+        const maxValue = Math.max.apply( Math, [...startValues, ...endValues] );
     
-        const graph = document.getElementById('projects-by-year');
+        const graphSP = document.getElementById('projects-by-year');
     
-        const years = Object.keys(counting);
-        const values = years.map(year => counting[year]);
-        const maxValue = Math.max.apply( Math, values );
-        uapPic = new Chart(graph, {
+        uapPic = new Chart(graphSP, {
             type: 'bar',
             data: {
-                labels: years,
+                labels: startYears,
                 datasets: [{
                     label: 'Proyectos',
-                    data: values,
-                    backgroundColor: values.map(item => 'rgba(33, 58, 143, 0.2)'),
-                    borderColor: values.map(item => 'rgba(34, 50, 101, 1)'),
+                    data: startValues,
+                    backgroundColor: startValues.map(item => 'rgba(33, 58, 143, 0.2)'),
+                    borderColor: startValues.map(item => 'rgba(34, 50, 101, 1)'),
                     borderWidth: 1
                 }]
             },
@@ -229,7 +232,8 @@ fetch(`/api/unit/projects/${uaId}`)
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            stepSize: maxValue < 20? 1:0
+                            stepSize: maxValue < 20? 1:0,
+                            max: maxValue
                         }
                     }]
                 },
@@ -239,10 +243,43 @@ fetch(`/api/unit/projects/${uaId}`)
                 },
             }
         });
-        document.getElementById('temp-spinner').innerHTML = '';
-        document.getElementById('info').innerHTML = `<img src="/img/info.ico" data-toggle="tooltip" data-placement="top"
-        title="Cantidad de proyectos iniciados por año"></img>`;
 
+        document.getElementById('temp-spinner').innerHTML = '';
+
+        const graphEP = document.getElementById('projects-by-finish');
+    
+
+        new Chart(graphEP, {
+            type: 'bar',
+            data: {
+                labels: endYears,
+                datasets: [{
+                    label: 'Proyectos',
+                    data: endValues,
+                    backgroundColor: endValues.map(item => 'rgba(33, 58, 143, 0.2)'),
+                    borderColor: endValues.map(item => 'rgba(34, 50, 101, 1)'),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: maxValue < 20? 1:0,
+                            max: maxValue
+                        }
+                    }]
+                },
+    
+                legend: {
+                    display: false
+                },
+            }
+        });
+
+        document.getElementById('f-temp-spinner').innerHTML = '';
+       
         countAreas.sort((a,b) => b.count - a.count);
         const listAreas = countAreas.map(e => e.area);
 
