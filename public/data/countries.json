@@ -2,596 +2,715 @@
     {
         "id": "MC",
         "name": "Monaco",
+        "en_name": "Monaco",
         "documentCount": 0
     },
     {
         "id": "SG",
         "name": "Singapur",
+        "en_name": "Singapore",
         "documentCount": 0
     },
     {
         "id": "HK",
         "name": "Hong Kong",
+        "en_name": "Hong Kong",
         "documentCount": 0
     },
     {
         "id": "VA",
-        "name": "Vatican City",
+        "name": "Vaticano",
+        "en_name": "Vatican City",
         "documentCount": 0
     },
     {
         "id": "BH",
         "name": "Bahrain",
+        "en_name": "Bahrain",
         "documentCount": 0
     },
     {
         "id": "MT",
         "name": "Malta",
+        "en_name": "Malta",
         "documentCount": 0
     },
     {
         "id": "BM",
         "name": "Bermuda",
+        "en_name": "Bermuda",
         "documentCount": 0
     },
     {
         "id": "BD",
-        "name": "Bangladesh",
+        "name": "Bangladés",
+        "en_name": "Bangladesh",
         "documentCount": 0
     },
     {
         "id": "MV",
-        "name": "Maldives",
+        "name": "Maldivas",
+        "en_name": "Maldives",
         "documentCount": 0
     },
     {
         "id": "BB",
         "name": "Barbados",
+        "en_name": "Barbados",
         "documentCount": 0
     },
     {
         "id": "MU",
-        "name": "Mauritius",
+        "name": "Mauricio",
+        "en_name": "Mauritius",
         "documentCount": 0
     },
     {
         "id": "SM",
         "name": "San Marino",
+        "en_name": "San Marino",
         "documentCount": 0
     },
     {
         "id": "AW",
         "name": "Aruba",
+        "en_name": "Aruba",
         "documentCount": 0
     },
     {
         "id": "LB",
-        "name": "Lebanon",
+        "name": "Líbano",
+        "en_name": "Lebanon",
         "documentCount": 0
     },
     {
         "id": "RW",
-        "name": "Rwanda",
+        "name": "Ruanda",
+        "en_name": "Rwanda",
         "documentCount": 0
     },
     {
         "id": "KM",
-        "name": "Comoros",
+        "name": "Comores",
+        "en_name": "Comoras",
         "documentCount": 0
     },
     {
         "id": "NL",
         "name": "Paises Bajos",
+        "en_name": "Netherlands",
         "documentCount": 0
     },
     {
         "id": "HT",
-        "name": "Haiti",
+        "name": "Haití",
+        "en_name": "Haiti",
         "documentCount": 0
     },
     {
         "id": "PR",
         "name": "Puerto Rico",
+        "en_name": "Puerto Rico",
         "documentCount": 0
     },
     {
         "id": "IN",
         "name": "India",
+        "en_name": "India",
         "documentCount": 0
     },
     {
         "id": "IL",
         "name": "Israel",
+        "en_name": "Israel",
         "documentCount": 0
     },
     {
         "id": "BE",
         "name": "Bélgica",
+        "en_name": "Belgium",
         "documentCount": 0
     },
     {
         "id": "BI",
         "name": "Burundi",
+        "en_name": "Burundi",
         "documentCount": 0
     },
     {
         "id": "PH",
         "name": "Filipinas",
+        "en_name": "Philippines",
         "documentCount": 0
     },
     {
         "id": "JP",
         "name": "Japón",
+        "en_name": "Japan",
         "documentCount": 0
     },
     {
         "id": "LK",
         "name": "Sri Lanka",
+        "en_name": "Sri Lanka",
         "documentCount": 0
     },
     {
         "id": "SV",
         "name": "El Salvador",
+        "en_name": "El Salvador",
         "documentCount": 0
     },
     {
         "id": "GD",
-        "name": "Grenada",
+        "name": "Granada",
+        "en_name": "Grenada",
         "documentCount": 0
     },
     {
         "id": "AS",
-        "name": "American Samoa",
+        "name": "Samoa Americana",
+        "en_name": "American Samoa",
         "documentCount": 0
     },
     {
         "id": "VN",
         "name": "Vietnam",
+        "en_name": "Vietnam",
         "documentCount": 0
     },
     {
         "id": "GB",
         "name": "Reino Unido",
+        "en_name": "United Kingdom",
         "documentCount": 0
     },
     {
         "id": "TT",
-        "name": "Trinidad and Tobago",
+        "name": "Trinidad y Tobago",
+        "en_name": "Trinidad and Tobago",
         "documentCount": 0
     },
     {
         "id": "JM",
         "name": "Jamaica",
+        "en_name": "Jamaica",
         "documentCount": 0
     },
     {
         "id": "PK",
         "name": "Pakistán",
+        "en_name": "Pakistan",
         "documentCount": 0
     },
     {
         "id": "LI",
         "name": "Liechtenstein",
+        "en_name": "Liechtenstein",
         "documentCount": 0
     },
     {
         "id": "DE",
         "name": "Alemania",
+        "en_name": "Germany",
         "documentCount": 0
     },
     {
         "id": "DO",
         "name": "República Dominicana",
+        "en_name": "Dominican Republic",
         "documentCount": 0
     },
     {
         "id": "KY",
-        "name": "Cayman Islands",
+        "name": "Islas Caimán",
+        "en_name": "Cayman Islands",
         "documentCount": 0
     },
     {
         "id": "LU",
-        "name": "Luxembourg",
+        "name": "Luxemburgo",
+        "en_name": "Luxembourg",
         "documentCount": 0
     },
     {
         "id": "IT",
         "name": "Italia",
+        "en_name": "Italy",
         "documentCount": 0
     },
     {
         "id": "KW",
         "name": "Kuwait",
+        "en_name": "Kuwait",
         "documentCount": 0
     },
     {
         "id": "CH",
         "name": "Suiza",
+        "en_name": "Switzerland",
         "documentCount": 0
     },
     {
         "id": "SC",
         "name": "Seychelles",
+        "en_name": "Seychelles",
         "documentCount": 0
     },
     {
         "id": "VG",
-        "name": "British Virgin Islands",
+        "name": "Islas Vírgenes Británicas",
+        "en_name": "British Virgin Islands",
         "documentCount": 0
     },
     {
         "id": "AG",
-        "name": "Antigua and Barbuda",
+        "name": "Antigua y Barbuda",
+        "en_name": "Antigua and Barbuda",
         "documentCount": 0
     },
     {
         "id": "NG",
         "name": "Nigeria",
+        "en_name": "Nigeria",
         "documentCount": 0
     },
     {
         "id": "NP",
         "name": "Nepal",
+        "en_name": "Nepal",
         "documentCount": 0
     },
     {
         "id": "QA",
-        "name": "Qatar",
+        "name": "Catar",
+        "en_name": "Qatar",
         "documentCount": 0
     },
     {
         "id": "GM",
         "name": "Gambia",
+        "en_name": "Gambia",
         "documentCount": 0
     },
     {
         "id": "AD",
         "name": "Andorra",
+        "en_name": "Andorra",
         "documentCount": 0
     },
     {
         "id": "UG",
         "name": "Uganda",
+        "en_name": "Uganda",
         "documentCount": 0
     },
     {
         "id": "CY",
         "name": "Chipre",
+        "en_name": "Cyprus",
         "documentCount": 0
     },
     {
         "id": "TO",
         "name": "Tonga",
+        "en_name": "Tonga",
         "documentCount": 0
     },
     {
         "id": "GT",
         "name": "Guatemala",
+        "en_name": "Guatemala",
         "documentCount": 0
     },
     {
         "id": "AI",
-        "name": "Anguilla",
+        "name": "Anguila",
+        "en_name": "Anguilla",
         "documentCount": 0
     },
     {
         "id": "CZ",
         "name": "República Checa",
+        "en_name": "Czech Republic",
         "documentCount": 0
     },
     {
         "id": "DK",
         "name": "Dinamarca",
+        "en_name": "Denmark",
         "documentCount": 0
     },
     {
         "id": "TH",
         "name": "Tailandia",
+        "en_name": "Thailand",
         "documentCount": 0
     },
     {
         "id": "ID",
         "name": "Indonesia",
+        "en_name": "Indonesia",
         "documentCount": 0
     },
     {
         "id": "PL",
         "name": "Polonia",
+        "en_name": "Poland",
         "documentCount": 0
     },
     {
         "id": "CV",
         "name": "Cabo Verde",
+        "en_name": "Cape Verde",
         "documentCount": 0
     },
     {
         "id": "MW",
         "name": "Malawi",
+        "en_name": "Malawi",
         "documentCount": 0
     },
     {
         "id": "FR",
         "name": "Francia",
+        "en_name": "France",
         "documentCount": 0
     },
     {
         "id": "SY",
         "name": "Siria",
+        "en_name": "Syria",
         "documentCount": 0
     },
     {
         "id": "PT",
         "name": "Portugal",
+        "en_name": "Portugal",
         "documentCount": 0
     },
     {
         "id": "SK",
         "name": "Eslovaquia",
+        "en_name": "Slovakia",
         "documentCount": 0
     },
     {
         "id": "TG",
         "name": "Togo",
+        "en_name": "Togo",
         "documentCount": 0
     },
     {
         "id": "AZ",
         "name": "Azerbayán",
+        "en_name": "Azerbaijan",
         "documentCount": 0
     },
     {
         "id": "HU",
         "name": "Hungría",
+        "en_name": "Hungary",
         "documentCount": 0
     },
     {
         "id": "MD",
         "name": "Moldavia",
+        "en_name": "Moldova",
         "documentCount": 0
     },
     {
         "id": "GH",
         "name": "Ghana",
+        "en_name": "Ghana",
         "documentCount": 0
     },
     {
         "id": "CU",
         "name": "Cuba",
+        "en_name": "Cuba",
         "documentCount": 0
     },
     {
         "id": "AM",
         "name": "Armenia",
+        "en_name": "Armenia",
         "documentCount": 0
     },
     {
         "id": "SI",
         "name": "Eslovenia",
+        "en_name": "Slovenia",
         "documentCount": 0
     },
     {
         "id": "AT",
         "name": "Austria",
+        "en_name": "Austria",
         "documentCount": 0
     },
     {
         "id": "TR",
         "name": "Turquía",
+        "en_name": "Turkey",
         "documentCount": 0
     },
     {
         "id": "AE",
         "name": "Emiratos Árabes Unidos",
+        "en_name": "United Arab Emirates",
         "documentCount": 0
     },
     {
         "id": "AL",
         "name": "Albania",
+        "en_name": "Albania",
         "documentCount": 0
     },
     {
         "id": "DM",
         "name": "Dominica",
+        "en_name": "Dominica",
         "documentCount": 0
     },
     {
         "id": "ES",
         "name": "España",
+        "en_name": "Spain",
         "documentCount": 0
     },
     {
         "id": "RS",
         "name": "Serbia",
+        "en_name": "Serbia",
         "documentCount": 0
     },
     {
         "id": "BJ",
         "name": "Benín",
+        "en_name": "Benin",
         "documentCount": 0
     },
     {
         "id": "CR",
         "name": "Costa Rica",
+        "en_name": "Costa Rica",
         "documentCount": 0
     },
     {
         "id": "MY",
         "name": "Malasia",
+        "en_name": "Malaysia",
         "documentCount": 0
     },
     {
         "id": "EG",
         "name": "Egipto",
+        "en_name": "Egypt",
         "documentCount": 0
     },
     {
         "id": "SL",
         "name": "Sierra Leona",
+        "en_name": "Sierra Leone",
         "documentCount": 0
     },
     {
         "id": "RO",
         "name": "Rumanía",
+        "en_name": "Romania",
         "documentCount": 0
     },
     {
         "id": "KH",
         "name": "Camboya",
+        "en_name": "Cambodia",
         "documentCount": 0
     },
     {
         "id": "GR",
         "name": "Grecia",
+        "en_name": "Greece",
         "documentCount": 0
     },
     {
         "id": "ET",
         "name": "Etiopía",
+        "en_name": "Ethiopia",
         "documentCount": 0
     },
     {
         "id": "IQ",
         "name": "Iraq",
+        "en_name": "Iraq",
         "documentCount": 0
     },
     {
         "id": "KE",
         "name": "Kenya",
+        "en_name": "Kenya",
         "documentCount": 0
     },
     {
         "id": "MM",
         "name": "Myanmar",
+        "en_name": "Myanmar",
         "documentCount": 0
     },
     {
         "id": "HR",
         "name": "Croacia",
+        "en_name": "Croatia",
         "documentCount": 0
     },
     {
         "id": "HN",
         "name": "Honduras",
+        "en_name": "Honduras",
         "documentCount": 0
     },
     {
         "id": "UA",
         "name": "Ucrania",
+        "en_name": "Ukraine",
         "documentCount": 0
     },
     {
         "id": "BA",
         "name": "Bosnia y Herzegovina",
+        "en_name": "Bosnia and Herzegovina",
         "documentCount": 0
     },
     {
         "id": "MA",
         "name": "Marruecos",
+        "en_name": "Morocco",
         "documentCount": 0
     },
     {
         "id": "JO",
         "name": "Jordania",
+        "en_name": "Jordan",
         "documentCount": 0
     },
     {
         "id": "SZ",
-        "name": "Swaziland",
+        "name": "Suazilandia",
+        "en_name": "Swaziland",
         "documentCount": 0
     },
     {
         "id": "SN",
         "name": "Senegal",
+        "en_name": "Senegal",
         "documentCount": 0
     },
     {
         "id": "UZ",
         "name": "Uzbekistan",
+        "en_name": "Uzbekistan",
         "documentCount": 0
     },
     {
         "id": "LS",
-        "name": "Lesotho",
+        "name": "Lesoto",
+        "en_name": "Lesotho",
         "documentCount": 0
     },
     {
         "id": "BN",
         "name": "Brunei",
+        "en_name": "Brunei",
         "documentCount": 0
     },
     {
         "id": "TN",
-        "name": "Tunisia",
+        "name": "Túnez",
+        "en_name": "Tunisia",
         "documentCount": 0
     },
     {
         "id": "BG",
         "name": "Bulgaria",
+        "en_name": "Bulgaria",
         "documentCount": 0
     },
     {
         "id": "IE",
         "name": "Irlanda",
+        "en_name": "Ireland",
         "documentCount": 0
     },
     {
         "id": "GE",
         "name": "Georgia",
+        "en_name": "Georgia",
         "documentCount": 0
     },
     {
         "id": "BF",
         "name": "Burkina Faso",
+        "en_name": "Burkina Faso",
         "documentCount": 0
     },
     {
         "id": "CK",
-        "name": "Cook Islands",
+        "name": "Islas Cook",
+        "en_name": "Cook Islands",
         "documentCount": 0
     },
     {
         "id": "EC",
         "name": "Ecuador",
+        "en_name": "Ecuador",
         "documentCount": 0
     },
     {
         "id": "MX",
         "name": "México",
+        "en_name": "Mexico",
         "documentCount": 0
     },
     {
         "id": "GQ",
-        "name": "Equatorial Guinea",
+        "name": "Guinea Ecuatorial",
+        "en_name": "Equatorial Guinea",
         "documentCount": 0
     },
     {
         "id": "TJ",
         "name": "Tayikistán",
+        "en_name": "Tajikistan",
         "documentCount": 0
     },
     {
         "id": "YE",
         "name": "Yemen",
+        "en_name": "Yemen",
         "documentCount": 0
     },
     {
         "id": "ER",
         "name": "Eritrea",
+        "en_name": "Eritrea",
         "documentCount": 0
     },
     {
         "id": "TZ",
         "name": "Tanzania",
+        "en_name": "Tanzania",
         "documentCount": 0
     },
     {
         "id": "NI",
         "name": "Nicaragua",
+        "en_name": "Nicaragua",
         "documentCount": 0
     },
     {
         "id": "IR",
         "name": "Irán",
+        "en_name": "Iran",
         "documentCount": 0
     },
     {
@@ -602,71 +721,85 @@
     {
         "id": "PA",
         "name": "Panamá",
+        "en_name": "Panama",
         "documentCount": 0
     },
     {
         "id": "BY",
-        "name": "Belarus",
+        "name": "Bielorrusia",
+        "en_name": "Belarus",
         "documentCount": 0
     },
     {
         "id": "LT",
         "name": "Lituania",
+        "en_name": "Lithuania",
         "documentCount": 0
     },
     {
         "id": "ME",
         "name": "Montenegro",
+        "en_name": "Montenegro",
         "documentCount": 0
     },
     {
         "id": "CM",
         "name": "Camerún",
+        "en_name": "Cameroon",
         "documentCount": 0
     },
     {
         "id": "GN",
         "name": "Guinea",
+        "en_name": "Guinea",
         "documentCount": 0
     },
     {
         "id": "ZA",
         "name": "Sudafrica",
+        "en_name": "South Africa",
         "documentCount": 0
     },
     {
         "id": "PW",
         "name": "Palau",
+        "en_name": "Palau",
         "documentCount": 0
     },
     {
         "id": "GW",
         "name": "Guinea-Bissau",
+        "en_name": "Guinea-Bissau",
         "documentCount": 0
     },
     {
         "id": "CO",
         "name": "Colombia",
+        "en_name": "Colombia",
         "documentCount": 0
     },
     {
         "id": "AF",
         "name": "Afghanistan",
+        "en_name": "Afghanistan",
         "documentCount": 0
     },
     {
         "id": "DJ",
         "name": "Djibouti",
+        "en_name": "Djibouti",
         "documentCount": 0
     },
     {
         "id": "LR",
         "name": "Liberia",
+        "en_name": "Liberia",
         "documentCount": 0
     },
     {
         "id": "MG",
         "name": "Madagascar",
+        "en_name": "Madagascar",
         "documentCount": 0
     },
     {
@@ -676,277 +809,332 @@
     },
     {
         "id": "ZW",
-        "name": "Zimbabwe",
+        "name": "Zimbabue",        
+        "en_name": "Zimbabwe",
         "documentCount": 0
     },
     {
         "id": "US",
         "name": "Estados Unidos",
+        "en_name": "United States",
         "documentCount": 0
     },
     {
         "id": "VE",
         "name": "Venezuela",
+        "en_name": "Venezuela",
         "documentCount": 0
     },
     {
         "id": "LV",
         "name": "Letonia",
+        "en_name": "Latvia",
         "documentCount": 0
     },
     {
         "id": "MZ",
         "name": "Mozambique",
+        "en_name": "Mozambique",
         "documentCount": 0
     },
     {
         "id": "KG",
-        "name": "Kyrgyzstan",
+        "name": "Kirguistán",
+        "en_name": "Kyrgyzstan",
         "documentCount": 0
     },
     {
         "id": "EE",
         "name": "Estonia",
+        "en_name": "Estonia",
         "documentCount": 0
     },
     {
         "id": "LA",
         "name": "Laos",
+        "en_name": "Laos",
         "documentCount": 0
     },
     {
         "id": "BS",
         "name": "Bahamas",
+        "en_name": "Bahamas",
         "documentCount": 0
     },
     {
         "id": "BR",
         "name": "Brasil",
+        "en_name": "Brazil",
         "documentCount": 0
     },
     {
         "id": "PE",
         "name": "Perú",
+        "en_name": "Peru",
         "documentCount": 0
     },
     {
         "id": "CL",
         "name": "Chile",
+        "en_name": "Chile",
         "documentCount": 0
     },
     {
         "id": "SE",
         "name": "Suecia",
+        "en_name": "Sweden",
         "documentCount": 0
     },
     {
         "id": "BT",
-        "name": "Bhutan",
+        "name": "Bután",
+        "en_name": "Bhutan",
         "documentCount": 0
     },
     {
         "id": "UY",
         "name": "Uruguay",
+        "en_name": "Uruguay",
         "documentCount": 0
     },
     {
         "id": "FI",
         "name": "Finlandia",
+        "en_name": "Finland",
         "documentCount": 0
     },
     {
         "id": "SS",
-        "name": "South Sudan",
+        "name": "Sudán del Sur",
+        "en_name": "South Sudan",
         "documentCount": 0
     },
     {
         "id": "ZM",
         "name": "Zambia",
+        "en_name": "Zambia",
         "documentCount": 0
     },
     {
         "id": "SD",
-        "name": "Sudan",
+        "name": "Sudán",
+        "en_name": "Sudan",
         "documentCount": 0
     },
     {
         "id": "NZ",
         "name": "Nueva Zelanda",
+        "en_name": "New Zealand",
         "documentCount": 0
     },
     {
         "id": "AO",
         "name": "Angola",
+        "en_name": "Angola",
         "documentCount": 0
     },
     {
         "id": "PY",
         "name": "Paraguay",
+        "en_name": "Paraguay",
         "documentCount": 0
     },
     {
         "id": "DZ",
         "name": "Algeria",
+        "en_name": "Algeria",
         "documentCount": 0
     },
     {
         "id": "NO",
         "name": "Noruega",
+        "en_name": "Norway",
         "documentCount": 0
     },
     {
         "id": "PG",
-        "name": "Papua New Guinea",
+        "name": "Papúa Nueva Guinea",
+        "en_name": "Papua New Guinea",
         "documentCount": 0
     },
     {
         "id": "SO",
         "name": "Somalia",
+        "en_name": "Somalia",
         "documentCount": 0
     },
     {
         "id": "NE",
-        "name": "Niger",
+        "name": "Níger",
+        "en_name": "Niger",
         "documentCount": 0
     },
     {
         "id": "AR",
         "name": "Argentina",
+        "en_name": "Argentina",
         "documentCount": 0
     },
     {
         "id": "BZ",
-        "name": "Belize",
+        "name": "Belice",
+        "en_name": "Belize",
         "documentCount": 0
     },
     {
         "id": "SA",
         "name": "Arabia Saudita",
+        "en_name": "Saudi Arabia",
         "documentCount": 0
     },
     {
         "id": "OM",
         "name": "Omán",
+        "en_name": "Oman",
         "documentCount": 0
     },
     {
         "id": "ML",
-        "name": "Mali",
+        "name": "Malí",
+        "en_name": "Mali",
         "documentCount": 0
     },
     {
         "id": "TM",
-        "name": "Turkmenistan",
+        "name": "Turkmenistán",
+        "en_name": "Turkmenistan",
         "documentCount": 0
     },
     {
         "id": "BO",
         "name": "Bolivia",
+        "en_name": "Bolivia",
         "documentCount": 0
     },
     {
         "id": "TD",
         "name": "Chad",
+        "en_name": "Chad",
         "documentCount": 0
     },
     {
         "id": "RU",
         "name": "Rusia",
+        "en_name": "Russia",
         "documentCount": 0
     },
     {
         "id": "CF",
-        "name": "Central African Republic",
+        "name": "República Centroafricana",
+        "en_name": "Central African Republic",
         "documentCount": 0
     },
     {
         "id": "GA",
-        "name": "Gabon",
+        "name": "Gabón",
+        "en_name": "Gabon",
         "documentCount": 0
     },
     {
         "id": "KZ",
-        "name": "Kazakhstan",
+        "name": "Kazajistán",
+        "en_name": "Kazakhstan",
         "documentCount": 0
     },
     {
         "id": "GY",
         "name": "Guyana",
+        "en_name": "Guyana",
         "documentCount": 0
     },
     {
         "id": "CA",
         "name": "Canadá",
+        "en_name": "Canada",
         "documentCount": 0
     },
     {
         "id": "LY",
         "name": "Libia",
+        "en_name": "Libya",
         "documentCount": 0
     },
     {
         "id": "BW",
         "name": "Botswana",
+        "en_name": "Botswana",
         "documentCount": 0
     },
     {
         "id": "MR",
         "name": "Mauritania",
+        "en_name": "Mauritania",
         "documentCount": 0
     },
     {
         "id": "SR",
         "name": "Suriname",
+        "en_name": "Suriname",
         "documentCount": 0
     },
     {
         "id": "IS",
-        "name": "Iceland",
+        "name": "Islandia",
+        "en_name": "Iceland",
         "documentCount": 0
     },
     {
         "id": "AU",
         "name": "Australia",
+        "en_name": "Australia",
         "documentCount": 0
     },
     {
         "id": "NA",
         "name": "Namibia",
+        "en_name": "Namibia",
         "documentCount": 0
     },
     {
         "id": "EH",
-        "name": "Western Sahara",
+        "name": "Sahara Occidental",
+        "en_name": "Western Sahara",
         "documentCount": 0
     },
     {
         "id": "MN",
         "name": "Mongolia",
+        "en_name": "Mongolia",
         "documentCount": 0
     },
     {
         "id": "PN",
-        "name": "Pitcairn Islands",
+        "name": "Pitcairn",
+        "en_name": "Pitcairn Islands",
         "documentCount": 0
     },
     {
         "id": "FK",
-        "name": "Falkland Islands",
+        "name": "Islas Malvinas",
+        "en_name": "Falkland Islands",
         "documentCount": 0
     },
     {
         "id": "GL",
-        "name": "Greenland",
+        "name": "Groenlandia",
+        "en_name": "Greenland",
         "documentCount": 0
     },
     {
         "id": "MO",
         "name": "Macau",
+        "en_name": "Macau",
         "documentCount": 0
     },
     {
         "id": "GI",
         "name": "Gibraltar",
+        "en_name": "Gibraltar",
         "documentCount": 0
     },
     {
@@ -966,12 +1154,14 @@
     },
     {
         "id": "PS",
-        "name": "Palestine",
+        "name": "Palestina",
+        "en_name": "Palestine",
         "documentCount": 0
     },
     {
         "id": "TW",
         "name": "Taiwán",
+        "en_name": "Taiwan",
         "documentCount": 0
     },
     {
@@ -982,6 +1172,7 @@
     {
         "id": "KR",
         "name": "Corea",
+        "en_name": "Korea",
         "documentCount": 0
     },
     {
@@ -1006,7 +1197,8 @@
     },
     {
         "id": "CW",
-        "name": "Curaçao",
+        "name": "Curazao",
+        "en_name": "Curaçao",
         "documentCount": 0
     },
     {
@@ -1046,7 +1238,8 @@
     },
     {
         "id": "KP",
-        "name": "North Korea",
+        "name": "Corea del Norte",
+        "en_name": "North Korea",
         "documentCount": 0
     },
     {
@@ -1062,11 +1255,13 @@
     {
         "id": "XK",
         "name": "Kosovo",
+        "en_name": "Kosovo",
         "documentCount": 0
     },
     {
         "id": "IM",
-        "name": "Isle of Man",
+        "name": "Isla de Man",
+        "en_name": "Isle of Man",
         "documentCount": 0
     },
     {
@@ -1082,6 +1277,7 @@
     {
         "id": "CN",
         "name": "China",
+        "en_name": "China",
         "documentCount": 0
     },
     {
@@ -1097,6 +1293,7 @@
     {
         "id": "MK",
         "name": "Macedonia",
+        "en_name": "Macedonia",
         "documentCount": 0
     },
     {
@@ -1156,7 +1353,8 @@
     },
     {
         "id": "CD",
-        "name": "Democratic Republic of the Congo",
+        "name": "Congo",
+        "en_name": "Democratic Republic of the Congo",
         "documentCount": 0
     },
     {
@@ -1186,7 +1384,8 @@
     },
     {
         "id": "CG",
-        "name": "Republic of the Congo",
+        "name": "República del Congo",
+        "en_name": "Republic of the Congo",
         "documentCount": 0
     },
     {
@@ -1196,12 +1395,14 @@
     },
     {
         "id": "GF",
-        "name": "French Guiana",
+        "name": "Guyana francesa",
+        "en_name": "French Guiana",
         "documentCount": 0
     },
     {
         "id": "SJ",
-        "name": "Svalbard and Jan Mayen",
+        "name": "Svalbard y Jan Mayen",
+        "en_name": "Svalbard and Jan Mayen",
         "documentCount": 0
     }
 ]
