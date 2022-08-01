@@ -1,6 +1,7 @@
 const thecheckD5 = document.querySelector(".check")
 thecheckD5.addEventListener("click", idiomaD5)
 var pPic;
+var pfPic;
 
 const scopusID = document.querySelector('#scopusId').textContent;
 
@@ -16,15 +17,39 @@ fetch(`/api/projects/${scopusID}`)
 
     if(!data.error){
 
+        var n_pro = 'Proyectos'
+
         var label_eje = 'En ejecución'
         var label_fin = 'Finalizados'
         var no_pro_fin = 'No registra proyectos finalizados'
         var no_pro_eje = 'No registra proyectos en ejecución'
+
+        var proyecto_pro = 'Proyecto'
+        var titulo_pro = 'Título:'
+        var fecha_i_pro = 'Fecha inicio:'
+        var fecha_f_pro = 'Fecha fin:'
+        var rol_pro = 'Participante/Rol:'
+        var coEspol_pro = 'Instituciones colaboradoras de ESPOL:'
+        var coExterna_pro = 'Instituciones colaboradoras externas:'
+        var area_pro = 'Áreas de investigación:'
+
         if(thecheck.checked){
+
+            n_pro = 'Projects'
+
             label_eje = 'In progress'
             label_fin = 'Concluded'
             no_pro_fin = 'Does not register finished projects'
             no_pro_eje = 'Does not register projects in execution'
+
+            proyecto_pro = 'Project'
+            titulo_pro = 'Title:'
+            fecha_i_pro = 'Start date:'
+            fecha_f_pro = 'End date:'
+            rol_pro = 'Participant/Role:'
+            coEspol_pro = 'ESPOL collaborating institutions:'
+            coExterna_pro = 'External collaborating institutions:'
+            area_pro = 'Areas of research:'
         }
         const {current, finished, countingStartYear, countingEndYear} = data;
     
@@ -82,17 +107,17 @@ fetch(`/api/projects/${scopusID}`)
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Proyecto</h5>
+                                                <h5 class="modal-title" data-value="Proyecto">${proyecto_pro}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p><strong>Título:</strong> ${project["titulo"].toUpperCase()}</p>
-                                                <p><strong>Fecha inicio:</strong> ${project["fechainicio"]}</p>
-                                                <p><strong>Fecha fin:</strong> ${project["fechafin"]}</p>
-                                                <p><strong>Participante/Rol:</strong> ${collaborators}</p>
-                                                <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol.length>0? institucionesEspol:"No registra"}</p>
-                                                <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
-                                                <p><strong>Áreas de investigación:</strong> ${areas}</p>
+                                                <p><strong data-value="Título:">${titulo_pro}</strong> ${project["titulo"].toUpperCase()}</p>
+                                                <p><strong data-value="Fecha inicio:">${fecha_i_pro}</strong> ${project["fechainicio"]}</p>
+                                                <p><strong data-value="Fecha fin:">${fecha_f_pro}</strong> ${project["fechafin"]}</p>
+                                                <p><strong data-value="Participante/Rol:">${rol_pro}</strong> ${collaborators}</p>
+                                                <p><strong data-value="Instituciones colaboradoras de ESPOL:">${coEspol_pro}</strong> ${institucionesEspol.length>0? institucionesEspol:"No registra"}</p>
+                                                <p><strong data-value="Instituciones colaboradoras externas:">${coExterna_pro}</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
+                                                <p><strong data-value="Áreas de investigación:">${area_pro}</strong> ${areas}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +237,7 @@ fetch(`/api/projects/${scopusID}`)
             data: {
                 labels: startYears,
                 datasets: [{
-                    label: 'Proyectos',
+                    label: n_pro,
                     data: startValues,
                     backgroundColor: startValues.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: startValues.map(item => 'rgba(34, 50, 101, 1)'),
@@ -239,12 +264,12 @@ fetch(`/api/projects/${scopusID}`)
 
         const graphEP = document.getElementById('projects-by-finish');
 
-        new Chart(graphEP, {
+        pfPic = new Chart(graphEP, {
             type: 'bar',
             data: {
                 labels: endYears,
                 datasets: [{
-                    label: 'Proyectos',
+                    label: n_pro,
                     data: endValues,
                     backgroundColor: endValues.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: endValues.map(item => 'rgba(34, 50, 101, 1)'),
@@ -288,10 +313,12 @@ fetch(`/api/projects/${scopusID}`)
 
 async function idiomaD5(){
     if(thecheck.checked){
-        pPic.data.datasets[0].label="Proyects"
+        pPic.data.datasets[0].label="Projects"
+        pfPic.data.datasets[0].label="Projects"
     }
     else{
         pPic.data.datasets[0].label="Proyectos"
+        pfPic.data.datasets[0].label="Proyectos"
     }
 
     

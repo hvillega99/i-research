@@ -1,6 +1,7 @@
 const thecheckD4 = document.querySelector(".check")
 thecheckD4.addEventListener("click", idiomaD4)
 var uapPic;
+var uapfPic;
 
 const uaId = document.getElementById('uaId').textContent;
 
@@ -22,15 +23,41 @@ fetch(`/api/unit/projects/${uaId}`)
 
     if(!data.error){
 
+        var n_pro_UA = 'Proyectos'
+
         var label_ejeUA = 'En ejecución'
         var label_finUA = 'Finalizados'
         var no_pro_finUA = 'No registra proyectos finalizados'
         var no_pro_ejeUA = 'No registra proyectos en ejecución'
+
+        var proyecto_proUA = 'Proyecto'
+        var titulo_proUA = 'Título:'
+        var fecha_i_proUA = 'Fecha inicio:'
+        var fecha_f_proUA = 'Fecha fin:'
+        var rol_proUA = 'Participante/Rol:'
+        var coEspol_proUA = 'Instituciones colaboradoras de ESPOL:'
+        var coExterna_proUA = 'Instituciones colaboradoras externas:'
+        var area_proUA = 'Áreas de investigación:'
+
+
+        
         if(thecheck.checked){
+
+            n_pro_UA = 'Projects'
+
             label_ejeUA = 'In progress'
             label_finUA = 'Concluded'
             no_pro_finUA = 'Does not register finished projects'
             no_pro_ejeUA = 'Does not register projects in execution'
+
+            proyecto_proUA = 'Project'
+            titulo_proUA = 'Title:'
+            fecha_i_proUA = 'Start date:'
+            fecha_f_proUA = 'End date:'
+            rol_proUA = 'Participant/Role:'
+            coEspol_proUA = 'ESPOL collaborating institutions:'
+            coExterna_proUA = 'External collaborating institutions:'
+            area_proUA = 'Areas of research:'
         }
 
         const {current, finished, countingStartYear, countingEndYear} = data;
@@ -90,17 +117,17 @@ fetch(`/api/unit/projects/${uaId}`)
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Proyecto</h5>
+                                                <h5 class="modal-title" data-value="Proyecto">${proyecto_proUA}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p><strong>Título:</strong> ${project["titulo"].toUpperCase()}</p>
-                                                <p><strong>Fecha inicio:</strong> ${project["fechainicio"]}</p>
-                                                <p><strong>Fecha fin:</strong> ${project["fechafin"]}</p>
-                                                <p><strong>Participante/Rol:</strong> ${collaborators}</p>
-                                                <p><strong>Instituciones colaboradoras de ESPOL:</strong> ${institucionesEspol}</p>
-                                                <p><strong>Instituciones colaboradoras externas:</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
-                                                <p><strong>Áreas de investigación:</strong>  ${areas}</p>
+                                                <p><strong data-value="Título:">${titulo_proUA}</strong> ${project["titulo"].toUpperCase()}</p>
+                                                <p><strong data-value="Fecha inicio:">${fecha_i_proUA}</strong> ${project["fechainicio"]}</p>
+                                                <p><strong data-value="Fecha fin:">${fecha_f_proUA}</strong> ${project["fechafin"]}</p>
+                                                <p><strong data-value="Participante/Rol:">${rol_proUA}</strong> ${collaborators}</p>
+                                                <p><strong data-value="Instituciones colaboradoras de ESPOL:">${coEspol_proUA}</strong> ${institucionesEspol.length>0? institucionesEspol:"No registra"}</p>
+                                                <p><strong data-value="Instituciones colaboradoras externas:">${coExterna_proUA}</strong> ${institucionesExterna.length>0? institucionesExterna:"No registra"}</p>
+                                                <p><strong data-value="Áreas de investigación:">${area_proUA}</strong> ${areas}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -220,7 +247,7 @@ fetch(`/api/unit/projects/${uaId}`)
             data: {
                 labels: startYears,
                 datasets: [{
-                    label: 'Proyectos',
+                    label: n_pro_UA,
                     data: startValues,
                     backgroundColor: startValues.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: startValues.map(item => 'rgba(34, 50, 101, 1)'),
@@ -249,12 +276,12 @@ fetch(`/api/unit/projects/${uaId}`)
         const graphEP = document.getElementById('projects-by-finish');
     
 
-        new Chart(graphEP, {
+        uapfPic = new Chart(graphEP, {
             type: 'bar',
             data: {
                 labels: endYears,
                 datasets: [{
-                    label: 'Proyectos',
+                    label: n_pro_UA,
                     data: endValues,
                     backgroundColor: endValues.map(item => 'rgba(33, 58, 143, 0.2)'),
                     borderColor: endValues.map(item => 'rgba(34, 50, 101, 1)'),
@@ -307,10 +334,12 @@ fetch(`/api/unit/projects/${uaId}`)
 
 async function idiomaD4(){
     if(thecheck.checked){
-       uapPic.data.datasets[0].label="Proyects"
+       uapPic.data.datasets[0].label="Projects"
+       uapfPic.data.datasets[0].label="Projects"
     }
     else{
         uapPic.data.datasets[0].label="Proyectos"
+        uapfPic.data.datasets[0].label="Proyectos"
     }
 
     
