@@ -1,10 +1,11 @@
 const thecheckD8 = document.querySelector(".check")
 thecheckD8.addEventListener("click", idiomaD8)
 var series;
-const manageList = (show, hide, place, country, menu_type) => {
+const manageList = (show, hide, place, country, menu_type, otro_name) => {
     //console.log(ms2);
     //console.log(ms3);
-    
+    console.log(place)
+    console.log(otro_name)
 
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
@@ -36,7 +37,7 @@ const manageList = (show, hide, place, country, menu_type) => {
         dms2 = ''
     }
 
-    document.getElementById(`md-${country}-title`).innerHTML = `<h5 style="display:inline" data-value='${dms1}'>${ms1} </h5> <h5 style="display:inline">${place}</h5> <h5 style="display:inline" data-value='${dms2}'>${ms2}</h5>` ;
+    document.getElementById(`md-${country}-title`).innerHTML = `<h5 style="display:inline" data-value='${dms1}'>${ms1} </h5> <h5 data-name='${otro_name}' style="display:inline">${place}</h5> <h5 style="display:inline" data-value='${dms2}'>${ms2}</h5>` ;
 }
 
 const showCountryInfo = async (e, data) => {
@@ -116,7 +117,7 @@ const showCountryInfo = async (e, data) => {
                                         </div>`;
             });
             
-            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', '${inst.name.replace("'","’")}', '${country.id}', 'i')">
+            content += `<tr class="publication-item item" onclick="manageList('table-${country.id}-inst${index}', 'table-${country.id}', '${inst.name.replace("'","’")}', '${country.id}', 'i', '${inst.name.replace("'","’")}')">
                             <th scope="row">${index + 1}</th>
                             <td>
                                 <p>${inst.name}</p>
@@ -132,6 +133,8 @@ const showCountryInfo = async (e, data) => {
             var year_th_map = 'Año de publicación'
             var pub_th_map = 'Publicado en'
             var back_text = 'Volver'
+            var nombre_place = country.name
+            var ot_nombre_place = country.en_name
         
 
             if(thecheck.checked){
@@ -140,6 +143,8 @@ const showCountryInfo = async (e, data) => {
                 year_th_map = 'Year of publication'
                 pub_th_map = 'Published in'
                 back_text = 'Back'
+                nombre_place = country.en_name
+                ot_nombre_place = country.name
             }
             //FIN DE IDIOMA
 
@@ -164,9 +169,10 @@ const showCountryInfo = async (e, data) => {
                                         aria-label="Cerrar"
                                         onclick="manageList('table-${country.id}', 
                                         'table-${country.id}-inst${index}', 
-                                        '${country.name}',
+                                        '${nombre_place}',
                                         '${country.id}',
-                                        'c')"
+                                        'c',
+                                        '${ot_nombre_place}')"
                                     >
                                         ${back_text}
                                     </button>
@@ -247,10 +253,14 @@ const loadCountryValues = (data, values) => {
             //IDIOMA
             var inst_mess_1 = 'Instituciones de'
             var inst_mess_2 = 'con publicaciones en conjunto con ESPOL'
+            var nombre_place2 = country.name
+            var ot_nombre_place2 = country.en_name
             
             if(thecheck.checked){
                 inst_mess_1 = 'Institutions of'
                 inst_mess_2 = 'with publications in conjunction with ESPOL'
+                nombre_place2 = country.en_name
+                ot_nombre_place2 = country.name
             }
             //FIN DE IDIOMA
 
@@ -261,7 +271,7 @@ const loadCountryValues = (data, values) => {
                                         <div class="modal-header">
 
                                         <div  id="md-${id}-title">
-                                            <h5 style="display:inline" data-value="Instituciones de">${inst_mess_1} </h5> <h5 style="display:inline">${country.name}</h5> <h5 style="display:inline" data-value="con publicaciones en conjunto con ESPOL">${inst_mess_2}</h5>
+                                            <h5 style="display:inline" data-value="Instituciones de">${inst_mess_1} </h5> <h5 data-name=${ot_nombre_place2} style="display:inline">${nombre_place2}</h5> <h5 style="display:inline" data-value="con publicaciones en conjunto con ESPOL">${inst_mess_2}</h5>
                                         </div>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
@@ -401,6 +411,22 @@ anychart.onDocumentReady(function () {
 });
 
 async function idiomaD8(){
+
+    const countrysToChange = document.querySelectorAll('[data-name]');
+    //console.log(countrysToChange)
+    for (const countryToChange of countrysToChange) {
+        var auxDataName = countryToChange.dataset.name
+        var auxText = countryToChange.textContent
+
+        
+        //console.log(auxDataName);
+        //console.log(auxText)
+
+        countryToChange.dataset.name = auxText
+        countryToChange.textContent = auxDataName
+       
+    }
+    console.log('*****************')
     
     
     if(thecheck.checked){
