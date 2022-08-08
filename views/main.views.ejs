@@ -90,9 +90,9 @@
                 <section class="container p-3 text-center">
 
                     <div class="row justify-content-center">
-                        <div class="unidades_academicas" id="unidades_academicas">
+                        <div class="unidades_academicas d-flex flex-wrap m-4" id="unidades_academicas">
                             <% faculties.forEach(item => { %>
-                                <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
+                                <div id="<%= item.nombre %>" class="card m-4" style="width: 280px; height: 200px;">
                                     <div style="color: white;background-color: <%= item.color%>;" class="card-header">
                                         <a href="/unidad/<%= item.nombre %>" style="text-decoration: none; color: white;"><%= item.nombre %></a>
                                     </div>
@@ -112,11 +112,19 @@
             </div>
             <div class="tab-pane fade" id="centros-investigacion" role="tabpanel" aria-labelledby="profile-tab">
                 <section class="container p-3 text-center">
-
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+                        <label class="btn btn-outline-primary option" for="btnradio1" id="opt-todos" onclick="showCenters()" data-value="Todos">Todos</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary option" for="btnradio3" id="optf" onclick="filterByType('I')" data-value="Institucionales">Institucionales</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary option" for="btnradio2" id="optm" onclick="filterByType('A')" data-value="Adscritos">Adscritos</label>
+                    </div>
                     <div class="row justify-content-center">
-                        <div class="centros_investigacion" id="centros_investigacion">
+                        
+                        <div class="centros_investigacion d-flex flex-wrap m-4" id="centros_investigacion">
                             <% centros.forEach(item => { %>
-                                <div id="<%= item.nombre %>" class="card m-4" style="width: 420px; height: 155px;">
+                                <div id="<%= item.nombre %>" class="card m-4 <%= item.vinculacion %> centro" style="width: 280px; height: 200px;">
                                     <div style="color: white;background-color: <%= item.color%>;" class="card-header" >
                                         <a href="/centro/<%= item.nombre %>" style="text-decoration: none; color: white;"><%= item.nombre %></a>
                                     </div>
@@ -273,5 +281,6 @@
     <script src="/js/topAuthors.js"></script>
     <script src="/js/config_lang.js"></script>
     <script src="/js/sdg.js"></script>
+    <script src="/js/centerFilter.js"></script>
 </body>
 </html>

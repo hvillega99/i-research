@@ -306,7 +306,8 @@ exports.loadResearchers = (req, res) => {
 }
 
 exports.loadCenters = (req, res) => {
-    res.render('../views/admin_centros.views.ejs',{'centers':centersdb.centers, messageCenter});
+    const unitNames = unitsdb.units.map(i => i.nombre);
+    res.render('../views/admin_centros.views.ejs',{'centers':centersdb.centers, unitNames, messageCenter});
     messageCenter.show = false;
     messageCenter.type = 'success';
 }
@@ -315,13 +316,14 @@ exports.addCenter = (req, res) => {
     try {
         
         const {logo} = req.files;
-        const {color, nombre, siglas, link} = req.body;
+        const {color, nombre, siglas, link, vinculacion} = req.body;
         const nameLogo = Date.now() + path.extname(logo.name)
         logo.mv('./public/logos/' + nameLogo);
 
         const newCenter = {
             color,
             link,
+            vinculacion,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: `/logos/${nameLogo}`
@@ -362,7 +364,7 @@ exports.editCenter = (req, res) => {
 
     try {
         const {idCenter} = req.params;
-        const {color, nombre, siglas, link} = req.body;
+        const {color, nombre, siglas, link, vinculacion} = req.body;
         let pathLogo;
 
         if(req.files){
@@ -377,6 +379,7 @@ exports.editCenter = (req, res) => {
         const center = {
             color,
             link,
+            vinculacion,
             nombre: siglas,
             nombreCompleto: nombre,
             logo: pathLogo
@@ -399,5 +402,6 @@ exports.editCenter = (req, res) => {
 exports.loadCenterEditForm = (req, res) => {
     const {idCenter} = req.params;
     const unit = centersdb.getCenterById(idCenter);
-    res.render('../views/admin_edit.views.ejs',{'type':'centros', 'title':'centro de investigación', unit});
+    const unitNames = unitsdb.units.map(i => i.nombre);
+    res.render('../views/admin_edit.views.ejs',{'type':'centros', 'title':'centro de investigación', unit, unitNames});
 }

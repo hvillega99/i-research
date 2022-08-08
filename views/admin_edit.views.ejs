@@ -58,8 +58,24 @@
                             <div class="mb-2">
                                 <label for="input-siglas" class="form-label">Sitio web</label>
                                 <input type="text" class="form-control" id="input-link" 
-                                name="link" value="<%= unit.link %>" required>
+                                name="link" value="<%= unit.link %>">
                             </div>
+
+                            <% if(type=='centros') { %>
+                                <div class="mb-2">
+                                    <label for="input-siglas" class="form-label">Vinculación</label>
+    
+                                    <select class="form-control" id="input-vinculacion" name="vinculacion" required>
+                                        <option value="institucional">Institucional</option>
+                                        
+                                        <% unitNames.forEach(name => { %>
+                                            <option value="<%= name %>" <% if(unit.vinculacion == name){ %> selected <%}%> ><%= name %></option>
+                                        <% }) %>
+    
+                                    </select>
+                                </div>
+                            <% } %>
+
         
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Aceptar</button>
