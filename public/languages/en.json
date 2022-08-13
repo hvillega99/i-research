@@ -120,5 +120,7 @@
     "Citaciones por publicación" : "Citations per publication",
     "Proyectos por año de inicio" : "Projects by start year",
     "Proyectos por año de finalización" : "Projects by year of completion",
-    "Cantidad de proyectos por año de finalización" : "Number of projects per year of completion"     
+    "Cantidad de proyectos por año de finalización" : "Number of projects per year of completion",
+    "Correo:" : "Email:",
+    "Adscrito a" : "Attached to"     
 }
