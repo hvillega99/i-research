@@ -40,8 +40,10 @@ exports.getPerfilInvestigador = async (req, res) =>{
         }else{
             srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
             information['nombre'] = `${contrato.apellidos} ${contrato.nombres}`;
+            information['correo'] = contrato.correo;
+            information['scholar'] = contrato.scholar;
         }
-        
+
         information['srcFoto'] = srcFoto;
         information['nombreScopus'] = nameAndAffiliations.name;
         information['afiliaciones'] = nameAndAffiliations.affiliations;

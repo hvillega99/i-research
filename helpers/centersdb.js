@@ -44,6 +44,17 @@ class Centersdb{
         fs.writeFileSync(this.filePath, JSON.stringify(this.centers), 'utf-8');
     }
 
+    removeAttachedCenters(idUnit){
+        const attachedCenters = this.centers.filter(center => center.vinculacion == idUnit);
+
+        attachedCenters.forEach(center => {
+            fs.rmSync(`./public/${center.logo}`);
+        } );
+
+        this.centers = this.centers.filter(center => center.vinculacion != idUnit);
+        fs.writeFileSync(this.filePath, JSON.stringify(this.centers), 'utf-8');
+    }
+
     editCenter(idCenter, center){
         center['id'] = idCenter;
         const index = this.centers.findIndex(center => center.id == idCenter);

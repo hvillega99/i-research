@@ -32,7 +32,7 @@ exports.getPerfilUnidad = async(req, res) =>{
                     const investigador = investigadores.find(item => item.id == scopusId);
                     const contrato = contratos.find(item => item.scopusId == scopusId);
 
-                    if(contrato.sexo){
+                    if(contrato){
                         investigador['sexo'] = contrato.sexo
                         contrato.sexo == 'M' ? countM++ : countF++;
                     }else{

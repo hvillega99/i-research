@@ -14,7 +14,10 @@ const citaciones = document.querySelector("#total-citations");
 const graficaPublicaciones = document.getElementById("grafica-publicaciones");
 const graficaCitas = document.getElementById("grafica-citaciones");
 
+const instfilter = document.getElementById('instfilter');
+
 const loadData = (path) => {
+    instfilter.disabled = true;
 
     fetch(path)
     .then(response => response.json())
@@ -132,6 +135,9 @@ const loadData = (path) => {
             citaciones.textContent = `<p data-value="No disponible">${no_aviliable_graUA}</p>`;
             publicaciones.textContent = `<p data-value="No disponible">${no_aviliable_graUA}</p>`;
         }
+
+        instfilter.disabled = false;
+
     })
 }
 
@@ -152,8 +158,6 @@ async function idiomaD7(){
 
 loadData(`/api/unit/bibliometrics/${id}?instfilter=true`);
 
-const instfilter = document.getElementById('instfilter');
-
 instfilter.onclick = (e) =>{
 
     citaUaP.destroy();
@@ -171,5 +175,5 @@ instfilter.onclick = (e) =>{
     spinnerCitas.style.display = "block";
 
     loadData(`/api/unit/bibliometrics/${id}?instfilter=${e.target.checked}`)
-    
+        
 }

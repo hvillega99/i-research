@@ -229,7 +229,9 @@ exports.deleteUnit = (req, res) => {
     try {
 
         const {idUnit} = req.params;
+        const unit = unitsdb.getUnitById(idUnit);
         unitsdb.removeUnit(idUnit);
+        centersdb.removeAttachedCenters(unit.nombre);
         messageUnit.show = true;
         messageUnit.content = 'Unidad académica eliminada.';
         res.redirect('/admin/unidades');

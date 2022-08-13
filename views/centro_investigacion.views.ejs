@@ -21,6 +21,16 @@
                         <div>
                             <h2 id="uaId"><%= siglas %></h2>
                             <h3 id="uaName"><%= nombre %></h3>
+
+                            <% if(vinculacion!="Institucional"){ %>
+
+                                <p>
+                                    Adscrito a <a href="/unidad/<%= vinculacion %>" target="_blank">
+                                        <%= vinculacion %>
+                                    </a>
+                                </p>
+
+                            <% } %>
                             
                             <% if(link){ %>
                                 <p>

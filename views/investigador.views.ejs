@@ -49,6 +49,17 @@
                             <p>Scopus id: <a id="scopusId" 
                                 href="https://www.scopus.com/authid/detail.uri?authorId=<%= information.id %>"
                                 target="_blank"><%= information.id%></a></p>
+
+                            <%if(information.scholar){ %>
+                                <p><a id="g_scholar" 
+                                    href="<%= information.scholar %>"
+                                    target="_blank">Google Scholar</a></p>
+                            <% } %>
+                                
+                            <%if(information.correo){ %>
+                                <p>Correo: <%= information.correo%></p>
+                            <% } %>
+
                         </div>
                     </div>
 

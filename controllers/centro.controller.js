@@ -30,7 +30,7 @@ exports.getPerfilCentro = async(req, res) =>{
                     const investigador = investigadores.find(item => item.id == scopusId);
                     const contrato = contratos.find(item => item.scopusId == scopusId);
 
-                    if(contrato.sexo){
+                    if(contrato){
                         investigador['sexo'] = contrato.sexo
                         contrato.sexo == 'M' ? countM++ : countF++;
                     }else{
@@ -52,6 +52,7 @@ exports.getPerfilCentro = async(req, res) =>{
                                                             nombre: informacion.nombreCompleto,
                                                             logo: informacion.logo,
                                                             link: informacion.link,
+                                                            vinculacion: informacion.vinculacion,
                                                             totalInvestigadores: investigadores.length,
                                                             totalHombres: countM,
                                                             totalMujeres: countF,

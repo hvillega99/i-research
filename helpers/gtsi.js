@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 class Gtsi {
     constructor(){
-        this.url = 'http://192.168.253.6:8081/api/Investigacion';
+        this.url = 'http://ws.espol.edu.ec/investigacion/api/Investigacion';
     }
 
     countProjectsByYear = (arr) => {
@@ -68,7 +68,9 @@ class Gtsi {
             return {
                 'cedula': data.strIdentificacion,
                 'nombres': data.strNombres,
-                'apellidos': data.strApellidos
+                'apellidos': data.strApellidos,
+                'correo': `${data.strCorreo.split('@')[0]}[at]espol.edu.ec`,
+                'scholar': data.strScholarId,
             }
         }catch(err){
             return {"error": true, "message": "no se pudo obtener la información del investigador"};
@@ -86,6 +88,8 @@ class Gtsi {
                 'nombres': data.strNombres,
                 'apellidos': data.strApellidos,
                 'sexo': data.strSexo,
+                'correo': data.strCorreo,
+                'scholar': data.strScholarId,
                 scopusId
             }
         }catch(err){
@@ -95,11 +99,13 @@ class Gtsi {
 
     async getContratosByScopusId(scopusIdArr){
         
-        const contratos = await Promise.all(
+        let contratos = await Promise.all(
             scopusIdArr.map(async (scopusId) => this.getContratoByScopusId(scopusId))
         )
 
-        //console.log(contratos)
+        contratos = contratos.filter(contrato => contrato!=undefined);
+        contratos = contratos.filter(contrato => !contrato.error);
+
         return contratos;
     }
 
