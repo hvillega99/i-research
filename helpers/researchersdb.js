@@ -58,7 +58,7 @@ class Researchersdb{
     getResearchersByUnit(unit){
         const arr = [];
         const data = this.researchers.filter(item => {
-            if(item['Level 3'] == unit.toLocaleUpperCase() && !arr.includes(item["Scopus Author ID"])){
+            if(item['Level 3'].trim() == unit.toLocaleUpperCase() && !arr.includes(item["Scopus Author ID"])){
                 arr.push(item["Scopus Author ID"]);
                 return true;
             }

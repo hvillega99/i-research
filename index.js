@@ -66,7 +66,7 @@ passport.deserializeUser(function(user, done) {
 
 //routes
 app.use('/',require('./routes/main.routes'))
-app.use('/resultados',require('./routes/resultados.routes'));
+app.use('/busqueda',require('./routes/busqueda.routes'));
 app.use('/investigador',require('./routes/investigador.routes'));
 app.use('/unidad',require('./routes/unidad_academica.routes'));
 app.use('/centro',require('./routes/centro_investigacion.routes'));
@@ -106,7 +106,7 @@ app.use('/cas_login',(req, res, next)=> {
         });
       })(req, res, next);
 })
-app.use('/admin',borradoCache ,authenticateA ,require('./routes/admin.routes'));
+app.use('/admin', require('./routes/admin.routes'));
 
 app.use('/cas_logout',(req, res)=> {
   req.logout(); // provided by passport

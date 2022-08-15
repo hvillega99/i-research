@@ -4,4 +4,7 @@ const router = Router();
 
 router.post("/", resultadosControler.find);
 
+router.get("/", resultadosControler.renderFinder);
+
+
 module.exports = router;

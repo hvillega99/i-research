@@ -16,9 +16,6 @@
         <a href="/admin" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"  data-value="Administrar" title="Administrar">
             <img src="/img/admin.png" alt="admin">
         </a>
-        <a href="/colaboracion" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" data-value="Colaboración externa" title="Colaboración externa">
-            <img src="/img/globe.png" alt="admin">
-        </a>
         <div class="language_switch">
             <div class="flags_item" title="Spanish">
                 <img src="/img/ec.svg" alt="admin">
@@ -42,12 +39,12 @@
         </div>  
         -->
 
-        <div class="finder mt-5" style="height: 50vh;">
+        <div class="finder mt-5">
             <img src="/img/logo-espol.png" class="text-start" alt="logo">
 
-            <h2 class="m-4"><b data-value="Repositorio de investigadores">Repositorio de investigadores</b></h2>
+            <h2><b data-value="Repositorio de investigadores">Repositorio de investigadores</b></h2>
             
-            <form method="POST" action="/resultados" class="form-group m-2">
+            <!-- <form method="POST" action="/resultados" class="form-group m-2">
                 <div class="form-group">
                     <input type="search" class="form-control" id="input-finder"
                     data-value="Buscar investigador, unidad académica, centro de investigación o tópico"
@@ -58,10 +55,27 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" id="submit-finder" data-value="Buscar" value="Buscar">
                 </div>   
-            </form>
+            </form> -->
+            <div class="d-flex justify-content-center">
+
+                <div class="card">
+                    <a href="/colaboracion" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" data-value="Colaboración externa" title="Colaboración externa">
+                        <div class="card-body">
+                            <img src="/img/colaboracion.png" class="card-img" alt="colaboracion">
+                        </div>
+                    </a>
+                </div>
+                <div class="ms-4 card">
+                    <a href="/busqueda" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" data-value="Buscador" title="Buscador">
+                        <div class="card-body">
+                            <img src="/img/buscador.png" class="card-img" alt="buscador">
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <div class="container text-center" id="myHeader">
+        <div class="container text-center mt-5" id="myHeader">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="investigadores-tab" data-bs-toggle="tab" data-bs-target="#unidades-academicas" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="tecla()" data-value="Unidades académicas">Unidades académicas</button>

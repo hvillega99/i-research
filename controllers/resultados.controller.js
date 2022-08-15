@@ -65,3 +65,7 @@ exports.find = async (req, res) =>{
                                                 totalKw: autByKw.length,
                                                 terminos: terms});
 };
+
+exports.renderFinder = (req, res) => {
+    res.render("../views/busqueda.views.ejs");
+}
