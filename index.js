@@ -106,7 +106,7 @@ app.use('/cas_login',(req, res, next)=> {
         });
       })(req, res, next);
 })
-app.use('/admin', require('./routes/admin.routes'));
+app.use('/admin',borradoCache ,authenticateA ,require('./routes/admin.routes'));
 
 app.use('/cas_logout',(req, res)=> {
   req.logout(); // provided by passport
