@@ -15,9 +15,9 @@ const filterByType = (type) => {
         items = Object.values(items);
 
         if(type=='I'){
-            items = items.filter(item => !item.classList.contains('institucional'));
+            items = items.filter(item => !item.classList.contains('Institucional'));
         }else{
-            items = items.filter(item => item.classList.contains('institucional'));
+            items = items.filter(item => item.classList.contains('Institucional'));
         }
     
 
