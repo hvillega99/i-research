@@ -52,17 +52,17 @@ const showList = async (sdg) =>{
     sdgPublications.style.display = 'block';
 
     //IDIOMA
-    var title_SDG = 'Publicaciones sobre ODS'
+    var title_SDG = 'ODS'
     var no_aviliable_sdg = 'No disponible'
     var sdg_num_name = sgdNames[sdg];
     if(thecheck.checked){
-        title_SDG = 'Publications on SDGs'
+        title_SDG = 'SDG'
         no_aviliable_sdg = 'Not available'
         sdg_num_name = sgdNamesEng[sdg];
     }
     //FIN DE IDIOMA
 
-    document.getElementById(`title-list-${sdg}`).innerHTML = `<div><p style="display:inline" data-value="Publicaciones sobre ODS">${title_SDG}</p> <p style="display:inline"> ${sdg}: </p> <p style="display:inline" data-value="${sgdNames[sdg]}">${sdg_num_name}</p></div>`;
+    document.getElementById(`title-list-${sdg}`).innerHTML = `<div><p style="display:inline" data-value="ODS">${title_SDG}</p> <p style="display:inline"> ${sdg}: </p> <p style="display:inline" data-value="${sgdNames[sdg]}">${sdg_num_name}</p></div>`;
 
     const listContainer = document.getElementById(`list-container-${sdg}`);
 
