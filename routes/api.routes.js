@@ -19,6 +19,8 @@ router.get('/unit/bibliometrics/:ua', apiController.getBibliometricsUnit);
 
 router.get('/unit/projects/:ua', apiController.getProjectsByUnit);
 
+router.get('/ods/projects/:ods', apiController.getProjectsByODS);
+
 router.get('/collaborators/:scopusId/:publications', apiController.getCollaborators);
 
 router.get('/projects/:author', apiController.getProjectsByAuthor);

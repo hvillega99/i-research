@@ -178,6 +178,12 @@ exports.getProjectsByUnit = async (req, res) => {
     res.send(projects);
 }
 
+exports.getProjectsByODS = async (req, res) => {
+    const {ods} = req.params;
+    const projects = await gtsi.getProjectsByODS(ods);
+    res.send(projects);
+}
+
 exports.getPublicationsInfo = async (req, res) => {
     const {id} = req.params;
     const info = await scopus.getInfoPublications(id);

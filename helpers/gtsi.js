@@ -59,6 +59,27 @@ class Gtsi {
 
     }
 
+    async getProjectsByODS(ODS){
+
+        try{
+            const uri = `${this.url}/GetProyectosByODSId/${ODS}`;
+            const response = await fetch(uri);
+            const data = await response.json();
+
+            const startYears = data.map(item => item["fechainicio"].split('/')[2]);
+            const endYears = data.map(item => item["fechafin"].split('/')[2]);
+            const countingStartYear = this.countProjectsByYear(startYears);
+            const countingEndYear = this.countProjectsByYear(endYears);
+    
+            let current = data.filter(item => item["estado"]==="EN EJECUCION");
+            let finished = data.filter(item => item["estado"]==="FINALIZADO");
+            return {current, finished, countingStartYear, countingEndYear};
+        }catch(err){
+            return {"error": true, "message": "servicio no disponible"};
+        }
+
+    }
+
     async getContratoByOrcid(orcid){
         const uri = `${this.url}/GetContratoByOrcid/${orcid}`;
 
