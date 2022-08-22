@@ -153,6 +153,7 @@ const showList = async (sdg) =>{
 
     const response2 = await fetch(`/api/ods/projects/${sdg}`);
     const projects = await response2.json();
+    console.log(projects);
     
     const total = document.getElementById(`num-total-projects-${sdg}`);
 
