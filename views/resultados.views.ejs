@@ -176,16 +176,18 @@
         <% } %>
 
         <% if(total==0 && totalKw==0){ %>
-            <h3 class="text_results">No se econtraron resultados para <%= terminos %></h3>
+            <div class="text_results">
+                <h3 style="display:inline" class="text_results" data-value="No se econtraron resultados para">No se econtraron resultados para</h3> <h3 style="display:inline"><%= terminos %></h3>
+            </div>    
         <% } %>
 
         <% if(totalSug>0){ %>
             <div class="text_results">
-                <h3 style="display:inline"> Temas sugeridos:</h3> 
+                <h3 style="display:inline" data-value="Temas sugeridos:">Temas sugeridos:</h3> 
                 <% i = 0 %>
                 <% temas_sugeridos.forEach(tema => { %>
                     <% i++ %>
-                    <h4 style="display:inline"> <%= tema %></h4>
+                    <h4 style="display:inline"><a href="#" onclick="holaf('<%= tema %>')"> <%= tema %> </a></h4>
                     <% if(totalSug!=i){ %>
                         <h4 style="display:inline"> , </h4>
                     <% } %>    
@@ -229,5 +231,6 @@
    
     <%- include("templates/footer.templates.ejs")%>
     <script src="/js/config_lang.js"></script>
+    <script src="/js/sugerencias.js"></script>
 </body>
 </html>
