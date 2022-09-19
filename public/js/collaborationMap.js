@@ -4,8 +4,8 @@ var series;
 const manageList = (show, hide, place, country, menu_type, otro_name) => {
     //console.log(ms2);
     //console.log(ms3);
-    console.log(place)
-    console.log(otro_name)
+    //console.log(place)
+    //console.log(otro_name)
 
     document.getElementById(show).style.display = 'block';
     document.getElementById(hide).style.display = 'none';
@@ -426,7 +426,7 @@ async function idiomaD8(){
         countryToChange.textContent = auxDataName
        
     }
-    console.log('*****************')
+    //console.log('*****************')
     
     
     if(thecheck.checked){

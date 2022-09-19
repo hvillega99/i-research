@@ -14,16 +14,10 @@ class Scopus{
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
         const url = `${this.uri}${urlX}apiKey=${apiKey}&insttoken=${insttoken}`;
-        console.log('THE URL:')
-        console.log(url);
-        console.log('*****************')
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
         const The_information = await response.json();
-        console.log('THE RESPONSE')
-        console.log(The_information)
-        console.log('****************')
         return The_information;
     }
 
@@ -285,7 +279,7 @@ class Scopus{
                 var plop = {'sdg': SDG_number, 'publications': respuesta.publications, 'citations': respuesta.citations};
                 return plop;
             }catch(err){
-                console.log(`***ODS: ${SDG_number}***:`, err);
+                //console.log(`***ODS: ${SDG_number}***:`, err);
                 return {"error": true, "message": "servicio no disponible", "sdg": SDG_number};
             }
         }
@@ -304,7 +298,7 @@ class Scopus{
                 var plop = {'sdg': SDG_number, 'publications': publicaciones, 'citations':citaciones};
                 return plop;
             }catch(err){
-                console.log(`***ODS: ${SDG_number}***:`, err);
+                //console.log(`***ODS: ${SDG_number}***:`, err);
                 return {"error": true, "message": "servicio no disponible"};
             }
         }
