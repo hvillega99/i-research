@@ -14,10 +14,16 @@ class Scopus{
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
         const url = `${this.uri}${urlX}apiKey=${apiKey}&insttoken=${insttoken}`;
+        console.log('THE URL:')
+        console.log(url);
+        console.log('*****************')
         const response = await fetch(url,{
             headers:{'Accept': 'application/json'}
         });
         const The_information = await response.json();
+        console.log('THE RESPONSE')
+        console.log(The_information)
+        console.log('****************')
         return The_information;
     }
 
