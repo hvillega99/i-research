@@ -41,3 +41,12 @@ h3{
     text-align: center;
 }
 
+.link-perfil{
+    color: black;
+    text-decoration: none;
+}
+
+.link-perfil:hover{
+    color: black;
+    text-decoration: underline;
+}

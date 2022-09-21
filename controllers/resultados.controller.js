@@ -19,7 +19,7 @@ exports.find = async (req, res) =>{
 
         const investigador = data[i];
 
-        const contrato = await  gtsi.getContratoByScopusId(investigador['Scopus Author ID']);
+        const contrato = await  gtsi.getContratoByScopusId(investigador.scopusId);
 
         let srcFoto;
 
@@ -29,9 +29,12 @@ exports.find = async (req, res) =>{
             srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
         }
 
+        const afiliaciones = [investigador.afiliaciones.unidades.join(' '), investigador.afiliaciones.centros.join(' ')];
+
         investigadores.push({
-            scopusId: investigador['Scopus Author ID'],
-            name: investigador.Author,
+            scopusId: investigador.scopusId,
+            name: investigador.autor,
+            afiliaciones: afiliaciones.join(' '), 
             srcFoto
         })
     }
@@ -71,12 +74,16 @@ exports.find = async (req, res) =>{
 
     idList.forEach(scopusId => {
         const result = researches.searchById(scopusId);
+
+        const afiliaciones = [result.afiliaciones.unidades.join(' '), result.afiliaciones.centros.join(' ')];
+
         if(result){
-            const name = result.Author;
+            const name = result.autor;
             const ci = kwResults[scopusId].cedula;
             autByKw.push({
                 scopusId,
                 name,
+                afiliaciones: afiliaciones.join(' '),
                 srcFoto: `https://talentohumano.espol.edu.ec/imgEmpleado/${ci}.jpg`
             });
         }

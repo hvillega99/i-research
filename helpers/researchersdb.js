@@ -31,13 +31,22 @@ class Researchersdb{
 
     searchById(scopusId){
         const result = this.researchers.find(e => e['Scopus Author ID'] == scopusId);
-        return result;
+        
+        if(result){
+            return {
+                autor: result['Author'], 
+                scopusId: result["Scopus Author ID"],
+                afiliaciones: this.getNameAndAffiliations(result["Scopus Author ID"]).affiliations
+            }
+        }else{
+            return undefined;
+        }
     }
    
 
     searchByName(name){    
         const nombres = []
-        return this.researchers.filter( resultado =>
+        let results = this.researchers.filter( resultado =>
             {   
                 
                 let terms = name.replace('.', '');
@@ -53,6 +62,14 @@ class Researchersdb{
                 return false;
             }
         )
+
+        results = results.map(item => ({
+            autor: item['Author'], 
+            scopusId: item["Scopus Author ID"],
+            afiliaciones: this.getNameAndAffiliations(item["Scopus Author ID"]).affiliations
+        }));
+
+        return results;
     }
 
     getResearchersByUnit(unit){

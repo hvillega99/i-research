@@ -17,9 +17,11 @@
                     <% if(totalSug>0){ %>
                         <div class="text_results text-start">
                             <h5 style="display:inline" data-value="Temas sugeridos:">Temas sugeridos:</h5> 
-                            <% temas_sugeridos.forEach(tema => { %>
-                                <p><a href="#" onclick="holaf('<%= tema %>')"> <%= tema %> </a></p>  
-                            <% }) %>
+                            <div class="mt-2">
+                                <% temas_sugeridos.forEach(tema => { %>
+                                    <p><a href="#" onclick="holaf('<%= tema %>')" class="link-perfil"> <%= tema %> </a></p>  
+                                <% }) %>
+                            </div>
                         </div>
                     <% } %>
                 </div>
@@ -49,9 +51,11 @@
                                                 <img src="<%= resultado.srcFoto %>" class="rounded img-fluid" style="object-fit: contain" >
                                             </div>
                                             <div class="col-7 text-start">
-                                                <strong><%= resultado.name %></strong>
+                                                <a href="/investigador/<%= resultado.scopusId %>" class="link-perfil">
+                                                    <strong><%= resultado.name %></strong>
+                                                </a>
                                                 <h6 data-value="Investigador">Investigador</h6>
-                                                <p>FIEC, CTI</p>
+                                                <p><%= resultado.afiliaciones %></p>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +71,9 @@
                                                 <img src="<%= facultad.logo %>" class="rounded img-fluid" style="object-fit: contain" >
                                             </div>
                                             <div class="col-6 text-start">
-                                                <strong><%= facultad.nombre %></strong>
+                                                <a href="/unidad/<%= facultad.nombre %>" class="link-perfil">
+                                                    <strong><%= facultad.nombre %></strong>
+                                                </a>
                                                 <h6 data-value="Unidad académica">Unidad académica</h6>
                                             </div>
                                         </div>
@@ -86,7 +92,9 @@
                                                 <img src="<%= centro.logo %>" class="rounded img-fluid" style="object-fit: contain" >
                                             </div>
                                             <div class="col-6 text-start">
-                                                <strong><%= centro.nombre %></strong>
+                                                <a href="/centro/<%= centro.nombre %>" class="link-perfil">
+                                                    <strong><%= centro.nombre %></strong>
+                                                </a>
                                                 <h6 data-value="Centro de investigación">Centro de investigación</h6>
                                             </div>
                                         </div>
@@ -124,9 +132,11 @@
                                                 <img src="<%= autor.srcFoto %>" class="rounded img-fluid" style="object-fit: contain" >
                                             </div>
                                             <div class="col-7 text-start">
-                                                <strong><%= autor.name %></strong>
+                                                <a href="/investigador/<%= autor.scopusId %>" class="link-perfil">
+                                                    <strong><%= autor.name %></strong>
+                                                </a>
                                                 <h6 data-value="Investigador">Investigador</h6>
-                                                <p>FIEC, CTI</p>
+                                                <p><%= autor.afiliaciones %></p>
                                             </div>
                                         </div>
                                     </div>
@@ -146,39 +156,6 @@
                     
                 </div>
             </div>
-        </div>
-        
-
-
-        <div class="modal fade" id="loadingModal" data-bs-backdrop="static" 
-                    data-bs-keyboard="false" tabindex="-1" 
-                    aria-labelledby="staticBackdropLabel" 
-                    aria-hidden="true">
-
-            <div class="modal-dialog modal-dialog-centered modal-sm">
-
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h5 class="modal-title text-center" data-value="Cargando perfil">Cargando perfil</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body d-flex justify-content-center">
-
-                        <div class="modal-dialog">
-
-                            <div class="spinner-border text-secondary" role="status" 
-                             style="width: 3rem; height: 3rem;">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-
-                        </div>
-
-                    </div> 
-                </div>
-
-            </div>
-
         </div>
 
     </main>
