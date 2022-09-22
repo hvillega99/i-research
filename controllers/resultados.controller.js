@@ -75,9 +75,9 @@ exports.find = async (req, res) =>{
     idList.forEach(scopusId => {
         const result = researches.searchById(scopusId);
 
-        const afiliaciones = [result.afiliaciones.unidades.join(' '), result.afiliaciones.centros.join(' ')];
-
+        
         if(result){
+            const afiliaciones = [result.afiliaciones.unidades.join(' '), result.afiliaciones.centros.join(' ')];
             const name = result.autor;
             const ci = kwResults[scopusId].cedula;
             autByKw.push({
