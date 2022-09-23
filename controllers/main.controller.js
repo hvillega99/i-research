@@ -24,5 +24,9 @@ exports.getMainPage = async (req, res) => {
         faculties.push(element);
     });
 
+    centros.sort((x, y)=> x.nombreCompleto.localeCompare(y.nombreCompleto, {ignorePunctuation: true}));
+    faculties.sort((x, y)=> x.nombreCompleto.localeCompare(y.nombreCompleto, {ignorePunctuation: true}));
+
+
     res.render("../views/main.views.ejs", {faculties, centros});
 }
