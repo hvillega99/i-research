@@ -30,7 +30,7 @@ class Cache{
             this.status = 1;
         });
 
-        this.expire = 60*60*24;
+        this.expire = 60*60*24*7;
 
         Cache.instance = this;
         
