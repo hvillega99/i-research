@@ -100,7 +100,7 @@ class Scival{
 
     //Usado
     async getFCWI(scopusId){
-        const url = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrsAndCurrent&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&`;    
+        const url = `${this.uri}metricTypes=FieldWeightedCitationImpact&authors=${scopusId}&yearRange=3yrs&includeSelfCitations=true&byYear=true&includedDocs=AllPublicationTypes&journalImpactType=CiteScore&showAsFieldWeighted=false&`;    
         try{
             const data = await this.comunX(url);
             const values = data.results[0].metrics[0].valueByYear;
