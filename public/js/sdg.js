@@ -384,6 +384,18 @@ const showList = async (sdg) =>{
         const endYears = Object.keys(countingEndYear);
         const endValues = endYears.map(year => countingEndYear[year]);
         const maxValue = Math.max.apply( Math, [...startValues, ...endValues] );
+
+        const stepSize = () => {
+            if(maxValue<=5){
+                return 1;
+            }else if(maxValue<=10){
+                return Math.round(maxValue/2);
+            }else if(maxValue<=20){
+                return Math.round(maxValue/4);
+            }else{
+                return Math.round(maxValue/3);
+            }
+        }
     
         const graphSP = document.getElementById(`projects-by-year-${sdg}`);
     
@@ -404,7 +416,7 @@ const showList = async (sdg) =>{
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            stepSize: maxValue < 20? 1:0,
+                            stepSize: stepSize(),
                             max: maxValue
                         }
                     }]
@@ -438,7 +450,7 @@ const showList = async (sdg) =>{
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            stepSize: maxValue < 20? 1:0,
+                            stepSize: stepSize(),
                             max: maxValue
                         }
                     }]
