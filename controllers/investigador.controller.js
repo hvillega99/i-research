@@ -14,22 +14,27 @@ exports.getPerfilInvestigador = async (req, res) =>{
     const result = researches.searchById(scopusId);
     
     if(!!result){
-        let [orcidCountsAndSubjects, 
+        let [
+                orcidCountsAndSubjects, 
                 hIndex, 
                 publications2, 
                 fcwi, 
-                h5index
-            ] = await Promise.all([scopus.getDataAndAreas(scopusId), 
+                h5index,
+                contrato
+
+            ] = await Promise.all([
+                
+                                    scopus.getDataAndAreas(scopusId), 
                                     scopus.getHindex(scopusId), 
                                     scopus.getPublicationsTitle(scopusId),
                                     scival.getFCWI(scopusId),
-                                    scival.getH5index(scopusId)
+                                    scival.getH5index(scopusId),
+                                    gtsi.getPerfilByScopusId(scopusId)
+
                                 ]);                       
                                 
         const information = {...orcidCountsAndSubjects};
 
-        const contrato = await gtsi.getContratoByOrcid(information.orcid);
-        
         const nameAndAffiliations = researches.getNameAndAffiliations(scopusId);
         
         let srcFoto;
@@ -38,10 +43,17 @@ exports.getPerfilInvestigador = async (req, res) =>{
             srcFoto = '/img/author.png';
             information['nombre'] = nameAndAffiliations.name;
         }else{
-            srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
+
+            if(contrato.foto.srcFoto){
+                srcFoto = contrato.foto.srcFoto;
+            }else{
+                srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
+            }
+            
             information['nombre'] = `${contrato.apellidos} ${contrato.nombres}`;
             information['correo'] = contrato.correo;
             information['scholar'] = contrato.scholar;
+
         }
 
         information['srcFoto'] = srcFoto;

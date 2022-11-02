@@ -2,7 +2,8 @@ const fetch = require('node-fetch');
 
 class Gtsi {
     constructor(){
-        this.url = 'http://ws.espol.edu.ec/investigacion/api/Investigacion';
+        this.investigacionURL = 'http://ws.espol.edu.ec/investigacion/api/Investigacion';
+        this.carnetURL = 'https://ws.espol.edu.ec/carnetvirtual/api/FotoPerfil';
     }
 
     countProjectsByYear = (arr) => {
@@ -17,7 +18,7 @@ class Gtsi {
 
     async getProjects(scopusId){
         try {
-            const uri = `${this.url}/GetProyectosByScopusId/${scopusId}`;
+            const uri = `${this.investigacionURL}/GetProyectosByScopusId/${scopusId}`;
             const response = await fetch(uri);
             const data = await response.json();
     
@@ -41,7 +42,7 @@ class Gtsi {
     async getProjectsByUnit(unit){
 
         try{
-            const uri = `${this.url}/GetProyectosByUnidad/${unit}`;
+            const uri = `${this.investigacionURL}/GetProyectosByUnidad/${unit}`;
             const response = await fetch(uri);
             const data = await response.json();
 
@@ -62,7 +63,7 @@ class Gtsi {
     async getProjectsByODS(ODS){
 
         try{
-            const uri = `${this.url}/GetProyectosByODSId/${ODS}`;
+            const uri = `${this.investigacionURL}/GetProyectosByODSId/${ODS}`;
             const response = await fetch(uri);
             const data = await response.json();
 
@@ -81,7 +82,7 @@ class Gtsi {
     }
 
     async getContratoByOrcid(orcid){
-        const uri = `${this.url}/GetContratoByOrcid/${orcid}`;
+        const uri = `${this.investigacionURL}/GetContratoByOrcid/${orcid}`;
 
         try{
             const response = await fetch(uri);
@@ -90,7 +91,7 @@ class Gtsi {
                 'cedula': data.strIdentificacion,
                 'nombres': data.strNombres,
                 'apellidos': data.strApellidos,
-                'correo': `${data.strCorreo.split('@')[0]}[at]espol.edu.ec`,
+                'correo': data.strCorreo,
                 'scholar': data.strScholarId,
             }
         }catch(err){
@@ -99,7 +100,7 @@ class Gtsi {
     }
 
     async getContratoByScopusId(scopusId){
-        const uri = `${this.url}/GetContratoByScopusId/${scopusId}`;
+        const uri = `${this.investigacionURL}/GetContratoByScopusId/${scopusId}`;
 
         try{
             const response = await fetch(uri);
@@ -132,7 +133,7 @@ class Gtsi {
 
     async getAuthorsByKeywords(keywords){
         
-        const uri = `${this.url}/GetProyectosByKeyword/${keywords}`;
+        const uri = `${this.investigacionURL}/GetProyectosByKeyword/${keywords}`;
         var listaInv = {}
         try{
             const response = await fetch(uri);
@@ -151,6 +152,37 @@ class Gtsi {
             return listaInv;
         }catch(err){
             return {"error": true, "message": "no se pudo obtener la información de investigadores con estas palabras claves", keywords};
+        }
+    }
+
+    async getPhotoByUserName(username){
+        const uri = `${this.carnetURL}/GetFotoPerfil?netid=${username}`;
+        try{
+            const response = await fetch(uri);
+            const data = await response.json();
+            return {srcFoto:data.fotoString};
+        }catch(err){
+            return {"error": true, "message": "no se pudo obtener la foto del investigador"};
+        }
+    }
+
+    async getPerfilByOrcid(orcid){
+        try{
+            const contrato = await this.getContratoByOrcid(orcid);
+            const foto = await this.getPhotoByUserName(contrato.correo.split('@')[0]);
+            return {...contrato, foto, correo: `${contrato.correo.split('@')[0]}[at]espol.edu.ec`};
+        }catch(err){
+            return {"error": true, "message": "no se pudo obtener la información del investigador"};
+        }
+    }
+
+    async getPerfilByScopusId(scopusId){
+        try{
+            const contrato = await this.getContratoByScopusId(scopusId);
+            const foto = await this.getPhotoByUserName(contrato.correo.split('@')[0]);
+            return {...contrato, foto, correo: `${contrato.correo.split('@')[0]}[at]espol.edu.ec`};
+        }catch(err){
+            return {"error": true, "message": "no se pudo obtener la información del investigador"};
         }
     }
 }

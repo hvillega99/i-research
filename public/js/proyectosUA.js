@@ -17,7 +17,7 @@ const countAreas = [];
 
 //{area: '', count: 0}
 
-fetch(`/api/unit/projects/${uaId}`)
+fetch(`/api/unidades/proyectos/${uaId}`)
 .then(response => response.json())
 .then(data => {
 

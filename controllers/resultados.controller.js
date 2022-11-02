@@ -19,15 +19,18 @@ exports.find = async (req, res) =>{
 
         const investigador = data[i];
 
-        const contrato = await  gtsi.getContratoByScopusId(investigador.scopusId);
+        const contrato = await  gtsi.getPerfilByScopusId(investigador.scopusId);
 
         let srcFoto;
 
         if(contrato.error){
             srcFoto = '/img/author.png';
+        }else if(contrato.foto.srcFoto){
+            srcFoto = contrato.foto.srcFoto;
         }else{
             srcFoto = `https://talentohumano.espol.edu.ec/imgEmpleado/${contrato.cedula}.jpg`;
         }
+        
 
         const afiliaciones = [investigador.afiliaciones.unidades.join(' '), investigador.afiliaciones.centros.join(' ')];
 
