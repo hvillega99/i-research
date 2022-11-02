@@ -1,51 +1,36 @@
 const {Router} = require("express");
 const apiController = require('../controllers/api.controller');
-const Scival = require('../helpers/scival');
-const scival = new Scival();
-const router = Router();
 
-router.get("/citationsByYear/:scopusId", async (req, res) => {
-    const citations = await scival.getCitations(req.params.scopusId);
-    res.send(citations);
-});
+const apiRouter = Router();
 
-router.get("/publicationsByYear/:scopusId", async (req, res) => {
-    const publications = await scival.getPublications(req.params.scopusId);
-    res.send(publications); 
-});
+//investigadores
 
+apiRouter.get('/investigadores/citationCount/:scopusId', apiController.getCitationCount);
+apiRouter.get('/investigadores/colaboradores/:scopusId/:documentIds', apiController.getCollaborators);
+apiRouter.get('/investigadores/documentCount/:scopusId', apiController.getDocumentCount);
+apiRouter.get('/investigadores/proyectos/:scopusId', apiController.getProjectsByAuthor);
+apiRouter.get('/investigadores/top', apiController.getTopAuthors);
 
-router.get('/unit/bibliometrics/:ua', apiController.getBibliometricsUnit);
+//unidades
 
-router.get('/unit/projects/:ua', apiController.getProjectsByUnit);
+apiRouter.get('/unidades/metricas/:ua', apiController.getBibliometricsUnit);
+apiRouter.get('/unidades/proyectos/:ua', apiController.getProjectsByUnit);
 
-router.get('/ods/projects/:ods', apiController.getProjectsByODS);
+//espol
 
-router.get('/collaborators/:scopusId/:publications', apiController.getCollaborators);
+apiRouter.get('/espol/colaboracion/documentCount', apiController.getNDocsByCountry);
+apiRouter.get('/espol/colaboracion/documents/:country', apiController.getInfoDocsByCountry);
+apiRouter.get('/espol/metricas/autoresPorSexo', apiController.getAuthorCountByGender);
+apiRouter.get('/espol/metricas/citationCount', apiController.getEspolCitationsByYear);
+apiRouter.get('/espol/metricas/documentCount', apiController.getEspolPublicationsByYear);
+apiRouter.get('/espol/metricas/documentCountAreas', apiController.getPublicationsByArea);
+apiRouter.get('/espol/metricas/topJournalPercentiles', apiController.getTopJournalInst);
+apiRouter.get('/espol/ods/documents/:sdg', apiController.getPublicationsBySDG);
+apiRouter.get('/espol/ods/metricas', apiController.getBibliometricsBySDG);
+apiRouter.get('/espol/ods/proyectos/:ods', apiController.getProjectsByODS);
 
-router.get('/projects/:author', apiController.getProjectsByAuthor);
+//publicaciones
 
-router.get('/publicationsInfo/:id', apiController.getPublicationsInfo);
+apiRouter.get('/publicaciones/:id', apiController.getPublicationsInfo);
 
-
-router.get("/sdg/publications/:sdg", apiController.getPublicationsBySDG);
-
-router.get("/sdg/bibliometrics", apiController.getBibliometricsBySDG);
-
-router.get('/espol/collaboration/documentCount',apiController.getNDocsByCountry);
-
-router.get('/espol/collaboration/documents/:country',apiController.getInfoDocsByCountry);
-
-router.get('/espol/metrics/authorsByGender',apiController.getAuthorCountByGender);
-
-router.get('/citationsByYearEspol', apiController.getEspolCitationsByYear);
-
-router.get('/publicationsByYearEspol', apiController.getEspolPublicationsByYear);
-
-router.get('/publications/topJournalPercentiles/inst', apiController.getTopJournalInst);
-
-router.get('/topAuthors', apiController.getTopAuthors);
-
-router.get('/publications/areas/inst', apiController.getPublicationsByArea);
-
-module.exports = router;
+module.exports = apiRouter;

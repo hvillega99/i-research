@@ -156,7 +156,7 @@ async function idiomaD7(){
     //console.log(tf.data.datasets[0].label);
 }
 
-loadData(`/api/unit/bibliometrics/${id}?instfilter=true`);
+loadData(`/api/unidades/metricas/${id}?instfilter=true`);
 
 instfilter.onclick = (e) =>{
 
@@ -174,6 +174,6 @@ instfilter.onclick = (e) =>{
     spinnerPublicaciones.style.display = "block";
     spinnerCitas.style.display = "block";
 
-    loadData(`/api/unit/bibliometrics/${id}?instfilter=${e.target.checked}`)
+    loadData(`/api/unidades/metricas/${id}?instfilter=${e.target.checked}`)
         
 }

@@ -9,7 +9,7 @@ const publications = idArray.join(',');
 const scopusId = document.getElementById('scopusId').textContent;
 const divColab = document.getElementById('colaborators');
 
-fetch(`/api/collaborators/${scopusId}/${publications}`)
+fetch(`/api/investigadores/colaboradores/${scopusId}/${publications}`)
 .then(result => result.json())
 .then(data=> {
         if(!data.error){

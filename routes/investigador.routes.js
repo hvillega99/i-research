@@ -1,7 +1,7 @@
 const {Router} = require("express");
 const investigadorControler = require('../controllers/investigador.controller');
-const router = Router();
+const investigadorRouter = Router();
 
-router.get("/:scopusId", investigadorControler.getPerfilInvestigador);
+investigadorRouter.get("/:scopusId", investigadorControler.getPerfilInvestigador);
 
-module.exports = router;
+module.exports = investigadorRouter;

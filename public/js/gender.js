@@ -3,7 +3,7 @@ thecheckD3.addEventListener("click", idiomaD3)
 var gd_graph;
 
 const loadGenderGraph = async (canvas, title, info) => {
-    const response = await fetch('/api/espol/metrics/authorsByGender');
+    const response = await fetch('/api/espol/metricas/autoresPorSexo');
     const data = await response.json();
 
     var gender_labels = ['Mujeres', 'Hombres']

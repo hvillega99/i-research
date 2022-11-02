@@ -1,5 +1,5 @@
 const pieContainer = document.getElementById('grafica-documentos-area');
-fetch('/api/publications/areas/inst')
+fetch('/api/espol/metricas/documentCountAreas')
 .then(response => response.json())
 .then(data => {
 

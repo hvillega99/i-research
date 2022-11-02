@@ -1,10 +1,10 @@
 const {Router} = require("express");
 const resultadosControler = require('../controllers/resultados.controller');
-const router = Router();
+const busquedaRouter = Router();
 
-router.post("/", resultadosControler.find);
+busquedaRouter.post("/", resultadosControler.find);
 
-router.get("/", resultadosControler.renderFinder);
+busquedaRouter.get("/", resultadosControler.renderFinder);
 
 
-module.exports = router;
+module.exports = busquedaRouter;

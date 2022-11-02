@@ -3,7 +3,7 @@ const handleClick = (id, idContent) => {
     if(document.getElementById(`waiting-${idContent}`)){
         let content = document.getElementById(`content-${idContent}`);
         
-        fetch(`/api/publicationsInfo/${id}`)
+        fetch(`/api/publicaciones/${id}`)
         .then(response => response.json())
         .then(data => {
             if(!data.error){

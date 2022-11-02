@@ -1,31 +1,31 @@
 const {Router} = require('express');
 const adminController = require('../controllers/admin.controller');
-const router = Router();
+const adminRouter = Router();
 
-router.get('/', adminController.loadResearchers);
-router.post('/upload/investigadores', adminController.uploadResearchers);
-router.post('/upload/publicaciones', adminController.uploadDocuments);
-router.post('/upload/usuarios', adminController.uploadUsers);
-router.post('/upload/apikey', adminController.uploadApiKey);
-
-
-router.get('/download/investigadores', adminController.downloadResearchers);
-router.get('/download/publicaciones', adminController.downloadDocuments);
-router.get('/download/usuarios', adminController.downloadUsers);
-router.get('/download/apikey', adminController.downloadApiKey);
+adminRouter.get('/', adminController.loadResearchers);
+adminRouter.post('/upload/investigadores', adminController.uploadResearchers);
+adminRouter.post('/upload/publicaciones', adminController.uploadDocuments);
+adminRouter.post('/upload/usuarios', adminController.uploadUsers);
+adminRouter.post('/upload/apikey', adminController.uploadApiKey);
 
 
-router.get('/unidades', adminController.loadUnits);
-router.post('/unidades', adminController.addUnit);
-router.get('/unidades/edit/:idUnit', adminController.loadUnitEditForm);
-router.post('/unidades/edit/:idUnit', adminController.editUnit);
-router.get('/unidades/delete/:idUnit', adminController.deleteUnit);
-
-router.get('/centros', adminController.loadCenters);
-router.post('/centros', adminController.addCenter);
-router.get('/centros/edit/:idCenter', adminController.loadCenterEditForm);
-router.post('/centros/edit/:idCenter', adminController.editCenter);
-router.get('/centros/delete/:idCenter', adminController.deleteCenter);
+adminRouter.get('/download/investigadores', adminController.downloadResearchers);
+adminRouter.get('/download/publicaciones', adminController.downloadDocuments);
+adminRouter.get('/download/usuarios', adminController.downloadUsers);
+adminRouter.get('/download/apikey', adminController.downloadApiKey);
 
 
-module.exports = router;
+adminRouter.get('/unidades', adminController.loadUnits);
+adminRouter.post('/unidades', adminController.addUnit);
+adminRouter.get('/unidades/edit/:idUnit', adminController.loadUnitEditForm);
+adminRouter.post('/unidades/edit/:idUnit', adminController.editUnit);
+adminRouter.get('/unidades/delete/:idUnit', adminController.deleteUnit);
+
+adminRouter.get('/centros', adminController.loadCenters);
+adminRouter.post('/centros', adminController.addCenter);
+adminRouter.get('/centros/edit/:idCenter', adminController.loadCenterEditForm);
+adminRouter.post('/centros/edit/:idCenter', adminController.editCenter);
+adminRouter.get('/centros/delete/:idCenter', adminController.deleteCenter);
+
+
+module.exports = adminRouter;

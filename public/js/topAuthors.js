@@ -1,6 +1,6 @@
 const divTable = document.getElementById('top-table');
 
-fetch('/api/topAuthors')
+fetch('/api/investigadores/top')
 .then(result => result.json())
 .then(elements => {
     if(elements.error){

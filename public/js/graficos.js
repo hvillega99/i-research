@@ -6,7 +6,7 @@ var numP;
 const id = document.getElementById('scopusId').textContent;
 
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch(`/api/citationsByYear/${id}`)
+fetch(`/api/investigadores/citationCount/${id}`)
 .then(response => response.json())
 .then(dataset => {
 
@@ -58,7 +58,7 @@ fetch(`/api/citationsByYear/${id}`)
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
-fetch(`/api/publicationsByYear/${id}`)
+fetch(`/api/investigadores/documentCount/${id}`)
 .then(response => response.json())
 .then(dataset => {
 

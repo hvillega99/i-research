@@ -55,7 +55,7 @@ const showCountryInfo = async (e, data) => {
     if(document.getElementById(`waiting-${country.id}`)){
 
     
-        const response = await fetch(`/api/espol/collaboration/documents/${country.id}`);
+        const response = await fetch(`/api/espol/colaboracion/documents/${country.id}`);
         const information = await response.json();
     
         const instArr = Object.keys(information);
@@ -299,7 +299,7 @@ anychart.onDocumentReady(function () {
         'data/countries.json',
         async function (data) {
 
-        let values = await fetch('/api/espol/collaboration/documentCount');
+        let values = await fetch('/api/espol/colaboracion/documentCount');
         values = await values.json();
 
         loadCountryValues(data, values);

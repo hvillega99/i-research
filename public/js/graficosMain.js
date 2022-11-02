@@ -5,7 +5,7 @@ var gf2;
 var tjp;
 
 const grafica1 = document.getElementById("grafica-citaciones");
-fetch('/api/citationsByYearEspol')
+fetch('/api/espol/metricas/citationCount')
 .then(response => response.json())
 .then(dataset => {
     if(!dataset.error){
@@ -64,7 +64,7 @@ fetch('/api/citationsByYearEspol')
 })
 
 const grafica2 = document.getElementById("grafica-publicaciones");
-fetch('/api/publicationsByYearEspol')
+fetch('/api/espol/metricas/documentCount')
 .then(response => response.json())
 .then(dataset => {
 
@@ -124,7 +124,7 @@ fetch('/api/publicationsByYearEspol')
 
 
 const tjpContainer = document.getElementById('grafica-tjp');
-fetch('api/publications/topJournalPercentiles/inst')
+fetch('api/espol/metricas/topJournalPercentiles')
 .then(response => response.json())
 .then(data => {
     

@@ -1,20 +1,90 @@
+const Cache = require('../cache/cache');
+const CsvParser = require('../helpers/csvParser');
+const Gtsi = require('../helpers/gtsi');
+const Researchersdb = require('../helpers/researchersdb');
 const Scival = require('../helpers/scival');
 const Scopus = require('../helpers/scopus');
-const Gtsi = require('../helpers/gtsi');
-const CsvParser = require('../helpers/csvParser');
 
-const Researchersdb = require('../helpers/researchersdb');
-const dbController = new Researchersdb();
 
-const Cache = require('../cache/cache');
 const cache = new Cache();
-
-const scival = new Scival();
+const dbController = new Researchersdb();
 const gtsi = new Gtsi();
-const scopus = new Scopus();
 const parser = new CsvParser();
+const scival = new Scival();
+const scopus = new Scopus();
 
 const countries = require('../resources/data/list_countries.json');
+
+exports.getProjectsByAuthor = async (req, res) => {
+    const {scopusId} = req.params;
+    const projects = await gtsi.getProjects(scopusId);
+    res.send(projects);
+}
+
+exports.getTopAuthors = async (req, res) => {
+
+    const key = 'top_authors';
+    let data = await cache.get(key);
+
+    if(!data || data.error){
+        const arrScopusId = dbController.getAllScopusId();
+        let authors = [];
+    
+        try{
+            for(let i=0; i<10; i++){
+                let subArray;
+
+                subArray = await scival.getHIndexAll(
+                        arrScopusId.slice(Math.round((i/10)*arrScopusId.length), 
+                        Math.round(((i+1)/10)*arrScopusId.length))
+                    );
+
+                authors = [...authors, ...subArray];
+            }
+         
+            authors.sort((x, y) => y.h - x.h);
+            authors = authors.slice(0, 10);
+        
+            data = authors;
+
+            await cache.set(key, JSON.stringify(data));
+
+        }catch (err) {
+            console.log(err)
+            data = {"error": true, "message": "servicio no disponible"};
+        }
+    }
+    res.send(data);
+}
+
+exports.getCollaborators = async (req, res) => {
+    const {scopusId, documentIds} = req.params;
+
+    let collaborators = [];
+
+    try{
+        collaborators = await scopus.getCoauthors(documentIds.split(','),scopusId);
+        collaborators.forEach(e => {
+            const result = dbController.searchById(e.id);
+            e["fromEspol"] = result != undefined;
+        })
+        res.json(collaborators);
+    }catch (err) {
+        res.json({error: true, message: 'servicio no disponible'});
+    }
+
+}
+
+exports.getDocumentCount = async (req, res) => {
+    const publications = await scival.getPublications(req.params.scopusId);
+    res.send(publications);
+}
+
+exports.getCitationCount = async (req, res) => {
+    const citations = await scival.getCitations(req.params.scopusId);
+    res.send(citations);
+}
+
 
 exports.getBibliometricsBySDG = async (req, res) => {
 
@@ -112,65 +182,11 @@ exports.getTopJournalInst = async (req, res) => {
     res.send(topJournals);
 }
 
-exports.getTopAuthors = async (req, res) => {
 
-    const key = 'top_authors';
-    let data = await cache.get(key);
 
-    if(!data || data.error){
-        const arrScopusId = dbController.getAllScopusId();
-        let authors = [];
-    
-        try{
-            for(let i=0; i<10; i++){
-                let subArray;
 
-                subArray = await scival.getHIndexAll(
-                        arrScopusId.slice(Math.round((i/10)*arrScopusId.length), 
-                        Math.round(((i+1)/10)*arrScopusId.length))
-                    );
 
-                authors = [...authors, ...subArray];
-            }
-         
-            authors.sort((x, y) => y.h - x.h);
-            authors = authors.slice(0, 10);
-        
-            data = authors;
 
-            await cache.set(key, JSON.stringify(data));
-
-        }catch (err) {
-            console.log(err)
-            data = {"error": true, "message": "servicio no disponible"};
-        }
-    }
-    res.send(data);
-}
-
-exports.getCollaborators = async (req, res) => {
-    const {scopusId, publications} = req.params;
-
-    let collaborators = [];
-
-    try{
-        collaborators = await scopus.getCoauthors(publications.split(','),scopusId);
-        collaborators.forEach(e => {
-            const result = dbController.searchById(e.id);
-            e["fromEspol"] = result != undefined;
-        })
-        res.json(collaborators);
-    }catch (err) {
-        res.json({error: true, message: 'servicio no disponible'});
-    }
-
-}
-
-exports.getProjectsByAuthor = async (req, res) => {
-    const {author} = req.params;
-    const projects = await gtsi.getProjects(author);
-    res.send(projects);
-}
 
 exports.getProjectsByUnit = async (req, res) => {
     const {ua} = req.params;

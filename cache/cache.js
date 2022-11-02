@@ -1,5 +1,5 @@
 const redis = require("redis");
-const config = require("./redis.config.json");
+const config = require("../redis.config.json");
 
 class Cache{
 

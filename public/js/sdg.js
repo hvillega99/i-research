@@ -66,7 +66,7 @@ const showList = async (sdg) =>{
 
     const listContainer = document.getElementById(`list-container-${sdg}`);
 
-    const response = await fetch(`/api/sdg/publications/${sdg}`);
+    const response = await fetch(`/api/espol/ods/documents/${sdg}`);
     const publications = await response.json();
 
     if(!publications.error) {
@@ -151,7 +151,7 @@ const showList = async (sdg) =>{
         console.error('No se pudo obtener la información correspondiente al ods', sdg);
     }
 
-    const response2 = await fetch(`/api/ods/projects/${sdg}`);
+    const response2 = await fetch(`/api/espol/ods/proyectos/${sdg}`);
     const projects = await response2.json();
     //console.log(projects);
     
@@ -521,7 +521,7 @@ const sdgColors = {
 }
 
 const graficaSDG = document.getElementById("grafica-sdg");
-fetch('/api/sdg/bibliometrics')
+fetch('/api/espol/ods/metricas')
 .then(response => response.json())
 .then(arr => {
 
