@@ -1,4 +1,3 @@
-const app = require('../app');
 const passport = require('../auth/cas');
 const {casLogout} = require("../cas.config.json");
 const Resourcesdb = require('../helpers/resourcesdb');
@@ -7,10 +6,6 @@ const resources = new Resourcesdb();
 const admins = resources.getUsers();
 
 exports.login = (req, res, next) => {
-    //Eliminar despues de hacer las pruebas de variable global    
-    console.log('************************************************************');
-    console.log(globalString);
-    //******************************* 
     const authenticate = passport.authenticate(
         'cas', 
         (err, user, info) => {
@@ -33,12 +28,8 @@ exports.login = (req, res, next) => {
                     return next(err);
                 }
             //req.session.messages = '';
-                //app.locals.user = user;
-                
-                //Variables Globales uso
-                globalString = user;
-                console.log(globalString);
-                //Variables Globales fin
+                                
+                adminUser = user;
                 
                 return res.redirect('/admin');
             });

@@ -6,9 +6,18 @@ const unitsdb = new Unitsdb();
 const centersdb = new Centersdb();
 const parser = new CsvParser();
 
+/**
+ * Clase para manejar los investigadores
+ */
+
 class Researchersdb{
 
     static instance;
+
+    /**
+     * 
+     * Constructor de la clase
+     */
 
     constructor(){
 
@@ -25,9 +34,19 @@ class Researchersdb{
         Researchersdb.instance = this;
     }
 
+    /**
+     * Actualiza investigadores
+     */
+
     async update(){
         this.researchers = await parser.getResearchers();
     }
+
+    /**
+     * Busca investigador por Scopus ID
+     * @param {String} scopusId Scopus ID del investigador
+     * @returns {{autor: String, scopusId: String, afiliaciones: {unidades: String[], centros: String[]}}}
+     */
 
     searchById(scopusId){
         const result = this.researchers.find(e => e['Scopus Author ID'] == scopusId);
@@ -42,7 +61,12 @@ class Researchersdb{
             return undefined;
         }
     }
-   
+
+   /**
+    * Busca investigador por nombre
+    * @param {String} name Nombre del investigador
+    * @returns {Array<{autor: String, scopusId: String, afiliaciones: {unidades: String[], centros: String[]}}>}
+    */
 
     searchByName(name){    
         const nombres = []
@@ -72,6 +96,12 @@ class Researchersdb{
         return results;
     }
 
+    /**
+     * Devuelve todos los investigadores de la unidad
+     * @param {String} unit Nombre de la unidad
+     * @returns {Array<{autor: String, id: String}>}
+     */
+
     getResearchersByUnit(unit){
         const arr = [];
         const data = this.researchers.filter(item => {
@@ -89,6 +119,12 @@ class Researchersdb{
         return result;
     }
 
+    /**
+     * Devuelve las unidades a las que pertenece el investigador
+     * @param {String} scopusId Scopus ID del investigador
+     * @returns {{name: String, affiliations: {unidades: String[], centros: String[]}}}
+     */
+
     getNameAndAffiliations(scopusId){
         const data = this.researchers.filter( resultado =>  resultado["Scopus Author ID"]==scopusId);
         let result = data.map(item => item['Level 3']);
@@ -104,6 +140,11 @@ class Researchersdb{
             'affiliations': affiliations
         };
     }
+
+    /**
+     * Devuelve los Scopus Id de todos los investigadores
+     * @returns {Array<String>}
+     */
 
     getAllScopusId(){
         let arrScopusId = this.researchers.map(item => item["Scopus Author ID"]);

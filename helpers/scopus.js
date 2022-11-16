@@ -2,9 +2,16 @@ const fetch = require('node-fetch');
 const Resourcesdb = require('./resourcesdb');
 const resources = new Resourcesdb();
 const sdgQueries = require('./sdgQueries');
-//Pequeña prueba
+
+/**
+ * Clase para manejar las consultas a Scopus
+ */
 
 class Scopus{
+
+    /**
+     * Constructor de la clase
+     */
 
     constructor(){
         this.uri = "https://api.elsevier.com/content/";   
@@ -165,7 +172,12 @@ class Scopus{
         return plop;
     }
 
-    //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
+    /**
+     * Devuelve las áreas de investigación, orcid, document count y citation count del investogador
+     * @param {String} scopusId Scopus Id del investigador
+     * @returns {Promise<Object>} Informacion del investigador
+     */
+    
     async getDataAndAreas(scopusId){
         try{
             const part_url = `author/author_id/${scopusId}?`;
@@ -192,7 +204,12 @@ class Scopus{
         }
     }
     
-    //Usado - F1 OK (Estas funciones podrian fucionarse; si es que no se tomara en cuenta las areas del investigador)
+    /**
+     * Devuelve el H index del investigador
+     * @param {String} scopusId Scopus Id del investigador
+     * @returns {Promise<number>} H index del investigador
+     */
+
     async getHindex(scopusId){
         try{
             const part_url = `author/author_id/${scopusId}?view=metrics&`;
@@ -203,7 +220,12 @@ class Scopus{
         }
     }
 
-    //Usado - OK
+    /**
+     * Devuelve métricas de los investigadores
+     * @param {Array<String>} idArr Array de Scopus Id de los investigadores
+     * @returns {Promise<Array<Object>>} Métricas de los investigadores
+     */
+
     async getMetrics(idArr){
         try {
             const part_url = `author/author_id/${idArr}?view=metrics&`;
@@ -214,7 +236,12 @@ class Scopus{
         }  
     }
    
-    //Usado + OK
+    /**
+     * 
+     * @param {String} scopusId 
+     * @returns 
+     */
+
     async getPublicationsTitle(scopusId){  
         try{
             const url_x = `search/scopus?query=AU-ID(${scopusId})`;
@@ -225,13 +252,14 @@ class Scopus{
         }
     }
     
-    //Usado + OK
     /**
-     * Obtiene el número de publicaciones y citaciones de una unidad académica en un año determinado
-     * @param {Array} arrayIDS - Array de Scopus ID de los investigadores de la unidad
-     * @param {Number} year - Año de la búsqueda
-     * @returns 
+     * Devuelve el número de publicaciones y citaciones de una unidad académica en un año determinado
+     * @param {Array<String>} arrayIDS Array de Scopus ID de los investigadores de la unidad
+     * @param {number} year Año de la búsqueda
+     * @param {String} instfilter Filtro institucional
+     * @returns {Promise<Object>} Publicaciones y citaciones de la unidad en el año indicado
      */
+
     async getNPublications(arrayIDS, year, instfilter){     
         //Concatenacion de los ID'S de los investigadores de una facultad o centro en especifico
         var xlr = 1;
@@ -262,12 +290,11 @@ class Scopus{
         }
     }
 
-    //Usado + OK
     /**
      * Devuelve la cantidad de publicaciones relacionadas con un ODS
      * 
-     * @param {String} SDG_number - Número de ODS
-     * @returns 
+     * @param {String} SDG_number Número de ODS
+     * @returns {Promise<Object>} Cantidad de publicaciones por año del ODS
      */
 
     async getSDGbibliometrics(SDG_number){
@@ -305,12 +332,11 @@ class Scopus{
 
     }
 
-    //Usado + OK
     /**
      * Devuelve las publicaciones relacionadas con un ODS
      * 
-     * @param {String} SDG_number - Número de ODS
-     * @returns {Object} - Objeto con los datos de las publicaciones del ODS
+     * @param {String} SDG_number Número de ODS
+     * @returns {Promise<Object>} Publicaciones relacionadas con el ODS
      */
 
     async getSDGpublications(SDG_number){

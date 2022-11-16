@@ -1,10 +1,18 @@
 const redis = require("redis");
 const config = require("../redis.config.json");
 
+/**
+ * Clase para manejar la caché de Redis
+ */
+
 class Cache{
 
     static instance;
 
+    /**
+     * Constructor de la clase
+     */
+    
     constructor(){
             
         if(!!Cache.instance){
@@ -36,6 +44,12 @@ class Cache{
         
     }
 
+    /**
+     * Devuelve un elemento guardado en la caché
+     * @param {String} key clave del elemento a buscar
+     * @return {Promise<Object>} elemento
+     */
+
     async get(key) {
 
         if(this.status == -1){
@@ -52,6 +66,13 @@ class Cache{
 
         return result;
     }
+
+    /**
+     * Guarda un elemento en la caché
+     * @param {String} key clave del elemento a guardar
+     * @param {String} value elemento a guardar
+     * @returns {Promise<Object>} resultado de la operación
+     */
 
     async set(key, value) {
 
@@ -73,6 +94,12 @@ class Cache{
         return result;
     }
 
+    /**
+     * Elimina elementos de la caché
+     * @param {String} key clave del elemento a eliminar
+     * @returns {Promise<Object>} resultado de la operación
+     */
+
     async del(key) {
 
         if(this.status == -1){
@@ -89,6 +116,12 @@ class Cache{
 
         return result;
     }
+
+    /**
+     * Devuelve las claves de los elementos guardados en la caché
+     * @param {String} pattern patrón de búsqueda
+     * @returns {Promise<Object>} resultado de la operación
+     */
 
     async getKeys(pattern) {
 

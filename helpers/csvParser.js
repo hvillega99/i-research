@@ -5,9 +5,17 @@ const parser = require('csv-parser');
 const Resourcesdb = require('./resourcesdb');
 const resources = new Resourcesdb();
 
+/**
+ * Clase para manejar el parseo de archivos CSV
+ */
+
 class CsvParser{
 
     static instance;
+
+    /**
+     * Constructor de la clase
+     */
     
     constructor(){
 
@@ -17,6 +25,11 @@ class CsvParser{
 
         CsvParser.instance = this;
     }
+
+    /**
+     * Lee el csv de investigadores
+     * @returns {Array<Object>} Investigadores
+     */
 
     getResearchers(){
 
@@ -47,6 +60,11 @@ class CsvParser{
 
 
     }
+
+    /**
+     * Lee el csv de publicaciones por área
+     * @returns {Array<Object>} Publicaciones por área
+     */
 
     getDocumentsByArea(){
 
