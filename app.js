@@ -26,6 +26,7 @@ app.use(fileUpload());
 
 app.use('/', indexRouter);
 
-app.locals.user = 'admin';
+//app.locals.user = 'admin';
+global.globalString = 'admin';
 
 module.exports = app;
