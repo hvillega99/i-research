@@ -17,6 +17,13 @@ class Scival{
         this.uriInstitution = "https://api.elsevier.com/analytics/scival/institution/metrics?"
     }
 
+    /**
+     * Devuelve la informacion de una peticion realizada al servicio de Scival
+     * 
+     * @param {String} urlX Url de la peticion que se realizara al servicio de Scival
+     * @returns {Promise<Object>} Respuestas de la peticion realizada a Scival, con el url especificado
+     */
+
     async comunX(urlX){
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
