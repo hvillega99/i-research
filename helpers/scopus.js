@@ -21,7 +21,7 @@ class Scopus{
      * Devuelve la informacion de una peticion realizada al servicio de Scopus
      * 
      * @param {String} urlX Url de la peticion que se realizara al servicio de Scopus
-     * @returns {Promise<Object>} Respuestas de la peticion realaziada a Scopus, con el url especificado
+     * @returns {Promise<Object>} Respuestas de la peticion realizada a Scopus, con el url especificado
      */
 
     async comunX(urlX){
