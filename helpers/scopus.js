@@ -17,6 +17,13 @@ class Scopus{
         this.uri = "https://api.elsevier.com/content/";   
     }
 
+    /**
+     * Devuelve la informacion de una peticion realizada al servicio de Scopus
+     * 
+     * @param {String} urlX Url de la peticion que se realizara al servicio de Scopus
+     * @returns {Promise<Object>} Respuestas de la peticion realaziada a Scopus, con el url especificado
+     */
+
     async comunX(urlX){
         const apiKey = resources.getApiKey();
         const insttoken = resources.getInsttoken();
@@ -27,6 +34,13 @@ class Scopus{
         const The_information = await response.json();
         return The_information;
     }
+
+    /**
+     * Devuelve la informacion general de publicaciones
+     * 
+     * @param {String} urlX Url de la peticion que se realizara al servicio de Scopus para obtener informacion general de publicaciones
+     * @returns {Promise<Object>} Informacion general sobre las publicaciones
+     */
 
     async comunX2(urlX){ //No se puede tocar (La funcion que utiliza este metodo; es invocada por un promise.all)
         var flag=0;
@@ -72,6 +86,13 @@ class Scopus{
         return plop;
     }
 
+    /**
+     * Devuelve el numero de publicaciones y citaciones totales
+     * 
+     * @param {String} urlX Url de la peticion que se realizara al servicio de Scopus para obtener el numero de publicaciones y citaciones totales
+     * @returns {Promise<Object>} Numero de publicaciones y citaciones totales
+     */    
+
     async comunX3(urlX){ //No se puede tocar (La funcion que utiliza este metodo; es invocada por un promise.all)
         var flag=0;
         var count = 1;
@@ -97,6 +118,14 @@ class Scopus{
         }
         return plop;
     }
+
+    /**
+     * Devuelve la informacion general de publicaciones de un determinado pais 
+     * 
+     * @param {String} urlX Url de la peticion que se realizara al servicio de Scopus para obtener la informacion general sobre las publicaciones de un determinado pais
+     * @param {String} the_country El nombre del pais donde se buscara la informacion general de las publicaciones
+     * @returns {Promise<Object>} Informacion general sobre las publicaciones de un determinado pais
+     */  
 
     async comunX4(urlX,the_country){
         var maxPub = 200;
@@ -173,7 +202,8 @@ class Scopus{
     }
 
     /**
-     * Devuelve las áreas de investigación, orcid, document count y citation count del investogador
+     * Devuelve las áreas de investigación, orcid, document count y citation count del investigador
+     * 
      * @param {String} scopusId Scopus Id del investigador
      * @returns {Promise<Object>} Informacion del investigador
      */
@@ -206,6 +236,7 @@ class Scopus{
     
     /**
      * Devuelve el H index del investigador
+     * 
      * @param {String} scopusId Scopus Id del investigador
      * @returns {Promise<number>} H index del investigador
      */
@@ -222,6 +253,7 @@ class Scopus{
 
     /**
      * Devuelve métricas de los investigadores
+     * 
      * @param {Array<String>} idArr Array de Scopus Id de los investigadores
      * @returns {Promise<Array<Object>>} Métricas de los investigadores
      */
@@ -237,9 +269,10 @@ class Scopus{
     }
    
     /**
+     * Devuelve informacion de todas las publicaciones de un autor determinado
      * 
-     * @param {String} scopusId 
-     * @returns 
+     * @param {String} scopusId Es el AuthorID del autor del que se buscara la informacion de todas sus publicaciones
+     * @returns Informacion general de todas las publicaciones de un autor determinado
      */
 
     async getPublicationsTitle(scopusId){  
@@ -254,6 +287,7 @@ class Scopus{
     
     /**
      * Devuelve el número de publicaciones y citaciones de una unidad académica en un año determinado
+     * 
      * @param {Array<String>} arrayIDS Array de Scopus ID de los investigadores de la unidad
      * @param {number} year Año de la búsqueda
      * @param {String} instfilter Filtro institucional
@@ -368,7 +402,14 @@ class Scopus{
         }
     }
 
-    //Pronto a usar 
+
+     /**
+     * Devuelve el nombre del pais y el numero de publicaciones (con colaboracion a ESPOL) que hay en dicho pais
+     * 
+     * @param {String} country Nombre del pais
+     * @returns {Promise<Object>} Nombre del pais y numero de publicaciones (con colaboracion a ESPOL) de dicho pais
+     */
+
     async getPublicationsByCountry(country){
         try{
             const url_x = `search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country})&`;
@@ -381,7 +422,13 @@ class Scopus{
 
     }
 
-    //Pronto a usar
+    /**
+     * Devuelve la informacion general de publicaciones (En colaboracion con Espol) de un determinado pais 
+     * 
+     * @param {String} country Nombre del pais
+     * @returns {Promise<Object>} Informacion general de publicaciones (En colaboracion con Espol) de un determinado pais
+     */
+
     async getPublicationsInfoByCountry(country){
         try{
             const url_x = `search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country})&`;
@@ -393,7 +440,14 @@ class Scopus{
 
     }
 
-    //Usado * OK
+    /**
+     * Devuelve la informacion relacionada a los colaboradores(coautores) de un autor determinado 
+     * 
+     * @param {String} arrayIds ID de todas las publicaciones del autor determinado
+     * @param {String} elID AuthorID del autor determinado al que se le buscara la informacion de sus correspondientes colaboradores(coautores)
+     * @returns {Promise<Object>} Informacion relacionada a los colaboradores(coautores) de un autor determinado (AuthorID y el nombre)
+     */
+
      async getCoauthors(arrayIds,elID){
         var flag=0;
         const plop = {};
@@ -439,7 +493,12 @@ class Scopus{
         return plop2 ;
     }
    
-    //Usado * OK
+    /**
+     * Devuelve informacion detallada de una pulbicacion determinada 
+     * 
+     * @param {String} scopusID scopusID de la publicacion de la cual se busca la informacion
+     * @returns {Promise<Object>} Informacion detallada de una pulbicacion determinada 
+     */
     async getInfoPublications(scopusID){
         try{
             const part_url = `abstract/scopus_id/${scopusID}?field=authors,title,publicationName,volume,issueIdentifier,prism:pageRange,coverDate,article-number,doi,citedby-count,prism:aggregationType&`;
