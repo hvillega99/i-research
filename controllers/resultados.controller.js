@@ -2,11 +2,13 @@ const Unitsdb = require('../helpers/unitsdb');
 const Centersdb = require('../helpers/centersdb');
 const Researchersdb = require('../helpers/researchersdb');
 const Gtsi = require('../helpers/gtsi');
+const Translator = require('../helpers/translator');
 
 const researches = new Researchersdb();
 const unitsdb = new Unitsdb();
 const centersdb = new Centersdb();
 const gtsi = new Gtsi();
+const translator = new Translator();
 
 exports.find = async (req, res) =>{
     const {terms} = req.body;
@@ -66,10 +68,7 @@ exports.find = async (req, res) =>{
     }
 
     const las_sugerencias = [...new Set(sugerencias)]
-    const total_sug = las_sugerencias.length
-    
-    
-
+    const total_sug = las_sugerencias.length;
     
     const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
     const idList = Object.keys(kwResults);
@@ -91,6 +90,11 @@ exports.find = async (req, res) =>{
             });
         }
     });
+
+/* 
+    console.log('aquí')
+    const tr = await translator.enToEs(terms);
+    console.log(tr); */
         
     const resultadosCentros = centersdb.findCenter(terms);
     const resultadosFacultades = unitsdb.findUnit(terms);
