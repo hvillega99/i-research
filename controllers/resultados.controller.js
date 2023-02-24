@@ -69,15 +69,30 @@ exports.find = async (req, res) =>{
 
     const las_sugerencias = [...new Set(sugerencias)]
     const total_sug = las_sugerencias.length;
-    
+;
+    let idList = [];
+
+    let [termsEs, termsEn] = await Promise.all([translator.toEs(terms), translator.toEn(terms)]);
+
+    if (!termsEs.error){
+        termsEs = termsEs.translatedText;
+        const kwResults = await gtsi.getAuthorsByKeywords(termsEs.replace(' ', ';')); 
+        idList = [idList, ...Object.keys(kwResults)];
+    }
+
+    if (!termsEn.error){
+        termsEn = termsEn.translatedText;
+        const kwResults = await gtsi.getAuthorsByKeywords(termsEn.replace(' ', ';'));
+        idList = [idList, ...Object.keys(kwResults)];
+    }
+
     const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
-    const idList = Object.keys(kwResults);
+    idList = [...new Set(idList)];
     const autByKw = [];
 
     idList.forEach(scopusId => {
         const result = researches.searchById(scopusId);
 
-        
         if(result){
             const afiliaciones = [result.afiliaciones.unidades.join(' '), result.afiliaciones.centros.join(' ')];
             const name = result.autor;
@@ -91,10 +106,6 @@ exports.find = async (req, res) =>{
         }
     });
 
-/* 
-    console.log('aquí')
-    const tr = await translator.enToEs(terms);
-    console.log(tr); */
         
     const resultadosCentros = centersdb.findCenter(terms);
     const resultadosFacultades = unitsdb.findUnit(terms);

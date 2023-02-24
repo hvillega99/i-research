@@ -28,7 +28,8 @@ class Translator{
             return translatedText;
             
         } catch (error) {   
-            return {'error': error}
+            console.log(error);
+            return {'error': error};
         }
     }
 
@@ -56,7 +57,6 @@ class Translator{
         
         return result;
     }
-
 
 }
 
