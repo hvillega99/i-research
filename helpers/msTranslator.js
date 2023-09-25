@@ -1,21 +1,19 @@
 const fetch = require('node-fetch');
+const Resourcesdb = require('./resourcesdb');
+const resources = new Resourcesdb();
 
 class MsTranslator {
 
     constructor(){
         this.uri = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0';
-        this.key = '3255e58f9c3343e1be2744b9674ce35f';
+        this.key = resources.getTranslatekey();
         this.region = 'eastus2';
-    }
+    } 
 
     async translate(text, source, target){
 
         try{
 
-            const headers = new Headers();
-            headers.append("Ocp-Apim-Subscription-Key", this.key);
-            headers.append("Ocp-Apim-Subscription-Region", this.region);
-            headers.append("Content-type", "application/json");
 
             const raw = JSON.stringify(
                 [{
@@ -25,7 +23,11 @@ class MsTranslator {
 
             const requestOptions = {
                 method: 'POST',
-                headers: headers,
+                headers: {
+                    'Ocp-Apim-Subscription-Key': this.key,
+                    'Ocp-Apim-Subscription-Region': this.region,
+                    'Content-type': 'application/json'
+                },
                 body: raw,
                 redirect: 'follow'
             };

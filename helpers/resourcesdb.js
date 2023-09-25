@@ -31,7 +31,7 @@ class Resourcesdb {
     }
 
     /**
-     * Devuelve el api key
+     * Devuelve el api key de los servicios de Scopus
      * @returns {String} api key
      */
 
@@ -48,6 +48,16 @@ class Resourcesdb {
     getInsttoken(){
         const apiKey = require(`.${this.files.path}${this.files.apikey}`);
         return apiKey['insttoken'];
+    }
+
+    /**
+     * Devuelve el api key del traductor de Azure
+     * @returns {String} api key
+     */
+
+    getTranslatekey(){
+        const apiKey = require(`.${this.files.path}${this.files.apikey}`);
+        return apiKey['translatekey'];
     }
 
     /**

@@ -2,7 +2,7 @@ const Unitsdb = require('../helpers/unitsdb');
 const Centersdb = require('../helpers/centersdb');
 const Researchersdb = require('../helpers/researchersdb');
 const Gtsi = require('../helpers/gtsi');
-const Translator = require('../helpers/translator');
+const Translator = require('../helpers/msTranslator');
 
 const researches = new Researchersdb();
 const unitsdb = new Unitsdb();
@@ -72,27 +72,35 @@ exports.find = async (req, res) =>{
 ;
     let idList = [];
 
-    let [termsEs, termsEn] = await Promise.all([translator.toEs(terms), translator.toEn(terms)]);
+    let [termsEn, termsEs] = await Promise.all([translator.esToEn(terms), translator.enToEs(terms)]);
+
+    let kwResults = {};
 
     if (!termsEs.error){
-        termsEs = termsEs.translatedText;
-        const kwResults = await gtsi.getAuthorsByKeywords(termsEs.replace(' ', ';')); 
+        const results = await gtsi.getAuthorsByKeywords(termsEs.replace(' ', ';')); 
         idList = [idList, ...Object.keys(kwResults)];
+        kwResults = {...kwResults, ...results};
     }
 
     if (!termsEn.error){
-        termsEn = termsEn.translatedText;
-        const kwResults = await gtsi.getAuthorsByKeywords(termsEn.replace(' ', ';'));
+        const results = await gtsi.getAuthorsByKeywords(termsEn.replace(' ', ';'));
         idList = [idList, ...Object.keys(kwResults)];
+        kwResults = {...kwResults, ...results};
     }
 
-    const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
+    if (idList.length === 0) {
+        // Si no se obtuvieron resultados con las traducciones, realizar la búsqueda con los términos originales
+        const results = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
+        idList = [...idList, ...Object.keys(results)];
+        kwResults = {...kwResults, ...results};
+    }
+
+    //const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
     idList = [...new Set(idList)];
     const autByKw = [];
 
     idList.forEach(scopusId => {
         const result = researches.searchById(scopusId);
-
         if(result){
             const afiliaciones = [result.afiliaciones.unidades.join(' '), result.afiliaciones.centros.join(' ')];
             const name = result.autor;
