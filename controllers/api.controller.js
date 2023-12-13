@@ -119,8 +119,19 @@ exports.getBibliometricsBySDG = async (req, res) => {
 
 exports.getPublicationsBySDG = async (req, res) => {
     const {sdg} = req.params;
-    const result = await scopus.getSDGpublications(sdg);
-    res.send(result);
+    const key = `sdgp_${sdg}`;
+
+    let data = await cache.get(key);
+    
+    if(!data || data.error){
+        data = await scopus.getSDGpublications(sdg);
+        await cache.set(key, JSON.stringify(data));
+    }else{
+        data = JSON.parse(data);
+        console.log('aquí');
+    }
+
+    res.send(data);
 }
 
 exports.getBibliometricsUnit = async (req, res) => {

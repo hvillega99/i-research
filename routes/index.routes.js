@@ -10,6 +10,7 @@ const homeRouter = require('./home.routes');
 const investigadorRouter = require('./investigador.routes');
 const permisoRouter = require('./permiso.routes');
 const unidadRouter = require('./unidad.routes');
+const odsRouter = require('./ods.routes');
 
 const indexRouter = Router();
 
@@ -40,6 +41,7 @@ indexRouter.use('/colaboracion', colaboracionRouter);
 indexRouter.use('/investigador', investigadorRouter);
 indexRouter.use('/sin-permiso', permisoRouter);
 indexRouter.use('/unidad', unidadRouter);
+indexRouter.use('/ods', odsRouter);
 
 indexRouter.use('*',(req, res)=> {
   res.render('notFound.views.ejs');
