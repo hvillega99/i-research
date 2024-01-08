@@ -1,158 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    
+    <%- include("templates/cabecera.templates.ejs")%>
+
+    <link rel="stylesheet" type="text/css" href="/css/perfil.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-
-
     <title>ODS</title>
 </head>
+
 <body>
-    <main>
-
-        <div class="container p-3 text-center" id="sdg-container">
-            
-            
-            <div class="row justify-content-center">
-                <div class="">
-
-                    <img src="/img/ods/ods<%=odsId%>.jpg" class="m-1 sdg-item" 
-                        width="120px" height="120px" alt="sdg<%=i%>"
-                    >
     
-                    <div id="sdg<%= i %>-publications" class="m-4" style="display: none">
-
-                        <div class="d-flex justify-content-center">
-                            <h5 class="mx-4" id="title-list-<%= i %>"></h5>
-                        </div>
-
-                        <!---->
-
-
-                        <div class="container text-center">
-                            <ul class="nav nav-tabs nav-justified" id="myTab-<%= i %>" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="publicaciones-tab-<%= i %>" data-bs-toggle="tab" data-bs-target="#publicaciones-<%= i %>" type="button" role="tab" aria-controls="home" aria-selected="true" data-value="Publicaciones">Publicaciones</button>
-                                </li>
-                                
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="contact-tab-<%= i %>" data-bs-toggle="tab" data-bs-target="#proyectos-<%= i %>" type="button" role="tab" aria-controls="contact" aria-selected="false" data-value="Proyectos">Proyectos</button>
-                                </li>
-                            </ul>
-                        </div>
-            
-                        <div class="divisions"></div>
-
-                        <div class="tab-content" id="myTabContent-<%= i %>">
-                            <div class="tab-pane fade show active" id="publicaciones-<%= i %>" role="tabpanel" aria-labelledby="home-tab">
-                                <div id="list-container-<%= odsId %>">
-                                    <div class="spinner-border m-5" role="status" id="waiting-sdg<%= i %>">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="proyectos-<%= i %>" role="tabpanel" aria-labelledby="profile-tab">
-                                <!---->
-
-                                <div class="row justify-content-center text-start" id="los_proyectos-<%= i %>">
-                                    <div class="col-md-2 flex-column">
-                                        <h5>Métricas</h5>
-                                        <div id="num-current-projects-<%= i %>">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <p data-value="En ejecución">En ejecución</p>
-                                        <div id="num-finished-projects-<%= i %>">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <p data-value="Finalizados">Finalizados</p>
-                                        <div id="num-total-projects-<%= i %>">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <p data-value="Total">Total</p>
-                                    </div>
+    <main>
         
-                                    <div class="col-md-5">   
-                                        
-                                        <div class="text-center">
-                                            <p style="display:inline" data-value="Proyectos por año de inicio">Proyectos por año de inicio</p>
-                                            <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
-                                            data-value="Cantidad de proyectos iniciados por año"
-                                            title="Cantidad de proyectos iniciados por año">
-                                            </img>
-                                        </div>
-                                        
-                                        <div id="temp-spinner-<%= i %>" class="text-center">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-        
-                                        <canvas id="projects-by-year-<%= i %>"></canvas>
-                                    </div>
-                                    <div class="col-md-5">   
-                                        <div class="text-center">
-                                            <p style="display:inline" data-value="Proyectos por año de finalización">Proyectos por año de finalización</p>
-                                            <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
-                                            data-value="Cantidad de proyectos por año de finalización"
-                                            title="Cantidad de proyectos por año de finalización">
-                                            </img>
-                                        </div>
-                                        <div id="f-temp-spinner-<%= i %>" class="text-center">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <canvas id="projects-by-finish-<%= i %>"></canvas>
-                                    </div>
-                                </div>
-        
-                                <div class="row justify-content-evenly">   
-                                    <div class="mb-4" id='current-projects-<%= i %>'></div>       
-                                    <div id="divisor-<%= i %>"></div>
-                                    <div class="mt-4" id="finished-projects-<%= i %>"></div>
-                                </div>
+        <div class="container p-3 text-center" id="sdg-container">
 
-                                <!---->
+            <div class="">
+                
+                <img 
+                    src="/img/ods/ods<%=odsId%>.jpg" 
+                    class="m-1 sdg-item" 
+                    width="120px" 
+                    height="120px" 
+                    alt="sdg<%=odsId%>"
+                >
+    
+            </div>
+            <p id="ods-id" style="display: none;">ODS <%=odsId%></p>
+
+        </div>
 
 
+        <div class="container text-center">
+            <ul 
+                class="nav nav-tabs nav-justified" 
+                id="myTab" 
+                role="tablist"
+            >
 
-                            </div>
-                        </div>
+                <li 
+                    class="nav-item" 
+                    role="presentation"
+                >
+                    <button 
+                        class="nav-link active" 
+                        id="publicaciones-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#publicaciones" 
+                        type="button" role="tab" 
+                        aria-controls="home" 
+                        aria-selected="true" 
+                        data-value="Publicaciones"
+                    >
+                        Publicaciones
+                    </button>
+                </li>
 
-                        <!---->
-                        <!--
-                            <div id="list-container-<%= i %>">
-                                <div class="spinner-border m-5" role="status" id="waiting-sdg<%= i %>">
+                <li 
+                    class="nav-item" 
+                    role="presentation"
+                >
+                    <button 
+                        class="nav-link" 
+                        id="proyectos-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#proyectos" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="profile" 
+                        aria-selected="false" 
+                        data-value="Proyectos"
+                    >
+                        Proyectos
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="division"></div>
+
+        <div 
+            class="tab-content" 
+            id="myTabContent"
+        >
+            <div 
+                class="tab-pane fade show active" 
+                id="publicaciones" 
+                role="tabpanel" 
+                aria-labelledby="home-tab"
+            >
+
+                <section class="container p-3 text-center">
+    
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div id="publicaciones-container">
+                                <div class="spinner-border" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </div>
-                        -->
+                        </div>
+                    </div>
+    
+                </section>
+
+            </div>
+
+            <div 
+                class="tab-pane fade" 
+                id="proyectos" 
+                role="tabpanel" 
+                aria-labelledby="profile-tab"
+            >
+                <section class="container p-3">
+    
+                    <div class="row justify-content-center text-start" id="proyectos">
+                        <div class="col-md-2 flex-column">
+                            <h5>Métricas</h5>
+                            <div id="num-current-projects">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <p data-value="En ejecución">En ejecución</p>
+                            <div id="num-finished-projects">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <p data-value="Finalizados">Finalizados</p>
+                            <div id="num-total-projects">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <p data-value="Total">Total</p>
+                        </div>
+
+                        <div class="col-md-5">   
+                            
+                            <div class="text-center">
+                                <p style="display:inline" data-value="Proyectos por año de inicio">Proyectos por año de inicio</p>
+                                <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                                data-value="Cantidad de proyectos iniciados por año"
+                                title="Cantidad de proyectos iniciados por año">
+                                </img>
+                            </div>
+                            
+                            <div id="temp-spinner" class="text-center">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+
+                            <canvas id="projects-by-year"></canvas>
+                        </div>
+                        <div class="col-md-5">   
+                            <div class="text-center">
+                                <p style="display:inline" data-value="Proyectos por año de finalización">Proyectos por año de finalización</p>
+                                <img src="/img/info.ico" data-toggle="tooltip" data-placement="top" 
+                                data-value="Cantidad de proyectos por año de finalización"
+                                title="Cantidad de proyectos por año de finalización">
+                                </img>
+                            </div>
+                            <div id="f-temp-spinner" class="text-center">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <canvas id="projects-by-finish"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="row">   
+                        
+                        <div class="mb-4" id='current-projects'></div>       
+                        <div id="divisor"></div>
+                        <div class="mt-4" id="finished-projects"></div>
 
                     </div>
     
-                    
-                </div>
+                </section>
             </div>
-
-
-        </div>
-    
-    </div>  
+        </div>        
 
     </main>
     <!-- <%- include("templates/footer.templates.ejs")%> -->
-    <script src="/js/staticHeader.js"></script>
-
+    <script src="/js/sdgPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/publicaciones.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script src="/js/sdg.js"></script>
 </body>
+
 </html>

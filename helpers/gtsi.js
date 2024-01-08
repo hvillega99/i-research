@@ -136,9 +136,11 @@ class Gtsi {
         const uri = `${this.investigacionURL}/GetProyectosByKeyword/${keywords}`;
         var listaInv = {}
         try{
-            const response = await fetch(uri);
-            const data = await response.json();
+            const response = await fetch(uri, {redirect: 'follow'}); 
             
+          
+            const data = await response.json();
+
             data.forEach( proyecto => {
                 proyecto["colaboradores"].forEach( investigador => {
                     if(investigador["scopusId"]!=null){
@@ -150,8 +152,10 @@ class Gtsi {
                 })
             });
             return listaInv;
+
         }catch(err){
-            return {"error": true, "message": "no se pudo obtener la información de investigadores con estas palabras claves", keywords};
+            console.log(err, keywords)
+            return {"error": true, "message": "No se pudo obtener la información de investigadores con estas palabras claves", keywords};
         }
     }
 

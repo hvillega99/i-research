@@ -271,7 +271,7 @@ const loadCountryValues = (data, values) => {
                                         <div class="modal-header">
 
                                         <div  id="md-${id}-title">
-                                            <h5 style="display:inline" data-value="Instituciones de">${inst_mess_1} </h5> <h5 data-name=${ot_nombre_place2} style="display:inline">${nombre_place2}</h5> <h5 style="display:inline" data-value="con publicaciones en conjunto con ESPOL">${inst_mess_2}</h5>
+                                            <h5 style="display:inline" data-value="Instituciones de">"${inst_mess_1}" </h5> <h5 data-name="${ot_nombre_place2}" style="display:inline">${nombre_place2}</h5> <h5 style="display:inline" data-value="con publicaciones en conjunto con ESPOL">"${inst_mess_2}"</h5>
                                         </div>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>

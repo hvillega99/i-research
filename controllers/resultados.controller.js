@@ -69,34 +69,38 @@ exports.find = async (req, res) =>{
 
     const las_sugerencias = [...new Set(sugerencias)]
     const total_sug = las_sugerencias.length;
-;
+
     let idList = [];
-
     let [termsEn, termsEs] = await Promise.all([translator.esToEn(terms), translator.enToEs(terms)]);
-
     let kwResults = {};
 
     if (!termsEs.error){
-        const results = await gtsi.getAuthorsByKeywords(termsEs.replace(' ', ';')); 
-        idList = [idList, ...Object.keys(kwResults)];
-        kwResults = {...kwResults, ...results};
+        const results = await gtsi.getAuthorsByKeywords(termsEs.replace(' ', ';').toLowerCase());
+        if (!results.error) {
+            kwResults = {...kwResults, ...results};
+            idList.push(...Object.keys(kwResults));
+        }
     }
-
+    
     if (!termsEn.error){
-        const results = await gtsi.getAuthorsByKeywords(termsEn.replace(' ', ';'));
-        idList = [idList, ...Object.keys(kwResults)];
-        kwResults = {...kwResults, ...results};
+        const results = await gtsi.getAuthorsByKeywords(termsEn.replace(' ', ';').toLowerCase());
+        if (!results.error){
+            kwResults = {...kwResults, ...results};
+            idList.push(...Object.keys(kwResults));
+        }
     }
-
+    
     if (idList.length === 0) {
         // Si no se obtuvieron resultados con las traducciones, realizar la búsqueda con los términos originales
         const results = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
-        idList = [...idList, ...Object.keys(results)];
-        kwResults = {...kwResults, ...results};
+        if (!results.error){
+            kwResults = {...kwResults, ...results};
+            idList.push(...Object.keys(kwResults));
+        }
     }
 
-    //const kwResults = await gtsi.getAuthorsByKeywords(terms.replace(' ', ';'));
     idList = [...new Set(idList)];
+
     const autByKw = [];
 
     idList.forEach(scopusId => {
@@ -113,7 +117,6 @@ exports.find = async (req, res) =>{
             });
         }
     });
-
         
     const resultadosCentros = centersdb.findCenter(terms);
     const resultadosFacultades = unitsdb.findUnit(terms);
