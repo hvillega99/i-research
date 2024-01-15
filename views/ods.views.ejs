@@ -3,11 +3,13 @@
 
 <head>
     <%- include("templates/cabecera.templates.ejs")%>
-
+    <meta name="description" content="<%=desc%>">
+    <meta name="keywords" content="<%=kw%>">
+    <meta name="robots" content="INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-<%=odsId%>">
+    <title><%=title%></title>
     <link rel="stylesheet" type="text/css" href="/css/perfil.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-    <title>ODS</title>
 </head>
 
 <body>

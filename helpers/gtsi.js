@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 class Gtsi {
     constructor(){
-        this.investigacionURL = 'http://ws.espol.edu.ec/investigacion/api/Investigacion';
+        this.investigacionURL = 'https://ws.espol.edu.ec/investigacion/api/Investigacion';
         this.carnetURL = 'https://ws.espol.edu.ec/carnetvirtual/api/FotoPerfil';
     }
 
@@ -132,13 +132,11 @@ class Gtsi {
     }
 
     async getAuthorsByKeywords(keywords){
-        
-        const uri = `${this.investigacionURL}/GetProyectosByKeyword/${keywords}`;
+        const encodedKeywords = encodeURIComponent(keywords);
+        const uri = `${this.investigacionURL}/GetProyectosByKeyword/${encodedKeywords}`;
         var listaInv = {}
         try{
-            const response = await fetch(uri, {redirect: 'follow'}); 
-            
-          
+            const response = await fetch(uri);             
             const data = await response.json();
 
             data.forEach( proyecto => {
@@ -155,6 +153,8 @@ class Gtsi {
 
         }catch(err){
             console.log(err, keywords)
+            console.log('cuerpo', txt, 'fin cuerpo')
+
             return {"error": true, "message": "No se pudo obtener la información de investigadores con estas palabras claves", keywords};
         }
     }

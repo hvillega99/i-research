@@ -39,7 +39,7 @@ class CsvParser{
             fs.exists(researchersPath,(e) => {
                 if(e){
                     const data = [];
-                    fs.createReadStream(researchersPath, { encoding: 'latin1' })
+                    fs.createReadStream(researchersPath)
                         .pipe(parser({
                             separator: ',',
                             newline: '\n',
