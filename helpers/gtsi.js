@@ -152,9 +152,6 @@ class Gtsi {
             return listaInv;
 
         }catch(err){
-            console.log(err, keywords)
-            console.log('cuerpo', txt, 'fin cuerpo')
-
             return {"error": true, "message": "No se pudo obtener la información de investigadores con estas palabras claves", keywords};
         }
     }
