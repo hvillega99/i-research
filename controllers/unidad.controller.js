@@ -10,6 +10,7 @@ const unitsdb = new Unitsdb;
 const gtsi = new Gtsi();
 
 exports.getPerfilUnidad = async(req, res) =>{
+    
     const nombreUnidad = req.params.uaName;
     const informacion = unitsdb.getUnit(nombreUnidad);
     if(informacion){

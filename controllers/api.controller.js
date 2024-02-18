@@ -310,19 +310,30 @@ exports.getInfoDocsByCountry = async (req, res) => {
 }
 
 exports.getAuthorCountByGender = async (req, res) => {
-    const idArr = dbController.getAllScopusId();
-    const response = await gtsi.getContratosByScopusId(idArr);
 
-    let countF = 0;
-    let countM = 0;
+    const key = 'authors_by_genders';
+    let data = await cache.get(key);
 
-    response.forEach(item => {
-        if(item.sexo){
-            item.sexo == 'F' ? countF++ : countM++;
-        }
-    })
+    if(!data || data.error){
+        const idArr = dbController.getAllScopusId();
+        const response = await gtsi.getContratosByScopusId(idArr);
+    
+        let countF = 0;
+        let countM = 0;
+    
+        response.forEach(item => {
+            if(item.sexo){
+                item.sexo == 'F' ? countF++ : countM++;
+            }
+        })
 
-    res.send({'mujeres': countF, 'hombres': countM});
+        data = {'mujeres': countF, 'hombres': countM};
+
+        await cache.set(key, JSON.stringify(data));
+    }
+
+
+    res.send(data);
 
 }
 
