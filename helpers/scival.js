@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const Resourcesdb = require('./resourcesdb');
 const resources = new Resourcesdb();
-
+const logger = require('../logger');
 /**
  * Clase para manejar las consultas a Scival
  */
@@ -50,6 +50,7 @@ class Scival{
             data = await this.comunX(url);
             data = data["results"][0]["metrics"][0]["values"];
         }catch(err){
+            logger.error('scival.getPublicationsInTopJournalPercentiles. Error en API Scival institution metrics. '+err);
             data = {"error": true, "message": "servicio no disponible"};
         }
 
@@ -68,6 +69,7 @@ class Scival{
             data = await this.comunX(url);
             data = data["results"][0]["metrics"][0]["valueByYear"]
         }catch(err){
+            logger.error('scival.institutionCitations. Error en API Scival institution metrics. '+err);
             data = {"error": true, "message": "servicio no disponible"};
         }
         
@@ -86,6 +88,7 @@ class Scival{
             data = await this.comunX(url);
             data = data["results"][0]["metrics"][0]["valueByYear"]
         }catch (err) {
+            logger.error('scival.getInstitutionPublications. Error en API Scival institution metrics. '+err);
             data = {"error": true, "message": "servicio no disponible"};
         }
         return data;
@@ -110,6 +113,7 @@ class Scival{
             })
             return authors;
         }catch (err) {
+            logger.error('scival.getHIndexAll. Error en API Scival author metrics. '+err);
             return {"error": true, "message": "servicio no disponible"};
         }
         
@@ -129,6 +133,7 @@ class Scival{
             const keys = Object.keys(values);
             return values[keys[keys.length - 1]];
         }catch(err){
+            logger.error('scival.getH5index. Error en API Scival author metrics. '+err);
             return -1;
         }
     }
@@ -150,6 +155,7 @@ class Scival{
             }
             return 0;
         }catch(e){
+            logger.error('scival.getFCWI. Error en API Scival author metrics. '+e);
             return -1;
         }
 
@@ -167,6 +173,7 @@ class Scival{
             const values = data.results.map(item => item.metrics[0].valueByYear);
             return values;
         }catch (err) {
+            logger.error('scival.getPublications. Error en API Scival author metrics. '+err);
             return {"error": true, "message": "servicio no disponible"};
         }
     }
@@ -184,6 +191,7 @@ class Scival{
             const values = data.results.map(item => item.metrics[0].valueByYear);
             return values;
         }catch (err) {
+            logger.error('scival.getCitations. Error en API Scival author metrics. '+err);
             return {"error": true, "message": "servicio no disponible"};
         }
     }

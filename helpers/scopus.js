@@ -3,6 +3,8 @@ const Resourcesdb = require('./resourcesdb');
 const resources = new Resourcesdb();
 const sdgQueries = require('./sdgQueries');
 
+const logger = require('../logger');
+
 /**
  * Clase para manejar las consultas a Scopus
  */
@@ -222,7 +224,7 @@ class Scopus{
                 areas: areas.map(item => item['$']).slice(0,6)
             };
         }catch (err) {
-            console.log(err);
+            logger.error(`Error en API Scopus ${this.uri}: ${err}`);
             return {
                 orcid: -1,
                 documentos: -1,

@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const logger = require('../logger');
 
 class Gtsi {
     constructor(){
@@ -35,6 +36,7 @@ class Gtsi {
             return {current, finished, countingStartYear, countingEndYear};
 
         }catch (err) {
+            logger.error(`gtsi.getProjects. Error en servicio: /GetProyectosByScopusId/${scopusId} - ${err}`);
             return {"error": true, "message": "servicio no disponible"};
         }
     }
@@ -55,6 +57,7 @@ class Gtsi {
             let finished = data.filter(item => item["estado"]==="FINALIZADO");
             return {current, finished, countingStartYear, countingEndYear};
         }catch(err){
+            logger.error(`gtsi.getProjectsByUnit. Error en servicio: /GetProyectosByUnidad/${unit} - ${err}`);
             return {"error": true, "message": "servicio no disponible"};
         }
 
@@ -76,6 +79,7 @@ class Gtsi {
             let finished = data.filter(item => item["estado"]==="FINALIZADO");
             return {current, finished, countingStartYear, countingEndYear};
         }catch(err){
+            logger.error(`gtsi.getProjectsByODS. Error en servicio: /GetProyectosByODSId/${ODS} - ${err}`);
             return {"error": true, "message": "servicio no disponible"};
         }
 
@@ -95,6 +99,7 @@ class Gtsi {
                 'scholar': data.strScholarId,
             }
         }catch(err){
+            logger.error(`gtsi.getContratoByOrcid. Error en servicio: /GetContratoByOrcid/${orcid} - ${err}`);
             return {"error": true, "message": "no se pudo obtener la información del investigador"};
         }
     }
@@ -115,6 +120,7 @@ class Gtsi {
                 scopusId
             }
         }catch(err){
+            logger.error(`gtsi.getContratoByScopusId. Error en servicio: /GetContratoByScopusId/${scopusId} - ${err}`);
             return {"error": true, "message": "no se pudo obtener la información del investigador", scopusId};
         }
     }
@@ -152,6 +158,7 @@ class Gtsi {
             return listaInv;
 
         }catch(err){
+            logger.error(`gtsi.getAuthorsByKeywords. Error en servicio: /GetProyectosByKeyword/${encodedKeywords} - ${err}`);
             return {"error": true, "message": "No se pudo obtener la información de investigadores con estas palabras claves", keywords};
         }
     }
@@ -163,6 +170,7 @@ class Gtsi {
             const data = await response.json();
             return {srcFoto:data.fotoString};
         }catch(err){
+            logger.error(`gtsi.getPhotoByUserName. Error en servicio: /GetFotoPerfil?netid=${username} - ${err}`);
             return {"error": true, "message": "no se pudo obtener la foto del investigador"};
         }
     }

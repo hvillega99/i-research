@@ -1,0 +1,1 @@
+{"level":"error","message":"scival.getHIndexAll. Error en API Scival author metrics. TypeError: Cannot read properties of undefined (reading 'map')","timestamp":"2024-02-28T06:03:41.164Z"}

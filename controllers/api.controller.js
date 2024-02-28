@@ -125,7 +125,11 @@ exports.getPublicationsBySDG = async (req, res) => {
     
     if(!data || data.error){
         data = await scopus.getSDGpublications(sdg);
-        await cache.set(key, JSON.stringify(data));
+
+        if(!data.error){
+            await cache.set(key, JSON.stringify(data));
+        }
+
     }else{
         data = JSON.parse(data);
         console.log('aquí');
@@ -151,8 +155,11 @@ exports.getBibliometricsUnit = async (req, res) => {
         const years = [lastYear-5, lastYear-4, lastYear-3, lastYear-2, lastYear-1, lastYear];
 
         data = await getBby(years, arrScopusId, instfilter);
-    
-        await cache.set(key, JSON.stringify(data));
+
+        if(!data.error){
+            await cache.set(key, JSON.stringify(data));
+        }
+
     }else{
         data = JSON.parse(data);
 
@@ -179,25 +186,56 @@ exports.getBibliometricsUnit = async (req, res) => {
 }
 
 exports.getEspolCitationsByYear = async (req, res) => {
-    const citations = await scival.getInstitutionCitations('701420');
-    res.send(citations);
+    let data = await cache.get('citas_espol');
+
+    if(!data || data.error){
+        data = await scival.getInstitutionCitations('701420');
+
+        if(!data.error){
+            await cache.set('citas_espol', JSON.stringify(data));
+        }
+
+    }else{
+        data = JSON.parse(data);
+    }
+
+    res.send(data);
 }
 
 exports.getEspolPublicationsByYear = async (req, res) => {
-    const publications = await scival.getInstitutionPublications('701420');
-    res.send(publications); 
+    let data = await cache.get('docs_espol');
+
+    if(!data || data.error){
+        data = await scival.getInstitutionPublications('701420');
+
+        if(!data.error){
+            await cache.set('docs_espol', JSON.stringify(data));
+        }
+
+    }else{
+        data = JSON.parse(data);
+    }
+
+    res.send(data); 
 }
 
 exports.getTopJournalInst = async (req, res) => {
-    const topJournals = await scival.getPublicationsInTopJournalPercentiles('701420');
-    res.send(topJournals);
+
+    let data = await cache.get('top_journals');
+
+    if(!data || data.error){
+        data = await scival.getPublicationsInTopJournalPercentiles('701420');
+
+        if(!data.error){
+            await cache.set('top_journals', JSON.stringify(data));
+        }
+
+    }else{
+        data = JSON.parse(data);
+    }
+
+    res.send(data);
 }
-
-
-
-
-
-
 
 exports.getProjectsByUnit = async (req, res) => {
     const {ua} = req.params;
