@@ -224,7 +224,7 @@ class Scopus{
                 areas: areas.map(item => item['$']).slice(0,6)
             };
         }catch (err) {
-            logger.error(`Error en API Scopus ${this.uri}: ${err}`);
+            logger.error(`scopus.getDataAndAreas. Error en API Scopus /author/author_id/${scopusId} - ${err}`);
             return {
                 orcid: -1,
                 documentos: -1,
@@ -249,6 +249,7 @@ class Scopus{
             let data = await this.comunX(part_url);
             return data['author-retrieval-response'][0]['h-index'];
         }catch (err) {
+            logger.error(`scopus.getHindex. Error en API Scopus /author/author_id/${scopusId} - ${err}`);
             return -1
         }
     }
@@ -266,6 +267,7 @@ class Scopus{
             const data = await this.comunX(part_url);
             return data['author-retrieval-response-list']['author-retrieval-response'];
         }catch (err) {
+            logger.error(`scopus.getMetrics. Error en API Scopus /author/author_id/${idArr} - ${err}`);
             return {"error": true, "message": "servicio no disponible"};
         }  
     }
@@ -283,6 +285,7 @@ class Scopus{
             const respuesta = await this.comunX2(url_x);
             return respuesta;
         }catch(err){
+            logger.error(`scopus.getPublicationsTitle. Error en API Scopus /search/scopus?query=AU-ID(${scopusId}) - ${err}`);
             return -1;
         }
     }
@@ -322,6 +325,7 @@ class Scopus{
             var plop = {'publications': respuesta.publications, 'citations': respuesta.citations, 'year':year};
             return plop;
         }catch(err){
+            logger.error(`scopus.getNPublications. Error en API Scopus /search/scopus?query=${designio} AND PUBYEAR IS ${year} - ${err}`);
             return {"error": true, "message": "servicio no disponible", "year": year};
         }
     }
@@ -343,6 +347,7 @@ class Scopus{
                 return plop;
             }catch(err){
                 //console.log(`***ODS: ${SDG_number}***:`, err);
+                logger.error(`scopus.getSDGbibliometrics. Error en API Scopus /search/scopus?query=${query} AND AF-ID(60072061) - ${err}`);
                 return {"error": true, "message": "servicio no disponible", "sdg": SDG_number};
             }
         }
@@ -362,6 +367,7 @@ class Scopus{
                 return plop;
             }catch(err){
                 //console.log(`***ODS: ${SDG_number}***:`, err);
+                logger.error(`scopus.getSDGbibliometrics. Error en API Scopus /search/scopus?query=${query} AND AF-ID(60072061) - ${err}`);
                 return {"error": true, "message": "servicio no disponible"};
             }
         }
@@ -399,6 +405,7 @@ class Scopus{
                 var concatenacion = [].concat(...plop);
                 return concatenacion;
             }catch(err){
+                logger.error(`scopus.getSDGpublications. Error en API Scopus /search/scopus?query=${query} AND AF-ID(60072061) - ${err}`);
                 return {"error": true, "message": "servicio no disponible"};
             }
         }
@@ -419,6 +426,7 @@ class Scopus{
             var plop = {'country': country, 'publications': parseInt(respuesta['search-results']['opensearch:totalResults'])};
             return plop;
         }catch(err){
+            logger.error(`scopus.getPublicationsByCountry. Error en API Scopus /search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country}) - ${err}`);
             return {"error": true, "message": "error al obtener los datos", country};
         }
 
@@ -437,6 +445,7 @@ class Scopus{
             const respuesta = await this.comunX4(url_x,country);
             return respuesta;
         }catch(err){
+            logger.error(`scopus.getPublicationsInfoByCountry. Error en API Scopus /search/scopus?query=AF-ID(60072061) AND AFFILCOUNTRY (${country}) - ${err}`);
             return {"error": true, "message": "error al obtener los datos", country};
         }
 
@@ -533,6 +542,7 @@ class Scopus{
             
             return respuesta;
         }catch (err) {
+            logger.error(`scopus.getInfoPublications. Error en API Scopus /abstract/scopus_id/${scopusID} - ${err}`);
             return {"error": true, "message": "servicio no disponible"};
         }
     }
